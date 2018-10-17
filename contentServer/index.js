@@ -1,14 +1,24 @@
 var express = require('express')
 const fs = require('fs')
+const cors = require('cors')
 
 var createContentServer = function () {
 
   var app = express()
 
+  app.use(cors())
+
   app.use(express.static('./public'))
 
-  app.get('/video', function(req, res) {
-    const path = 'assets/videoDemo.mp4'
+  app.get('/api/video', (req, res) => {
+    res.json([
+      { title: 'Video 1', id: '1.mp4' },
+      { title: 'Video 2', id: '2.mp4' },
+    ])
+  })
+
+  app.get('/api/video/:id', (req, res) => {
+    const path = `assets/${req.params.id}`
     const stat = fs.statSync(path)
     const fileSize = stat.size
     const range = req.headers.range
@@ -38,8 +48,8 @@ var createContentServer = function () {
     }
   })
 
-  app.listen(8080, '192.168.0.102', function () {
-    console.log('Listening on port 3000!')
+  app.listen(8080, 'localhost', function () {
+    console.log('Listening on port 8080!')
   })
 }
 module.exports = createContentServer
