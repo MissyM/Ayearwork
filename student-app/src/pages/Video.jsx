@@ -6,7 +6,7 @@ const Video = styled.video`
   height: 250px;
 `
 
-class VideoPage extends Component {
+export class VideoPage extends Component {
 
   constructor() {
     super()
@@ -36,7 +36,7 @@ class VideoPage extends Component {
   }
 
   render() {
-    return <div>
+    return <div className= "VideosContent">
       <h1>{this.state.currentVideo.title}</h1>
       <Video
         id="videoPlayer"
@@ -55,5 +55,3 @@ class VideoPage extends Component {
     </div>
   }
 }
-
-export default VideoPage

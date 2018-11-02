@@ -1,28 +1,43 @@
-import React, { Component } from 'react';
-import { UIRouter, UIView, hashLocationPlugin } from '@uirouter/react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { UIRouter, UIView, hashLocationPlugin } from '@uirouter/react'
 
-import Video from './pages/Video.jsx'
+import './App.css'
+
+import { VideoPage, Login, ChooseChips } from './pages'
 
 const states = [
   {
-    name: 'video',
-    url: '',
-    component: Video,
+    name: 'choosechips',
+    url: 'choosechips',
+    component: ChooseChips,
   },
-];
+  {
+    name: 'login',
+    url: 'login',
+    component: Login,
+  },
+  {
+    name: 'video',
+    url: 'video',
+    component: VideoPage,
+  },
+]
 
-const plugins = [hashLocationPlugin];
+const config = router => router.urlService.rules.initial({ state: 'login' });
+
+const plugins = [hashLocationPlugin]
 
 class App extends Component {
   render() {
     return (
-      <UIRouter plugins={plugins} states={states}>
-        <UIView />
+      <UIRouter plugins={plugins} states={states} config={ config}>
+        <UIView
+          
+          
+        />
       </UIRouter>
-    );
+    )
   }
 }
 
-export default App;
+export default App
