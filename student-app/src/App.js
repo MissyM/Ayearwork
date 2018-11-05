@@ -23,7 +23,7 @@ const states = [
   },
 ]
 
-const config = router => router.urlService.rules.initial({ state: 'login' });
+const config = router => router.urlService.rules.initial({ state: 'video' });
 
 const plugins = [hashLocationPlugin]
 
