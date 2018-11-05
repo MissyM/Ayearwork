@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Video = styled.video`
   width: 300px;
   height: 250px;
+
 `
+
 
 export class VideoPage extends Component {
 
@@ -37,6 +39,7 @@ export class VideoPage extends Component {
 
   render() {
     return <div className= "VideosContent">
+
       <h1>{this.state.currentVideo.title}</h1>
       <Video
         id="videoPlayer"
