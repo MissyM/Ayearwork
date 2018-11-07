@@ -1,0 +1,50 @@
+.dashboard{
+    width: 100%;
+    height: 100%;
+}
+.navBackGray {
+    overflow: hidden;
+    display: flex;
+    background-color: #e5e5e5;
+    margin-top: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100px;
+    -webkit-box-shadow: 8px 11px 5px -6px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 8px 11px 5px -6px rgba(0, 0, 0, 0.13);
+    box-shadow: 8px 11px 5px -6px rgba(0, 0, 0, 0.13);
+  }
+  
+  .navAvobeWhite {
+    background-color: #ffffff;
+    margin-top: 0px;
+    padding: 0px;
+    width: 65%;
+    height: 100px;
+    box-shadow: 8px 11px 5px -6px rgba(0, 0, 0, 0.13);
+  }
+  
+  .triangleShadowLow {
+    width: 120px;
+    background-color: white;
+    /* position: absolute;
+    top: 25px;
+    right: 25%; */
+    transform: rotate(-70deg) translateX(-5px);
+    transform-origin: left bottom;
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.13);
+  }
+  .content {
+    display: inline-flex;
+    height: calc(100%  - 100px);
+    width: 100%;
+  }
+  .verticalMenu {
+    width: 90px;
+    box-shadow: 10px 11px 5px -6px rgba(0, 0, 0, 0.13);
+  }
+  .dashboardContainer{
+    width: 90%;
+  }
+  
+  
