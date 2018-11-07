@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper'
 
 
 import './App.css'
+import TextFieldTopic from './TextFieldTopic'
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -50,14 +51,14 @@ function createData(name, tipo, peso) {
 }
 
 const rows = [
-  createData('Fracciones Propias', 'PDF', 6.0),
-  createData('Fracciones Impropias', 'Video', 9.0),
-  createData('Resta de Fracciones', 'PDF', 16.0),
-  createData('Suma de Fracciones', 'Video', 3.7),
-  createData('División de Fracciones', 'PDF', 16.0),
-  createData('Fracciones Propias', 'PDF', 6.0),
-  createData('Fracciones Impropias', 'Video', 9.0),
-  createData('Resta de Fracciones', 'PDF', 16.0),
+  createData('Fracciones Propias', 5),
+  createData('Fracciones Impropias', 6),
+  createData('Resta de Fracciones', 7),
+  createData('Suma de Fracciones', 2),
+  createData('División de Fracciones', 9),
+  createData('Fracciones Propias', 7),
+  createData('Fracciones Impropias', 8),
+  createData('Resta de Fracciones', 18),
   
 ];
 
@@ -71,14 +72,14 @@ function CustomizedTable(props) {
   return (
     <div>
       <h1 className="temasTittle">Temas</h1>
+      <TextFieldTopic></TextFieldTopic>
       <div className = "contentTable">
       <Paper className={classes.root}  >
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
               <CustomTableCell>Nombre del Tema</CustomTableCell>
-              <CustomTableCell >Tipo</CustomTableCell>
-              <CustomTableCell >Peso(Kb)</CustomTableCell>
+              <CustomTableCell >Subtemas</CustomTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -89,7 +90,6 @@ function CustomizedTable(props) {
                       <NavLink to="/upload">{row.name}</NavLink>
                     </CustomTableCell>
                     <CustomTableCell><NavLink to="/upload">{row.tipo}</NavLink></CustomTableCell>
-                    <CustomTableCell ><NavLink to="/upload">{row.peso}</NavLink></CustomTableCell>
                 
                   </TableRow>
               )

@@ -3,19 +3,18 @@
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color:#5B33AB;
+  background-color: #e9e8e8;
   overflow: hidden;
   font-family: 'Acme', sans-serif;
 }
 
 .Topic{
-  background-color: blueviolet;
+  background-color: #e9e8e8;
   width: 100px;
   height: 100px;
 }
 
 .Upload{
-  background-color: salmon;
   width: 100px;
   height: 100px;
 }
@@ -23,9 +22,11 @@
 .temasTittle {
   text-align: center;
   margin-left: 5px;
-  color: #ffffff;
+  color: #868181;
 }
-
-/* .contentTable {
-
-} */
+.contentInput{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
