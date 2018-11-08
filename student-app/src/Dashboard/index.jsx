@@ -13,8 +13,6 @@ export default function ({ match }) {
       <div className="triangleShadowLow" />
     </div>
     <div className="content">
-      <div className="verticalMenu">
-      </div>
       <div className="dashboardContainer">
         <Route path={`${match.url}/`} exact component={Main}/>
         <Route path={`${match.url}/topics`} component={Topics}/>
