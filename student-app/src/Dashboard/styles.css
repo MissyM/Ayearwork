@@ -46,5 +46,22 @@
   .dashboardContainer{
     width: 90%;
   }
+  /*Estilos Main*/
   
+  .containerMain {
+    display: 'flex';
+    flex-direction: 'column';
+    width: 100%;
+    height: 100%;
+    margin: 108px;
+  }
+  .welcome {
+    color: #4d8293;
+  }
   
+   .left{
+
+   }
+   .right{
+     
+  }
