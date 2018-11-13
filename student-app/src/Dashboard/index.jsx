@@ -5,19 +5,17 @@ import "./styles.css"
 import Main from './Main'
 import Topics from './Topics'
 import Learn from './Learn'
+import NavBar from './NavBar'
+
+
 
 export default function ({ match }) {
   return <div className="dashboard">
-    <div className="navBackGray">
-      <div className="navAvobeWhite" />
-      <div className="triangleShadowLow" />
-    </div>
+    <NavBar/>
     <div className="content">
-      <div className="dashboardContainer">
-        <Route path={`${match.url}/`} exact component={Main}/>
-        <Route path={`${match.url}/topics`} component={Topics}/>
-        <Route path={`${match.url}/learn/:topicId`} component={Learn}/>
-      </div>
+      <Route path="/dashboard" exact component={Main}/>
+      <Route path="/dashboard/topics" component={Topics}/>
+      <Route path="/dashboard/learn/:topicId" component={Learn}/>
     </div>
   </div>
 }

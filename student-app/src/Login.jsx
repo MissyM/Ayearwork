@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom'
 import { createSession } from './services/session'
 import { log } from './services/log'
 
+import './App.css'
+
 export default withRouter(class extends React.Component {
 
   constructor(props) {
@@ -29,11 +31,15 @@ export default withRouter(class extends React.Component {
   render () {
     return (
       <div className="loginContent">
-        <h1>This is Login!</h1>
-        <input type="text" placeholder="Nombre" value={this.state.username} onChange={this.handleUsernameChange}/>
-        <button onClick={this.start}>
-          Ingresar
-        </button>
+        <div className="card">
+          <div className="contentLogo">
+            <img className="logo" src={require('./assetsStudent/Lobo-yupay-01.svg')} alt="Logo"/>
+          </div>
+          <input type="text" placeholder="Nombre" value={this.state.username} onChange={this.handleUsernameChange}/>
+          <button onClick={this.start}>
+            Ingresar
+          </button>
+        </div>
       </div>
     )
   }

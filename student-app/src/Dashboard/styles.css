@@ -1,67 +1,87 @@
 .dashboard{
-    width: 100%;
-    height: 100%;
-    background-color: #eff3f6
+  width: 100%;
+  height: 100%;
+  background-color: #f4f6ef
 }
+/*NavBar styles*/
 .navBackGray {
-    overflow: hidden;
-    display: flex;
-    background-color: #e5e5e5;
-    margin-top: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 100px;
-    -webkit-box-shadow: 8px 11px 5px -6px rgba(0, 0, 0, 0.13);
-    -moz-box-shadow: 8px 11px 5px -6px rgba(0, 0, 0, 0.13);
-    box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 0.13);
+  overflow: hidden;
+  display: flex;
+  background-color: #e5e5e5;
+  margin-top: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100px;
+  -webkit-box-shadow: 8px 11px 5px -6px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: 8px 11px 5px -6px rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 0.13);
+  }
+.navAvobeWhite {
+  background-color: #ffffff;
+  margin-top: 0px;
+  padding: 0px;
+  width: 65%;
+  height: 100px;
   }
   
-  .navAvobeWhite {
-    background-color: #ffffff;
-    margin-top: 0px;
-    padding: 0px;
-    width: 65%;
-    height: 100px;
-  }
-  
-  .triangleShadowLow {
-    width: 120px;
-    background-color: white;
-    /* position: absolute;
-    top: 25px;
-    right: 25%; */
-    transform: rotate(-70deg) translateX(-5px);
-    transform-origin: left bottom;
-    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.13);
-  }
-  .content {
-    display: inline-flex;
-    height: calc(100%  - 100px);
-    width: 100%;
-  }
-  .verticalMenu {
-    width: 90px;
-    box-shadow: 10px 11px 5px -6px rgba(0, 0, 0, 0.13);
-  }
-  .dashboardContainer{
-    width: 90%;
-  }
-  /*Estilos Main*/
-  
-  .containerMain {
-    display: 'flex';
-    flex-direction: 'column';
-    width: 100%;
-    height: 100%;
-    margin: 108px;
-  }
-  .welcome {
-    color: #4d8293;
-  }
-  
-   .left{
+.triangleShadowLow {
+  width: 120px;
+  background-color: white;
+  transform: rotate(-70deg) translateX(-5px);
+  transform-origin: left bottom;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.13);
+}
+  /*----------------------------------*/
+.content {
+  display: flex;
+  justify-content: center;
+  height: calc(100%  - 100px);
+  width: 100%;
+}
+ /*Styles Main*/
+.containerMain {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.welcome {
+  color: #4d8293;
 
-   }
-   .right{
-     
+}
+.contentLinks {
+  display: flex;
+}
+.link{
+  text-decoration: none;
+  color: #f4f6ef;
+}
+.learning{
+ text-align: center;
+}
+.leftDiv {
+  width: 350px;
+  height: auto;
+  background-color: #00C9C9;
+}
+
+.rightDiv {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 30px;
+  width: 350px;
+  height: 400px;
+  color: #f4f6ef;
+}
+.highRightDiv {
+  padding: 20px;
+  margin: 0 0px 5px 0px;
+  background-color: #FBED21;
+  height: 50%;
+}
+.lowRightDiv {
+  padding: 20px;
+
+  margin: 5px 0px 0 0;
+  background-color: #B778CE;
+  height: 50%;
   }
