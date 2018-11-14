@@ -6,7 +6,7 @@ import './styles.css'
 export default () => (
   <div className="containerMain">
     <div className="welcome">
-    <h1 >¡Hola Ana Isabel!</h1>
+    <h1 >¡Hola Juan!</h1>
     <p>bla, bla, bla</p>
     </div>
     <div className="contentLinks">

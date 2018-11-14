@@ -1,11 +1,50 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { createSession } from './services/session'
 import { log } from './services/log'
 
+// import PropTypes from 'prop-types'
+import { withStyles, createMuiTheme } from '@material-ui/core/styles'
+import Input from '@material-ui/core/Input'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+import grey from '@material-ui/core/colors/grey'
+
+
 import './App.css'
 
-export default withRouter(class extends React.Component {
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  margin: {
+    margin: theme.spacing.unit,
+  },
+  cssLabel: {
+    '&$cssFocused': {
+      color: grey[400],
+    },
+  },
+  cssFocused: {},
+  cssUnderline: {
+    '&:after': {
+      borderBottomColor: grey[400],
+    },
+  },
+  cssOutlinedInput: {
+    '&$cssFocused $notchedOutline': {
+      borderColor: grey[400],
+    },
+  },
+  notchedOutline: {},
+})
+
+const theme = createMuiTheme({
+  typography: { useNextVariants: true },
+})
+
+export default withStyles(styles)(withRouter(class extends Component {
 
   constructor(props) {
     super(props)
@@ -29,18 +68,39 @@ export default withRouter(class extends React.Component {
   }
 
   render () {
+    
     return (
       <div className="loginContent">
         <div className="card">
           <div className="contentLogo">
-            <img className="logo" src={require('./assetsStudent/Lobo-yupay-01.svg')} alt="Logo"/>
+            <img className="imglogo" src={require('./assetsStudent/Lobo-yupay-01.svg')} alt="Logo"/>
           </div>
-          <input type="text" placeholder="Nombre" value={this.state.username} onChange={this.handleUsernameChange}/>
-          <button onClick={this.start}>
-            Ingresar
-          </button>
+          <div className="contentInput">
+            <FormControl className={this.props.classes.margin}>
+              <InputLabel
+                htmlFor="custom-css-standard-input"
+                classes={{
+                  root: this.props.classes.cssLabel,
+                  focused: this.props.classes.cssFocused,
+                }}
+              >
+                Escribe tu Nombre
+              </InputLabel>
+              <Input
+                id="custom-css-standard-input"
+                value={this.state.username}
+                classes={{
+                  underline: this.props.classes.cssUnderline,
+                }}
+                onChange={this.handleUsernameChange}
+              />
+            </FormControl>
+            <div className="btnLogin" onClick={this.start}>
+              Ingresar
+            </div>
+          </div>
         </div>
       </div>
     )
   }
-})
+}))

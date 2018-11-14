@@ -4,17 +4,18 @@
   text-align: center;
   font-family: 'Quicksand', sans-serif;
 }
+/*Login*/
 .loginContent {
-  height: 100% ;
+  margin-top: 5%;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .card {
-  display: flex;
+   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 450px ;
   width: 320px;
@@ -25,14 +26,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: -90px; 
   width: 154px;
   height: 154px;
   border-radius: 50%;
-  background: #s00caca;
+  background: #00caca;
 }
-.logo {
+.imglogo {
   width: 82px;
   height: 80px;
   width: 100px;
   height: 100px;
 }
+.btnLogin{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 30px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: .2em;
+  background-color: #FBED21;
+
+}
+.contentInput {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 40%;
+  width: 100%;
+}
+/*-------------------*/
