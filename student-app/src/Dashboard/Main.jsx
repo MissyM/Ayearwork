@@ -7,28 +7,48 @@ export default () => (
   <div className="containerMain">
     <div className="welcome">
     <h1 >¡Hola Juan!</h1>
-    <p>bla, bla, bla</p>
+    <p>Bienvenido a esta experiencia de conocimiento.</p>
     </div>
     <div className="contentLinks">
       <div className="leftDiv">
         <Link to="/dashboard/topics" className="link">
+          <div className="tooltip">
+            <img className="infoIcon" src={require('./assetsDashboard/ic_info-01.svg')} alt=""/>
+            <span class="tooltiptext">En Aprendizaje encuentras el material 
+              visto en clase que necesitas reforzar.
+            </span>
+          </div>
           <div className="learning">
             <h2>Aprendizaje</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, repellendus at. </p>
+            <p>Si algo deseo saber, entrando aquí puedo aprender. Profundizo en mi aprendizaje y luego entreno con coraje. </p>
+            <img className="aprendizaje" src={require('./assetsDashboard/ic_aprendizaje-01.svg')} alt="IconoAprendizaje" />
           </div>
         </Link>
       </div>
       <div className="rightDiv">
         <div className="highRightDiv">
-          <h2 className="link">Entrenamiento</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, repellendus at. </p>
+          <div className="tooltip">
+            <img className="infoIcon2" src={require('./assetsDashboard/ic_info-01.svg')} alt="info Aprendizaje"/>
+            <span class="tooltiptext">En Entrenamiento encuentras preguntas 
+              con las que te puedes preparar para la competencia.
+            </span>
+          </div>
+          <img className="entrenamiento" src={require('./assetsDashboard/ic_entrenamiento-01.svg')} alt="IconoAprendizaje" />
+          <h2 className="linkYellow">Entrenamiento</h2>
+          <p className="paragraph">El entrenamiento me prepara para la competencia. </p>
         </div>
         <div className="lowRightDiv">
+          <div className="tooltip">
+            <img className="infoIcon2" src={require('./assetsDashboard/ic_info-01.svg')} alt=""/>
+            <span class="tooltiptext">En Competencia puedes saber que tanto has aprendido. Se parece mucho a
+              Entrenamiento, pero tienes tiempo limitado y recibes gratificación por las 
+              respuestas correctas. 
+            </span>
+          </div>
+          <img className="competencia" src={require('./assetsDashboard/ic_competenciaprovisional.svg')} alt="IconoAprendizaje" />
           <h2 className="link">Competencia</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, repellendus at. </p>
-
+          <p className="paragraph"> Compitiendo demuestro mi conocimiento. </p>
         </div>
-
       </div>
     </div>
   </div>

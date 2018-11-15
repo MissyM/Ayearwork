@@ -36,6 +36,7 @@
   justify-content: center;
   height: calc(100%  - 100px);
   width: 100%;
+  
 }
  /*Styles Main*/
 .containerMain {
@@ -52,9 +53,17 @@
 .link{
   text-decoration: none;
   color: #f4f6ef;
+  margin: 0px;
+}
+.linkYellow {
+  text-decoration: none;
+  color: #4d8293;
+  margin: 0px;
 }
 .learning{
  text-align: center;
+ margin-top: 15%;
+ padding: 10px;
 }
 .leftDiv {
   width: 350px;
@@ -70,14 +79,72 @@
   color: #f4f6ef;
 }
 .highRightDiv {
-  padding: 20px;
+  padding: 0px 20px;
   margin: 0 0px 5px 0px;
   background-color: #FBED21;
   height: 50%;
+  color: #4d8293;
+
 }
 .lowRightDiv {
-  padding: 20px;
+  padding:  0 20px;
   margin: 5px 0px 0 0;
   background-color: #B778CE;
   height: 50%;
+}
+/*-------------------------------*/
+
+.aprendizaje {
+  height: 136px;
+  width: 136px;
+}
+.entrenamiento {
+  height: 110px;
+  width: 130px;
+}
+.competencia {
+  height: 70px;
+  width: 70px;
+}
+.paragraph {
+  margin: 0px 
+}
+.infoIcon {
+  height: 20px;
+  width: 20px;
+  padding: 3px;
+  margin-left: 320px;
+}
+.infoIcon2 {
+  height: 20px;
+  width: 20px;
+  padding: 3px;
+  margin-left: 300px;
+}
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    text-align: justify;
+    width: 200px;
+    background-color: #fff;
+    color: gray;
+    padding: 5px;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
