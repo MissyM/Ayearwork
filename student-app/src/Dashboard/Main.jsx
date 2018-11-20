@@ -13,7 +13,7 @@ export default () => (
       <div className="leftDiv">
         <Link to="/dashboard/topics" className="link">
           <div className="tooltip">
-            <img className="infoIcon" src={require('./assetsDashboard/ic_info-01.svg')} alt=""/>
+            <img className="infoIcon" src={require('./assetsDashboard/ic_info-01.svg')} alt="Info"/>
             <span class="tooltiptext">En Aprendizaje encuentras el material 
               visto en clase que necesitas reforzar.
             </span>
@@ -39,7 +39,7 @@ export default () => (
         </div>
         <div className="lowRightDiv">
           <div className="tooltip">
-            <img className="infoIcon2" src={require('./assetsDashboard/ic_info-01.svg')} alt=""/>
+            <img className="infoIcon2" src={require('./assetsDashboard/ic_info-01.svg')} alt="Info"/>
             <span class="tooltiptext">En Competencia puedes saber que tanto has aprendido. Se parece mucho a
               Entrenamiento, pero tienes tiempo limitado y recibes gratificación por las 
               respuestas correctas. 

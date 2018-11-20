@@ -4,6 +4,23 @@
   background-color: #f4f6ef
 }
 /*NavBar styles*/
+.home {
+  width: 50px;
+  height: 50px;
+  margin: 25px;
+}
+.out {
+  position: relative;
+  top: 30px;
+  right: 10px;
+  letter-spacing: .2em;
+  border: 1px solid #00caca;
+  height: 20px;
+  width: 60px;
+  text-align: center;
+  font-weight: bold;
+  color: #00caca;
+}
 .navBackGray {
   overflow: hidden;
   display: flex;
@@ -131,20 +148,68 @@
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-    visibility: hidden;
-    text-align: justify;
-    width: 200px;
-    background-color: #fff;
-    color: gray;
-    padding: 5px;
-    border-radius: 6px;
- 
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
+  visibility: hidden;
+  text-align: justify;
+  width: 200px;
+  background-color: #fff;
+  color: gray;
+  padding: 5px;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
     visibility: visible;
+}
+/*--------------------------------------
+/* Tooltip container */
+.tooltipnav {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltipnav .tooltipnavtext {
+visibility: hidden;
+text-align: justify;
+width: 150px;
+background-color: gray;
+color: #fff;
+padding: 5px;
+border-radius: 6px;
+margin-top: 60px;
+/* Position the tooltip text */
+position: absolute;
+z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltipnav:hover .tooltipnavtext {
+  visibility: visible;
+}
+
+/*Browser styles*/
+.containerBrowser {
+  width: 70%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+.contentFilters{
+  width: 100%;
+  height: 100%;
+}
+.topFilters {
+  margin: 4px;
+  width: 100px;
+  height: 30px;
+  color: #00caca;
+}
+
+.topFilters h2 {
+  width: 100%;
 }

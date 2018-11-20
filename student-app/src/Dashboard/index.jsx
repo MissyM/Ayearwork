@@ -2,10 +2,12 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import "./styles.css"
 
-import Main from './Main'
-import Topics from './Topics'
-import Learn from './Learn'
 import NavBar from './NavBar'
+import Browser from './Browser'
+import Filter from './Filters'
+import Topics from './Topics'
+import Main from './Main'
+import Learn from './Learn'
 
 
 
@@ -14,6 +16,8 @@ export default function ({ match }) {
     <NavBar/>
     <div className="content">
       <Route path="/dashboard" exact component={Main}/>
+      <Route path="/dashboard/browser" component={Browser}/>
+      <Route path="/dashboard/filter" component={Filter}/>
       <Route path="/dashboard/topics" component={Topics}/>
       <Route path="/dashboard/learn/:topicId" component={Learn}/>
     </div>
