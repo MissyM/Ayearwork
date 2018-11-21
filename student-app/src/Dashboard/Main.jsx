@@ -45,7 +45,7 @@ export default () => (
               respuestas correctas. 
             </span>
           </div>
-          <img className="competencia" src={require('./assetsDashboard/ic_competenciaprovisional.svg')} alt="IconoAprendizaje" />
+          <img className="competencia" src={require('./assetsDashboard/ic_competencia.svg')} alt="IconoAprendizaje" />
           <h2 className="link">Competencia</h2>
           <p className="paragraph"> Compitiendo demuestro mi conocimiento. </p>
         </div>
