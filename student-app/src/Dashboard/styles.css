@@ -26,8 +26,20 @@
   border-radius: 3px;
 }
 
+.browserNav {
+  width: 400px;
+  margin-top: 25px;
+  margin-left: 50px;
+}
+
+.yupay {
+  width: 90px;
+  height: 40px;
+  margin-top: 20px; 
+}
+
 .navBackGray {
-  overflow: hidden;
+  /*overflow: hidden;*/
   display: flex;
   background-color: #e5e5e5;
   margin-top: 0px;
@@ -41,13 +53,14 @@
 
 .navAvobeWhite {
   display: flex;
-
   background-color: #ffffff;
   margin-top: 0px;
   padding: 0px;
   width: 65%;
   height: 100px;
 }
+
+
 
 /* Tooltip text */
 .tooltipnav .tooltipnavtext {
@@ -72,9 +85,9 @@
 .triangleShadowLow {
   width: 120px;
   background-color: white;
-  transform: rotate(-70deg) translateX(-5px);
+  transform: rotate(-70deg) translateX(0px) translateY(-1px);
   transform-origin: left bottom;
-  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.13);
+  box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.13);
 }
 
  .selectNav {
@@ -114,7 +127,8 @@
 .linkYellow {
   text-decoration: none;
   color: #4d8293;
-  margin: 0px;
+  margin-top: -20px;
+  margin-bottom: 0px;
 }
 
 .learning{
@@ -124,7 +138,7 @@
 }
 
 .leftDiv {
-  width: 350px;
+  width: 260px;
   height: auto;
   background-color: #00C9C9;
 }
@@ -133,7 +147,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 0 0 30px;
-  width: 350px;
+  width: 260px;
   height: 400px;
   color: #f4f6ef;
 }
@@ -171,21 +185,21 @@
 }
 
 .paragraph {
-  margin: 0px 
+  margin: 0px;
 }
 
 .infoIcon {
   height: 20px;
   width: 20px;
   padding: 3px;
-  margin-left: 320px;
+  margin-left: 220px;
 }
 
 .infoIcon2 {
   height: 20px;
   width: 20px;
   padding: 3px;
-  margin-left: 300px;
+  margin-left: 200px;
 }
 
 /* Tooltip container */

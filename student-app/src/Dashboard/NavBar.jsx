@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import BrowserNavBar from './BrowserNavBar'
 
 import "./styles.css"
+
 
 export default withRouter(class extends Component {
   
@@ -16,11 +18,13 @@ export default withRouter(class extends Component {
     return ( 
       <div className="navBackGray">
         <div className="navAvobeWhite" > 
-        <div className="tooltipnav">
-          <img className="home" src={require('./assetsDashboard/ic_home.svg')} alt="Principal"/>
-          <span class="tooltipnavtext">Ir al principal
-          </span>
-        </div>
+          <div className="tooltipnav">
+            <img className="home" src={require('./assetsDashboard/ic_home.svg')} alt="Principal"/>
+            <span className="tooltipnavtext">Ir al principal
+            </span>
+          </div>
+          <img className="yupay" src={require('./assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
+          <BrowserNavBar/>
         </div>
         <div className="triangleShadowLow" />
         <div className="out">Salir</div>
