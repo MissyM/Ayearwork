@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import Select from 'react-select';
-import { colourOptions, groupedOptions } from './Docs/data';
+import Select from 'react-select'
+import { coincidenciasTemas, groupedOptions } from './Docs/data'
+
 
 const groupStyles = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-};
+}
 const groupBadgeStyles = {
-  backgroundColor: '#EBECF0',
+  backgroundColor: 'gray',
   borderRadius: '2em',
-  color: '#172B4D',
   display: 'inline-block',
   fontSize: 12,
   fontWeight: 'normal',
@@ -19,7 +19,7 @@ const groupBadgeStyles = {
   minWidth: 10,
   padding: '0.16666666666667em 0.5em',
   textAlign: 'center',
-};
+}
 
 const formatGroupLabel = data => (
   <div style={groupStyles}>
@@ -31,7 +31,8 @@ const formatGroupLabel = data => (
 export default () => (
   <div className= "browserNav">
     <Select
-      defaultValue={colourOptions[1]}
+      className="selectBrowserNavBar"
+      defaultValue={coincidenciasTemas[1]}
       options={groupedOptions}
       formatGroupLabel={formatGroupLabel}
     />

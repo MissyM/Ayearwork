@@ -24,7 +24,7 @@ export default withRouter(class extends Component {
             </span>
           </div>
           <img className="yupay" src={require('./assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
-          <BrowserNavBar/>
+          { this.props.withBrowserNavBar ? <BrowserNavBar /> : <></> }
         </div>
         <div className="triangleShadowLow" />
         <div className="out">Salir</div>

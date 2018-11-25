@@ -11,9 +11,9 @@ import Learn from './Learn'
 
 
 
-export default function ({ match }) {
+export default function ({ location }) {
   return <div className="dashboard">
-    <NavBar/>
+    <NavBar withBrowserNavBar={location.pathname !== "/dashboard/browser"} />
     <div className="content">
       <Route path="/dashboard" exact component={Main}/>
       <Route path="/dashboard/browser" component={Browser}/>

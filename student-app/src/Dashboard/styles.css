@@ -32,6 +32,10 @@
   margin-left: 50px;
 }
 
+.selectBrowserNavBar {
+  background-color: red;
+}
+
 .yupay {
   width: 90px;
   height: 40px;
