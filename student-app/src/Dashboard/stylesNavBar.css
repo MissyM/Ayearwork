@@ -1,0 +1,106 @@
+/*++++++NavBar styles++++++++++++*/
+
+.homeIcon {
+  width: 100px;
+  height:100px;
+  margin: 0px 0px 0px 25px;
+}
+/* Tooltip text */
+.tooltipnav .tooltipnavtext {
+  visibility: hidden;
+  text-align: justify;
+  width: 150px;
+  background-color: gray;
+  color: #fff;
+  padding: 5px;
+  border-radius: 6px;
+  margin-top: 60px;
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+}
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltipnav:hover .tooltipnavtext {
+  visibility: visible;
+}
+
+.yupayIcon {
+  width: 150px;
+  height: 60px;
+  margin-top: 20px; 
+}
+.browserNav {
+  width: 360px;
+  margin-top: 25px;
+  margin-left: 150px;
+}
+  
+.contentGrey {
+  /*overflow: hidden;*/
+  display: flex;
+  background-color: #e5e5e5;
+  margin-top: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100px;
+  -webkit-box-shadow: 8px 11px 5px -6px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: 8px 11px 5px -6px rgba(0, 0, 0, 0.13);
+  box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 0.13);
+}
+
+.contentWhite {
+  display: flex;
+  background-color: #ffffff;
+  margin-top: 0px;
+  padding: 0px;
+  width: 65%;
+  height: 100px;
+}
+.triangleShadowLow {
+  width: 120px;
+  background-color: white;
+  transform: rotate(-70deg) translateX(0px) translateY(-1px);
+  transform-origin: left bottom;
+  box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.13);
+}
+.out {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 60px;
+  letter-spacing: .2em;
+  border: 1px solid rgb(158, 157, 157);
+  height: 30px;
+  width: 70px;
+  text-align: center;
+  font-weight: bold;
+  color: gray;
+  border-radius: 6px;
+}
+.contentAlerts {
+display: flex;
+width: 430px;
+height: 100px;
+}
+.notification {
+  width: 80px;
+  height: 90px;
+}
+.mail {
+  width: 80px;
+  height: 90px;
+}
+.coin {
+  width: 47px;
+  height: 45px;
+}
+.contentTokens {
+  display: flex;
+  width: 100px;
+  margin-top: 25px;
+}
+.tokens {
+color: #fff200
+}

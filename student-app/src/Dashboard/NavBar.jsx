@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import BrowserNavBar from './BrowserNavBar'
 
-import "./styles.css"
+import "./stylesNavBar.css"
 
 
 export default withRouter(class extends Component {
@@ -16,19 +16,35 @@ export default withRouter(class extends Component {
 
   render (){ 
     return ( 
-      <div className="navBackGray">
-        <div className="navAvobeWhite" > 
+      <div className="contentGrey">
+        <div className="contentWhite" > 
           <div className="tooltipnav">
-            <img className="home" src={require('./assetsDashboard/ic_home.svg')} alt="Principal"/>
+            <img className="homeIcon" src={require('./assetsDashboard/ic_home.svg')} alt="Principal"/>
             <span className="tooltipnavtext">Ir al principal
             </span>
           </div>
-          <img className="yupay" src={require('./assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
+          <img className="yupayIcon" src={require('./assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
           { this.props.withBrowserNavBar ? <BrowserNavBar /> : <></> }
         </div>
         <div className="triangleShadowLow" />
-        <div className="out">Salir</div>
+        <div className="contentAlerts">
+          <img className="notification" src={require('./assetsDashboard/ic-notificacion.svg')} alt="Notificaciones"/>
+          <img className="mail" src={require('./assetsDashboard/ic-correo.svg')} alt="Correo"/>
+          <div className="contentTokens">
+            <img className="coin" src={require('./assetsDashboard/ic_competencia.svg')} alt="Moneda"/>
+            <div className="textTokens">
+              <div className="tokens">
+                Tokens
+              </div>
+              <div>
+                100
+              </div>
+            </div>
+            <div className="out">Salir</div>
+          </div>
+        </div>
       </div>
+
     )
   }
 })

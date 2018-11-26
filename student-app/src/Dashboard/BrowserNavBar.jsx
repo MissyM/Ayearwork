@@ -10,7 +10,7 @@ const groupStyles = {
   justifyContent: 'space-between',
 }
 const groupBadgeStyles = {
-  backgroundColor: 'gray',
+  backgroundColor: 'grey',
   borderRadius: '2em',
   display: 'inline-block',
   fontSize: 12,
@@ -31,7 +31,6 @@ const formatGroupLabel = data => (
 export default () => (
   <div className= "browserNav">
     <Select
-      className="selectBrowserNavBar"
       defaultValue={coincidenciasTemas[1]}
       options={groupedOptions}
       formatGroupLabel={formatGroupLabel}
