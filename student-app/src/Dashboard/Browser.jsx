@@ -1,29 +1,56 @@
-import React, { Component } from 'react'
+import React from 'react'
+import chroma from 'chroma-js'
 
-import CreatableSelect from 'react-select/lib/Creatable'
 import { coincidenciasTemas } from './Docs/data'
+import Select from 'react-select'
+import './stylesBrowser.css'
 
-export default class CreatableSingle extends Component {
-  handleChange = (newValue, actionMeta) => {
-    console.group('Value Changed')
-    console.log(newValue)
-    console.log(`action: ${actionMeta.action}`)
-    console.groupEnd()
-  }
-  handleInputChange = (inputValue, actionMeta) => {
-    console.group('Input Changed')
-    console.log(inputValue)
-    console.log(`action: ${actionMeta.action}`)
-    console.groupEnd()
-  }
-  render() {
-    return (
-      <CreatableSelect
-        isClearable
-        onChange={this.handleChange}
-        onInputChange={this.handleInputChange}
-        options={coincidenciasTemas}
-      />
-    )
-  }
+const dot = (color = '#ccc') => ({
+  alignItems: 'center',
+  display: 'flex',
+
+  ':before': {
+    backgroundColor: color,
+    borderRadius: 10,
+    content: ' ',
+    display: 'block',
+    marginRight: 8,
+    height: 10,
+    width: 10,
+  },
+})
+
+const colourStyles = {
+  control: styles => ({ ...styles, backgroundColor: 'white' }),
+  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    const color = chroma(data.color)
+    return {
+      ...styles,
+      backgroundColor: isDisabled
+        ? null
+        : isSelected ? data.color : isFocused ? color.alpha(0.1).css() : null,
+      color: isDisabled
+        ? '#ccc'
+        : isSelected
+          ? chroma.contrast(color, 'white') > 2 ? 'white' : 'black'
+          : data.color,
+      cursor: isDisabled ? 'not-allowed' : 'default',
+    }
+  },
+  input: styles => ({ ...styles, ...dot() }),
+  placeholder: styles => ({ ...styles, ...dot() }),
+  singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
 }
+
+export default () => (
+  <div className="contentBrowserComponent">
+    <img className="loboYupay" src={require('./assetsDashboard/lobo+yupay.svg')} alt="Moneda"/>
+
+    <Select
+      defaultValue={coincidenciasTemas[2]}
+      label="Single select"
+      options={coincidenciasTemas}
+      styles={colourStyles}
+    />
+  </div>
+)
