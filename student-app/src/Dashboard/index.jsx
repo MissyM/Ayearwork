@@ -9,11 +9,9 @@ import Topics from './Topics'
 import Main from './Main'
 import Learn from './Learn'
 
-
-
 export default function ({ location }) {
   return <div className="dashboard">
-    <NavBar withBrowserNavBar={location.pathname !== "/dashboard/browser"} />
+    <NavBar withBrowserNavBar={location.pathname !== "/dashboard"} />
     <div className="content">
       <Route path="/dashboard/main" component={Main}/>
       <Route path="/dashboard/" exact component={Browser}/>
