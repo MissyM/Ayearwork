@@ -15,8 +15,8 @@ export default function ({ location }) {
   return <div className="dashboard">
     <NavBar withBrowserNavBar={location.pathname !== "/dashboard/browser"} />
     <div className="content">
-      <Route path="/dashboard" exact component={Main}/>
-      <Route path="/dashboard/browser" component={Browser}/>
+      <Route path="/dashboard/main" component={Main}/>
+      <Route path="/dashboard/" exact component={Browser}/>
       <Route path="/dashboard/filter" component={Filter}/>
       <Route path="/dashboard/topics" component={Topics}/>
       <Route path="/dashboard/learn/:topicId" component={Learn}/>
