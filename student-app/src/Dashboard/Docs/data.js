@@ -1,6 +1,9 @@
-export const coincidenciasTemas = [
+// export const temas = [
+//   { value:, label:, color:,  }
+// ]
+export const colourOptions = [
   { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
-  { value: 'buscar', label: 'Buscar', color: '#0052CC', disabled: true },
+  { value: 'blue', label: 'Blue', color: '#0052CC', disabled: true },
   { value: 'purple', label: 'Purple', color: '#5243AA' },
   { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
   { value: 'orange', label: 'Orange', color: '#FF8B00' },
@@ -11,7 +14,7 @@ export const coincidenciasTemas = [
   { value: 'silver', label: 'Silver', color: '#666666' },
 ];
 
-export const coincidenciasSubtemas = [
+export const flavourOptions = [
   { value: 'vanilla', label: 'Vanilla', rating: 'safe' },
   { value: 'chocolate', label: 'Chocolate', rating: 'good' },
   { value: 'strawberry', label: 'Strawberry', rating: 'wild' },
@@ -96,16 +99,16 @@ export const optionLength = [
 
 // let bigOptions = [];
 // for (let i = 0; i < 10000; i++) {
-// 	bigOptions = bigOptions.concat(coincidencias);
+// 	bigOptions = bigOptions.concat(colourOptions);
 // }
 
 export const groupedOptions = [
   {
-    label: 'Coincidencias Temas',
-    options: coincidenciasTemas,
+    label: 'Colours',
+    options: colourOptions,
   },
   {
-    label: 'Coincidencias en Subtemas',
-    options: coincidenciasSubtemas,
+    label: 'Flavours',
+    options: flavourOptions,
   },
 ];
