@@ -45,12 +45,14 @@ const colourStyles = {
 export default () => (
   <div className="contentBrowserComponent">
     <img className="loboYupay" src={require('./assetsDashboard/lobo+yupay.svg')} alt="Moneda"/>
-
+    <div className='select'>
     <Select
+      
       defaultValue={coincidenciasTemas[2]}
       label="Single select"
       options={coincidenciasTemas}
       styles={colourStyles}
     />
+    </div>
   </div>
 )
