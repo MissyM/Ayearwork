@@ -25,7 +25,7 @@ export default withRouter(class extends Component {
           </div>
           <img className="yupayIcon" src={require('./assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
          
-          <div>
+          <div className="contentCenterElements">
             { this.props.withBrowserNavBar ? <BrowserNavBar /> : <></> }
             { this.props.withFiltersContent ? <FiltersTitles/> : <></> }
           </div>

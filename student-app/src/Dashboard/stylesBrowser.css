@@ -1,11 +1,13 @@
 .contentBrowserComponent {
+  position:relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
-  background: rgb(252, 253, 255)
+  background: #ffffff;
+  z-index: -1;
 }
 .loboYupay {
   height: 300px;

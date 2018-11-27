@@ -1,7 +1,9 @@
 .dashboard {
+  position: relative;
   width: 100%;
   height: 100%;
-  background-color: #f4f6ef
+  background-color: #f4f6ef;
+  z-index: -1000;
 }
 
 .content {

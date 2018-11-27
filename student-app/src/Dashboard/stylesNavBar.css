@@ -2,9 +2,7 @@
 .contentGrey {
   /*overflow: hidden;*/
   display: flex;
-  /* background-color: #e5e5e5; */
-  background-color: red;
-
+  background-color: #e5e5e5;
   margin-top: 0px;
   padding: 0px;
   width: 100%;
@@ -15,9 +13,7 @@
 }
 .contentWhite {
   display: flex;
-  background-color: blueviolet;
-
-  /* background-color: #ffffff; */
+  background-color: #ffffff;
   margin-top: 0px;
   padding: 0px;
   width: 65%;
@@ -60,27 +56,86 @@
   margin-top: 20px; 
 }
 .browserNav {
+  padding-bottom: 10px; 
   width: 360px;
-  margin-left: 150px;
-  background: green
 }
-
 /*********************************************/
-.contentTitles {
-  width: 360px;
-  height: 30px;
-  margin-top: 25px;
-  margin-left: 150px;
-  background: #fff200
+.contentCenterElements {
+  padding-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 510px;
+  height: 100px; 
 }
-.divTitle {
+.contentFilterTitles {
+  width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: -10px;
+}
+.divTitleTodo {
+  color:#18dcff;
   height: 100%;
   width: 100%;
+  text-align: center;
 }
-.buttonDiv {
+.buttonDivTodo {
+  height: 5px;
+  width: 60px;
+  background: #18dcff;
+  margin-right: 5px;
+}
+.divTitlePdf {
+  color:#ff3838;
   height: 100%;
-  width: 30px;
-  background: red
+  width: 100%;
+  text-align: center;
+}
+.buttonDivPdf {
+  height: 5px;
+  width: 60px;
+  background: #ff3838;
+  margin-right: 5px;
+}
+.divTitleVideo {
+  color:#3ae374;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.buttonDivVideo {
+  height: 5px;
+  width: 60px;
+  background: #3ae374;
+  margin-right: 5px;
+}
+.divTitlePpt {
+  color:#ff9f1a;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.buttonDivPpt {
+  height: 5px;
+  width: 60px;
+  background: #ff9f1a;
+  margin-right: 5px;
+}
+.divTitleTema {
+  color:#7158e2;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.buttonDivTema {
+  height: 5px;
+  width: 60px;
+  background: #7158e2;
+  margin-right: 5px;
 }
 /*********************************************/
 .out {
