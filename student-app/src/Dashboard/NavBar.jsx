@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import BrowserNavBar from './BrowserNavBar'
 
 import "./stylesNavBar.css"
-
+import FiltersTitles from './FiltersTitles'
 
 export default withRouter(class extends Component {
   
@@ -24,7 +24,11 @@ export default withRouter(class extends Component {
             </span>
           </div>
           <img className="yupayIcon" src={require('./assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
-          { this.props.withBrowserNavBar ? <BrowserNavBar /> : <></> }
+         
+          <div>
+            { this.props.withBrowserNavBar ? <BrowserNavBar /> : <></> }
+            { this.props.withFiltersContent ? <FiltersTitles/> : <></> }
+          </div>
         </div>
         <div className="triangleShadowLow" />
         <div className="contentAlerts">
@@ -44,7 +48,7 @@ export default withRouter(class extends Component {
           </div>
         </div>
       </div>
-
+            
     )
   }
 })

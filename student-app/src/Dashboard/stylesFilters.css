@@ -1,45 +1,51 @@
-.{
-
-}
-.contentFilters{
-    
-}
-.divTitle{
-    
-}
-.buttonDiv{
-    
-}
-
+.contentFilters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: rgb(252, 253, 255)
+} 
 /*Cuerpo del filtro*/
-.contentBodyFilter{
-    
+.contentBodyFilter {
+  height: 100%;
+  width: 100%;
 }
-.contentCard{
-    
+.contentCard {
+  height: 100%;
+  width: 100%;
 }
 /*Puede ser pdf, video, powerpoint*/
-.formatResourceIcon{
-    
+.formatResourceIcon {
+  height: 100%;
+  width: 100%;
 }
-.card{
-    
+.card {
+  height: 100%;
+  width: 100%; 
 }
-.titleCard{
-    
+.titleCard {
+  height: 100%;
+  width: 100%;  
 }
-.metadata{
-    
+.metadata {
+  height: 100%;
+  width: 100%;
 }
-.iconsContent{
-    
+.iconsContent {
+  height: 100%;
+  width: 100%;
 }
-.aprendizajeIcon{
-    
+.aprendizajeIcon {
+  height: 100%;
+  width: 100%;
 }
-.entrenarIcon{
-    
+.entrenarIcon {
+  height: 100%;
+  width: 100%;
 }
-.competirIcon{
-    
+.competirIcon {
+  height: 100%;
+  width: 100%;
 }
