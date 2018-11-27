@@ -71,9 +71,7 @@ export default withStyles(styles)(withRouter(class extends Component {
     
     return (
       <div className="loginContent">
-        <div className="highCloud">
-          <img className="imglogo" src={require('./assetsStudent/nube_derecha.svg')} alt="nube derecha"/>
-        </div>
+       { /*<img className="leftCloud" src={require('./assetsStudent/nube_izquierda.svg')} alt="nube "/>*/}
         <div className="card">
           <div className="contentLogo">
             <img className="imglogo" src={require('./assetsStudent/Lobo-yupay-01.svg')} alt="Logo"/>
@@ -103,9 +101,7 @@ export default withStyles(styles)(withRouter(class extends Component {
             </div>
           </div>
         </div>
-        <div className="lowCloud">
-          <img className="imglogo" src={require('./assetsStudent/nube_izquierda.svg')} alt="Logo"/>
-        </div>
+              {/*<img className="rightCloud" src={require('./assetsStudent/nube_derecha.svg')} alt="Nube baja"/>*/}
       </div>
     )
   }
