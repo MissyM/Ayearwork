@@ -9,6 +9,13 @@ import Topics from './Topics'
 import Main from './Main'
 import Learn from './Learn'
 
+import Todo from './Todo'
+import Pdf from './Pdf'
+import Video from './Video'
+import Ppt from './Ppt'
+import Tema from './Tema'
+
+
 export default function ({ location }) {
   return <div className="dashboard">
     <NavBar
@@ -21,6 +28,12 @@ export default function ({ location }) {
       <Route path="/dashboard/filters" component={Filters}/>
       <Route path="/dashboard/topics" component={Topics}/>
       <Route path="/dashboard/learn/:topicId" component={Learn}/>
+      <Route path="/dashboard/filters/todo" component={Todo}/>
+      <Route path="/dashboard/filters/pdf" component={Pdf}/>
+      <Route path="/dashboard/filters/video" component={Video}/>
+      <Route path="/dashboard/filters/ppt" component={Ppt}/>
+      <Route path="/dashboard/filters/tema" component={Tema}/>
+
     </div>
   </div>
 }
