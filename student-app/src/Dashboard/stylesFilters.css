@@ -1,7 +1,6 @@
 .contentFilters {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   background: rgb(252, 253, 255);
 } 
@@ -17,6 +16,7 @@
 }
 .cardTema {
  width:80%;
+ color: #B1B1B2;
 }
 .titleCard {
   padding: 15px 0px 0px 15px;
@@ -24,8 +24,11 @@
 }
 .metadata {
   padding: 0px 15px;
+  font-size: 14px;
 }
 .iconsContent {
+  position: absolute;
+  right: 200px;
   height: 30px;
 }
 .aprendizajeIcon {
@@ -53,4 +56,8 @@
   width: 30px;
   margin: 0px 10px;
   
+}
+.linksToOfFilters {
+  text-decoration: none;
+  margin: 0px;
 }
