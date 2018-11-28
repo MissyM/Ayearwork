@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Select from 'react-select'
-import { colourOptions, groupedOptions } from './Docs/data'
+import { temas, groupedOptions } from './Docs/data'
 
 import './stylesNavBar.css'
 
@@ -33,7 +33,7 @@ const formatGroupLabel = data => (
 export default () => (
   <div className= "browserNav">
   <Select
-    defaultValue={colourOptions[1]}
+    defaultValue={temas[1]}
     options={groupedOptions}
     formatGroupLabel={formatGroupLabel}
   />
