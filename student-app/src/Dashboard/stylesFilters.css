@@ -2,50 +2,55 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
   width: 100%;
-  background: rgb(252, 253, 255)
+  background: rgb(252, 253, 255);
 } 
-/*Cuerpo del filtro*/
-.contentBodyFilter {
-  height: 100%;
-  width: 100%;
-}
 .contentCard {
-  height: 100%;
-  width: 100%;
+  display: flex;
+  width: 80%;
+  height: 100px;
+  margin-top: 30px;
 }
 /*Puede ser pdf, video, powerpoint*/
 .formatResourceIcon {
-  height: 100%;
-  width: 100%;
+  width: 20%;
 }
-.card {
-  height: 100%;
-  width: 100%; 
+.cardTema {
+ width:80%;
 }
 .titleCard {
-  height: 100%;
-  width: 100%;  
+  padding: 15px 0px 0px 15px;
+  font-weight: bolder;
 }
 .metadata {
-  height: 100%;
-  width: 100%;
+  padding: 0px 15px;
 }
 .iconsContent {
-  height: 100%;
-  width: 100%;
+  height: 30px;
 }
 .aprendizajeIcon {
-  height: 100%;
-  width: 100%;
+  height: 30px;
+  width: 30px;
+  margin: 0px 10px;
+  border: 2px solid  rgb(209, 214, 209);
+  border-radius: 50px;
+  background:  rgb(209, 214, 209);
 }
 .entrenarIcon {
-  height: 100%;
-  width: 100%;
+  height: 30px;
+  background: rgb(209, 214, 209);
+  border: 2px solid  rgb(209, 214, 209);
+  border-radius: 50px;
+  width: 30px;
+  margin: 0px 10px;
+  
 }
 .competirIcon {
-  height: 100%;
-  width: 100%;
+  height: 30px;
+  background:  rgb(209, 214, 209);
+  border: 2px solid  rgb(209, 214, 209);
+  border-radius: 50px;
+  width: 30px;
+  margin: 0px 10px;
+  
 }

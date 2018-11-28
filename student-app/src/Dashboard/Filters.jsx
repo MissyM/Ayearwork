@@ -8,13 +8,12 @@ class Filter extends Component {
   render() {
     return (
       <div className="contentFilters">
-        {/*Titulos de los filtros */}
-      
-        {/*Cuerpo del filtros */}
-        <div className="contentBodyFilter">
-        {/*Tarjetas del filtro. TODO: Hacer map */}
-          <Tema/>
-        </div>
+        <Tema/>
+        <Tema/>
+        <Tema/>
+        <Tema/>
+        <Tema/>
+        <Tema/>
       </div>
     )
   }

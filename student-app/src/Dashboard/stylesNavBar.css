@@ -57,7 +57,7 @@
 }
 .browserNav {
   padding-bottom: 10px; 
-  width: 360px;
+  width: 430px;
 }
 /*********************************************/
 .contentCenterElements {
@@ -70,12 +70,10 @@
   height: 100px; 
 }
 .contentFilterTitles {
-  width: 360px;
+  width: 430px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin-bottom: -10px;
+  justify-content: space-between;
+  margin-bottom: -16px;
 }
 .divTitleTodo {
   color:#18dcff;
@@ -85,9 +83,10 @@
 }
 .buttonDivTodo {
   height: 5px;
-  width: 60px;
+  width: 55px;
   background: #18dcff;
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .divTitlePdf {
   color:#ff3838;
@@ -97,9 +96,14 @@
 }
 .buttonDivPdf {
   height: 5px;
-  width: 60px;
+  width: 55px;
   background: #ff3838;
-  margin-right: 5px;
+  margin-right: 10px;
+    margin-right: 10px;
+  margin-right: 10px;
+  margin-right: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .divTitleVideo {
   color:#3ae374;
@@ -109,9 +113,11 @@
 }
 .buttonDivVideo {
   height: 5px;
-  width: 60px;
+  width: 55px;
   background: #3ae374;
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .divTitlePpt {
   color:#ff9f1a;
@@ -121,9 +127,10 @@
 }
 .buttonDivPpt {
   height: 5px;
-  width: 60px;
+  width: 55px;
   background: #ff9f1a;
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .divTitleTema {
   color:#7158e2;
@@ -133,9 +140,9 @@
 }
 .buttonDivTema {
   height: 5px;
-  width: 60px;
+  width: 55px;
   background: #7158e2;
-  margin-right: 5px;
+  margin-left: 10px;
 }
 /*********************************************/
 .out {
