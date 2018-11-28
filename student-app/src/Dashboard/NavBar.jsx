@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import BrowserNavBar from './BrowserNavBar'
+import { Link } from 'react-router-dom'
 
 import "./stylesNavBar.css"
 import FiltersTitles from './FiltersTitles'
@@ -18,11 +19,13 @@ export default withRouter(class extends Component {
     return ( 
       <div className="contentGrey">
         <div className="contentWhite" > 
-          <div className="tooltipnav">
-            <img className="homeIcon" src={require('./assetsDashboard/ic_home.svg')} alt="Principal"/>
-            <span className="tooltipnavtext">Ir al principal
-            </span>
-          </div>
+          <Link to="/dashboard/filters" className="linktoFilters">
+            <div className="tooltipnav">
+              <img className="homeIcon" src={require('./assetsDashboard/ic_home.svg')} alt="Principal"/>
+              <span className="tooltipnavtext">Ir al principal
+              </span>
+            </div>
+          </Link>
           <img className="yupayIcon" src={require('./assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
          
           <div className="contentCenterElements">
@@ -44,7 +47,9 @@ export default withRouter(class extends Component {
                 100
               </div>
             </div>
+            <Link to="/Login" className="linktoLogin">
             <div className="out">Salir</div>
+            </Link>
           </div>
         </div>
       </div>
