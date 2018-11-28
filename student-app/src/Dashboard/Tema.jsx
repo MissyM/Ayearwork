@@ -11,16 +11,17 @@ export default class Tema extends React.Component {
           <div className="titleCard">Titulo del tema</div>
           <div className="metadata">
             <p>
-              Aqui van metadatos de la targeta
+              Aqui van metadatos Tema
             </p>
           </div>
           <div className="iconsContent">
-            <img  className="aprendizajeIcon" src={require("./assetsDashboard/ic_aprendizaje-01.svg")} alt=""/>
-            <img  className="entrenarIcon" src={require("./assetsDashboard/ic_entrenamiento-01.svg")} alt=""/>
-            <img  className="competirIcon" src={require("./assetsDashboard/ic_competencia.svg")} alt=""/>
+            <img  className="aprendizajeIcon" src={require("./assetsDashboard/ic_aprendizaje-01.svg")} alt="Aprendizaje"/>
+            <img  className="entrenarIcon" src={require("./assetsDashboard/ic_entrenamiento-01.svg")} alt="Entrenamiento"/>
+            <img  className="competirIcon" src={require("./assetsDashboard/ic_competencia.svg")} alt="Competencia"/>
           </div>
         </div>
       </div>
     ) 
   }
 }
+
