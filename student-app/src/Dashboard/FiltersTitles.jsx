@@ -9,7 +9,7 @@ export default class FiltersTitles extends React.Component {
       <div className="contentFilterTitles">
 
         <div clasname= "contentTag">
-          <Link to="/dashboard/todo" className="linksToOfFilters">
+          <Link to="/dashboard/filters/todo" className="linksToOfFilters">
           <div className="divTitleTodo">Todo</div>
           </Link>
           <div className="buttonDivTodo"/>
