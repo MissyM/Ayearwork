@@ -19,7 +19,7 @@ export default withRouter(class extends Component {
     return ( 
       <div className="contentGrey">
         <div className="contentWhite" > 
-          <Link to="/dashboard/filters" className="linktoFilters">
+          <Link to="/dashboard/filters/todo" className="linktoFilters">
             <div className="tooltipnav">
               <img className="homeIcon" src={require('./assetsDashboard/ic_home.svg')} alt="Principal"/>
               <span className="tooltipnavtext">Ir al principal

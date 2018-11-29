@@ -11,9 +11,7 @@
   margin-top: 30px;
 }
 /*Puede ser pdf, video, powerpoint*/
-.formatResourceIcon {
-  width: 20%;
-}
+
 .cardTema {
  width:80%;
  color: #B1B1B2;
@@ -60,4 +58,62 @@
 .linksToOfFilters {
   text-decoration: none;
   margin: 0px;
+}
+/*++++++++++++++++++++++++++++++++++++++*/
+.contentCardTema {
+  display: flex;
+  width: 80%;
+  height: 100px;
+  margin-top: 30px;
+}
+/*Puede ser pdf, video, powerpoint*/
+.formatIconTema {
+  width: 5%;
+}
+.cardTema {
+ width:80%;
+ color: #B1B1B2;
+}
+.titleCardTema {
+  padding: 15px 0px 0px 15px;
+  font-weight: bolder;
+}
+.metadataTema {
+  padding: 0px 15px;
+  font-size: 14px;
+}
+.iconsContent {
+  position: absolute;
+  right: 200px;
+  height: 30px;
+}
+.aprendizajeIcon {
+  height: 30px;
+  width: 30px;
+  margin: 0px 10px;
+  border: 2px solid  rgb(209, 214, 209);
+  border-radius: 50px;
+  background:  rgb(209, 214, 209);
+}
+.entrenarIcon {
+  height: 30px;
+  background: rgb(209, 214, 209);
+  border: 2px solid  rgb(209, 214, 209);
+  border-radius: 50px;
+  width: 30px;
+  margin: 0px 10px;
+  
+}
+.competirIcon {
+  height: 30px;
+  background:  rgb(209, 214, 209);
+  border: 2px solid  rgb(209, 214, 209);
+  border-radius: 50px;
+  width: 30px;
+  margin: 0px 10px;
+  
+}
+/*++++++++++++++++++++++++++++++++++++++*/
+.formatResourceIcon {
+  width: 20%;
 }

@@ -63,13 +63,16 @@
 .leftCloud{
   position: absolute;
   left: 0px;
-  bottom: 0px;
-  width: 700Px;
+  bottom: -70px;
+  width: 600px;
+  height: 400px;
+  z-index: -1;
 }
 .rightCloud{
   position: absolute;
-  right: 400px;
-  width: 209px;
-  height: auto;
+  top: 0px;
+  right: 0px;
+  width: 300px;
+  z-index: -1;
 }
 /*-------------------*/

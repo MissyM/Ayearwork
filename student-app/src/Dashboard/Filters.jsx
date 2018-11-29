@@ -8,6 +8,10 @@ const contents = [
   { type: 'ppt', topic: 'asdas' },
   { type: 'video', topic: 'asdas' },
   { type: 'pdf', topic: 'asdas' },
+  { type: 'pdf', topic: 'asdas' },
+  { type: 'video', topic: 'asdas' },
+
+
 ]
 
 function getContents(type) {

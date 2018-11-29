@@ -5,11 +5,10 @@ import './stylesFilters.css'
 export default class Tema extends React.Component {
   render() {
     return (
-      <div className="contentCard">
-        <img className="formatResourceIcon" src={require("./assetsDashboard/ic-pdf.svg")} alt="pdf"/>
+      <div className="contentCardTema">
         <div className="cardTema">
-          <div className="titleCard">Titulo del tema</div>
-          <div className="metadata">
+          <div className="titleCardTema">Titulo del tema</div>
+          <div className="metadataTema">
             <p>
               Aqui van metadatos Tema
             </p>

@@ -1,12 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="350 400 200 200" style="enable-background:new 0 0 800 800;" xml:space="preserve">
-<style type="text/css">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   height="360"
+   width="206"
+   xml:space="preserve"
+   viewBox="0 0 206 160"
+   y="0px"
+   x="0px"
+   id="Layer_1"
+   version="1.1"><metadata
+   id="metadata3737"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs3735" />
+<style
+   id="style3726"
+   type="text/css">
 	.st0{fill:#F1F1F1;}
 </style>
-<g>
-	<path class="st0" d="M319.7,231c-31.9,40,43.2,71.4,48.8,105.2c7.5,28.2-11.3,50.7,15,77c15,15,39.4,16.9,50.7,37.6
-		c9.4,15,1.9,30,9.4,45.1c7.5,16.9,24.4,16.9,37.5,30c13.1,13.1,5.9,43.2,31.9,45.1V231H319.7z"/>
+<g
+   transform="translate(-308.95522,-228.05971)"
+   id="g3730">
+	<path
+   style="fill:#f1f1f1"
+   id="path3728"
+   d="m 319.7,231 c -31.9,40 43.2,71.4 48.8,105.2 7.5,28.2 -11.3,50.7 15,77 15,15 39.4,16.9 50.7,37.6 9.4,15 1.9,30 9.4,45.1 7.5,16.9 24.4,16.9 37.5,30 13.1,13.1 5.9,43.2 31.9,45.1 V 231 Z"
+   class="st0" />
 </g>
 </svg>

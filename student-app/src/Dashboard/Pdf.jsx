@@ -6,12 +6,12 @@ export default class Pdf extends React.Component {
   render() {
     return (
       <div className="contentCard">
-        <img className="formatResourceIcon" src={require("./assetsDashboard/ic-pdf.svg")} alt="pdf"/>
+        <img className="formatResourceIcon" src={require("./assetsDashboard/ic-pdf.png")} alt="pdf"/>
         <div className="cardTema">
           <div className="titleCard">Titulo del tema</div>
           <div className="metadata">
             <p>
-              Aqui van metadatos de la targeta
+              Aqui van metadatos de la Tarjeta
             </p>
           </div>
         </div>

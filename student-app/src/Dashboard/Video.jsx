@@ -6,7 +6,7 @@ export default class Video extends React.Component {
   render() {
     return (
       <div className="contentCard">
-        <img className="formatResourceIcon" src={require("./assetsDashboard/ic-video.svg")} alt="pdf"/>
+        <img className="formatResourceIcon" src={require("./assetsDashboard/ic.video.png")} alt="pdf"/>
         <div className="cardTema">
           <div className="titleCard">Titulo del tema</div>
           <div className="metadata">
