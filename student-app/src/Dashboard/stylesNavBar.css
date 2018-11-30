@@ -57,7 +57,7 @@
 }
 .browserNav {
   padding-bottom: 10px; 
-  width: 430px;
+  width: 405px;
 }
 /*********************************************/
 .contentCenterElements {
@@ -68,12 +68,6 @@
   flex-direction: column;
   width: 510px;
   height: 100px; 
-}
-.contentFilterTitles {
-  width: 430px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: -16px;
 }
 .divTitleTodo {
   color:#18dcff;
@@ -99,10 +93,6 @@
   width: 55px;
   background: #ff3838;
   margin-right: 10px;
-    margin-right: 10px;
-  margin-right: 10px;
-  margin-right: 10px;
-  margin-right: 10px;
   margin-left: 10px;
 }
 .divTitleVideo {
@@ -115,7 +105,6 @@
   height: 5px;
   width: 55px;
   background: #3ae374;
-  margin-right: 10px;
   margin-right: 10px;
   margin-left: 10px;
 }
