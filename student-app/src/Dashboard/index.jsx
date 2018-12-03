@@ -9,13 +9,6 @@ import Topics from './Topics'
 import Main from './Main'
 import Learn from './Learn'
 
-import Todo from './Todo'
-import Pdf from './Pdf'
-import Video from './Video'
-import Ppt from './Ppt'
-import Tema from './Tema'
-
-
 export default function ({ location }) {
   return <div className="dashboard">
     <NavBar

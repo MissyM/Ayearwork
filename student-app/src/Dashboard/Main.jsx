@@ -8,7 +8,7 @@ render() {
   return(
     <div className="containerMain">
       <div className="welcome">
-      <h1 >¡Hola Juan!</h1>
+      <h1 >¡Hola {this.props.username}!</h1>
       <p>Bienvenido a esta experiencia de conocimiento.</p>
       </div>
       <div className="contentLinks">
