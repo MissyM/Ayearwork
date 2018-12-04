@@ -4,14 +4,12 @@ import './stylesFilters.css'
 import Content from './Content'
 
 const contents = [
-  { type: 'pdf', topic: 'asdas' },
-  { type: 'ppt', topic: 'asdas' },
-  { type: 'video', topic: 'asdas' },
-  { type: 'pdf', topic: 'asdas' },
-  { type: 'pdf', topic: 'asdas' },
-  { type: 'video', topic: 'asdas' },
-
-
+  { type: 'tema', topic: 'asdas' },
+  //{ type: 'ppt', topic: 'asdas' },
+  //{ type: 'video', topic: 'asdas' },
+  //{ type: 'pdf', topic: 'asdas' },
+  //{ type: 'pdf', topic: 'asdas' },
+  //{ type: 'video', topic: 'asdas' },
 ]
 
 function getContents(type) {
