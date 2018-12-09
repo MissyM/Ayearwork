@@ -1,9 +1,7 @@
 import React from 'react'
-
+import { withRouter } from 'react-router-dom'
 import Select from 'react-select'
-import { temas, groupedOptions } from './Docs/data'
-
-import './stylesNavBar.css'
+import { groupedOptions } from '../Docs/data'
 
 const groupStyles = {
   display: 'flex',
@@ -28,14 +26,25 @@ const formatGroupLabel = data => (
     <span>{data.label}</span>
     <span style={groupBadgeStyles}>{data.options.length}</span>
   </div>
-);
+)
 
-export default () => (
-  <div className= "browserNav">
-  <Select
-    defaultValue={temas[1]}
-    options={groupedOptions}
-    formatGroupLabel={formatGroupLabel}
-  />
-  </div>
-);
+export default withRouter(class extends React.Component {
+
+  state = { value: '' }
+
+  handleChange = topic => {
+    this.props.history.push(`/dashboard/learn/${topic.value}`)
+  }
+
+  render() {
+    return (
+      <Select
+        placeholder="Buscar en Yupay"
+        options={groupedOptions}
+        formatGroupLabel={formatGroupLabel}
+        onChange={this.handleChange}
+        value={this.state.value}
+      />
+    )
+  }
+})
