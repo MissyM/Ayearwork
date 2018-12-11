@@ -3,11 +3,11 @@ import { Route } from 'react-router-dom'
 import "./styles.css"
 
 import NavBar from './NavBar/index'
-import Browser from './Sections/Browser'
-import Filters from './Filters'
+import Browser from './Browser'
+import Filters from './Filters/index'
 import Topics from './Topics'
-import Main from './Main'
-import Learn from './Learn'
+import Main from './Activities/index'
+import Learn from './Activities/Learning'
 
 export default function ({ location }) {
   return <div className="dashboard">

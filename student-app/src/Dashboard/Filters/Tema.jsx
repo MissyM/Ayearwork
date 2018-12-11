@@ -19,7 +19,7 @@ const Content = styled.div`
   height: 30px;
 `
 const AprendizajeIcon = styled.img.attrs({
-  src: require("./assetsDashboard/ic_aprendizaje-01.svg"),
+  src: require("../assetsDashboard/ic_aprendizaje-01.svg"),
   alt: "Aprendizaje",
 })` 
   height: 30px;
@@ -30,7 +30,7 @@ const AprendizajeIcon = styled.img.attrs({
   
 `
 const EntrenarIcon = styled.img.attrs({
-  src: require("./assetsDashboard/ic_entrenamiento-01.svg"),
+  src: require("../assetsDashboard/ic_entrenamiento-01.svg"),
   alt:"Entrenamiento",
 })`
   height: 30px;
@@ -41,7 +41,7 @@ const EntrenarIcon = styled.img.attrs({
   margin: 0px 10px;
 `
 const CompetirIcon = styled.img.attrs({
-  src: require("./assetsDashboard/ic_competencia.svg"), 
+  src: require("../assetsDashboard/ic_competencia.svg"), 
   alt: "Competencia",
 })`
   width: 30px; 
