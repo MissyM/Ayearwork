@@ -4,18 +4,21 @@ import './stylesFilters.css'
 import Content from './Content'
 
 const contents = [
-  { type: 'tema', topic: 'asdas' },
-  //{ type: 'ppt', topic: 'asdas' },
-  //{ type: 'video', topic: 'asdas' },
-  //{ type: 'pdf', topic: 'asdas' },
-  //{ type: 'pdf', topic: 'asdas' },
-  //{ type: 'video', topic: 'asdas' },
+  { type: 'video', topic: 'asdas' },
+  { type: 'pdf', topic: 'asdas' },
+  { type: 'pdf', topic: 'asdas' },
+  { type: 'video', topic: 'asdas' },
 ]
-
+const tema = [
+  { type: 'tema', topic: 'asdas' },
+  { type: 'tema', topic: 'asdas' },
+  { type: 'tema', topic: 'asdas' },
+]
 function getContents(type) {
   return type === 'todo'
-    ? contents
-    : contents.filter(content => content.type === type)
+    ? contents 
+    : type === 'tema'? tema 
+    : contents.filter(content => content.type === type) 
 }
 
 class Filter extends Component {

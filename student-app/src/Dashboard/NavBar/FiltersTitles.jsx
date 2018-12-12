@@ -46,19 +46,18 @@ export default withRouter(class FiltersTitles extends React.Component {
     return (
       <div style={contentTitles}>
         {tags.map((tag, id) => 
-          `/dashboard/filters/${tag.ruta}` === this.props.location.pathname 
-          ? <div key={id}>
-              <Link to={`/dashboard/filters/${tag.ruta}`} style={linkLabels}>
-                <Label   style={{color: tag.color}} >{tag.title}</Label>
-              </Link>
-              <ButtonDiv background={tag.background} /> 
-            </div>
-        : <div key={id}>
+          `/dashboard/filters/${tag.ruta}` === this.props.location.pathname ? 
+          <div key={id}>
+            <Link to={`/dashboard/filters/${tag.ruta}`} style={linkLabels}>
+              <Label   style={{color: tag.color}} >{tag.title}</Label>
+            </Link>
+            <ButtonDiv background={tag.background} /> 
+          </div>:
+          <div key={id}>
             <Link to={`/dashboard/filters/${tag.ruta}`} style={linkLabels}>
               <Label  >{tag.title}</Label>
             </Link>
           </div>
-        
         )}
       </div>
     )
