@@ -3,12 +3,11 @@ import { Link, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
 const  tags = [
-  {ruta: 'todo', title:'Todo', background: ' #18dcff'},
-  {ruta: 'tema', title:'Tema', background: '#ff3838'},
-  {ruta: 'pdf', title:'Pdf', background: '#3ae374'},
-  {ruta: 'video', title:'Video', background: '#ff9f1a'},
-  {ruta: 'ppt', title:'Ppt', background: '#7158e2'},
-]
+  {ruta: 'todo', title:'Todo', background: ' #18dcff',color: '#18dcff'},
+  {ruta: 'tema', title:'Tema', background: '#ff3838',color: '#ff3838'},
+  {ruta: 'pdf', title:'Pdf', background: '#3ae374',color: '#3ae374'},
+  {ruta: 'video', title:'Video', background: '#ff9f1a',color: '#ff9f1a'},
+ ]
 
 const contentTitles = {
   width: '320px',
@@ -16,12 +15,12 @@ const contentTitles = {
   justifyContent: 'space-between',
   marginBottom: '-16px',
 }
-const label = {
-  color: '#989898',
-  height: '100%',
-  width: '55px',
-  textAlign: 'center',
-}
+const Label = styled.div`
+  color: #989898;
+  height: 100%;
+  width: 55px;
+  text-align: center;
+  `
 const linkLabels = {
   display: 'flex',
   alignItems: 'center',
@@ -46,16 +45,20 @@ export default withRouter(class FiltersTitles extends React.Component {
   render() {
     return (
       <div style={contentTitles}>
-        {tags.map((obj, id) => 
-            <div key={id}>
-            <Link to={`/dashboard/filters/${obj.ruta}`} style={linkLabels}>
-            <div style={label} >{obj.title}</div>
-            { `/dashboard/filters/${obj.ruta}` === this.props.location.pathname 
-              ? <ButtonDiv background={obj.background} />
-              : <></>
-            }
+        {tags.map((tag, id) => 
+          `/dashboard/filters/${tag.ruta}` === this.props.location.pathname 
+          ? <div key={id}>
+              <Link to={`/dashboard/filters/${tag.ruta}`} style={linkLabels}>
+                <Label   style={{color: tag.color}} >{tag.title}</Label>
+              </Link>
+              <ButtonDiv background={tag.background} /> 
+            </div>
+        : <div key={id}>
+            <Link to={`/dashboard/filters/${tag.ruta}`} style={linkLabels}>
+              <Label  >{tag.title}</Label>
             </Link>
           </div>
+        
         )}
       </div>
     )
