@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
-import './stylesFilters.css'
+import styled from 'styled-components'
 
 import Content from './Content'
-
+const Container = styled.div `
+  width: 100%;
+  background: rgb(252, 253, 255);
+`
+const ContentFilters = styled.div `
+  display: flex;
+  flex-direction: column;
+  padding-left: 125px;
+  padding-top: 50px;
+`
 const contents = [
   { type: 'video', topic: 'asdas' },
   { type: 'pdf', topic: 'asdas' },
@@ -11,8 +20,8 @@ const contents = [
 ]
 const tema = [
   { type: 'tema', topic: 'asdas' },
-  { type: 'tema', topic: 'asdas' },
-  { type: 'tema', topic: 'asdas' },
+ { type: 'tema', topic: 'asdas' },
+  //{ type: 'tema', topic: 'asdas' },
 ]
 function getContents(type) {
   return type === 'todo'
@@ -35,9 +44,11 @@ class Filter extends Component {
   render() {
     const { results } = this.state
     return (
-      <div className="contentFilters">
-        {results.map((result, idx) => <Content key={idx} data={result} />)}
-      </div>
+      <Container>
+        <ContentFilters>
+          {results.map((result, idx) => <Content key={idx} data={result} />)}
+        </ContentFilters>
+      </Container>
     )
   }
 }
