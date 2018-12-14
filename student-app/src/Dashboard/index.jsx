@@ -8,6 +8,7 @@ import Filters from './Filters/index'
 import Topics from './Topics'
 import Main from './Activities/index'
 import Learn from './Activities/Learning'
+import Breadcrumbs from './Breadcrumbs/index'
 
 export default function ({ location }) {
   return <div className="dashboard">
@@ -15,6 +16,7 @@ export default function ({ location }) {
       withBrowserNavBar={location.pathname !== "/dashboard" && location.pathname !== "/dashboard/" } 
       withFiltersContent={location.pathname.startsWith("/dashboard/filters") }
     />
+    <Breadcrumbs></Breadcrumbs>
     <div className="content">
       <Route path="/dashboard/" exact component={Browser}/>
       <Route path="/dashboard/filters/:type" component={Filters}/>

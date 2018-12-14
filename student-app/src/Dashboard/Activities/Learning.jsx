@@ -2,6 +2,9 @@ import React from 'react'
 import * as api from '../../services/api'
 
 import Resource from '../../components/Resource'
+import styled from 'styled-components'
+
+
 
 export default class extends React.Component {
 

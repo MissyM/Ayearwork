@@ -39,9 +39,9 @@ const ButtonDiv = styled.div`
 `
 
 export default withRouter(class FiltersTitles extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
   render() {
     return (
       <div style={contentTitles}>

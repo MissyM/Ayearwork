@@ -13,7 +13,7 @@ import grey from '@material-ui/core/colors/grey'
 
 import './App.css'
 
-const styles = theme => ({
+const styles = () => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
