@@ -5,8 +5,10 @@ import styled from 'styled-components'
 
 const StyledBreadcrumb = styled(Breadcrumb)`
   .breadcrumb {
-  margin: 0px;
-  background: rgb(252, 253, 255);
+    position: absolute;
+    top: 100px;
+    margin: 0px;
+    background: transparent;
   }
 `
 

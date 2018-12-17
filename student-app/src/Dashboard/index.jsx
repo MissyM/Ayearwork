@@ -6,8 +6,8 @@ import NavBar from './NavBar/index'
 import Browser from './Browser'
 import Filters from './Filters/index'
 import Topics from './Topics'
-import Main from './Activities/index'
-import Learn from './Activities/Learning'
+import Activities from './Activities/index'
+import Learning from './Activities/Learning'
 import Breadcrumbs from './Breadcrumbs/index'
 
 export default function ({ location }) {
@@ -20,9 +20,9 @@ export default function ({ location }) {
     <div className="content">
       <Route path="/dashboard/" exact component={Browser}/>
       <Route path="/dashboard/filters/:type" component={Filters}/>
-      <Route path="/dashboard/main" component={Main}/>
+      <Route path="/dashboard/activities" component={Activities}/>
       <Route path="/dashboard/topics" component={Topics}/>
-      <Route path="/dashboard/learn/:topicId" component={Learn}/>
+      <Route path="/dashboard/activities/learning" component={Learning}/>
     </div>
   </div>
 }
