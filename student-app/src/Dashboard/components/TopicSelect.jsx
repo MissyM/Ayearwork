@@ -19,7 +19,7 @@ const groupBadgeStyles = {
   minWidth: 1,
   padding: '0.16666666666667em 0.5em',
   textAlign: 'center',
-};
+}
 
 const formatGroupLabel = data => (
   <div style={groupStyles}>
@@ -32,8 +32,9 @@ export default withRouter(class extends React.Component {
 
   state = { value: '' }
 
-  handleChange = topic => {
-    this.props.history.push(`/dashboard/Activities/learning/${topic.value}`)
+  handleChange = (topic, options) => {
+    //this.props.history.push(`/dashboard/Activities/learning/${topic.value}`)
+    this.props.history.push(`/dashboard/filters/tema/${topic.value}`)
   }
 
   render() {

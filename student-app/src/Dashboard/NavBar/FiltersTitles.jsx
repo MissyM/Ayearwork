@@ -39,14 +39,14 @@ const ButtonDiv = styled.div`
 `
 
 export default withRouter(class FiltersTitles extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  // }
+//  constructor(props) {
+//   super(props)
+//  }
   render() {
     return (
       <div style={contentTitles}>
         {tags.map((tag, id) => 
-          `/dashboard/filters/${tag.ruta}` === this.props.location.pathname ? 
+          this.props.location.pathname.startsWith(`/dashboard/filters/${tag.ruta}`) ? 
           <div key={id}>
             <Link to={`/dashboard/filters/${tag.ruta}`} style={linkLabels}>
               <Label   style={{color: tag.color}} >{tag.title}</Label>

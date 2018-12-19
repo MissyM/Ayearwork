@@ -15,7 +15,7 @@ const Title = styled.div `
   font-size: 16.5px;
   font-weight: normal;
 `
-const P = styled.p `
+const Topic = styled.div `
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -61,20 +61,20 @@ export default class Tema extends React.Component {
     return (
       <Card>
         <Title >1.Números Naturales</Title>
-          <P>1.1 Sistema de Numeración
+          <Topic>1.1 Sistema de Numeración
             <Content>
               <AprendizajeIcon />
               <EntrenarIcon />
               <CompetirIcon />
             </Content>
-          </P>
-          <P>1.2 Operaciones en el conjunto de los números naturales
+          </Topic>
+          <Topic>1.2 Operaciones en el conjunto de los números naturales
             <Content>
               <AprendizajeIcon />
               <EntrenarIcon />
               <CompetirIcon />
             </Content>
-          </P>
+          </Topic>
       </Card>
     ) 
   }
