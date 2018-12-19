@@ -20,9 +20,9 @@ export default function ({ location }) {
     <div className="content">
       <Route path="/dashboard/" exact component={Browser}/>
       <Route path="/dashboard/filters/:type" component={Filters}/>
-      <Route path="/dashboard/activities" component={Activities}/>
+      <Route path="/dashboard/activities" exact component={Activities}/>
       <Route path="/dashboard/topics" component={Topics}/>
-      <Route path="/dashboard/activities/learning" component={Learning}/>
+      <Route path="/dashboard/activities/learning/" component={Learning}/>
     </div>
   </div>
 }

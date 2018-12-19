@@ -22,8 +22,9 @@ export default class extends React.Component {
       <ul>
         {
           this.state.topics.map(
-            topic => <li>
-              <Link to={`/dashboard/learn/${topic.id}`}>{topic.name}</Link>
+            topic => 
+            <li>
+              <Link to={`/dashboard/Activities/learning/${topic.id}`}>{topic.name}</Link>
             </li>
           )
         }

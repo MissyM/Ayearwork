@@ -33,7 +33,7 @@ export default withRouter(class extends React.Component {
   state = { value: '' }
 
   handleChange = topic => {
-    this.props.history.push(`/dashboard/learn/${topic.value}`)
+    this.props.history.push(`/dashboard/Activities/learning/${topic.value}`)
   }
 
   render() {

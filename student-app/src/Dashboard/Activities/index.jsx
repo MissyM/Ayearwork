@@ -6,17 +6,17 @@ import './styles.css'
 export default class Main extends React.Component {
 render() {
   return(
-    <div className="containerMain">
+    <div >
       <div className="welcome">
-      <h1 >¡Hola {this.props.username}!</h1>
-      <p>Bienvenido a esta experiencia de conocimiento.</p>
+        <h1 >¡Hola {this.props.username}!</h1>
+        <p>Bienvenido a esta experiencia de conocimiento.</p>
       </div>
       <div className="contentLinks">
         <div className="leftDiv">
-          <Link to="/dashboard/topics" className="linktoTopics">
+          <Link to="/dashboard/learning" className="linktoTopics">
             <div className="tooltip">
               <img className="infoIcon" src={require('../assetsDashboard/ic_info-01.svg')} alt="Info"/>
-              <span class="tooltiptext">En Aprendizaje encuentras el material 
+              <span className="tooltiptext">En Aprendizaje encuentras el material 
                 visto en clase que necesitas reforzar.
               </span>
             </div>
@@ -31,7 +31,7 @@ render() {
           <div className="highRightDiv">
             <div className="tooltip">
               <img className="infoIcon2" src={require('../assetsDashboard/ic_info-01.svg')} alt="info Aprendizaje"/>
-              <span class="tooltiptext">En Entrenamiento encuentras preguntas 
+              <span className="tooltiptext">En Entrenamiento encuentras preguntas 
                 con las que te puedes preparar para la competencia.
               </span>
             </div>
@@ -42,7 +42,7 @@ render() {
           <div className="lowRightDiv">
             <div className="tooltip">
               <img className="infoIcon2" src={require('../assetsDashboard/ic_info-01.svg')} alt="Info"/>
-              <span class="tooltiptext">En Competencia puedes saber que tanto has aprendido. Se parece mucho a
+              <span className="tooltiptext">En Competencia puedes saber que tanto has aprendido. Se parece mucho a
                 Entrenamiento, pero tienes tiempo limitado y recibes gratificación por las 
                 respuestas correctas. 
               </span>
