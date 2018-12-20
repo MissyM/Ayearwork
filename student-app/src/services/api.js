@@ -23,3 +23,5 @@ export const getTopic = topicId => Promise.resolve(database.topics.filter(topic 
 export const getResources = topicId => Promise.resolve(database.resources)
 
 export const getResource = resourceId => Promise.resolve(database.resources.filter(res => res.id === resourceId)[0])
+
+

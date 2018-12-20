@@ -13,15 +13,15 @@ const ContentFilters = styled.div `
   padding-top: 50px;
 `
 const contents = [
-  { type: 'video', topic: 'asdas' },
-  { type: 'pdf', topic: 'asdas' },
-  { type: 'pdf', topic: 'asdas' },
-  { type: 'video', topic: 'asdas' },
+  { type: 'video', title: 'asdas', description: 'lorem asdasdsad' },
+  { type: 'pdf', title: 'asdas', description: 'lorem asdasdsad' },
+  { type: 'pdf', title: 'asdas', description: 'lorem asdasdsad' },
+  { type: 'video', title: 'asdas', description: 'lorem asdasdsad' },
 ]
 const tema = [
-  { type: 'tema', topic: 'asdas' },
- { type: 'tema', topic: 'asdas' },
-  //{ type: 'tema', topic: 'asdas' },
+  { type: 'tema', title: 'asdas', description: 'lore asdasdsad' },
+ { type: 'tema', title: 'asdas', description: 'lorem asdasdsad' },
+  //{ type: 'tema', title: 'asdas', description: 'lore asdasdsad' },
 ]
 function getContents(type) {
   return type === 'todo'

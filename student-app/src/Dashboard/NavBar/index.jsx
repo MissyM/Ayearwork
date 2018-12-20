@@ -19,15 +19,16 @@ export default withRouter(class extends Component {
     return ( 
       <div className="contentGrey">
         <div className="contentWhite" > 
-          <Link to="/dashboard/filters/todo" className="linktoFilters">
+          <Link to="/dashboard/" className="linktoFilters">
             <div className="tooltipnav">
               <img className="homeIcon" src={require('../assetsDashboard/ic_home.svg')} alt="Principal"/>
               <span className="tooltipnavtext">Ir al principal
               </span>
             </div>
           </Link>
-          <img className="yupayIcon" src={require('../assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
-         
+          <Link to="/dashboard/">
+            <img className="yupayIcon" src={require('../assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
+          </Link>
           <div className="contentCenterElements">
             { this.props.withBrowserNavBar ? <BrowserNavBar /> : <></> }
             { this.props.withFiltersContent ? <FiltersTitles/> : <></> }

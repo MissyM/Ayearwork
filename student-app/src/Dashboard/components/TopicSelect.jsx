@@ -1,7 +1,18 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import Select from 'react-select'
-import { groupedOptions } from '../Docs/data'
+import { model, subtopics } from '../model'
+
+export const groupedOptions = [
+  {
+    label: 'Temas',
+    options: model.topics.map(topic => ({ label: topic.title, value: topic.id })),
+  },
+  {
+    label: 'Subtemas',
+    options: subtopics.map(subtopic => ({ label: subtopic.title, value: subtopic.id })),
+  },
+];
 
 const groupStyles = {
   display: 'flex',

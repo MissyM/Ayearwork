@@ -20,7 +20,7 @@ const Title = styled.div `
   font-size: 16.5px;
   margin-bottom: 5px;
 `
-const P = styled.p `
+const Description = styled.p `
   display: flex;
   align-items: center;
   color: #999999;
@@ -30,19 +30,11 @@ const P = styled.p `
   justify-content: space-between;
 `
 
-export default class Video extends React.Component {
-  render() {
-    return (
-      <Card>
-        <Title><Icon/>Titulo del tema </Title>
-            <P>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-              nisi ut aliquip ex ea commodo consequat. 
-            </P>
-      </Card>
-    ) 
-  }
+export default function Pdf({ data }) {
+  return (
+    <Card>
+      <Title><Icon/>{data.title}</Title>
+      <Description>{data.description}</Description>
+    </Card>
+  ) 
 }
-

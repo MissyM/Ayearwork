@@ -21,7 +21,7 @@ const Icon = styled.img.attrs ({
   width: 25px;
   margin: 0px 10px;
 `
-const P = styled.p `
+const Description = styled.p `
   display: flex;
   align-items: center;
   color: #999999;
@@ -32,18 +32,11 @@ const P = styled.p `
 `
 
 
-export default class Pdf extends React.Component {
-  render() {
-    return (
-      <Card>
-        <Title><Icon/>Titulo del tema </Title>
-          <P>
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. 
-          </P>
-      </Card>
-    ) 
-  }
+export default function Pdf({ data }) {
+  return (
+    <Card>
+      <Title><Icon/>{data.title}</Title>
+      <Description>{data.description}</Description>
+    </Card>
+  ) 
 }
