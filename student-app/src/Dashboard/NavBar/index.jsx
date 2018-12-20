@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import BrowserNavBar from './BrowserNavBar'
 import { Link } from 'react-router-dom'
 
-import "./styles.css"
+import './styles.css'
 import FiltersTitles from './FiltersTitles'
 
 export default withRouter(class extends Component {

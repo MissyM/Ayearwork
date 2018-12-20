@@ -45,7 +45,7 @@ export default withRouter(class extends React.Component {
 
   handleChange = (topic, options) => {
     //this.props.history.push(`/dashboard/Activities/learning/${topic.value}`)
-    this.props.history.push(`/dashboard/filters/tema/${topic.value}`)
+    this.props.history.push(`/dashboard/filters/${topic.type === 'tema' ? 'tema': 'todo'}/${topic.value}`)
   }
 
   render() {

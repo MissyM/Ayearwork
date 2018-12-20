@@ -133,8 +133,10 @@ export default class extends React.Component {
               <Label>Compartir</Label>
             </ViewContent>
           </LeftDiv>
+
           <RightDiv>
             <Label>Siguiente</Label>
+
             <PreviewContainerNext>
               <PreviewNext/>
               <TextContent>
@@ -142,6 +144,7 @@ export default class extends React.Component {
                 <Label>Matemáticas</Label>
               </TextContent>
             </PreviewContainerNext>
+
             <Content>
               <PreviewContainer>
                 <Preview/>
