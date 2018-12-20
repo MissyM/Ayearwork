@@ -58,3 +58,4 @@ export default withRouter(class extends Component {
   }
 })
 /*TODO: Colocar iconos en la barra de navegación*/
+

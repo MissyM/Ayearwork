@@ -36,7 +36,7 @@ export default class Pdf extends React.Component {
   render() {
     return (
       <Card>
-        <Title><Icon/>Titulo del tema </Title>
+        <Title><Icon/>{console.log(this.props)}</Title>
           <P>
              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -47,3 +47,4 @@ export default class Pdf extends React.Component {
     ) 
   }
 }
+
