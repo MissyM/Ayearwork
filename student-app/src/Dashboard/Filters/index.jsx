@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { getContent } from '../../services/api'
 
 import Content from './Content'
 const Container = styled.div `
@@ -12,23 +13,6 @@ const ContentFilters = styled.div `
   padding-left: 125px;
   padding-top: 50px;
 `
-const contents = [
-  { type: 'video', title: 'asdas', description: 'lorem asdasdsad' },
-  { type: 'pdf', title: 'asdas', description: 'lorem asdasdsad' },
-  { type: 'pdf', title: 'asdas', description: 'lorem asdasdsad' },
-  { type: 'video', title: 'asdas', description: 'lorem asdasdsad' },
-]
-const tema = [
-  { type: 'tema', title: 'asdas', description: 'lore asdasdsad' },
- { type: 'tema', title: 'asdas', description: 'lorem asdasdsad' },
-  //{ type: 'tema', title: 'asdas', description: 'lore asdasdsad' },
-]
-function getContents(type) {
-  return type === 'todo'
-    ? contents 
-    : type === 'tema'? tema 
-    : contents.filter(content => content.type === type) 
-}
 
 class Filter extends Component {
 
@@ -36,9 +20,16 @@ class Filter extends Component {
     results: [],
   }
 
-  static getDerivedStateFromProps(props) {
-    const results = getContents(props.match.params.type)
-    return { results }
+  componentDidMount() {
+    const search = this.props.location.search
+    getContent(search)
+    this.unlistenHistory = this.props.history.listen(({ search }) => {
+      getContent(search)
+    })
+  }
+
+  componentWillUnmount() {
+    this.unlistenHistory()
   }
 
   render() {

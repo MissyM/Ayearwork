@@ -1,3 +1,4 @@
+import { model, subtopics, resources } from '../model'
 
 const database = {
   topics: [
@@ -24,4 +25,14 @@ export const getResources = topicId => Promise.resolve(database.resources)
 
 export const getResource = resourceId => Promise.resolve(database.resources.filter(res => res.id === resourceId)[0])
 
+/// -----
 
+const all = [...model.topics, ...subtopics, resources]
+
+export const getContent = searchString => {
+  const params = new URLSearchParams(searchString)
+  const type = params.get('type')
+  const option = params.get('option')
+  const id = params.get('id')
+  console.log(type, option, id)
+}

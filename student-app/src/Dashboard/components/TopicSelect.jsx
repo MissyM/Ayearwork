@@ -6,11 +6,11 @@ import { model, subtopics } from '../model'
 export const groupedOptions = [
   {
     label: 'Temas',
-    options: model.topics.map(topic => ({ label: topic.title, value: topic.id })),
+    options: model.topics.map(topic => ({ label: topic.title, value: `option=topic&id=${topic.id}` })),
   },
   {
     label: 'Subtemas',
-    options: subtopics.map(subtopic => ({ label: subtopic.title, value: subtopic.id })),
+    options: subtopics.map(subtopic => ({ label: subtopic.title, value: `option=subtopic&id=${subtopic.id}` })),
   },
 ];
 
@@ -43,9 +43,8 @@ export default withRouter(class extends React.Component {
 
   state = { value: '' }
 
-  handleChange = (topic, options) => {
-    //this.props.history.push(`/dashboard/Activities/learning/${topic.value}`)
-    this.props.history.push(`/dashboard/filters/${topic.type === 'tema' ? 'tema': 'todo'}/${topic.value}`)
+  handleChange = topic => {
+    this.props.history.push(`/dashboard/filters?type=todo&${topic.value}`)
   }
 
   render() {

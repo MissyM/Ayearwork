@@ -101,3 +101,10 @@ export const subtopics = []
 for (const topic of model.topics) {
   subtopics.push.apply(subtopics, topic.subtopics)
 }
+
+export const resources = []
+
+for (const subtopic of subtopics) {
+  resources.push.apply(resources, subtopic.resources)
+}
+

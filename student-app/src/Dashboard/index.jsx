@@ -14,15 +14,15 @@ export default function ({ location }) {
   return <div className="dashboard">
     <NavBar
       withBrowserNavBar={location.pathname !== "/dashboard" && location.pathname !== "/dashboard/" } 
-      withFiltersContent={location.pathname.startsWith("/dashboard/filters") }
+      withFiltersContent={location.pathname.startsWith("/dashboard/filters")}
     />
     <Breadcrumbs></Breadcrumbs>
     <div className="content">
-      <Route path="/dashboard/" exact component={Browser}/>
-      <Route path="/dashboard/filters/:type" component={Filters}/>
+      <Route path="/dashboard" exact component={Browser}/>
+      <Route path="/dashboard/filters" exact component={Filters}/>
       <Route path="/dashboard/activities" exact component={Activities}/>
       <Route path="/dashboard/topics" component={Topics}/>
-      <Route path="/dashboard/activities/learning/" component={Learning}/>
+      <Route path="/dashboard/activities/learning" component={Learning}/>
     </div>
   </div>
 }

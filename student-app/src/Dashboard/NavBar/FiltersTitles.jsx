@@ -43,19 +43,20 @@ export default withRouter(class FiltersTitles extends React.Component {
 //   super(props)
 //  }
   render() {
+    const { search, pathname } = this.props.location
     return (
       <div style={contentTitles}>
         {tags.map((tag, id) => 
-          this.props.location.pathname.startsWith(`/dashboard/filters/${tag.ruta}`) ? 
+          (search.startsWith(`?type=${tag.ruta}`) || (search === '' && tag.ruta === 'todo' && pathname === '/dashboard/filters')) ? 
           <div key={id}>
-            <Link to={`/dashboard/filters/${tag.ruta}`} style={linkLabels}>
+            <Link to={`/dashboard/filters?type=${tag.ruta}`} style={linkLabels}>
               <Label   style={{color: tag.color}} >{tag.title}</Label>
             </Link>
             <ButtonDiv background={tag.background} /> 
           </div>:
           <div key={id}>
-            <Link to={`/dashboard/filters/${tag.ruta}`} style={linkLabels}>
-              <Label  >{tag.title}</Label>
+            <Link to={`/dashboard/filters?type=${tag.ruta}`} style={linkLabels}>
+              <Label>{tag.title}</Label>
             </Link>
           </div>
         )}
