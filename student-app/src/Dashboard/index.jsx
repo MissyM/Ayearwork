@@ -5,7 +5,6 @@ import "./styles.css"
 import NavBar from './NavBar/index'
 import Browser from './Browser'
 import Filters from './Filters/index'
-import Topics from './Topics'
 import Activities from './Activities/index'
 import Learning from './Activities/Learning'
 import Breadcrumbs from './Breadcrumbs/index'
@@ -21,7 +20,6 @@ export default function ({ location }) {
       <Route path="/dashboard" exact component={Browser}/>
       <Route path="/dashboard/filters" exact component={Filters}/>
       <Route path="/dashboard/activities" exact component={Activities}/>
-      <Route path="/dashboard/topics" component={Topics}/>
       <Route path="/dashboard/activities/learning" component={Learning}/>
     </div>
   </div>

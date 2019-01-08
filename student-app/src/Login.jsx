@@ -67,6 +67,12 @@ export default withStyles(styles)(withRouter(class extends Component {
     this.setState({ username: ev.target.value })
   }
 
+  handleUsernameKeyUp = ev => {
+    if (ev.keyCode === 13) {
+      this.start()
+    }
+  }
+
   render () {
     
     return (
@@ -94,6 +100,7 @@ export default withStyles(styles)(withRouter(class extends Component {
                   underline: this.props.classes.cssUnderline,
                 }}
                 onChange={this.handleUsernameChange}
+                onKeyUp={this.handleUsernameKeyUp}
               />
             </FormControl>
             <div className="btnLogin" onClick={this.start}>
