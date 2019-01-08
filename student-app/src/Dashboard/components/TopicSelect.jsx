@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import Select from 'react-select'
-import { model, subtopics } from '../model'
+import { model, subtopics } from '../../model'
 
 export const groupedOptions = [
   {
