@@ -23,3 +23,5 @@ export const getContent = searchString => {
     return result
   }
 }
+
+export const getSubtopicResources = id => subtopics.find(subtopic => subtopic.id === id)

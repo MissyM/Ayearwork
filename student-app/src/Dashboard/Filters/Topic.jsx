@@ -35,7 +35,7 @@ const AprendizajeIcon = styled.img.attrs({
   width: 25px;
   margin: 0px 10px;
   border-radius: 50px;
-  
+  cursor: pointer;
 `
 const EntrenarIcon = styled.img.attrs({
   src: require("../assetsDashboard/ic_entrenamiento-01.svg"),
@@ -46,6 +46,7 @@ const EntrenarIcon = styled.img.attrs({
   border-radius: 50px;
   width: 25px;
   margin: 0px 10px;
+  cursor: pointer;
 `
 const CompetirIcon = styled.img.attrs({
   src: require("../assetsDashboard/ic_competencia.svg"), 
@@ -55,12 +56,13 @@ const CompetirIcon = styled.img.attrs({
   height: 25px;
   border-radius: 50px;
   margin: 0px 10px;
+  cursor: pointer;
 `
 
 export default withRouter(class extends React.Component {
 
-  handleActivityRoute = type => {
-    this.props.history.push(`/dashboard/activities/${type}`)
+  handleActivityRoute = (type, subtopicId) => {
+    this.props.history.push(`/dashboard/activities/${type}?id=${subtopicId}`)
   }
 
   render() {
@@ -70,11 +72,11 @@ export default withRouter(class extends React.Component {
       <Card>
         <Title>{data.title}</Title>
         {data.subtopics.map(subtopic => (
-          <Subtopic>{subtopic.title}
+          <Subtopic key={subtopic.id}>{subtopic.title}
             <Content>
-              <AprendizajeIcon onClick={() => this.handleActivityRoute('learning')} />
-              <EntrenarIcon onClick={() => this.handleActivityRoute('training')} />
-              <CompetirIcon onClick={() => this.handleActivityRoute('competition')} />
+              <AprendizajeIcon onClick={() => this.handleActivityRoute('learning', subtopic.id)} />
+              <EntrenarIcon onClick={() => this.handleActivityRoute('training', subtopic.id)} />
+              <CompetirIcon onClick={() => this.handleActivityRoute('competition', subtopic.id)} />
             </Content>
           </Subtopic>
         ))}
