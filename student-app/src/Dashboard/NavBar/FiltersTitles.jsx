@@ -50,7 +50,7 @@ export default withRouter(class FiltersTitles extends React.Component {
           (search.startsWith(`?type=${tag.route}`) || (search === '' && tag.route === 'todo' && pathname === '/dashboard/filters')) ? 
           <div key={id}>
             <Link to={`/dashboard/filters?type=${tag.route}`} style={linkLabels}>
-              <Label   style={{color: tag.color}} >{tag.title}</Label>
+              <Label style={{color: tag.color}} >{tag.title}</Label>
             </Link>
             <ButtonDiv background={tag.background} /> 
           </div>:
