@@ -3,10 +3,10 @@ import { Link, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
 const  tags = [
-  {ruta: 'all', title:'Todo', background: '#ff3838',color: '#ff3838'},
-  {ruta: 'topic', title:'Tema', background: '#7d6bf9',color: '#7d6bf9'},
-  {ruta: 'pdf', title:'Pdf', background: '#3ae374',color: '#3ae374'},
-  {ruta: 'video', title:'Video', background: '#ff9f1a',color: '#ff9f1a'},
+  {route: 'all', title:'Todo', background: '#ff3838',color: '#ff3838'},
+  {route: 'topic', title:'Tema', background: '#7d6bf9',color: '#7d6bf9'},
+  {route: 'pdf', title:'Pdf', background: '#3ae374',color: '#3ae374'},
+  {route: 'video', title:'Video', background: '#ff9f1a',color: '#ff9f1a'},
  ]
 
 const contentTitles = {
@@ -47,15 +47,15 @@ export default withRouter(class FiltersTitles extends React.Component {
     return (
       <div style={contentTitles}>
         {tags.map((tag, id) => 
-          (search.startsWith(`?type=${tag.ruta}`) || (search === '' && tag.ruta === 'todo' && pathname === '/dashboard/filters')) ? 
+          (search.startsWith(`?type=${tag.route}`) || (search === '' && tag.route === 'todo' && pathname === '/dashboard/filters')) ? 
           <div key={id}>
-            <Link to={`/dashboard/filters?type=${tag.ruta}`} style={linkLabels}>
+            <Link to={`/dashboard/filters?type=${tag.route}`} style={linkLabels}>
               <Label   style={{color: tag.color}} >{tag.title}</Label>
             </Link>
             <ButtonDiv background={tag.background} /> 
           </div>:
           <div key={id}>
-            <Link to={`/dashboard/filters?type=${tag.ruta}`} style={linkLabels}>
+            <Link to={`/dashboard/filters?type=${tag.route}`} style={linkLabels}>
               <Label>{tag.title}</Label>
             </Link>
           </div>
