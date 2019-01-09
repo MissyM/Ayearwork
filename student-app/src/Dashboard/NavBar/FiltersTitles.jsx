@@ -3,8 +3,8 @@ import { Link, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
 const  tags = [
-  {ruta: 'todo', title:'Todo', background: '#ff3838',color: '#ff3838'},
-  {ruta: 'tema', title:'Tema', background: '#7d6bf9',color: '#7d6bf9'},
+  {ruta: 'all', title:'Todo', background: '#ff3838',color: '#ff3838'},
+  {ruta: 'topic', title:'Tema', background: '#7d6bf9',color: '#7d6bf9'},
   {ruta: 'pdf', title:'Pdf', background: '#3ae374',color: '#3ae374'},
   {ruta: 'video', title:'Video', background: '#ff9f1a',color: '#ff9f1a'},
  ]
