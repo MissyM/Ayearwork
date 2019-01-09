@@ -1,16 +1,15 @@
 import React from 'react'
-import Tema from './Tema'
+import Topic from './Topic'
 import Pdf from './Pdf'
 import Video from './Video'
 
-
 const contentComps = {
   pdf: Pdf,
-  tema: Tema,
+  topic: Topic,
   video: Video,
 }
 
-export default props => {
-  const Comp = contentComps[props.data.type]
-  return <Comp data={props.data}/>
+export default ({ data }) => {
+  const Comp = contentComps[data.type]
+  return <Comp data={data}/>
 }
