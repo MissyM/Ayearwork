@@ -22,9 +22,13 @@ class Filter extends Component {
 
   componentDidMount() {
     const search = this.props.location.search
-    console.log(getContent(search))
+    this.setState({
+      results: getContent(search),
+    })
     this.unlistenHistory = this.props.history.listen(({ search }) => {
-      getContent(search)
+      this.setState({
+        results: getContent(search),
+      })
     })
   }
 
