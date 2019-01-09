@@ -3,7 +3,7 @@ export const model = {
   topics: [
     {
       id: 'numerosNaturales',
-      title: 'Numeros Naturales',
+      title: '1. Numeros Naturales',
       subtopics: [
         {
           id: 'sistemadeNumeracion',
@@ -19,7 +19,7 @@ export const model = {
     },
     {
       id: 'variacionyEcuaciones',
-      title: 'Variacion y Ecuaciones',
+      title: '2. Variacion y Ecuaciones',
       subtopics: [
         {
           id: 'nocinesdeCambio',
@@ -35,7 +35,7 @@ export const model = {
     },
     {
       id: 'teoriadelosNumeros',
-      title: 'Teoria de los Números',
+      title: '3. Teoria de los Números',
       subtopics: [
         {
           id: 'multiplosyDivisores',
@@ -56,16 +56,16 @@ export const model = {
     },
     {
       id: 'fraccionariosyDecimales',
-      title: 'Fraccionarios y Decimales',
+      title: '4. Fraccionarios y Decimales',
       subtopics: [
         {
           id: 'fracciones',
-          title: 'Fracciones',
+          title: '4.1 Fracciones',
           resources: [],
         },
         {
           id: 'operacionesConFracciones',
-          title: 'Operaciones con fracciones',
+          title: '4.2 Operaciones con fracciones',
           resources: [
             // Homo
             { id: 'SUMA Y RESTA DE FRACCIONES HOMOGENEAS-MARCELA.mp4', type: 'video', title: 'Suma y resta de fracciones homogéneas', description: 'lorem asdasdasd adsdsdf sdfdf' },
