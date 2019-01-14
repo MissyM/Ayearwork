@@ -2,6 +2,32 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
+
+export default withRouter(class extends React.Component {
+
+  handleActivityRoute = (type, subtopicId) => {
+    this.props.history.push(`/dashboard/activities/${type}?id=${subtopicId}`)
+  }
+
+  render() {
+    const { data } = this.props
+    return (
+      <Card>
+        <Title>{data.title}</Title>
+        {data.subtopics.map(subtopic => (
+          <Subtopic key={subtopic.id}>{subtopic.title}
+            <Content>
+              <AprendizajeIcon onClick={() => this.handleActivityRoute('learning', subtopic.id)} />
+              <EntrenarIcon onClick={() => this.handleActivityRoute('training', subtopic.id)} />
+              <CompetirIcon onClick={() => this.handleActivityRoute('competition', subtopic.id)} />
+            </Content>
+          </Subtopic>
+        ))}
+      </Card>
+    )
+  }
+})
+
 const Card = styled.div `
   height: 122px;
   width: 512px;
@@ -9,6 +35,7 @@ const Card = styled.div `
   background-color: #fdfdfd;
   box-shadow: 0px 7px 10px 0 rgba(0, 0, 0, 0.03);
   margin-bottom: 15px;
+  padding: 25px 0px 0px 25px;
 `
 const Title = styled.div `
   font-weight: bolder;
@@ -26,6 +53,7 @@ const Subtopic = styled.div `
 `
 const Content = styled.div`
   display: flex;
+  padding: 5px;
 `
 const AprendizajeIcon = styled.img.attrs({
   src: require("../assetsDashboard/ic_aprendizaje-01.svg"),
@@ -58,29 +86,3 @@ const CompetirIcon = styled.img.attrs({
   margin: 0px 10px;
   cursor: pointer;
 `
-
-export default withRouter(class extends React.Component {
-
-  handleActivityRoute = (type, subtopicId) => {
-    this.props.history.push(`/dashboard/activities/${type}?id=${subtopicId}`)
-  }
-
-  render() {
-    const { data } = this.props
-    console.log(this.props)
-    return (
-      <Card>
-        <Title>{data.title}</Title>
-        {data.subtopics.map(subtopic => (
-          <Subtopic key={subtopic.id}>{subtopic.title}
-            <Content>
-              <AprendizajeIcon onClick={() => this.handleActivityRoute('learning', subtopic.id)} />
-              <EntrenarIcon onClick={() => this.handleActivityRoute('training', subtopic.id)} />
-              <CompetirIcon onClick={() => this.handleActivityRoute('competition', subtopic.id)} />
-            </Content>
-          </Subtopic>
-        ))}
-      </Card>
-    )
-  }
-})
