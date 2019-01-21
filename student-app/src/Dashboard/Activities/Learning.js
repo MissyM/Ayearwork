@@ -1,38 +1,56 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getSubtopicResources } from '../../services/api'
+import { getSubtopic } from '../../services/api'
+import { getResource } from '../../services/api'
+
 
 //Aqui se renderiza los contenidos que el estudiante va a aprender
 export default class extends React.Component {
 
   state = {
-    actualResource: undefined,
-    subtopic: {
-      id: '',
-      title: '',
-      resources: [],
-    },
+    state: 'loading',
+    actualResource: { title: '...' },
+    nextResource: undefined,
+    otherResources: [],
   }
 
   componentDidMount() {
     const search = this.props.location.search
     const params = new URLSearchParams(search)
     const id = params.get('id')
-    const subtopic = getSubtopicResources(id)
-    this.setState({
-      actualResource: subtopic.resources[1],
-      subtopic,
-    })
+    const subtopic = getSubtopic(id)
+    const resource  = getResource(id)//yop
+    const resources = subtopic.resources
+    if (subtopic.resources.length > 0) {
+      this.setState({
+        state: 'loaded',
+        actualResource: resources[0],
+        nextResource: resources[1],
+        otherResources: resources.slice(2),
+      })
+  //yop
+    } else if (resource){
+      this.setState({
+        state: 'noResources',
+      })
+   //aqui 
+    } else {
+      this.setState({
+        state: 'noResources',
+      })
+    }
   }
 
   render () {
-    const { subtopic, actualResource } = this.state
+    const { actualResource, state } = this.state
     return (
-      <Container>
+      state === 'noResources' ? (
+        <h1>No hay recursos en este subtema</h1>
+      ) : <Container>
         <LearningContainer>
           <ContentContainer>
             <ResourceView resource={actualResource} />
-            <Title>{subtopic.title}</Title>
+            <Title>{actualResource.title}</Title>
             <Toolbar>
               <View>4 Visualizaciones</View>
               <LikeIcon/>
@@ -47,13 +65,15 @@ export default class extends React.Component {
           <OtherContent>
             <Label>Siguiente</Label>
 
-            <PreviewContainerNext>
+            <PreviewContainer>
               <PreviewNext/>
               <TextContent>
                 <LitleTitle>4_2 Resta de Fracciones Homogeneas</LitleTitle>
                 <Label>Matemáticas</Label>
               </TextContent>
-            </PreviewContainerNext>
+            </PreviewContainer>
+
+            <NextResourceDivider />
 
             <Content>
               <PreviewContainer>
@@ -98,6 +118,8 @@ const Container = styled.div `
   justify-content: center;
   background-color: #ffffff;
   padding-top: 47px;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
 `
 const LearningContainer = styled.div `
   width: 90%;
@@ -169,9 +191,9 @@ const OtherContent = styled.div `
   height: 100%;
   width: 30%;
 `
-const PreviewContainerNext = styled.div`
-  display: flex;
-  height: 110px;
+const NextResourceDivider = styled.div`
+  margin-top: 10px;
+  height: 1.5px;
   width: 100%;
   border-bottom: 1.5px solid #d8d8e0;
 `

@@ -1,7 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
+import { withRouter } from 'react-router-dom'
+  
+//Este era completamente una funcion y yo lo cambie todo
+export default withRouter( class extends React.Component {
 
-
+  handleActivityRoute = (type) => {
+    this.props.history.push(`/buscador/activities/${type}`)
+  }
+  render() {
+    const { data } = this.props
+    return (
+      <Card >
+        <Title onClick= {() => this.handleActivityRoute('learning')}><Icon/>{data.title}</Title>
+        <Description>{data.description}</Description>
+      </Card>
+    ) 
+  }
+})
 const Card = styled.div `
 width: 520px;
 height: 130px;
@@ -12,6 +28,7 @@ const Title = styled.div `
   color: #999999;
   font-size: 16.5px;
   margin-bottom: 5px;
+  cursor: pointer;
 `
 const Icon = styled.img.attrs ({
   src: require("../assetsDashboard/ic-pdf.png"),
@@ -30,13 +47,3 @@ const Description = styled.p `
   padding:  0px 45px;
   justify-content: space-between;
 `
-
-
-export default function Pdf({ data }) {
-  return (
-    <Card>
-      <Title><Icon/>{data.title}</Title>
-      <Description>{data.description}</Description>
-    </Card>
-  ) 
-}

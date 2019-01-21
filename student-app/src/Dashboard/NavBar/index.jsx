@@ -19,14 +19,14 @@ export default withRouter(class extends Component {
     return ( 
       <div className="contentGrey">
         <div className="contentWhite" > 
-          <Link to="/dashboard/" className="linktoFilters">
+          <Link to="/buscador/" className="linktoFilters">
             <div className="tooltipnav">
               <img className="homeIcon" src={require('../assetsDashboard/ic_home.svg')} alt="Principal"/>
               <span className="tooltipnavtext">Ir al principal
               </span>
             </div>
           </Link>
-          <Link to="/dashboard/">
+          <Link to="/buscador/">
             <img className="yupayIcon" src={require('../assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
           </Link>
           <div className="contentCenterElements">

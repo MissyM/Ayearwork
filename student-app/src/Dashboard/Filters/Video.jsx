@@ -1,6 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
+
+export default function Video({ data }) {
+  return (
+    <Card>
+      <Title><Icon/>{data.title}</Title>
+      <Description>{data.description}</Description>
+    </Card>
+  ) 
+}
 const Card = styled.div `
 width: 520px;
 height: 130px;
@@ -19,6 +29,7 @@ const Title = styled.div `
   color: #999999;
   font-size: 16.5px;
   margin-bottom: 5px;
+  cursor: pointer;
 `
 const Description = styled.p `
   display: flex;
@@ -29,12 +40,3 @@ const Description = styled.p `
   padding:  0px 45px;
   justify-content: space-between;
 `
-
-export default function Pdf({ data }) {
-  return (
-    <Card>
-      <Title><Icon/>{data.title}</Title>
-      <Description>{data.description}</Description>
-    </Card>
-  ) 
-}

@@ -13,7 +13,7 @@ render() {
       </div>
       <div className="contentLinks">
         <div className="leftDiv">
-          <Link to="/dashboard/learning" className="linktoTopics">
+          <Link to="/buscador/learning" className="linktoTopics">
             <div className="tooltip">
               <img className="infoIcon" src={require('../assetsDashboard/ic_info-01.svg')} alt="Info"/>
               <span className="tooltiptext">En Aprendizaje encuentras el material 

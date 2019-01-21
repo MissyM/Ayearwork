@@ -6,11 +6,13 @@ import styled from 'styled-components'
 export default withRouter(class extends React.Component {
 
   handleActivityRoute = (type, subtopicId) => {
-    this.props.history.push(`/dashboard/activities/${type}?id=${subtopicId}`)
+    this.props.history.push(`/buscador/activities/${type}?id=${subtopicId}`)
   }
 
   render() {
     const { data } = this.props
+    console.log(data)
+
     return (
       <Card>
         <Title>{data.title}</Title>

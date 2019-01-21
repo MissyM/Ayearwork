@@ -44,7 +44,7 @@ export default withRouter(class extends React.Component {
   state = { value: '' }
 
   handleChange = topic => {
-    this.props.history.push(`/dashboard/filters?type=all&${topic.value}`)
+    this.props.history.push(`/buscador/filters?type=all&${topic.value}`)
   }
 
   render() {

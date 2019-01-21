@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { getContent } from '../../services/api'
 
 import Content from './Content'
+
 const Container = styled.div `
   width: 100%;
   background: rgb(252, 253, 255);
@@ -22,6 +23,7 @@ class Filter extends Component {
 
   componentDidMount() {
     const search = this.props.location.search
+    
     this.setState({
       results: getContent(search),
     })

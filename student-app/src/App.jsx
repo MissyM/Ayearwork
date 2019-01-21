@@ -16,13 +16,13 @@ class App extends Component {
         <AppContainer>
           <Route exact path="/" render={() => (
             isStarted() ? (
-              <Redirect to="/dashboard"/>
+              <Redirect to="/buscador"/>
             ) : (
               <Redirect to="/login"/>
             )
           )}/>
           <Route path="/login" component={Login}/>
-          <PrivateRoute path="/dashboard" component={Dashboard}/>
+          <PrivateRoute path="/buscador" component={Dashboard}/>
         </AppContainer>
       </Router>
     )

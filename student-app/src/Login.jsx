@@ -60,7 +60,7 @@ export default withStyles(styles)(withRouter(class extends Component {
     }
     createSession(this.state.username)
     log({ eventName: 'SessionStarted', username: this.state.username })
-    this.props.history.push('/dashboard')
+    this.props.history.push('/buscador')
   }
 
   handleUsernameChange = ev => {
