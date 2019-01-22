@@ -4,6 +4,7 @@
 }
 .contentLinks {
   display: flex;
+  font-family: Quicksand_Light;
 }
 .leftDiv {
   width: 260px;

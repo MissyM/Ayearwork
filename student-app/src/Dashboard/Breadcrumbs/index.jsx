@@ -20,8 +20,8 @@ const StyledBreadcrumbs = styled.div`
   display: flex;
   position: absolute;
   padding: 10px 0px;
-  bacground-color: transparent; 
-  font-family: "Quicksand", sans-serif;
+  background-color: transparent; 
+  font-family: Quicksand_Light, sans-serif;
   color: #9e9d9d;
 `
 const Segment = styled.div`

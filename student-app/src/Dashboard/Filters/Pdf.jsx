@@ -5,14 +5,14 @@ import { withRouter } from 'react-router-dom'
 //Este era completamente una funcion y yo lo cambie todo
 export default withRouter( class extends React.Component {
 
-  handleActivityRoute = (type) => {
-    this.props.history.push(`/buscador/activities/${type}`)
+  handleActivityRoute = (id) => {
+    this.props.history.push(`/buscador/activities/learning/?id=${id}&order=resource`)
   }
   render() {
     const { data } = this.props
     return (
       <Card >
-        <Title onClick= {() => this.handleActivityRoute('learning')}><Icon/>{data.title}</Title>
+        <Title onClick= {() => this.handleActivityRoute(data.id)}><Icon/>{data.title}</Title>
         <Description>{data.description}</Description>
       </Card>
     ) 

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getSubtopic } from '../../services/api'
-import { getResource } from '../../services/api'
+import { getSubtopic, getResource } from '../../services/api'
 
 
 //Aqui se renderiza los contenidos que el estudiante va a aprender
@@ -18,22 +17,21 @@ export default class extends React.Component {
     const search = this.props.location.search
     const params = new URLSearchParams(search)
     const id = params.get('id')
+    const order = params.get('order')
+    if(order == 'subtopic'){
+
+    }
+
     const subtopic = getSubtopic(id)
-    const resource  = getResource(id)//yop
     const resources = subtopic.resources
-    if (subtopic.resources.length > 0) {
+    
+    if (resources.length > 0) {
       this.setState({
         state: 'loaded',
         actualResource: resources[0],
         nextResource: resources[1],
         otherResources: resources.slice(2),
       })
-  //yop
-    } else if (resource){
-      this.setState({
-        state: 'noResources',
-      })
-   //aqui 
     } else {
       this.setState({
         state: 'noResources',

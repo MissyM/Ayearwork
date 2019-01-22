@@ -6,7 +6,7 @@ import styled from 'styled-components'
 export default withRouter(class extends React.Component {
 
   handleActivityRoute = (type, subtopicId) => {
-    this.props.history.push(`/buscador/activities/${type}?id=${subtopicId}`)
+    this.props.history.push(`/buscador/activities/${type}?id=${subtopicId}&order=subtopic`)
   }
 
   render() {
@@ -31,6 +31,7 @@ export default withRouter(class extends React.Component {
 })
 
 const Card = styled.div `
+  font-family: Quicksand_Light;
   height: 122px;
   width: 512px;
   color: #B1B1B2;

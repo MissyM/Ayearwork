@@ -7,6 +7,7 @@ import Content from './Content'
 const Container = styled.div `
   width: 100%;
   background: rgb(252, 253, 255);
+  font-family: Quicksand_Light;
 `
 const ContentFilters = styled.div `
   display: flex;
