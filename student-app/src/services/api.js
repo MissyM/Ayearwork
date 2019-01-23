@@ -1,7 +1,19 @@
 import { model, subtopics, resources } from '../model'
 
+export const isProduction = process.env.NODE_ENV === 'production'
+
+export const serverURL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8080'
+
+export const getVideo = id => `${serverURL}/api/video/${id}`
+
+export const getPDF = id => `${serverURL}/api/pdf/${id}`
+
 export const log = logObject => {
-  console.log(logObject)
+  if (isProduction) {
+    console.log('APP LOG', logObject)
+  } else {
+    fetch('')
+  }
 }
 
 /// -----

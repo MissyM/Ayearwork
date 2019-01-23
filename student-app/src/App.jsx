@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 
 import './App.css'
 import { isStarted } from './services/session'

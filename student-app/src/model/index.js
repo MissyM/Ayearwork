@@ -68,8 +68,8 @@ export const model = {
           title: '4.2 Operaciones con fracciones',
           resources: [
             // Homo
-            { id: 'SUMA Y RESTA DE FRACCIONES HOMOGENEAS-MARCELA.mp4', type: 'video', title: 'Suma y resta de fracciones homogéneas', description: 'lorem asdasdasd adsdsdf sdfdf' },
-            { id: '1_1 SUMA Y RESTA FRACCIONES HOMOGÉNEAS.pdf', type: 'pdf', title: 'Suma y resta de fracciones homogéneas', description: 'lorem asdasdasd adsdsdf sdfdf' },
+            { id: 'SUMA Y RESTA DE FRACCIONES HOMOGENEAS-MARCELA.mp4', type: 'video', title: 'Suma y resta de fracciones homogéneas - 1', description: 'lorem asdasdasd adsdsdf sdfdf' },
+            { id: '1_1 SUMA Y RESTA FRACCIONES HOMOGÉNEAS.pdf', type: 'pdf', title: 'Suma y resta de fracciones homogéneas - 2', description: 'lorem asdasdasd adsdsdf sdfdf' },
             { id: 'SUMA FRACCIONES HOMOGENEAS-YOUTUBE.mp4', type: 'video', title: 'Suma de fracciones homogéneas', description: 'lorem asdasdasd adsdsdf sdfdf' },
             { id: 'RESTA DE FRACCIONES HOMOGENEAS-YOUTUBE.mp4', type: 'video', title: 'Resta de fracciones homogéneas', description: 'lorem asdasdasd adsdsdf sdfdf' },
             // Hetero

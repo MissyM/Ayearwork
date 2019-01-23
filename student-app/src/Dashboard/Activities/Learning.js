@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { getSubtopic, getRelatedResources } from '../../services/api'
 
+import ResourceView from './ResourceView'
 
 //Aqui se renderiza los contenidos que el estudiante va a aprender
 export default class extends React.Component {
@@ -15,6 +16,10 @@ export default class extends React.Component {
 
   componentDidMount() {
     const search = this.props.location.search
+    this.load(search)
+  }
+
+  load(search) {
     const params = new URLSearchParams(search)
     const id = params.get('id')
     const order = params.get('order')
@@ -38,6 +43,10 @@ export default class extends React.Component {
         state: 'noResources',
       })
     }
+  }
+
+  playResource = id => {
+    this.props.history.push(`/buscador/activities/learning?id=${id}&order=resource`)
   }
 
   render () {
@@ -65,8 +74,10 @@ export default class extends React.Component {
           <OtherContent>
             <Label>Siguiente</Label>
 
-            <PreviewContainer>
-              <PreviewNext/>
+            <PreviewContainer onClick={() => this.playResource(nextResource.id)}>
+              <Preview>
+                <PreviewIcon type={nextResource.type} />
+              </Preview>
               <TextContent>
                 <LitleTitle>{nextResource.title}</LitleTitle>
                 <Label>Matemáticas</Label>
@@ -74,17 +85,20 @@ export default class extends React.Component {
             </PreviewContainer>
 
             <NextResourceDivider />
-            {otherResources.map( (r) => 
-              <Content key= {otherResources.indexOf(r)}>
-                <PreviewContainer>
-                  <Preview/>
+
+            <Content>
+              {otherResources.map(r => 
+                <PreviewContainer key={r.id} onClick={() => this.playResource(r.id)}>
+                  <Preview>
+                    <PreviewIcon type={r.type} />
+                  </Preview>
                   <TextContent>
                     <LitleTitle>{r.title}</LitleTitle>
                     <Label>Matemáticas</Label>
                   </TextContent>
                 </PreviewContainer>
-              </Content>
-            )}
+              )}
+            </Content>
           </OtherContent>
         </LearningContainer>
       </Container>
@@ -115,11 +129,6 @@ const ContentContainer = styled.div `
   width: 70%;
 `
 
-const ResourceView = styled.div `
-  width: 700px;
-  height: 394px;
-  background-color: blue;
-`
 const Title = styled.div `
   width: 700px;
   margin-top: 10px;
@@ -176,16 +185,24 @@ const NextResourceDivider = styled.div`
   width: 100%;
   border-bottom: 1.5px solid #d8d8e0;
 `
-const PreviewNext = styled.div`
-  height: 100px;
-  width: 40%;
-  background-color: blue;
-`
 const Preview = styled.div`
   height: 100px;
-  width: 40%;
-  background-color: blue;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
+
+const PreviewIcon = styled.img.attrs ({
+  src: props => props.type === 'pdf'
+    ? require("../assetsDashboard/ic-pdf.png")
+    : require("../assetsDashboard/ic.video.png"),
+  alt: props => props.type,
+})`
+  height: 80px;
+  width: auto;
+`
+
 const TextContent = styled.div`
   width: 60%;
 `
@@ -201,6 +218,7 @@ const PreviewContainer = styled.div`
 const Content = styled.div`
   width: 100%;
   height: 440px;
+  overflow-y: scroll;
   border-bottom: 1.5px solid #d8d8e0;
   margin-right: 10px;
 `

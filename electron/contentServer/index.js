@@ -2,6 +2,7 @@ const express = require('express')
 const fs = require('fs')
 const cors = require('cors')
 const ip = require('ip')
+const isDev = require('electron-is-dev')
 
 var createContentServer = function () {
 
@@ -51,7 +52,7 @@ var createContentServer = function () {
     }
   })
 
-  app.listen(8080, ip.address(), function () {
+  app.listen(8080, isDev ? 'localhost' : ip.address(), function () {
     console.log('Listening on port 8080!')
   })
 }

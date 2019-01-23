@@ -18,15 +18,15 @@ export default function ({ location, history }) {
     {location.pathname !== '/buscador' && <Breadcrumbs
       segments={[
         ...location.pathname.split('/').filter(segment => segment !== ''),
-        ...location.pathname === '/buscador/activities/learning' ? ['tema', 'subtema'] : [],
+        // ...location.pathname === '/buscador/activities/learning' ? ['tema', 'subtema'] : [],
       ]}
-      onClick={segments => history.push(`/${segments.join('/')}`)}
+      // onClick={segments => history.push(`/${segments.join('/')}`)}
     />}
     <div className="content">
       <Route path="/buscador" exact component={Browser}/>
-      <Route path="/buscador/filters" exact component={Filters}/>
+      <Route path="/buscador/filters" exact component={props => <Filters key={location.search} {...props} />}/>
       <Route path="/buscador/activities" exact component={Activities}/>
-      <Route path="/buscador/activities/learning" component={Learning}/>
+      <Route path="/buscador/activities/learning" component={props => <Learning key={location.search} {...props} />}/>
     </div>
   </div>
 }

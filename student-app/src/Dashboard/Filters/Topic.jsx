@@ -9,6 +9,10 @@ export default withRouter(class extends React.Component {
     this.props.history.push(`/buscador/activities/${type}?id=${subtopicId}&order=subtopic`)
   }
 
+  goToActivity = subtopicId => {
+    this.props.history.push(`/buscador/activities?id=${subtopicId}`)
+  }
+
   render() {
     const { data } = this.props
     console.log(data)
@@ -17,9 +21,10 @@ export default withRouter(class extends React.Component {
       <Card>
         <Title>{data.title}</Title>
         {data.subtopics.map(subtopic => (
-          <Subtopic 
-            key={subtopic.id} 
-            onClick={() => this.handleActivityRoute('', subtopic.id)} > {subtopic.title}
+          <Subtopic key={subtopic.id}>
+            <div onClick={() => this.goToActivity(subtopic.id)}>
+              {subtopic.title}
+            </div>
             <Content>
               <AprendizajeIcon onClick={() => this.handleActivityRoute('learning', subtopic.id)} />
               <EntrenarIcon onClick={() => this.handleActivityRoute('training', subtopic.id)} />
@@ -33,7 +38,6 @@ export default withRouter(class extends React.Component {
 })
 
 const Card = styled.div `
-  font-family: Quicksand;
   height: 122px;
   width: 512px;
   color: #B1B1B2;

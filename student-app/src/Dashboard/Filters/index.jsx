@@ -7,7 +7,6 @@ import Content from './Content'
 const Container = styled.div `
   width: 100%;
   background: rgb(252, 253, 255);
-  font-family: Quicksand;
 `
 const ContentFilters = styled.div `
   display: flex;
@@ -28,15 +27,6 @@ class Filter extends Component {
     this.setState({
       results: getContent(search),
     })
-    this.unlistenHistory = this.props.history.listen(({ search }) => {
-      this.setState({
-        results: getContent(search),
-      })
-    })
-  }
-
-  componentWillUnmount() {
-    this.unlistenHistory()
   }
 
   render() {

@@ -6,7 +6,7 @@ const Breadcrumbs = ({ segments, onClick }) => {
     <StyledBreadcrumbs>
       {segments.map((segment, idx) => (
         <React.Fragment key={idx}>
-          <Segment onClick={() => onClick(segments.slice(0, idx + 1), idx)}>{uppercaseFirst(segment)}</Segment>
+          <Segment onClick={() => (idx < segments.length - 1) && onClick(segments.slice(0, idx + 1), idx)}>{uppercaseFirst(segment)}</Segment>
           {(idx >= 0 && idx < segments.length - 1) && '/'}
         </React.Fragment>
       ))}

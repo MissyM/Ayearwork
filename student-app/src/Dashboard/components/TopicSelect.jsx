@@ -6,11 +6,11 @@ import { model, subtopics } from '../../model'
 export const groupedOptions = [
   {
     label: 'Temas',
-    options: model.topics.map(topic => ({ label: topic.title, value: `option=topic&id=${topic.id}` })),
+    options: model.topics.map(topic => ({ type: 'topic', label: topic.title, value: `option=topic&id=${topic.id}` })),
   },
   {
     label: 'Subtemas',
-    options: subtopics.map(subtopic => ({ label: subtopic.title, value: `option=subtopic&id=${subtopic.id}` })),
+    options: subtopics.map(subtopic => ({ type: 'subtopic', label: subtopic.title, value: subtopic.id })),
   },
 ];
 
@@ -18,7 +18,7 @@ const groupStyles = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-};
+}
 const groupBadgeStyles = {
   backgroundColor: '#EBECF0',
   borderRadius: '2em',
@@ -44,7 +44,11 @@ export default withRouter(class extends React.Component {
   state = { value: '' }
 
   handleChange = topic => {
-    this.props.history.push(`/buscador/filters?type=all&${topic.value}`)
+    if (topic.type === 'topic') {
+      this.props.history.push(`/buscador/filters?type=all&${topic.value}`)
+    } else {
+      this.props.history.push(`/buscador/activities?id=${topic.value}`)
+    }
   }
 
   render() {
