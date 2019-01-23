@@ -20,9 +20,25 @@ var createContentServer = function () {
 
   app.use(bodyParser.json())
 
-  app.use(express.static('./student-app-compiled'))
+  app.use(express.static(path.join(__dirname, '../student-app-compiled')))
 
-  app.use('/api/pdf', express.static('./assets/pdf'))
+  app.get('/api', (req, res) => {
+    res.json({
+      msg: 'Yupay API running',
+    })
+  })
+
+  app.use('/api/pdf/:id', (req, res) => {
+    const filePath = path.join(__dirname, `../assets/pdf`) + `/${req.params.id}`
+    const stat = fs.statSync(filePath)
+    const fileSize = stat.size
+    const head = {
+      'Content-Length': fileSize,
+      'Content-Type': 'application/pdf',
+    }
+    res.writeHead(200, head)
+    fs.createReadStream(filePath).pipe(res)
+  })
 
   // app.get('/api/video', (req, res) => {
   //   res.json([
@@ -32,8 +48,8 @@ var createContentServer = function () {
   // })
 
   app.get('/api/video/:id', (req, res) => {
-    const path = `assets/video/${req.params.id}`
-    const stat = fs.statSync(path)
+    const filePath = path.join(__dirname, `../assets/video`) + `/${req.params.id}`
+    const stat = fs.statSync(filePath)
     const fileSize = stat.size
     const range = req.headers.range
     if (range) {
@@ -43,7 +59,7 @@ var createContentServer = function () {
         ? parseInt(parts[1], 10)
         : fileSize-1
       const chunksize = (end-start) + 1
-      const file = fs.createReadStream(path, {start, end})
+      const file = fs.createReadStream(filePath, {start, end})
       const head = {
         'Content-Range': `bytes ${start}-${end}/${fileSize}`,
         'Accept-Ranges': 'bytes',
@@ -58,7 +74,7 @@ var createContentServer = function () {
         'Content-Type': 'video/mp4',
       }
       res.writeHead(200, head)
-      fs.createReadStream(path).pipe(res)
+      fs.createReadStream(filePath).pipe(res)
     }
   })
 
