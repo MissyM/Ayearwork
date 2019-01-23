@@ -9,11 +9,14 @@ export const getVideo = id => `${serverURL}/api/video/${id}`
 export const getPDF = id => `${serverURL}/api/pdf/${id}`
 
 export const log = logObject => {
-  if (isProduction) {
-    console.log('APP LOG', logObject)
-  } else {
-    fetch('')
-  }
+  fetch(`${serverURL}/api/log`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(logObject),
+  })
 }
 
 /// -----

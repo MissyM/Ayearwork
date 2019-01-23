@@ -66,6 +66,7 @@
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
     "electron": "^3.0.0",
+    "electron-builder": "^20.38.5",
     "shelljs": "^0.8.3"
   },
   "dependencies": {

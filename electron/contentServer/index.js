@@ -1,14 +1,24 @@
 const express = require('express')
 const fs = require('fs')
+const path = require('path')
 const cors = require('cors')
 const ip = require('ip')
+const bodyParser = require('body-parser')
 const isDev = require('electron-is-dev')
+
+const electron = require('electron')
+const app = electron.app
+
+const userPath = app.getPath('userData')
+const yupayLogsFile = path.join(userPath, 'yupay-logs.txt')
 
 var createContentServer = function () {
 
   var app = express()
 
   app.use(cors())
+
+  app.use(bodyParser.json())
 
   app.use(express.static('./student-app-compiled'))
 
@@ -32,7 +42,7 @@ var createContentServer = function () {
       const end = parts[1] 
         ? parseInt(parts[1], 10)
         : fileSize-1
-      const chunksize = (end-start)+1
+      const chunksize = (end-start) + 1
       const file = fs.createReadStream(path, {start, end})
       const head = {
         'Content-Range': `bytes ${start}-${end}/${fileSize}`,
@@ -50,6 +60,15 @@ var createContentServer = function () {
       res.writeHead(200, head)
       fs.createReadStream(path).pipe(res)
     }
+  })
+
+  app.post('/api/log', (req, res) => {
+    const log = req.body
+    if (isDev) {
+      console.log(log)
+    }
+    fs.appendFileSync(yupayLogsFile, JSON.stringify(log) + '\n', 'utf8')
+    res.json({ msg: 'success' })
   })
 
   app.listen(8080, isDev ? 'localhost' : ip.address(), function () {
