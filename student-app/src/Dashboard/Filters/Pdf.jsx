@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
   
-//Este era completamente una funcion y yo lo cambie todo
 export default withRouter( class extends React.Component {
 
   handleActivityRoute = (id) => {

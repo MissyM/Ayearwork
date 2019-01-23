@@ -1,16 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
+import { withRouter } from 'react-router-dom'
 
+export default withRouter( class extends React.Component {
 
-
-export default function Video({ data }) {
-  return (
-    <Card>
-      <Title><Icon/>{data.title}</Title>
-      <Description>{data.description}</Description>
-    </Card>
-  ) 
-}
+  handleActivityRoute = (id) => {
+    this.props.history.push(`/buscador/activities/learning/?id=${id}&order=resource`)
+  }
+  render() {
+    const { data } = this.props
+    return (
+      <Card >
+        <Title onClick= {() => this.handleActivityRoute(data.id)}><Icon/>{data.title}</Title>
+        <Description>{data.description}</Description>
+      </Card>
+    ) 
+  }
+})
 const Card = styled.div `
 width: 520px;
 height: 130px;
@@ -18,7 +24,7 @@ margin-bottom: 15px;
 `
 const Icon = styled.img.attrs ({
   src: require("../assetsDashboard/ic.video.png"),
-  alt: "Pdf",
+  alt: "Video",
 })`
   height: 25px;
   width: 25px;
