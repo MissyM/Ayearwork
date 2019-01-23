@@ -17,7 +17,9 @@ export default withRouter(class extends React.Component {
       <Card>
         <Title>{data.title}</Title>
         {data.subtopics.map(subtopic => (
-          <Subtopic key={subtopic.id}>{subtopic.title}
+          <Subtopic 
+            key={subtopic.id} 
+            onClick={() => this.handleActivityRoute('', subtopic.id)} > {subtopic.title}
             <Content>
               <AprendizajeIcon onClick={() => this.handleActivityRoute('learning', subtopic.id)} />
               <EntrenarIcon onClick={() => this.handleActivityRoute('training', subtopic.id)} />

@@ -6,7 +6,7 @@ export const log = logObject => {
 
 /// -----
 
-const all = [...model.topics, ...subtopics, ...resources]
+//const all = [...model.topics, ...subtopics, ...resources]
 
 export const getContent = searchString => {
   const params = new URLSearchParams(searchString)
@@ -37,8 +37,23 @@ export const getContent = searchString => {
   if (type === 'pdf' || type === 'video') {
     return resources.filter(resource => resource.type === type)
   }
-}
+} 
 
 export const getSubtopic = id => subtopics.find(subtopic => subtopic.id === id)
-export const getResource = id => resources.find(resource => resource.id === id)//Yo agregué esto
+export const getResource = id => resources.find(resource => resource.id === id)
+
+export const getRelatedResources = id => {
+  const selectedResource = getResource(id)
+  const subtopicId = selectedResource.subtopicId
+  const subtopic = getSubtopic(subtopicId)
+  const resourceIdx = subtopic.resources.findIndex(r => r.id === id)
+  let nextResourceIdx = resourceIdx  === (subtopic.resources.length-1) ? 0 : resourceIdx + 1
+  const nextResource = subtopic.resources[nextResourceIdx] 
+  let rest = subtopic.resources.filter(r =>r.id !== id && r.id !== nextResource.id )
+  const resources = [
+    selectedResource, 
+    nextResource,
+    ...rest] 
+  return resources
+}
 

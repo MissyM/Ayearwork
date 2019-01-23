@@ -105,6 +105,6 @@ for (const topic of model.topics) {
 export const resources = []
 
 for (const subtopic of subtopics) {
-  resources.push.apply(resources, subtopic.resources)
+  resources.push.apply(resources, subtopic.resources.map(r => ({ ...r, subtopicId: subtopic.id })))
 }
-
+//console.log(resources)

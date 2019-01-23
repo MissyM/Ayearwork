@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getSubtopic, getResource } from '../../services/api'
+import { getSubtopic, getRelatedResources } from '../../services/api'
 
 
 //Aqui se renderiza los contenidos que el estudiante va a aprender
@@ -9,7 +9,7 @@ export default class extends React.Component {
   state = {
     state: 'loading',
     actualResource: { title: '...' },
-    nextResource: undefined,
+    nextResource:{ title: '...' },
     otherResources: [],
   }
 
@@ -18,21 +18,22 @@ export default class extends React.Component {
     const params = new URLSearchParams(search)
     const id = params.get('id')
     const order = params.get('order')
-    if(order == 'subtopic'){
-
+    let resources
+    if (order=='subtopic') {
+      const subtopic = getSubtopic(id)
+      resources = subtopic.resources
+    } else if(order=='resource'){
+      resources = getRelatedResources(id)
     }
-
-    const subtopic = getSubtopic(id)
-    const resources = subtopic.resources
-    
-    if (resources.length > 0) {
+    if(resources.length > 0){
       this.setState({
         state: 'loaded',
         actualResource: resources[0],
         nextResource: resources[1],
         otherResources: resources.slice(2),
       })
-    } else {
+    }
+    else {
       this.setState({
         state: 'noResources',
       })
@@ -40,7 +41,8 @@ export default class extends React.Component {
   }
 
   render () {
-    const { actualResource, state } = this.state
+    const { actualResource, nextResource, otherResources, state } = this.state
+
     return (
       state === 'noResources' ? (
         <h1>No hay recursos en este subtema</h1>
@@ -66,43 +68,23 @@ export default class extends React.Component {
             <PreviewContainer>
               <PreviewNext/>
               <TextContent>
-                <LitleTitle>4_2 Resta de Fracciones Homogeneas</LitleTitle>
+                <LitleTitle>{nextResource.title}</LitleTitle>
                 <Label>Matemáticas</Label>
               </TextContent>
             </PreviewContainer>
 
             <NextResourceDivider />
-
-            <Content>
-              <PreviewContainer>
-                <Preview/>
-                <TextContent>
-                  <LitleTitle>4_2 Resta de Fracciones Homogeneas</LitleTitle>
-                  <Label>Matemáticas</Label>
-                </TextContent>
-              </PreviewContainer>
-              <PreviewContainer>
-                <Preview/>
-                <TextContent>
-                  <LitleTitle>4_2 Resta de Fracciones Homogeneas</LitleTitle>
-                  <Label>Matemáticas</Label>
-                </TextContent>
-              </PreviewContainer>
-              <PreviewContainer>
-                <Preview/>
-                <TextContent>
-                  <LitleTitle>4_2 Resta de Fracciones Homogeneas</LitleTitle>
-                  <Label>Matemáticas</Label>
-                </TextContent>
-              </PreviewContainer>
-              <PreviewContainer>
-                <Preview/>
-                <TextContent>
-                  <LitleTitle>4_2 Resta de Fracciones Homogeneas</LitleTitle>
-                  <Label>Matemáticas</Label>
-                </TextContent>
-              </PreviewContainer>
-            </Content>
+            {otherResources.map( (r) => 
+              <Content key= {otherResources.indexOf(r)}>
+                <PreviewContainer>
+                  <Preview/>
+                  <TextContent>
+                    <LitleTitle>{r.title}</LitleTitle>
+                    <Label>Matemáticas</Label>
+                  </TextContent>
+                </PreviewContainer>
+              </Content>
+            )}
           </OtherContent>
         </LearningContainer>
       </Container>
@@ -139,7 +121,6 @@ const ResourceView = styled.div `
   background-color: blue;
 `
 const Title = styled.div `
-  height: 30px;
   width: 700px;
   margin-top: 10px;
   font-size: 26px;
