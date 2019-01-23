@@ -33,7 +33,7 @@ export default withRouter(class extends React.Component {
 })
 
 const Card = styled.div `
-  font-family: Quicksand_Light;
+  font-family: Quicksand;
   height: 122px;
   width: 512px;
   color: #B1B1B2;
