@@ -19,10 +19,10 @@ export default class extends React.Component {
     const id = params.get('id')
     const order = params.get('order')
     let resources
-    if (order=='subtopic') {
+    if (order==='subtopic') {
       const subtopic = getSubtopic(id)
       resources = subtopic.resources
-    } else if(order=='resource'){
+    } else if(order==='resource'){
       resources = getRelatedResources(id)
     }
     if(resources.length > 0){
