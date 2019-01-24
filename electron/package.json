@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env BROWSER=none concurrently \"node dev\" \"electron .\"",
     "lint": "tslint --project tslint.json",
-    "build": "node build",
+    "build": "node buildStudentApp",
     "package": "npm run build && build --publish never",
     "pack-and-publish": "cross-env-shell NODE_ENV=production \"npm run build && build -w --publish always\"",
     "package-all": "npm run build && build -mwl",
