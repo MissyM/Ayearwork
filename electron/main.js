@@ -1,5 +1,9 @@
 const isDev = require('electron-is-dev')
 const contentServer = require('./contentServer')
+const path = require('path')
+const nativeImage = electron.nativeImage
+
+let favicon = nativeImage.createFromPhath(path.join(_dirname, 'Icon', 'faviconElectron.png'))
 
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
@@ -10,7 +14,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 800, height: 600 })
+  mainWindow = new BrowserWindow({icon: favicon,  width: 800, height: 600 })
 
   
   if (isDev) {

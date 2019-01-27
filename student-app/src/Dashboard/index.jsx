@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import "./styles.css"
-
+//Componentes principales de la aplicación
 import NavBar from './NavBar/index'
 import Browser from './Browser'
 import Filters from './Filters/index'
 import Activities from './Activities/index'
 import Learning from './Activities/Learning'
-import Breadcrumbs from './Breadcrumbs'
+import Breadcrumb from './Breadcrumb'
 
 export default function ({ location, history }) {
   return <div className="dashboard">
@@ -15,7 +15,7 @@ export default function ({ location, history }) {
       withBrowserNavBar={location.pathname !== "/buscador" && location.pathname !== "/buscador/" } 
       withFiltersContent={location.pathname.startsWith("/buscador/filters")}
     />
-    {location.pathname !== '/buscador' && <Breadcrumbs
+    {location.pathname !== '/buscador' && <Breadcrumb
       segments={[
         ...location.pathname.split('/').filter(segment => segment !== ''),
         // ...location.pathname === '/buscador/activities/learning' ? ['tema', 'subtema'] : [],
