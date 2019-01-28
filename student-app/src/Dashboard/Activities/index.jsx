@@ -41,17 +41,21 @@ export default class Main extends React.Component {
             </Link>
           </div>
           <div className="rightDiv">
-            <div className="highRightDiv">
-              <div className="tooltip">
-                <img className="infoIcon2" src={require('../assetsDashboard/ic_info-01.svg')} alt="info Aprendizaje"/>
-                <span className="tooltiptext">En Entrenamiento encuentras preguntas 
-                  con las que te puedes preparar para la competencia.
-                </span>
+            
+            <Link to={`/buscador/activities/training?id=${this.state.subtopicId}&order=subtopic`} className="linktoTopics">
+              <div className="highRightDiv">
+                <div className="tooltip">
+                  <img className="infoIcon2" src={require('../assetsDashboard/ic_info-01.svg')} alt="info Entrenamiento"/>
+                  <span className="tooltiptext">En Entrenamiento encuentras preguntas 
+                    con las que te puedes preparar para la competencia.
+                  </span>
+                </div>
+                <img className="entrenamiento" src={require('../assetsDashboard/ic_entrenamiento-01.svg')} alt="IconoEntrenamiento" />
+                <h2 className="linkYellow">Entrenamiento</h2>
+                <p className="paragraph">El entrenamiento me prepara para la competencia. </p>
               </div>
-              <img className="entrenamiento" src={require('../assetsDashboard/ic_entrenamiento-01.svg')} alt="IconoAprendizaje" />
-              <h2 className="linkYellow">Entrenamiento</h2>
-              <p className="paragraph">El entrenamiento me prepara para la competencia. </p>
-            </div>
+            </Link>
+
             <div className="lowRightDiv">
               <div className="tooltip">
                 <img className="infoIcon2" src={require('../assetsDashboard/ic_info-01.svg')} alt="Info"/>

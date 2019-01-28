@@ -7,6 +7,7 @@ import Browser from './Browser'
 import Filters from './Filters/index'
 import Activities from './Activities/index'
 import Learning from './Activities/Learning'
+import Training from './Activities/Training'
 import Breadcrumbs from './Breadcrumbs'
 
 export default function ({ location, history }) {
@@ -27,6 +28,7 @@ export default function ({ location, history }) {
       <Route path="/buscador/filters" exact component={props => <Filters key={location.search} {...props} />}/>
       <Route path="/buscador/activities" exact component={Activities}/>
       <Route path="/buscador/activities/learning" component={props => <Learning key={location.search} {...props} />}/>
+      <Route path="/buscador/activities/training" component={Training}/>
     </div>
   </div>
 }
