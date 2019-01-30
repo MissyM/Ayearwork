@@ -40,13 +40,6 @@ var createContentServer = function () {
     fs.createReadStream(filePath).pipe(res)
   })
 
-  // app.get('/api/video', (req, res) => {
-  //   res.json([
-  //     { title: 'Video 1', id: '1.mp4' },
-  //     { title: 'Video 2', id: '2.mp4' },
-  //   ])
-  // })
-
   app.get('/api/video/:id', (req, res) => {
     const filePath = path.join(__dirname, `../assets/video`) + `/${req.params.id}`
     const stat = fs.statSync(filePath)

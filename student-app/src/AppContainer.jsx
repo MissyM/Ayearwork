@@ -14,7 +14,7 @@ class AppContainer extends Component {
         eventName: 'Navigated',
         url: location.pathname,
       })
-    });
+    })
   }
   componentWillUnmount() {
     this.unlisten()
@@ -22,7 +22,7 @@ class AppContainer extends Component {
   render() {
      return (
         <>{this.props.children}</>
-      );
+      )
   }
 }
 
