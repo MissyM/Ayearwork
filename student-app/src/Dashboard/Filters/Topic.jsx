@@ -59,6 +59,7 @@ const Subtopic = styled.div `
   margin: 0px;
   padding:  0px 20px;
   justify-content: space-between;
+  cursor: pointer;
 `
 const Content = styled.div`
   display: flex;
