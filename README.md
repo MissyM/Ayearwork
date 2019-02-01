@@ -1,4 +1,4 @@
-#COMO CORRER ESTE CÓDIGO
+# COMO CORRER ESTE CÓDIGO
 
 1.  Descargue el código
 2.  Debe tener un editor de código como VSCode. Abra la carpeta Yupay en su editor
