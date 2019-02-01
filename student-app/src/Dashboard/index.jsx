@@ -13,18 +13,18 @@ export default function ({ location, history }) {
   return <div className="dashboard">
     <NavBar
       withBrowserNavBar={location.pathname !== "/buscador" && location.pathname !== "/buscador/" } 
-      withFiltersContent={location.pathname.startsWith("/buscador/filters")}
+      withFiltersContent={location.pathname.startsWith("/buscador/filtros")}
     />
     {location.pathname !== '/buscador' && <Breadcrumb
       segments={[
         ...location.pathname.split('/').filter(segment => segment !== ''),
-        // ...location.pathname === '/buscador/activities/learning' ? ['tema', 'subtema'] : [],
+        ...location.pathname === '/buscador/activities/learning' ? ['tema', 'subtema'] : [],
       ]}
       // onClick={segments => history.push(`/${segments.join('/')}`)}
     />}
     <div className="content">
       <Route path="/buscador" exact component={Browser}/>
-      <Route path="/buscador/filters" exact component={props => <Filters key={location.search} {...props} />}/>
+      <Route path="/buscador/filtros" exact component={props => <Filters key={location.search} {...props} />}/>
       <Route path="/buscador/activities" exact component={Activities}/>
       <Route path="/buscador/activities/learning" component={props => <Learning key={location.search} {...props} />}/>
     </div>

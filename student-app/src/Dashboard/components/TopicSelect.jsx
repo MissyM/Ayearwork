@@ -45,7 +45,7 @@ export default withRouter(class extends React.Component {
 
   handleChange = topic => {
     if (topic.type === 'topic') {
-      this.props.history.push(`/buscador/filters?type=all&${topic.value}`)
+      this.props.history.push(`/buscador/filtros?type=all&${topic.value}`)
     } else {
       this.props.history.push(`/buscador/activities?id=${topic.value}`)
     }

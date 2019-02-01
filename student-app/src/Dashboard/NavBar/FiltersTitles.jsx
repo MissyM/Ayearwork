@@ -47,15 +47,15 @@ export default withRouter(class FiltersTitles extends React.Component {
     return (
       <div style={contentTitles}>
         {tags.map((tag, id) => 
-          (search.startsWith(`?type=${tag.route}`) || (search === '' && tag.route === 'all' && pathname === '/buscador/filters'))
+          (search.startsWith(`?type=${tag.route}`) || (search === '' && tag.route === 'all' && pathname === '/buscador/filtros'))
           ? <div key={id}>
-            <Link to={`/buscador/filters?type=${tag.route}`} style={linkLabels}>
+            <Link to={`/buscador/filtros?type=${tag.route}`} style={linkLabels}>
               <Label style={{color: tag.color}} >{tag.title}</Label>
             </Link>
             <ButtonDiv background={tag.background} /> 
           </div>
           : <div key={id}>
-            <Link to={`/buscador/filters?type=${tag.route}`} style={linkLabels}>
+            <Link to={`/buscador/filtros?type=${tag.route}`} style={linkLabels}>
               <Label>{tag.title}</Label>
             </Link>
           </div>
