@@ -30,3 +30,5 @@ export default function ({ location, history }) {
     </div>
   </div>
 }
+
+//const getTopicTitle = () =>
