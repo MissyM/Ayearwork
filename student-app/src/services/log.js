@@ -17,6 +17,7 @@ LogObject, types:
 */
 
 export const log = logObject => {
-  logObject.timestamp = Date.now()
+  logObject.timestamp = new Date(Date.now())
+
   api.log(logObject)
 }

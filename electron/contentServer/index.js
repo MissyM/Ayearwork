@@ -74,8 +74,9 @@ var createContentServer = function () {
   app.post('/api/log', (req, res) => {
     const log = req.body
     if (isDev) {
-      console.log(log)
+      console.log(log )
     }
+    //Se adjunta el log al archivo yupay-logs.txt
     fs.appendFileSync(yupayLogsFile, JSON.stringify(log) + '\n', 'utf8')
     res.json({ msg: 'success' })
   })
