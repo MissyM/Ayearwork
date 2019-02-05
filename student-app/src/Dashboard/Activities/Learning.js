@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { getSubtopic, getRelatedResources, allResources } from '../../services/api'
+import { logIconoVisualizacionesClickeado,
+  logIconoLikesClickeado,
+  logIconoSubirClickeado,
+  logIconoCompartirClickeado,
+} from '../../services/log'
 
 import ResourceView from './ResourceView'
 
@@ -49,6 +54,22 @@ export default class extends React.Component {
     this.props.history.push(`/buscador/activities/learning?id=${id}&order=resource`)
   }
 
+  //Logs
+  visualizationsIconHandler = () => {
+    logIconoVisualizacionesClickeado()
+  }
+  likesIconHandler = () => {
+    logIconoLikesClickeado()
+  }
+  uploadIconHandler = () => {
+    logIconoSubirClickeado()
+  }
+  shareIconHandler = () => {
+    logIconoCompartirClickeado()
+  }
+
+
+
   render () {
     const { actualResource, nextResource, otherResources, state } = this.state
 
@@ -61,13 +82,13 @@ export default class extends React.Component {
             <ResourceView resource={actualResource} />
             <Title>{actualResource.title}</Title>
             <Toolbar>
-              <View>4 Visualizaciones</View>
-              <LikeIcon/>
-              <Label>10</Label>
-              <UploadIcon/>
-              <Label>Subir</Label>
-              <ShareIcon/>
-              <Label>Compartir</Label>
+              <View onClick={this.visualizationsIconHandler}>4 Visualizaciones</View>
+              <LikeIcon onClick={this.likesIconHandler}/>
+              <Label onClick={this.likesIconHandler}>10</Label>
+              <UploadIcon onClick={this.uploadIconHandler}/>
+              <Label onClick={this.uploadIconHandler}>Subir</Label>
+              <ShareIcon onClick={this.shareIconHandler}/>
+              <Label onClick={this.shareIconHandler}>Compartir</Label>
             </Toolbar>
           </ContentContainer>
 

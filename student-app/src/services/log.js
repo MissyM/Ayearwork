@@ -39,14 +39,7 @@ export const logSelectDelNavBarClickeado = () => log({
 export const logLogoLoboYupayClickeado = () => log({
   eventName: 'LogoLoboYupayClickeado',
 })
-export const logTemadelSelectClickeado = (idTopic) => log({
-  eventName: 'TemadelSelectClickeado',
-  idTopic,
-})
-export const logSubtemadelSelectClickeado = (idSubtopic) => log({
-  eventName: 'SubtemadelSelectClickeado',
-  idSubtopic,
-})
+
 //Logs del Componente FilterTitles
 export const logTagTodoClickeado = () => log({
   eventName: 'TagTodoClickeado',
@@ -62,15 +55,7 @@ export const logTagTemaClickeado = (idTopic) => log({
   eventName: 'TagTemaClickeado',
   idTopic,
 })
-//Logs del Componente Filters
-export const logTituloTemaClickeado = (idTopic) => log({
-  eventName: 'TituloTemaClickeado',
-  idTopic,
-})
-export const logTituloSubtemaClickeado = (idSubtopic) => log({
-  eventName: 'TituloSubtemaClickeado',
-  idSubtopic,
-})
+
 
 //Logs del Componente Learning
 
