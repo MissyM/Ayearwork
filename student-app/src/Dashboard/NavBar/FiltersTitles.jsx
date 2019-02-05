@@ -2,6 +2,12 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { logTagTodoClickeado,
+  logTagPDFClickeado,
+  logTagVideoClickeado,
+  logTagTemaClickeado,
+} from '../../services/log'
+
 const  tags = [
   {route: 'all', title:'Todo', background: '#ff3838',color: '#ff3838'},
   {route: 'topic', title:'Tema', background: '#7d6bf9',color: '#7d6bf9'},
@@ -9,12 +15,13 @@ const  tags = [
   {route: 'video', title:'Video', background: '#ff9f1a',color: '#ff9f1a'},
  ]
 
-const contentTitles = {
-  width: '320px',
-  display: 'flex',
-  justifyContent: 'space-between',
-  marginBottom: '-16px',
-}
+
+const ContentTitles = styled.div`
+  width: 320px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -16px;
+  `
 const Label = styled.div`
   color: #989898;
   height: 100%;
@@ -42,13 +49,24 @@ export default withRouter(class FiltersTitles extends React.Component {
 //  constructor(props) {
 //   super(props)
 //  }
+clickHandler = (title) => {
+ if(title === 'Todo'){
+   logTagTodoClickeado()
+ } else if(title ==='Tema') {
+   logTagTemaClickeado()
+ }else if(title ==='Pdf') {
+   logTagPDFClickeado()
+ }else if(title ==='Video') 
+   logTagVideoClickeado()
+}
+
   render() {
     const { search, pathname } = this.props.location
     return (
-      <div style={contentTitles}>
+      <ContentTitles>
         {tags.map((tag, id) => 
           (search.startsWith(`?type=${tag.route}`) || (search === '' && tag.route === 'all' && pathname === '/buscador/filtros'))
-          ? <div key={id}>
+          ? <div key={id} onClick={() => this.clickHandler(tag.title)}>
             <Link to={`/buscador/filtros?type=${tag.route}`} style={linkLabels}>
               <Label style={{color: tag.color}} >{tag.title}</Label>
             </Link>
@@ -56,11 +74,11 @@ export default withRouter(class FiltersTitles extends React.Component {
           </div>
           : <div key={id}>
             <Link to={`/buscador/filtros?type=${tag.route}`} style={linkLabels}>
-              <Label>{tag.title}</Label>
+              <Label onClick={() => this.clickHandler(tag.title)}>{tag.title}</Label>
             </Link>
           </div>
         )}
-      </div>
+      </ContentTitles>
     )
   }
 })

@@ -53,6 +53,7 @@
 /*Tooltips Alerts*/
 .tooltipAlert .tooltipAlertText {
   visibility: hidden;
+  text-align: justify;
   width: auto;
   background-color: gray;
   color: #fff;

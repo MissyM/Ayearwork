@@ -4,10 +4,10 @@ import { logNavego } from './services/log'
 
 class AppContainer extends Component {
 
-  componentWillMount() {
-    logNavego(this.props.history.location.pathname)
+  componentDidMount() {
+    logNavego(this.props.history.location.pathname + this.props.history.location.search )
     this.unlisten = this.props.history.listen(location => {
-      logNavego(location.pathname)
+      logNavego(location.pathname + location.search)
     })
   }
   componentWillUnmount() {
