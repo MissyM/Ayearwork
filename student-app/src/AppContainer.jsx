@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { log } from './services/log'
+import { logNavego } from './services/log'
 
 class AppContainer extends Component {
 
   componentWillMount() {
-    log({
-      eventName: 'Navigated',
-      url: this.props.history.location.pathname,
-    })
+    logNavego(this.props.history.location.pathname)
     this.unlisten = this.props.history.listen(location => {
-      log({
-        eventName: 'Navigated',
-        url: location.pathname,
-      })
+      logNavego(location.pathname)
     })
   }
   componentWillUnmount() {

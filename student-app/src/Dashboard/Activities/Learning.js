@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getSubtopic, getRelatedResources } from '../../services/api'
+import { getSubtopic, getRelatedResources, allResources } from '../../services/api'
 
 import ResourceView from './ResourceView'
 
@@ -35,7 +35,7 @@ export default class extends React.Component {
         state: 'loaded',
         actualResource: resources[0],
         nextResource: resources[1],
-        otherResources: resources.slice(2),
+        otherResources: [resources.slice(2),...allResources],
       })
     }
     else {

@@ -21,7 +21,7 @@ export const log = logObject => {
 
 /// -----
 
-//const all = [...model.topics, ...subtopics, ...resources]
+export const allResources = [...resources]
 
 export const getContent = searchString => {
   const params = new URLSearchParams(searchString)

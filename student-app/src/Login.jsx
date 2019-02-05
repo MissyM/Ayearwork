@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { createSession } from './services/session'
-import { log } from './services/log'
+import { logSesionIniciada } from './services/log'
 
 // import PropTypes from 'prop-types'
 import { withStyles, createMuiTheme } from '@material-ui/core/styles'
@@ -59,7 +59,7 @@ export default withStyles(styles)(withRouter(class extends Component {
       return
     }
     createSession(this.state.username)
-    log({ eventName: 'SessionStarted', username: this.state.username })
+    logSesionIniciada(this.state.username)
     this.props.history.push('/buscador')
   }
 

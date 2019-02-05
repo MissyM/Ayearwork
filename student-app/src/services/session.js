@@ -14,7 +14,7 @@ export function createSession(username) {
   sessionInfo = {
     username,
     id: uuidv4(),
-    timestamp: Date.now()
+    timestamp: Date(Date.now())
   }
   persistSessionInfo()
 }

@@ -11,6 +11,7 @@ import Breadcrumb from './Breadcrumb'
 
 export default function ({ location, history }) {
   return <div className="dashboard">
+  
     <NavBar
       withBrowserNavBar={location.pathname !== "/buscador" && location.pathname !== "/buscador/" } 
       withFiltersContent={location.pathname.startsWith("/buscador/filtros")}

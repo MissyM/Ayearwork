@@ -35,7 +35,7 @@
 .tooltipnav .tooltipnavtext {
   visibility: hidden;
   text-align: justify;
-  width: 150px;
+  width: 100px;
   background-color: gray;
   color: #fff;
   padding: 5px;
@@ -50,6 +50,25 @@
   visibility: visible;
 }
 
+/*Tooltips Alerts*/
+.tooltipAlert .tooltipAlertText {
+  visibility: hidden;
+  width: auto;
+  background-color: gray;
+  color: #fff;
+  padding: 5px;
+  border-radius: 6px;
+  margin-top: 10px;
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+}
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltipAlert:hover .tooltipAlertText {
+  visibility: visible;
+}
+/**/
+
 .yupayIcon {
   width: 150px;
   height: 60px;
@@ -61,12 +80,12 @@
 }
 /*********************************************/
 .contentCenterElements {
-  padding-left: 50px;
+  padding-left: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 510px;
+  width: 480px;
   height: 100px; 
 }
 .divTitleTodo {
@@ -158,14 +177,17 @@ height: 100px;
 .notification {
   width: 80px;
   height: 90px;
+  cursor: pointer;
 }
 .mail {
   width: 80px;
   height: 90px;
+  cursor: pointer;
 }
 .coin {
   width: 47px;
   height: 45px;
+  cursor: pointer;
 }
 .contentTokens {
   display: flex;
