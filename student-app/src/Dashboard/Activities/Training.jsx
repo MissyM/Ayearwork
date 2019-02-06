@@ -26,8 +26,26 @@ const AnswerContent = styled.div `
 `
 
 const AnswerA = styled.div`
-  
+  width: 40%;
+  height: 30px;
+  background-color: '#3AE374';
 `
+const AnswerB = styled.div`
+   width: 40%;
+  height: 30px;
+  background-color: '#7D5FFF';
+`
+const AnswerC = styled.div`
+   width: 40%;
+  height: 30px;
+  background-color: '#FF4D4D';
+`
+const AnswerD = styled.div`
+   width: 40%;
+  height: 30px;
+  background-color: '#FFF200';
+`
+
 
 export default class extends React.Component {
 
@@ -38,7 +56,12 @@ export default class extends React.Component {
       <QuestionContent>
       <Question> Aqui va la pregunta</Question>
       </QuestionContent> 
-      <AnswerContent></AnswerContent>
+      <AnswerContent>
+        <AnswerA> 3</AnswerA>
+        <AnswerB> 3</AnswerB>
+        <AnswerC> 3</AnswerC>
+        <AnswerCA> 3</AnswerCA>
+      </AnswerContent>
      </TrainingContainer> 
     )
   }
