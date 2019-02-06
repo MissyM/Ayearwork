@@ -40,7 +40,7 @@ export default class extends React.Component {
         state: 'loaded',
         actualResource: resources[0],
         nextResource: resources[1],
-        otherResources: [resources.slice(2),...allResources],
+        otherResources: allResources
       })
     }
     else {
@@ -49,7 +49,6 @@ export default class extends React.Component {
       })
     }
   }
-
   playResource = id => {
     this.props.history.push(`/buscador/activities/learning?id=${id}&order=resource`)
   }
@@ -72,6 +71,7 @@ export default class extends React.Component {
 
   render () {
     const { actualResource, nextResource, otherResources, state } = this.state
+    console.log('esto es lo que quiero ver', otherResources)
 
     return (
       state === 'noResources' ? (
@@ -111,7 +111,7 @@ export default class extends React.Component {
               {otherResources.map(r => 
                 <PreviewContainer key={r.id} onClick={() => this.playResource(r.id)}>
                   <Preview>
-                    <PreviewIcon type={r.type} />
+                    <PreviewIcon type={r.type} /> 
                   </Preview>
                   <TextContent>
                     <LitleTitle>{r.title}</LitleTitle>
