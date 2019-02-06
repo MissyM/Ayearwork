@@ -1,9 +1,13 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
+import Tooltip from '@material-ui/core/Tooltip';
+import { withStyles } from '@material-ui/core';
 
-
-export default withRouter(class extends React.Component {
+const styles = () => ({
+  
+})
+export default withStyles(styles)(withRouter(class extends React.Component {
 
   handleActivityRoute = (type, subtopicId) => {
     this.props.history.push(`/buscador/activities/${type}?id=${subtopicId}&order=subtopic`)
@@ -26,16 +30,24 @@ export default withRouter(class extends React.Component {
               {subtopic.title}
             </div>
             <Content>
-              <AprendizajeIcon onClick={() => this.handleActivityRoute('learning', subtopic.id)} />
-              <EntrenarIcon onClick={() => this.handleActivityRoute('training', subtopic.id)} />
-              <CompetirIcon onClick={() => this.handleActivityRoute('competition', subtopic.id)} />
+              <Tooltip title="Ir a aprendizaje" placement="top-start">
+                <AprendizajeIcon onClick={() => this.handleActivityRoute('learning', subtopic.id)} />
+              </Tooltip>
+              <Tooltip title="Ir a entrenamiento" placement="top-start">
+                <EntrenarIcon onClick={() => this.handleActivityRoute('training', subtopic.id)} />
+              </Tooltip>
+              <Tooltip title= "Ir a competencia" placement="top-start">
+                <CompetirIcon onClick={() => this.handleActivityRoute('competition', subtopic.id)} />
+              </Tooltip>
+              
             </Content>
           </Subtopic>
         ))}
       </Card>
     )
   }
-})
+
+}))
 
 const Card = styled.div `
   height: 122px;
@@ -95,4 +107,37 @@ const CompetirIcon = styled.img.attrs({
   border-radius: 50px;
   margin: 0px 10px;
   cursor: pointer;
+`
+//Tooltips
+const TooltipTopicCard = styled.div`  
+  visibility: hidden;
+  text-align: justify;
+  width: 100px;
+  background-color: gray;
+  color: #fff;
+  padding: 5px;
+  border-radius: 6px;
+  margin-top: 60px;
+   /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  &:hover {
+    visibility: visible;
+  }
+`
+const TooltipTopicCardtext = styled.span`
+  visibility: hidden;
+  text-align: justify;
+  width: 100px;
+  background-color: gray;
+  color: #fff;
+  padding: 5px;
+  border-radius: 6px;
+  margin-top: 60px;
+   /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  &:hover {
+    visibility: visible;
+  }
 `
