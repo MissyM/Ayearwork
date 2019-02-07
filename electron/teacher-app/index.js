@@ -6,7 +6,7 @@ const electron = require('electron').remote
 const app = electron.app
 
 const userPath = app.getPath('userData')
-const yupayLogsFile = path.join(userPath, 'yupay-logs.txt')
+const yupayLogsFile = path.join(userPath, 'yupay-logs.html')
 
 // student app
 
