@@ -1,0 +1,77 @@
+[
+{
+  "eventName":"SesionIniciada",
+  "username":"luis fernando osrio",
+  "timestamp":"2019-02-07T15:48:42.566Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador",
+  "timestamp":"2019-02-07T15:48:42.567Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities?id=undefined",
+  "timestamp":"2019-02-07T15:49:23.781Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities?id=ecuaciones",
+  "timestamp":"2019-02-07T15:50:03.520Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities?id=ecuaciones",
+  "timestamp":"2019-02-07T15:50:17.446Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities?id=ecuaciones",
+  "timestamp":"2019-02-07T15:50:27.047Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=undefined&order=subtopic",
+  "timestamp":"2019-02-07T15:50:31.590Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador",
+  "timestamp":"2019-02-07T15:52:06.443Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador",
+  "timestamp":"2019-02-07T15:52:06.527Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities?id=ecuaciones",
+  "timestamp":"2019-02-07T15:52:17.183Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=ecuaciones&order=subtopic",
+  "timestamp":"2019-02-07T15:52:28.313Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=2.2.2 ECUACIONES.mp4&order=resource",
+  "timestamp":"2019-02-07T15:52:55.014Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=2.2.2%20ECUACIONES.mp4&order=resource",
+  "timestamp":"2019-02-07T15:52:55.127Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=1.2.1 OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES.mp4&order=resource",
+  "timestamp":"2019-02-07T16:01:04.294Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=1.2.1%20OPERACIONES%20EN%20EL%20CONJUNTO%20DE%20LOS%20NUMEROS%20NATURALES.mp4&order=resource",
+  "timestamp":"2019-02-07T16:01:04.377Z"
+},
+]

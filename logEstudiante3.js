@@ -1,0 +1,102 @@
+Estudiante=[
+
+{
+  "eventName":"SesionIniciada",
+  "username":"yira mercela castro tote",
+  "timestamp":"2019-02-07T15:17:07.729Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador",
+  "timestamp":"2019-02-07T15:17:07.731Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/filtros?type=all&option=topic&id=numerosNaturales",
+  "timestamp":"2019-02-07T15:17:31.075Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/training?id=sistemadeNumeracion&order=subtopic",
+  "timestamp":"2019-02-07T15:17:51.147Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/filtros?type=all&option=topic&id=numerosNaturales",
+  "timestamp":"2019-02-07T15:18:01.011Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=sistemadeNumeracion&order=subtopic",
+  "timestamp":"2019-02-07T15:18:03.962Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=1.2.2 OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES.pdf&order=resource",
+  "timestamp":"2019-02-07T15:18:34.433Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=1.2.2%20OPERACIONES%20EN%20EL%20CONJUNTO%20DE%20LOS%20NUMEROS%20NATURALES.pdf&order=resource",
+  "timestamp":"2019-02-07T15:18:34.502Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=3.1.1 MULTIPLOS Y DIVISORES.pdf&order=resource",
+  "timestamp":"2019-02-07T15:19:02.690Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=3.1.1%20MULTIPLOS%20Y%20DIVISORES.pdf&order=resource",
+  "timestamp":"2019-02-07T15:19:02.739Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=1.2.1 OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES.mp4&order=resource",
+  "timestamp":"2019-02-07T15:19:33.626Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=1.2.1%20OPERACIONES%20EN%20EL%20CONJUNTO%20DE%20LOS%20NUMEROS%20NATURALES.mp4&order=resource",
+  "timestamp":"2019-02-07T15:19:33.683Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=3.2.2 NUMEROS PRIMOS Y COMPUESTOS.mp4&order=resource",
+  "timestamp":"2019-02-07T15:22:42.179Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=3.2.2%20NUMEROS%20PRIMOS%20Y%20COMPUESTOS.mp4&order=resource",
+  "timestamp":"2019-02-07T15:22:42.230Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=4.1.2 FRACCIONES.mp4&order=resource",
+  "timestamp":"2019-02-07T15:23:20.786Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities/learning?id=4.1.2%20FRACCIONES.mp4&order=resource",
+  "timestamp":"2019-02-07T15:23:20.844Z"
+},
+{
+  "eventName":"IconoPrincipalClickeado",
+  "timestamp":"2019-02-07T15:28:16.336Z"},
+ 
+  {
+  "eventName":"Navegó",
+  "url":"/buscador/",
+  "timestamp":"2019-02-07T15:28:16.337Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/buscador/activities?id=sistemadeNumeracion",
+  "timestamp":"2019-02-07T15:28:30.823Z"
+},
+{
+  "eventName":"Navegó",
+  "url":"/Login",
+  "timestamp":"2019-02-07T15:29:02.820Z"
+},
+]
