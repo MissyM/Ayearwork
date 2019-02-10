@@ -60,7 +60,7 @@ export default class extends React.Component {
         <AnswerA> 3</AnswerA>
         <AnswerB> 3</AnswerB>
         <AnswerC> 3</AnswerC>
-        <AnswerCA> 3</AnswerCA>
+        <AnswerD> 3</AnswerD>
       </AnswerContent>
      </TrainingContainer> 
     )
