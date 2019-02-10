@@ -11,7 +11,6 @@ import { logIconoPrincipalClickeado,
 } from '../../services/log'
 
 import './styles.css'
-import FiltersTitles from './FiltersTitles'
 
 export default withRouter(class extends Component {
   
