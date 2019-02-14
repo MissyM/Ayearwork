@@ -15,22 +15,7 @@ export const logNavego = pathname => log({
   eventName: 'Navegó',
   url: pathname,
 })
-//Logs del Componente NavBar
-export const logIconoPrincipalClickeado = () => log({
-  eventName: 'IconoPrincipalClickeado',
-})
-export const logIconoYupayClickeado = () => log({
-  eventName: 'IconoYupayClickeado',
-})
-export const logIconoMensajesClickeado = () => log({
-  eventName: 'IconoMensajesClickeado',
-})
-export const logIconoNotificacionesClickeado = () => log({
-  eventName: 'IconoNotificacionesClickeado',
-})
-export const logIconoMonedasClickeado = () => log({
-  eventName: 'IconoMonedasClickeado',
-})
+
 //Componente TopicSelected
 export const logSelectDelNavBarClickeado = () => log({
   eventName: 'SelectDelNavBarClickeado',

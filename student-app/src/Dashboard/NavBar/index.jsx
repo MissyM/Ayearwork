@@ -3,14 +3,7 @@ import { withRouter } from 'react-router-dom'
 import BrowserNavBar from './BrowserNavBar'
 import { Link } from 'react-router-dom'
 
-import { logIconoPrincipalClickeado,
-  logIconoYupayClickeado,
-  logIconoMensajesClickeado,
-  logIconoNotificacionesClickeado,
-  logIconoMonedasClickeado,
-} from '../../services/log'
-
-import './styles.css'
+import styled from 'styled-components'
 
 export default withRouter(class extends Component {
   
@@ -21,73 +14,82 @@ export default withRouter(class extends Component {
     }
   }
 
-  mainIconClickHandler = () => {
-    logIconoPrincipalClickeado()
-  }
-  yupayIconClickHandler = () => {
-    logIconoYupayClickeado()
-  }
-  messageIconClickHandler = () => {
-    logIconoMensajesClickeado()
-  }
-  notificationIconClickHandler = () => {
-    logIconoNotificacionesClickeado()
-  }
-  coinIconClickHandler = () => {
-    logIconoMonedasClickeado()
-  }
-  
+
   render (){ 
     return ( 
-      <div className="contentGrey">
-        <div className="contentWhite" > 
-          <Link to="/buscador/" className="linktoFilters">
-            <div className="tooltipnav">
-              <img className="homeIcon" onClick={this.mainIconClickHandler} src={require('../assetsDashboard/ic_home.svg')} alt="Home-Principal"/>
-              <span className="tooltipnavtext">Ir al principal</span>
-            </div>
-          </Link>
+      <ContentGrey>
+        <ContentWhite > 
           <Link to="/buscador/">
-            <img className="yupayIcon" onClick={this.yupayIconClickHandler} src={require('../assetsDashboard/yupay-azul-01.png')} alt="Principal"/>
+            <YupayIcon onClick={this.yupayIconClickHandler} />
           </Link>
-          <div className="contentCenterElements">
-            { this.props.withBrowserNavBar ? <BrowserNavBar /> : <></> }
-            { this.props.withFiltersContent ? <FiltersTitles/> : <></> }
-          </div>
-        </div>
-        <div className="triangleShadowLow" />
-        <div className="contentAlerts">
-
-          <div className="tooltipAlert">
-            <img className="notification" onClick={this.notificationIconClickHandler} src={require('../assetsDashboard/ic-notificacion.svg')} alt="Notificaciones"/>
-            <span className="tooltipAlertText">Notificaciones</span>
-          </div>
-
-          <div className="tooltipAlert">
-            <img className="mail" onClick={this.messageIconClickHandler} src={require('../assetsDashboard/ic-correo.svg')} alt="Correo"/>
-            <span className="tooltipAlertText">Mensajes</span>
-          </div>
-          
-          <div className="tooltipAlert">
-            <div className="contentTokens">
-              <img className="coin" onClick={this.coinIconClickHandler} src={require('../assetsDashboard/ic_competencia.svg')} alt="Moneda"/>
-              <div className="textTokens" onClick={this.coinIconClickHandler}>
-                <div className="tokens" onClick={this.coinIconClickHandler}>
-                  Tokens
-                </div>
-                <div onClick={this.coinIconClickHandler}>
-                  100
-                </div>
-              </div>
-              <Link to="/Login" className="linktoLogin">
-                <div className="out">Salir</div>
-              </Link>
-            </div>
-            <span className="tooltipAlertText">Monedas</span>
-          </div>
-        </div>
-      </div>
-            
+          <ContentCenterElements>
+            <BrowserNavBar />
+          </ContentCenterElements>
+        </ContentWhite>
+        <TriangleShadowLow />
+        <Link to="/Login" >
+          <Out>Salir</Out>
+        </Link>
+       </ContentGrey>
     )
   }
 })
+const ContentGrey = styled.div`
+  display: flex;
+  position: relative;
+  z-index: 10;
+  background-color: #e5e5e5;
+  margin-top: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100px;
+  box-shadow: 0px 5px 5px 0 rgba(0, 0, 0, 0.13);
+`
+const ContentWhite= styled.div`
+  display: flex;
+  background-color: #ffffff;
+  margin-top: 0px;
+  padding: 0px;
+  width: 65%;
+  height: 100px;
+`
+const ContentCenterElements= styled.div`
+  padding-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 480px;
+  height: 100px; 
+`
+const TriangleShadowLow= styled.div`
+  width: 120px;
+  background-color: white;
+  transform: rotate(-70deg) translateX(0px) translateY(-1px);
+  transform-origin: left bottom;
+  box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.13);
+
+`
+
+const YupayIcon= styled.img.attrs({
+  src: require('../assetsDashboard/yupay-azul-01.png'),
+  alt:"Principal",
+})`
+  width: 150px;
+  height: 60px;
+  margin-top: 20px; 
+`
+const Out= styled.div`
+  margin-top: 35px;
+  display: flex;
+  position: absolute;
+  right: 60px;
+  letter-spacing: .2em;
+  border: 1px solid rgb(158, 157, 157);
+  height: 30px;
+  width: 70px;
+  text-align: center;
+  font-weight: bold;
+  color: gray;
+  border-radius: 6px;
+`

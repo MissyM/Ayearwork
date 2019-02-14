@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom'
 import { logNavego } from './services/log'
 
 class AppContainer extends Component {
-
   componentDidMount() {
     logNavego(this.props.history.location.pathname + this.props.history.location.search )
     this.unlisten = this.props.history.listen(location => {
@@ -14,9 +13,9 @@ class AppContainer extends Component {
     this.unlisten()
   }
   render() {
-     return (
-        <>{this.props.children}</>
-      )
+    return (
+      <>{this.props.children}</>
+    )
   }
 }
 

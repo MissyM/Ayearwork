@@ -1,8 +1,13 @@
 import React from 'react'
 import TopicSelect from '../components/TopicSelect'
+import styled from 'styled-components'
 
 export default () => (
-  <div className= "browserNav">
+  <BrowserNav>
     <TopicSelect />
-  </div>
+  </BrowserNav>
 );
+const BrowserNav = styled.div`
+  padding-bottom: 10px; 
+  width: 405px;
+`

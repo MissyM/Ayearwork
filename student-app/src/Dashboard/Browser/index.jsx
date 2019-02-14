@@ -2,6 +2,17 @@ import React from 'react'
 import TopicSelect from '../components/TopicSelect'
 import styled from 'styled-components'
 
+
+
+export default () => (
+  <ContentBrowserComponent>
+    <LoboYupay/>
+    <Select>
+      <TopicSelect />
+    </Select>
+  </ContentBrowserComponent>
+)
+
 const ContentBrowserComponent = styled.div`
   position:relative;
   display: flex;
@@ -25,12 +36,3 @@ const LoboYupay = styled.img.attrs ({
 const Select = styled.div`
   width: 450px;
 `
-
-export default () => (
-  <ContentBrowserComponent>
-    <LoboYupay/>
-    <Select>
-      <TopicSelect />
-    </Select>
-  </ContentBrowserComponent>
-)

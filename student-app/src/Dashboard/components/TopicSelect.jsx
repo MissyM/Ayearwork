@@ -40,16 +40,11 @@ const formatGroupLabel = data => (
 )
 
 export default withRouter(class extends React.Component {
-
   state = { value: '' }
 
   handleChange = topic => {
-    if (topic.type === 'topic') {
-      this.props.history.push(`/buscador/filtros?type=all&${topic.value}`)
-    } else {
-      this.props.history.push(`/buscador/activities?id=${topic.value}`)
-    }
-  }
+      this.props.history.push(`/buscador/learning?id=${topic.value}`)}
+  
 
   render() {
     return (
