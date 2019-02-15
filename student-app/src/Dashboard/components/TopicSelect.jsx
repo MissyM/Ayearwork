@@ -1,7 +1,25 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import Select from 'react-select'
-import { model, subtopics } from '../../model'
+import Select, { components } from 'react-select'
+import { model, subtopics, resources } from '../../model'
+import styled from 'styled-components'
+
+//Creating Magnifiying component
+const Magnifiying = styled.img.attrs({
+  src: require("../assetsDashboard/buscar.png"),
+  alt: "Lupa Buscar",
+}
+)`
+width: 20px;
+height: 20px;
+`
+const DropdownIndicator = ( props ) => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <Magnifiying />
+    </components.DropdownIndicator>
+  );
+};
 
 export const groupedOptions = [
   {
@@ -11,6 +29,10 @@ export const groupedOptions = [
   {
     label: 'Subtemas',
     options: subtopics.map(subtopic => ({ type: 'subtopic', label: subtopic.title, value: subtopic.id })),
+  },
+  {
+    label: 'Recursos',
+    options: resources.map(resource => ({ type: 'resource', label: resource.title, value: resource.id })),
   },
 ];
 
@@ -43,13 +65,15 @@ export default withRouter(class extends React.Component {
   state = { value: '' }
 
   handleChange = topic => {
-      this.props.history.push(`/buscador/learning?id=${topic.value}`)}
+    this.props.history.push(`/buscador/learning?id=${topic.value}`)
+  }
   
 
   render() {
     return (
       <Select
         placeholder="Buscar en Yupay"
+        components={{ DropdownIndicator }}
         options={groupedOptions}
         formatGroupLabel={formatGroupLabel}
         onChange={this.handleChange}
