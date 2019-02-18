@@ -3,15 +3,21 @@ import { withRouter } from 'react-router-dom'
 import Select, { components } from 'react-select'
 import { model, subtopics, resources } from '../../model'
 import styled from 'styled-components'
-
+// No options styles
+const noOptionsMessageStyles = {
+  noOptionsMessage: (provided) => ({
+    ...provided,
+    color: 'black',
+    fontWeight: 'bold'
+  }),
+}
 //Creating Magnifiying component
 const Magnifiying = styled.img.attrs({
   src: require("../assetsDashboard/buscar.png"),
   alt: "Lupa Buscar",
-}
-)`
-width: 20px;
-height: 20px;
+})`
+  width: 20px;
+  height: 20px;
 `
 const DropdownIndicator = ( props ) => {
   return (
@@ -28,11 +34,11 @@ export const groupedOptions = [
   },
   {
     label: 'Subtemas',
-    options: subtopics.map(subtopic => ({ type: 'subtopic', label: subtopic.title, value: subtopic.id })),
+    options: subtopics.map(subtopic => ({ type: 'subtopic', label: subtopic.title, value: `option=subtopic&id=${subtopic.id }`})),
   },
   {
     label: 'Recursos',
-    options: resources.map(resource => ({ type: 'resource', label: resource.title, value: resource.id })),
+    options: resources.map(resource => ({ type: 'resource', label: resource.title, value:  `option=resources&id=${resource.id }`})),
   },
 ];
 
@@ -74,7 +80,9 @@ export default withRouter(class extends React.Component {
       <Select
         placeholder="Buscar en Yupay"
         components={{ DropdownIndicator }}
+        styles= {noOptionsMessageStyles}
         options={groupedOptions}
+        noOptionsMessage={() => "No hay opciones que coincidan con tu búsqueda, inténtalo de nuevo"}
         formatGroupLabel={formatGroupLabel}
         onChange={this.handleChange}
         value={this.state.value}
