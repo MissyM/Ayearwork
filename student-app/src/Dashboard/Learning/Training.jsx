@@ -1,6 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
+
+export default class extends React.Component {
+
+  render () {
+
+    return (  
+     <TrainingContainer>
+      <QuestionContent>
+      <Question> Aqui va la pregunta</Question>
+      </QuestionContent> 
+      <AnswerContent>
+        <AnswerA> 3</AnswerA>
+        <AnswerB> 3</AnswerB>
+        <AnswerC> 3</AnswerC>
+        <AnswerD> 3</AnswerD>
+      </AnswerContent>
+     </TrainingContainer> 
+    )
+  }
+}
+    
+
 const TrainingContainer = styled.div `
   background-color: #ffffff;
   width: 100%;
@@ -45,25 +68,3 @@ const AnswerD = styled.div`
   height: 30px;
   background-color: '#FFF200';
 `
-
-
-export default class extends React.Component {
-
-  render () {
-
-    return (  
-     <TrainingContainer>
-      <QuestionContent>
-      <Question> Aqui va la pregunta</Question>
-      </QuestionContent> 
-      <AnswerContent>
-        <AnswerA> 3</AnswerA>
-        <AnswerB> 3</AnswerB>
-        <AnswerC> 3</AnswerC>
-        <AnswerD> 3</AnswerD>
-      </AnswerContent>
-     </TrainingContainer> 
-    )
-  }
-}
-    

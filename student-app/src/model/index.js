@@ -3,7 +3,7 @@ export const model = {
   topics: [
     {
       id: 'numerosNaturales',
-      title: ' Numeros Naturales',
+      title: ' Números Naturales',
       subtopics: [
         //Subtema
         {
@@ -93,7 +93,7 @@ export const model = {
     {
       //Tema
       id: 'teoriadelosNumeros',
-      title: 'Teoria de los Números',
+      title: ' Teoría de los Números',
       subtopics: [
         //Subtema
         {
@@ -109,7 +109,7 @@ export const model = {
             {
               id: 'MULTIPLOS Y DIVISORES.mp4',
               type: 'video',
-              title: 'Multiplos y Divisores -2',
+              title: 'Múltiplos y Divisores -2',
               description: 'Descripción del documento ' 
             },
           ],

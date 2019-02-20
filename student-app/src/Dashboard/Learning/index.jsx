@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from '../NavBar/index'
 
 import styled from 'styled-components'
-import { allResources } from '../../services/api'
+import { allResources, getTopic, getSubtopic, getResource, getRelatedResources } from '../../services/api'
 import { logIconoVisualizacionesClickeado,
   logIconoLikesClickeado,
   logIconoSubirClickeado,
@@ -18,6 +18,7 @@ export default class extends React.Component {
     actualResource: { title: '...' },
     nextResource:{ title: '...' },
     otherResources: [],
+    topicTitle: ''
   }
 
   componentDidMount() {
@@ -28,33 +29,44 @@ export default class extends React.Component {
   load(search) {
     const params = new URLSearchParams(search)
     const id = params.get('id')
-    //const order = params.get('order')
-    let resources
-    //if (order==='subtopic') {
-      //const subtopic = getSubtopic(id)
-      //resources = subtopic.resources
-    //}
-    // else {
-    resources = allResources
-    // }
-   // if(resources.length > 0){
+    const option = params.get('option')
+    let resources = []
+    if (option==='topic') {
+      let topic = getTopic(id)
+      this.setState({topicTitle : topic.title})
+      topic.subtopics.forEach(function(subtopic){
+        subtopic.resources.forEach(function(resource){
+          resources.push(resource)
+        })
+      })
+    }
+    else if (option === 'subtopic'){
+      let subtopic = getSubtopic(id)
+      this.setState({topicTitle : subtopic.topicTitle})
+      resources = subtopic.resources
+    }
+    else if (option === 'resource'){
+      let resource = getResource(id)
+      this.setState({topicTitle : resource.topicTitle})
+      resources = getRelatedResources(id)
+    }
+    if(resources.length > 0){
       this.setState({
         state: 'loaded',
         actualResource: resources[0],
         nextResource: resources[1],
-        otherResources: allResources
+        otherResources: allResources,
       })
-   // }
-    // else {
-    //   this.setState({
-    //     state: 'noResources',
-    //   })
-    // }
+    }
+    else {
+      this.setState({
+        state: 'noResources',
+      })
+    }
   }
   playResource = id => {
-    this.props.history.push(`/buscador/learning?id=${id}&order=resource`)
+    this.props.history.push(`/learning?id=${id}&order=resource`)
   }
-
   //Logs
   visualizationsIconHandler = () => {
     logIconoVisualizacionesClickeado()
@@ -72,9 +84,7 @@ export default class extends React.Component {
 
 
   render () {
-    const { actualResource, nextResource, otherResources, state } = this.state
-    console.log('esto es lo que quiero ver', otherResources)
-
+    const { actualResource, nextResource, otherResources, state, topicTitle } = this.state
     return (
       state === 'noResources' ? (
         <h1>No hay recursos en este subtema</h1>
@@ -84,6 +94,7 @@ export default class extends React.Component {
           <ContentContainer>
             <ResourceView resource={actualResource} />
             <Title>{actualResource.title}</Title>
+            <Subtitle>Tema:{topicTitle}</Subtitle> 
             <Toolbar>
               <View onClick={this.visualizationsIconHandler}>4 Visualizaciones</View>
               <LikeIcon onClick={this.likesIconHandler}/>
@@ -155,6 +166,12 @@ const Title = styled.div `
   width: 700px;
   margin-top: 10px;
   font-size: 26px;
+  font-weight: bold;
+`
+const Subtitle = styled.div `
+  width: 700px;
+  margin-top: 10px;
+  font-size: 20px;
   font-weight: bold;
 `
 const Toolbar = styled.div`

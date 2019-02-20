@@ -38,7 +38,7 @@ export const groupedOptions = [
   },
   {
     label: 'Recursos',
-    options: resources.map(resource => ({ type: 'resource', label: resource.title, value:  `option=resources&id=${resource.id }`})),
+    options: resources.map(resource => ({ type: 'resource', label: resource.title, value:  `option=resource&id=${resource.id }`})),
   },
 ];
 
@@ -71,7 +71,7 @@ export default withRouter(class extends React.Component {
   state = { value: '' }
 
   handleChange = topic => {
-    this.props.history.push(`/buscador/learning?id=${topic.value}`)
+    this.props.history.push(`/buscador/learning?${topic.value}`)
   }
   
 
