@@ -47,16 +47,20 @@ export default class extends React.Component {
     }
     else if (option === 'resource'){
       let resource = getResource(id)
-      this.setState({topicTitle : resource.topicTitle})
       resources = getRelatedResources(id)
+      let other = resources.slice(2)
+      //No se como meter other resources en el estado
+      this.setState({topicTitle : resource.topicTitle, otherResources: otherResources.push(...other)})
+      
     }
+
     if(resources.length > 0){
       this.setState({
         state: 'loaded',
         actualResource: resources[0],
         nextResource: resources[1],
-        otherResources: allResources,
-      })
+      } ||
+      console.log(this.nextResource))
     }
     else {
       this.setState({
@@ -65,8 +69,10 @@ export default class extends React.Component {
     }
   }
   playResource = id => {
-    this.props.history.push(`/learning?id=${id}&order=resource`)
+    this.props.history.push(`/buscador/learning?id=${id}`)
   }
+
+
   //Logs
   visualizationsIconHandler = () => {
     logIconoVisualizacionesClickeado()
@@ -85,6 +91,7 @@ export default class extends React.Component {
 
   render () {
     const { actualResource, nextResource, otherResources, state, topicTitle } = this.state
+    console.log(nextResource)
     return (
       state === 'noResources' ? (
         <h1>No hay recursos en este subtema</h1>
@@ -92,9 +99,11 @@ export default class extends React.Component {
         <NavBar />
         <LearningContainer>
           <ContentContainer>
+
             <ResourceView resource={actualResource} />
             <Title>{actualResource.title}</Title>
             <Subtitle>Tema:{topicTitle}</Subtitle> 
+
             <Toolbar>
               <View onClick={this.visualizationsIconHandler}>4 Visualizaciones</View>
               <LikeIcon onClick={this.likesIconHandler}/>
@@ -104,18 +113,17 @@ export default class extends React.Component {
               <ShareIcon onClick={this.shareIconHandler}/>
               <Label onClick={this.shareIconHandler}>Compartir</Label>
             </Toolbar>
+            
           </ContentContainer>
 
           <OtherContent>
             <Label>Siguiente</Label>
-
             <PreviewContainer onClick={() => this.playResource(nextResource.id)}>
               <Preview>
                 <PreviewIcon type={nextResource.type} />
               </Preview>
               <TextContent>
                 <LitleTitle>{nextResource.title}</LitleTitle>
-                <Label>Matemáticas</Label>
               </TextContent>
             </PreviewContainer>
 
@@ -129,7 +137,6 @@ export default class extends React.Component {
                   </Preview>
                   <TextContent>
                     <LitleTitle>{r.title}</LitleTitle>
-                    <Label>Matemáticas</Label>
                   </TextContent>
                 </PreviewContainer>
               )}
@@ -253,6 +260,7 @@ const PreviewContainer = styled.div`
   display: flex;
   height: 100px;
   width: 100%;
+  cursor: pointer;
 `
 const Content = styled.div`
   width: 100%;
