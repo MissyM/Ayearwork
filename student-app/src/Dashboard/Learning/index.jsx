@@ -10,9 +10,7 @@ import { logIconoVisualizacionesClickeado,
 } from '../../services/log'
 import ResourceView from './ResourceView'
 
-//Aqui se renderiza los contenidos que el estudiante va a aprender
 export default class extends React.Component {
-
   state = {
     state: 'loading',
     actualResource: { title: '...' },
@@ -31,36 +29,29 @@ export default class extends React.Component {
     const id = params.get('id')
     const option = params.get('option')
     let resources = []
-    if (option==='topic') {
-      let topic = getTopic(id)
+    if (option ==='topic') {
+      const topic = getTopic(id)
       this.setState({topicTitle : topic.title})
       topic.subtopics.forEach(function(subtopic){
         subtopic.resources.forEach(function(resource){
           resources.push(resource)
         })
       })
-    }
-    else if (option === 'subtopic'){
+    } else if (option === 'subtopic'){
       let subtopic = getSubtopic(id)
       this.setState({topicTitle : subtopic.topicTitle})
       resources = subtopic.resources
-    }
-    else if (option === 'resource'){
+    } else if (option === 'resource'){
       let resource = getResource(id)
       resources = getRelatedResources(id)
-      let other = resources.slice(2)
-      //No se como meter other resources en el estado
-      this.setState({topicTitle : resource.topicTitle, otherResources: otherResources.push(...other)})
-      
+      this.setState({topicTitle : resource.topicTitle})
     }
-
     if(resources.length > 0){
       this.setState({
         state: 'loaded',
         actualResource: resources[0],
         nextResource: resources[1],
-      } ||
-      console.log(this.nextResource))
+      }) 
     }
     else {
       this.setState({
@@ -69,7 +60,7 @@ export default class extends React.Component {
     }
   }
   playResource = id => {
-    this.props.history.push(`/buscador/learning?id=${id}`)
+    this.props.history.push(`/buscador/learning?option=resource&id=${id}`)
   }
 
 
