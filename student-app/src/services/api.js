@@ -34,7 +34,7 @@ export const getRelatedResources = id => {
   const resourceIdx = subtopic.resources.findIndex(r => r.id === id)
   let nextResourceIdx = resourceIdx  === (subtopic.resources.length-1) ? 0 : resourceIdx + 1
   const nextResource = subtopic.resources[nextResourceIdx] 
-  let rest = subtopic.resources.filter(r =>r.id !== id && r.id !== nextResource.id )
+  let rest = allResources.filter(r =>r.id !== id && r.id !== nextResource.id )
   const resources = [
     selectedResource, 
     nextResource,

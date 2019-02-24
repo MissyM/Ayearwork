@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Document, Page } from 'react-pdf';
+import { Document, Page } from 'react-pdf'
 
 import { getVideo, getPDF } from '../../services/api'
 

@@ -5,7 +5,7 @@ export const model = {
       id: 'numerosNaturales',
       title: ' Números Naturales',
       subtopics: [
-        //Subtema
+        //Subtema Números Naturales
         {
           id: 'sistemadeNumeracion',
           title: 'Sistemas de Numeración',
@@ -13,6 +13,7 @@ export const model = {
             {
               id: 'SISTEMA DE NUMERACION.pdf',
               type: 'pdf',
+              img: 'SISTEMA DE NUMERACION.png',
               title: ' Sistema de Numeración - 1',
               description: 'Descripción del tema'
             },
@@ -24,7 +25,7 @@ export const model = {
             },
           ],
         },
-        //Subtema 1.2
+        //Subtema Números Naturales
         {
           id: 'operacionesenelConjuntodelosNumerosNaturales',
           title: 'Operaciones en el Conjunto de Números Naturales',
@@ -46,11 +47,11 @@ export const model = {
       ],
     },
     {
-      //Tema
+      //Tema Variacion y Ecuaciones
       id: 'variacionyEcuaciones',
       title: 'Variacion y Ecuaciones',
       subtopics: [
-        //Subtema 
+        //Subtema Nociones de cambio
         {
           id: 'nocinesdeCambio',
           title: 'Nociones de cambio',
@@ -69,7 +70,7 @@ export const model = {
             },
           ],
         },
-        //Subtema
+        //Subtema Ecuaciones
         {
           id: 'ecuaciones',
           title: 'Ecuaciones',
@@ -114,7 +115,7 @@ export const model = {
             },
           ],
         },
-        //Subtema 
+        //Subtema Números Primos y Compuestos
         {
           id: 'numerosPrimosyCompuestos',
           title: 'Números Primos y Compuestos',
@@ -133,7 +134,7 @@ export const model = {
             },
           ],
         },
-        //Subtema
+        //Subtema MCD
         {
           id: 'mcd',
           title: 'MCD',

@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from '../NavBar/index'
 
 import styled from 'styled-components'
-import { allResources, getTopic, getSubtopic, getResource, getRelatedResources } from '../../services/api'
+import { getTopic, getSubtopic, getResource, getRelatedResources } from '../../services/api'
 import { logIconoVisualizacionesClickeado,
   logIconoLikesClickeado,
   logIconoSubirClickeado,
@@ -51,6 +51,7 @@ export default class extends React.Component {
         state: 'loaded',
         actualResource: resources[0],
         nextResource: resources[1],
+        otherResources: resources.slice(2)
       }) 
     }
     else {
