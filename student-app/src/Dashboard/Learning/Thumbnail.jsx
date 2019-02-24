@@ -13,8 +13,8 @@ const PlayIcon = styled.img.attrs(({ type }) => ({
 `
 const ContentThumbnail = styled.div`
   position: relative;
-  width: 250px;
-  height:200px;
+  width: 200px;
+  height:150px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   ${PlayIcon} {
@@ -38,35 +38,28 @@ const ContentThumbnail = styled.div`
     }
   }
 `
-
-// Este link es el recurso
-const StyledLink = styled.a`
-  outline: none;
-`
 //Thubnail es la imagen miniatura
 const Thumbnail= styled.img.attrs({
-  src: require('../../assetsStudent/images/SISTEMA DE NUMERACION-1.png')
+  // src: props => require(props.resource.img)
 })`
   cursor: pointer;
   width: 100%;
 `
-
 const ResourceTitle = styled.figcaption`
   position: absolute;
   width: 80%;
-  height: 10%;
+  height: auto;
   bottom: 0;
-  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 600;
   padding: 10%;
   background: rgba(0,0,0,0.6);
   color: #fff;
 `
-export default ({href, title, src, type})=> {
+export default ({resource})=> {
   return <ContentThumbnail>
-    <StyledLink>
-        <Thumbnail />
-        <PlayIcon type={'video'} /> 
-        <ResourceTitle>Aqui va el título del recurso</ResourceTitle> 
-    </StyledLink>
+    <Thumbnail img={resource.src} />
+    <PlayIcon type={resource.type} /> 
+    <ResourceTitle>{resource.title}</ResourceTitle> 
   </ContentThumbnail>
 }

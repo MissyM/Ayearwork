@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../NavBar/index'
+import Thumbnail from './Thumbnail'
 
 import styled from 'styled-components'
 import { getTopic, getSubtopic, getResource, getRelatedResources } from '../../services/api'
@@ -90,6 +91,7 @@ export default class extends React.Component {
       ) : <Container>
         <NavBar />
         <LearningContainer>
+          {/* COntenedor del recurso renderizado */}
           <ContentContainer>
 
             <ResourceView resource={actualResource} />
@@ -107,16 +109,11 @@ export default class extends React.Component {
             </Toolbar>
             
           </ContentContainer>
-
+          {/* ******************* */}
           <OtherContent>
             <Label>Siguiente</Label>
             <PreviewContainer onClick={() => this.playResource(nextResource.id)}>
-              <Preview>
-                <PreviewIcon type={nextResource.type} />
-              </Preview>
-              <TextContent>
-                <LitleTitle>{nextResource.title}</LitleTitle>
-              </TextContent>
+              <Thumbnail resource= {nextResource}/>
             </PreviewContainer>
 
             <NextResourceDivider />
@@ -124,12 +121,7 @@ export default class extends React.Component {
             <Content>
               {otherResources.map(r => 
                 <PreviewContainer key={r.id} onClick={() => this.playResource(r.id)}>
-                  <Preview>
-                    <PreviewIcon type={r.type} /> 
-                  </Preview>
-                  <TextContent>
-                    <LitleTitle>{r.title}</LitleTitle>
-                  </TextContent>
+                 <Thumbnail resource= {r}/>
                 </PreviewContainer>
               )}
             </Content>
@@ -143,39 +135,37 @@ export default class extends React.Component {
 const Container = styled.div `
   width: 100%;
   background-color: #ffffff;
-  padding-top: 47px;
+  padding-top: 20px;
   padding: 0;
   font-family: "Quicksand", sans-serif;
 `
 const LearningContainer = styled.div `
-  width: 90%;
   display: flex;
-  padding-top: 47px;
+  padding-top: 20px;
 `
+//Contiene el recurso que se está renderizando y los controles
 const ContentContainer = styled.div `
-  overflow: auto; 
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100%;
-  width: 70%;
+  width: 100%;
 `
 
 const Title = styled.div `
-  width: 700px;
+  width: 70%;
   margin-top: 10px;
   font-size: 26px;
   font-weight: bold;
 `
 const Subtitle = styled.div `
-  width: 700px;
+  width: 70%;
   margin-top: 10px;
   font-size: 20px;
   font-weight: bold;
 `
 const Toolbar = styled.div`
   display: flex;
-  width: 700px;
+  width: 70%;
   height: 30px;
   margin-top: 10px;
   color: #999999;
@@ -215,7 +205,7 @@ const ShareIcon = styled.img.attrs ({
 /*Contenedor derecho*/
 const OtherContent = styled.div `
   height: 100%;
-  width: 30%;
+  width: auto;
 `
 const NextResourceDivider = styled.div`
   margin-top: 10px;
@@ -223,14 +213,6 @@ const NextResourceDivider = styled.div`
   width: 100%;
   border-bottom: 1.5px solid #d8d8e0;
 `
-const Preview = styled.div`
-  height: 100px;
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
 const PreviewIcon = styled.img.attrs ({
   src: props => props.type === 'pdf'
     ? require("../assetsDashboard/ic-pdf.png")
@@ -240,23 +222,16 @@ const PreviewIcon = styled.img.attrs ({
   height: 80px;
   width: auto;
 `
-
-const TextContent = styled.div`
-  width: 60%;
-`
-const LitleTitle = styled.div `
-  font-weight: bold;
-`
 const PreviewContainer = styled.div`
   margin-top: 10px;
   display: flex;
-  height: 100px;
+  height: 150px;
   width: 100%;
   cursor: pointer;
 `
 const Content = styled.div`
   width: 100%;
-  height: 440px;
+  height: 380px;
   overflow-y: scroll;
   border-bottom: 1.5px solid #d8d8e0;
   margin-right: 10px;
