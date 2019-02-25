@@ -5,7 +5,10 @@ const log = logObject => {
 
   api.log(logObject)
 }
-
+export const logUsuarioRegistrado = (username) => log({ 
+  eventName: 'UsuarioRegistrado', 
+  username,
+})
 export const logSesionIniciada = (username) => log({ 
   eventName: 'SesionIniciada', 
   username,

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { createSession } from './services/session'
 import { logSesionIniciada } from './services/log'
+import styled from 'styled-components'
 
 // import PropTypes from 'prop-types'
 import { withStyles, createMuiTheme } from '@material-ui/core/styles'
@@ -76,14 +77,14 @@ export default withStyles(styles)(withRouter(class extends Component {
   render () {
     
     return (
-      <div className="loginContent">
-        <img className="rightCloud" src={require('./assetsStudent/nube_derecha.png')} alt="Nube derecha"/> 
-        <div className="card">
-          <div className="contentLogo">
-            <img className="imglogo" src={require('./assetsStudent/Lobo-yupay-01.svg')} alt="Logo"/>
-          </div>
-          <div className="contentInput">
-            <FormControl className={this.props.classes.margin}>
+      <LoginContent>
+        <RightCloud/> 
+        <Card>
+          <LogoContent>
+            <LogoImg />
+          </LogoContent>
+          <InputContent>
+              <FormControl className={this.props.classes.margin}>
               <InputLabel
                 htmlFor="custom-css-standard-input"
                 classes={{
@@ -97,19 +98,98 @@ export default withStyles(styles)(withRouter(class extends Component {
                 id="custom-css-standard-input"
                 value={this.state.username}
                 classes={{
-                  underline: this.props.classes.cssUnderline,
+                underline: this.props.classes.cssUnderline,
                 }}
                 onChange={this.handleUsernameChange}
                 onKeyUp={this.handleUsernameKeyUp}
               />
             </FormControl>
-            <div className="btnLogin" onClick={this.start}>
-              Ingresar
-            </div>
-          </div>
-        </div>
-        <img className="leftCloud" src={require('./assetsStudent/nube_izquierda.png')} alt="Nube baja"/>
-      </div>
+            <LoginBtn onClick={this.start}>
+              Ingresa
+            </LoginBtn>
+            
+          </InputContent>
+        </Card>
+        <LeftCloud/>
+      </LoginContent>
     )
   }
 }))
+
+
+const LoginContent = styled.div`
+    margin-top: 5%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+const RightCloud = styled.img.attrs({
+  src: require('./assetsStudent/nube_derecha.png'),
+  alt:"Nube derecha",
+})`
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 300px;
+`
+const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 450px;
+  width: 320px;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 28px 4px #d2d2d2;
+`
+const LogoContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -90px; 
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  background: #00caca;
+`
+const LogoImg = styled.img.attrs({
+  src: require("./assetsStudent/Lobo-yupay-01.svg"),
+  alt:"Logo",
+})`
+  width: 100px;
+  height: 100px;
+`
+const InputContent = styled.div`
+   display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 40%;
+  width: 100%;
+`
+const LoginBtn = styled.div`
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 195px;
+  height: 40px;
+  margin-top: 30px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: .2em;
+  background-color: #FBED21;
+` 
+const LeftCloud = styled.img.attrs({
+  src: require('./assetsStudent/nube_izquierda.png'),
+  alt: "Nube baja",
+})`
+  position: absolute;
+  left: 0px;
+  bottom: -70px;
+  width: 600px;
+  height: 400px;
+  z-index: -1;
+`
