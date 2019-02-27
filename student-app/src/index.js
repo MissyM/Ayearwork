@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import './model'
-import Register from './Register'
+import Register from './Register/Index'
 
 import './services/session'
 import './index.css'
