@@ -1,4 +1,4 @@
-import React,  { Component } from 'react'
+import React,  { useState, useCallback } from 'react'
 import Carousel from './Carousel'
 
 //mport { createSession } from './services/session'
@@ -20,7 +20,7 @@ import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import classNames from 'classnames'
 
-const styles = (theme) => ({
+const styles = () => ({
   cssLabel: {
     '&$cssFocused': {
       color: grey[400],
@@ -39,54 +39,55 @@ const styles = (theme) => ({
   selectEmpty: {}
 })
 
-export default withStyles(styles)(class extends Component {
+export default withStyles(styles)(function Register(props) {
+  const [formUserData, setFormUserData] = useState({
+    userfullname: '',
+    grade: '',
+    gender: '',
+    password:'',
+    age: '',
+    name:'',
+    avatar: '',
+    imtelligence: '',
+    learning: '',
+  })
+  const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState(false)
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      userfullname: '',
-      grade: '',
-      gender: '',
-      password:'',
-      age: '',
-      name:'',
-      avatar: '',
-      imtelligence: '',
-      learning: '',
-      error: false,
-      showPassword: false,
+  const start = useCallback(() => {
+    if (formUserData.userfullname===''){
+      setError(true)
     }
-  }
+  },[])
 
-  start =() => {
-    console.log(this.state)
-    if (this.state.userfullname===''){
-      this.setState({
-        error: true
-      })
-    }
-  }
-  handleInputUserfullnameChange= (ev) => {
-    this.setState({
-      userfullname : ev.target.value
-    })
-  }
-  handleUserfullnameKeyUp= ev => {
+  const handleUserfullnameKeyUp = useCallback(ev => {
     if (ev.keyCode === 13) {
-      this.start()
+      start()
     }
-  }
-  handleClickShowPassword = () => {
-    this.setState(state => ({ showPassword: !state.showPassword }));
-  }
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-  handleChangePassword = prop => event => {
-    this.setState({ [prop]: event.target.value });
-  }
-  render () {
-    const { classes } = this.props
+  },[])
+  const handleClickShowPassword = useCallback(() => {
+    setShowPassword(showPassword => !showPassword)
+  },[])
+
+  const fieldChangeHandler = useCallback((fieldName, ev) => {
+    let value
+    console.log(ev)
+    if (fieldName === 'avatar'){
+      value = ev.target.alt
+    } else { 
+      value = ev.target.value
+    }
+    setFormUserData( formUserData => ({
+      ...formUserData,
+      [fieldName]: value,
+    }))
+  }, [])
+
+  const handleGoNextSection = useCallback(() => {
+    console.log(formUserData + 'formulario ')
+  },[])
+ 
+    const { classes } = props
     return (
       <RegisterContent>
         <RightCloud/> 
@@ -105,21 +106,21 @@ export default withStyles(styles)(class extends Component {
                   <InputLabel
                     htmlFor="custom-css-standard-input"
                     classes={{
-                      root: this.props.classes.cssLabel,
-                      focused: this.props.classes.cssFocused,
+                      root: props.classes.cssLabel,
+                      focused: props.classes.cssFocused,
                     }}
                   >
                     Escribe tu Nombre Completo*
                   </InputLabel>
                   <Input
                     id="custom-css-standard-input"
-                    error={this.state.error}
-                    value={this.state.userfullname}
-                    onChange={this.handleInputUserfullnameChange}
+                    error={error}
+                    value={formUserData.userfullname}
+                    onChange={ev=>fieldChangeHandler("userfullname", ev)}
                     classes={{
-                      underline: this.props.classes.cssUnderline,
+                      underline: props.classes.cssUnderline,
                     }}
-                    onKeyUp={this.handleUserfullnameKeyUp}
+                    onKeyUp={handleUserfullnameKeyUp}
                   />
                 </FormControl>
               </InputNameContent>
@@ -128,27 +129,27 @@ export default withStyles(styles)(class extends Component {
                   <InputLabel 
                   htmlFor="adornment-password"
                   classes={{
-                    root: this.props.classes.cssLabel,
-                    focused: this.props.classes.cssFocused,
+                    root: props.classes.cssLabel,
+                    focused: props.classes.cssFocused,
                   }}
                   >
-                    Password
+                    Contraseña
                   </InputLabel>
                   <Input
                     id="adornment-password"
-                    type={this.state.showPassword ? 'text' : 'password'}
-                    value={this.state.password}
-                    onChange={this.handleChangePassword('password')}
+                    type={showPassword ? 'text' : 'password'}
+                    value={formUserData.password}
+                    onChange={ev=>fieldChangeHandler("password", ev)}
                     classes={{
-                      underline: this.props.classes.cssUnderline,
+                      underline: props.classes.cssUnderline,
                     }}
                     endAdornment={
                       <InputAdornment position="end">
                         <IconButton
                           aria-label="Toggle password visibility"
-                          onClick={this.handleClickShowPassword}
+                          onClick={handleClickShowPassword}
                         >
-                          {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
+                          {showPassword ? <Visibility /> : <VisibilityOff />}
                         </IconButton>
                       </InputAdornment>
                     }
@@ -161,43 +162,42 @@ export default withStyles(styles)(class extends Component {
                 <FormControl style={{marginRight: '30px'}} fullWidth={true} variant="filled" className={classes.formControl}>
                   <InputLabel htmlFor="filled-age-simple">Edad</InputLabel>
                   <Select
-                    value={this.state.age}
-                    onChange={this.handleChange}
+                    value={formUserData.age}
+                    onChange={ev=>fieldChangeHandler("age", ev)}
                     input={<FilledInput name="age" id="filled-age-simple" />}
                   >
                     <MenuItem value="">
                       <em>Ninguno</em>
                     </MenuItem>
-                    <MenuItem value={8}>8</MenuItem>
-                    <MenuItem value={9}>9</MenuItem>
-                    <MenuItem value={10}>10</MenuItem>
-                    <MenuItem value={11}>11</MenuItem>
-                    <MenuItem value={12}>12</MenuItem>
-                    <MenuItem value={13}>13</MenuItem>
-                    <MenuItem value={14}>14</MenuItem>
-                    <MenuItem value={15}>15</MenuItem>
+                    <MenuItem value={8}>8 años</MenuItem>
+                    <MenuItem value={9}>9 años</MenuItem>
+                    <MenuItem value={10}>10 años</MenuItem>
+                    <MenuItem value={11}>11 años</MenuItem>
+                    <MenuItem value={12}>12 años</MenuItem>
+                    <MenuItem value={13}>13 años</MenuItem>
+                    <MenuItem value={14}>14 años</MenuItem>
+                    <MenuItem value={15}>15 años</MenuItem>
                   </Select>
                 </FormControl>
                 <FormControl fullWidth={true} variant="filled" className={classes.formControl}>
                   <InputLabel htmlFor="filled-gender-simple">Género</InputLabel>
                   <Select
-                    value={this.state.gender}
-                    onChange={this.handleChange}
+                    value={formUserData.gender}
+                    onChange={ev=>fieldChangeHandler("gender", ev)}
                     input={<FilledInput name="gender" id="filled-gender-simple" />}
                   >
                     <MenuItem value="">
                       <em>Ninguno</em>
                     </MenuItem>
-                    <MenuItem value={1}>Femenino</MenuItem>
-                    <MenuItem value={2}>Masculino</MenuItem>
-                   
+                    <MenuItem value={"F"}>Femenino</MenuItem>
+                    <MenuItem value={"M"}>Masculino</MenuItem>
                   </Select>
                 </FormControl>
                 <FormControl style={{marginRight: '30px', marginLeft: '30px'}} fullWidth={true} variant="filled" className={classes.formControl}>
                   <InputLabel htmlFor="filled-grade-simple">Grado</InputLabel>
                   <Select
-                    value={this.state.grade}
-                    onChange={this.handleChange}
+                    value={formUserData.grade}
+                    onChange={ev=>fieldChangeHandler("grade", ev)}
                     input={<FilledInput name="grade" id="filled-grade-simple" />}
                   >
                     <MenuItem value="">
@@ -217,28 +217,30 @@ export default withStyles(styles)(class extends Component {
           </CardTop>
           <CardBottom>
             <AvatarLabel>Selecciona tu Avatar</AvatarLabel>
-            <Avatars>
-              <Carousel/>
+            <Avatars  >
+              <Carousel triggerAvatarUpdate={ev => fieldChangeHandler("avatar", ev)}/>
             </Avatars>
-            <Bottons>
-              <ContinueLink onClick={this.start}>
-                <IconNext/>
-                  Saltar Registro
-              </ContinueLink>
-              <RegisterBtn onClick={this.handleGoNextSection}>
-                    Continuar
-              </RegisterBtn>
-            </Bottons>
           </CardBottom>
+          <Bottons>
+            <ContinueLink onClick={start}>
+              <IconNext/>
+                Saltar Registro
+            </ContinueLink>
+            <RegisterBtn onClick={handleGoNextSection}>
+                  Continuar
+            </RegisterBtn>
+          </Bottons>
         </CardsContent>
         <LeftCloud/>
+        {JSON.stringify(formUserData, null, 2)}
+
       </RegisterContent>
     )
   }
-})
-
+)
 
 const RegisterContent = styled.div`
+ display: flex;
   position: fixed;
   margin-top: 5%;
   height: 100%;
@@ -299,8 +301,9 @@ const CardTop = styled.div`
 `
 const Selects = styled.div`
   margin-top: 40px;
-  margin-left: 10px;
-  margin-left: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+
   display: flex;
   justify-content: space-between;
 `
@@ -342,7 +345,6 @@ const RegisterBtn = styled.div`
     color: #000;
   }
   `
-
 const CardBottom = styled.div`
   display: flex;
   position: relative;
@@ -356,16 +358,16 @@ const AvatarLabel = styled.h3`
   padding-top: 20px;
 `
 const Avatars = styled.div`
-  width: 100%;
+  width: 90%;
   position: absolute;
   bottom: 45px;
-  height: 160px;
+  height: 150px;
 `
 const Bottons = styled.div`
   display: flex;
   width: 100%;
   position: absolute;
-  bottom: -15px;
+  bottom: 15px;
   justify-content: space-around;
 `
 const ContinueLink = styled.a`
@@ -385,7 +387,7 @@ const ContinueLink = styled.a`
   color:#4b4b4b;
   transition: color .2s;
   &:hover{
-  color: #d2d2d2;
+    color: #d2d2d2;
   }
 ` 
 const LeftCloud = styled.img.attrs({

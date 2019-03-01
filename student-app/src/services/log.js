@@ -1,6 +1,7 @@
 import * as api from './api'
 
 const log = logObject => {
+  //Cambiar por = new Date()
   logObject.timestamp = new Date(Date.now())
 
   api.log(logObject)

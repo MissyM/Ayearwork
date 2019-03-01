@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, useCallback, useState } from "react"
 import Slider from "react-slick"
 import styled from 'styled-components'
 
@@ -17,42 +17,48 @@ const StyledSlider = styled(Slider)`
   }
 `
 
-export default class MultipleItems extends Component {
-  render() {
+export default function MultipleItems(props) {
+    console.log(props)
     const settings = {
       dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: 5,
-      slidesToScroll: 3
+      slidesToScroll: 5
     }
     const avatarImages= [
-
-      require('./AvatarResources/A8.png'),
-      require('./AvatarResources/A9.png'),
-      require('./AvatarResources/A10.png'),
-      require('./AvatarResources/A11.png'),
-      require('./AvatarResources/A12.png'),
-      require('./AvatarResources/A13.png'),
-      require('./AvatarResources/A14.png'),
-      require('./AvatarResources/A15.png'),
-      require('./AvatarResources/A16.png'),
-      require('./AvatarResources/A17.png'),
-      require('./AvatarResources/A18.png'),
-      require('./AvatarResources/A19.png'),
-      require('./AvatarResources/A20.png'),
-      require('./AvatarResources/A21.png'),
+      {avatar:'A8', src: require('./AvatarResources/A8.png')},
+      {avatar:'A9', src:  require('./AvatarResources/A9.png')},
+      {avatar:'A10', src:  require('./AvatarResources/A10.png')},
+      {avatar:'A11', src:  require('./AvatarResources/A11.png')},
+      {avatar:'A12', src:  require('./AvatarResources/A12.png')},
+      {avatar:'A13', src:  require('./AvatarResources/A13.png')},
+      {avatar:'A14', src:  require('./AvatarResources/A14.png')},
+      {avatar:'A15', src:  require('./AvatarResources/A15.png')},
+      {avatar:'A16', src:  require('./AvatarResources/A16.png')},
+      {avatar:'A17', src:  require('./AvatarResources/A17.png')},
+      {avatar:'A18', src:  require('./AvatarResources/A18.png')},
+      {avatar:'A19', src:  require('./AvatarResources/A19.png')},
+      {avatar:'A20', src:  require('./AvatarResources/A20.png')},
+      {avatar:'A21', src:  require('./AvatarResources/A21.png')},
     ]
+    
     return (
       <SliderContainer>
+
         <StyledSlider {...settings}>
-          {avatarImages.map(src =>
-            <div>
-              <img src= {src}/>
+          {avatarImages.map(({avatar,src,idx}) =>
+            <div  key={idx}  >
+              <img 
+                style={{paddingLeft:'15px'}}
+                key={idx}
+                src={src} 
+                alt={`${avatar}`}
+                onClick={props.triggerAvatarUpdate}
+              />
             </div>
           )}
         </StyledSlider>
       </SliderContainer>
     );
   }
-}
