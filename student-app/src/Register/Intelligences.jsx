@@ -1,10 +1,16 @@
-import React from "react"
+import React, { useState, useCallback } from "react"
 import styled from 'styled-components'
 import Radio from '@material-ui/core/Radio'
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked'
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked'
 
-
+// const styles = {
+//   root: {
+//     color: green[600],
+//     '&$checked': {
+//       color: green[500],
+//     },
+//   },
+//   checked: {},
+// };
 const intelligences = [
   {intelligence:'cinetico-corporal', src: require('./assetsRegister/IntelligencesResource/cinetico.png')},
   {intelligence:'espacial', src: require('./assetsRegister/IntelligencesResource/espacial.jpg')},
@@ -17,6 +23,13 @@ const intelligences = [
 ]
 
 export default function Intelligences(props) {
+  const [intelligence, setIntelligence] = useState( 'espacial')
+  const handleChange = useCallback((event) => {
+    console.log(event)
+    setIntelligence( event => ({ 
+      intelligence: event.target.value,
+  }))
+  }, [])
   return (
     <IntelligencesContent >
         <Title>Selecciona una figura</Title>
@@ -25,12 +38,17 @@ export default function Intelligences(props) {
             <Item key={idx}>
               <img 
                 styles={{width: '170px', height:'170px'}}
-                
                 src={src} 
                 alt={`${intelligence}`}
-                onClick={props.triggerAvatarUpdate}
+                onClick={event => handleChange("intelligence", event)}
               />
-
+              <Radio
+                checked={selectedValue === intelligence}
+                onChange={event => handleChange("intelligence", event)}
+                value={intelligence}
+                name="radio-button-demo"
+                aria-label={`${intelligence}`}
+              />
             </Item>
           )}
         </GridContainer>

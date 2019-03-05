@@ -2,6 +2,7 @@ import React,  { useState, useCallback } from 'react'
 import { withStyles} from '@material-ui/core/styles'
 import styled from 'styled-components'
 
+import * as api from './api'
 
 import IntelligencesSection from './Intelligences'
 import LearningStylesSection from './LearningStyles'
@@ -28,14 +29,14 @@ export default withStyles(styles)(function Register(props) {
   const handleGoPreviousSection = useCallback(() => {
     setSection(section => section === 'intelligences' ? 'form'
       : section === 'learningStyles' ? 'intelligences' 
-      : console.log(props) )
+      :  )
       console.log(  'formulario ' )
   },[])
 
   const handleGoNextSection = useCallback(() => {
     setSection(section => section === 'form' ? 'intelligences'
       : section === 'intelligences' ? 'learningStyles' 
-      : console.log(props) )
+      : api.register(form) )
       console.log(  'formulario ' )
   },[])
   
