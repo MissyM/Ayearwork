@@ -2,6 +2,9 @@ import React,  { useState, useCallback } from "react"
 import styled from 'styled-components'
 import Carousel from './Carousel'
 
+import * as api from '../services/api'
+
+
 import { withStyles} from '@material-ui/core/styles'
 import Input from '@material-ui/core/Input'
 import FormControl from '@material-ui/core/FormControl'
@@ -78,6 +81,7 @@ export default withStyles(styles)(function Form(props) {
       [fieldName]: value,
     }))
   }, [])
+  api.register(formUserData)
   const { classes } = props
     return (
       <FormSection>

@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from "react"
 import styled from 'styled-components'
 import Radio from '@material-ui/core/Radio'
+import * as api from '../services/api'
+
 
 const intelligences = [
   {intelligence:'cinetico-corporal', src: require('./assetsRegister/IntelligencesResource/cinetico.png')},
@@ -16,10 +18,11 @@ const intelligences = [
 export default function Intelligences() {
 
   const [selectedValue, setSelectedValue] = useState('espacial')
+  console.log(selectedValue)
 
   const handleOptionChange = useCallback((changeEvent) => {
-    console.log(changeEvent.target.value)
     setSelectedValue(changeEvent.target.value)
+    api.register(selectedValue)
   }, [])
   return (
     <IntelligencesContent >

@@ -81,6 +81,14 @@ var createContentServer = function () {
     res.json({ msg: 'success' })
   })
 
+  app.post('/api/register', (req, res) => {
+    const register = req.body
+    if (isDev) {
+      console.log(register )
+    }
+    res.json({ msg: 'success' })
+  })
+
   app.listen(8080, isDev ? 'localhost' : ip.address(), function () {
     console.log('Listening on port 8080!')
   })

@@ -17,7 +17,6 @@ const StyledSlider = styled(Slider)`
 `
 
 export default function MultipleItems(props) {
-    console.log(props)
     const settings = {
       dots: true,
       infinite: true,

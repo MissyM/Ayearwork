@@ -18,14 +18,14 @@ export const log = logObject => {
     body: JSON.stringify(logObject),
   })
 }
-export const register = form => {
+export const register = (form, intelligence, learningStyle) => {
   fetch(`${serverURL}/api/register`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(form),
+    body: JSON.stringify(form, intelligence, learningStyle),
   })
 }
 /// -----

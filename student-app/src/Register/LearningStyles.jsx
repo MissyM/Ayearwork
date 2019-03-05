@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react"
 import styled from 'styled-components'
 import Radio from '@material-ui/core/Radio'
-
+import * as api from '../services/api'
 
 const learningStyles = [
   {learningStyle:'1', src: require('./assetsRegister/LearningStylesResources/1.png')},
@@ -16,11 +16,13 @@ const learningStyles = [
 
 export default function LearningStyles() {
   const [selectedValue, setSelectedValue] = useState('1')
+  console.log(selectedValue)
 
   const handleOptionChange = useCallback((changeEvent) => {
-    console.log(changeEvent.target.value)
     setSelectedValue(changeEvent.target.value)
   }, [])
+  api.register(selectedValue)
+
   return (
     <LearningStylesContent >
         <Title>Selecciona una figura</Title>

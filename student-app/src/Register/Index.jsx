@@ -1,7 +1,8 @@
 import React,  { useState, useCallback } from 'react'
 import styled from 'styled-components'
 
-//import * as api from './api'
+import * as api from '../services/api'
+
 
 import IntelligencesSection from './Intelligences'
 import LearningStylesSection from './LearningStyles'
@@ -14,7 +15,7 @@ const sections = {
   intelligences: IntelligencesSection,
   learningStyles: LearningStylesSection,
 }
-export default function Register(props) {
+export default function Register() {
   const [section, setSection] = useState('form')
 
   const handleGoPreviousSection = useCallback(() => {
@@ -26,7 +27,7 @@ export default function Register(props) {
   const handleGoNextSection = useCallback(() => {
     setSection(section => section === 'form' ? 'intelligences'
       : section === 'intelligences' ? 'learningStyles' 
-      : null )
+      : api.register())
   },[])
   
   const Section = sections[section]
