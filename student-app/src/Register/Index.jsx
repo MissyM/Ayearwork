@@ -1,75 +1,64 @@
 import React,  { useState, useCallback } from 'react'
-import { withStyles} from '@material-ui/core/styles'
 import styled from 'styled-components'
 
-import * as api from './api'
+//import * as api from './api'
 
 import IntelligencesSection from './Intelligences'
 import LearningStylesSection from './LearningStyles'
 import FormSection from './Form'
 
 //Import { createSession } from './services/session'
-const styles = () => ({
- 
-})
 
 const sections = {
   form: FormSection,
   intelligences: IntelligencesSection,
   learningStyles: LearningStylesSection,
 }
-export default withStyles(styles)(function Register(props) {
+export default function Register(props) {
   const [section, setSection] = useState('form')
-  // const [selectedIntelligence, setRadioButton]= useState('interpersonal')
-  
-  // const handleChangeIntelligence = useCallback((event) => {
-  //   setRadioButton( selectedIntelligence => selectedIntelligence = event.target.value )
-  // },[])
 
   const handleGoPreviousSection = useCallback(() => {
     setSection(section => section === 'intelligences' ? 'form'
       : section === 'learningStyles' ? 'intelligences' 
-      :  )
-      console.log(  'formulario ' )
+      : 'form' )
   },[])
 
   const handleGoNextSection = useCallback(() => {
     setSection(section => section === 'form' ? 'intelligences'
       : section === 'intelligences' ? 'learningStyles' 
-      : api.register(form) )
-      console.log(  'formulario ' )
+      : null )
   },[])
   
-    const Section = sections[section]
-    return (
-      <RegisterContent>
-        <RightCloud/> 
-        <CardsContent>
-          <LogoContent>
-            <LogoImg />
-          </LogoContent>
-          <Section styles={{ height: '600px', width: '900px'}} />
-          <Bottons>
-            <SkipRegisterBtn >
-                Saltar Registro
-            </SkipRegisterBtn>
-              { (section === 'intelligences' || section === 'learningStyles') ? 
-                <RegisterBtnBack onClick={handleGoPreviousSection} >
-                      Volver
-                </RegisterBtnBack> 
-                : null
-              }
-            <RegisterBtn onClick={handleGoNextSection}>
-                  Continuar
-            </RegisterBtn>
-          </Bottons>
-        </CardsContent>
-        <LeftCloud/>
-        {/* {JSON.stringify(formUserData, null, 2)} */}
-      </RegisterContent>
-    )
-  }
-)
+  const Section = sections[section]
+  return (
+    <RegisterContent>
+      <RightCloud/> 
+      <CardsContent>
+        <LogoContent>
+          <LogoImg />
+        </LogoContent>
+        <Section />
+        <Bottons>
+          <SkipRegisterBtn >
+              Saltar Registro
+          </SkipRegisterBtn>
+            { (section === 'intelligences' || section === 'learningStyles') ? 
+              <RegisterBtnBack onClick={handleGoPreviousSection} >
+                Volver
+              </RegisterBtnBack> 
+              : null
+            }
+          <RegisterBtn onClick={handleGoNextSection}>
+            Continuar
+          </RegisterBtn>
+        </Bottons>
+      </CardsContent>
+      <LeftCloud/>
+      {/* {JSON.stringify(formUserData, null, 2)} */}
+    </RegisterContent>
+  )
+}
+
 const RegisterContent = styled.div`
   display: flex;
   position: fixed;

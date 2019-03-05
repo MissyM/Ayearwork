@@ -18,24 +18,24 @@ import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import classNames from 'classnames'
 
-// const styles = () => ({
-//   cssLabel: {
-//     '&$cssFocused': {
-//       color: grey[400],
-//     },
-//   },
+const styles = () => ({
+  cssLabel: {
+    '&$cssFocused': {
+      color: grey[400],
+    },
+  },
  
-//   cssFocused: {},
-//   cssUnderline: {
-//     '&:after': {
-//       borderBottomColor: grey[400],
-//     },
-//   },
-//   formControl: {
-//     minWidth: 50
-//   },
-//   selectEmpty: {}
-// })
+  cssFocused: {},
+  cssUnderline: {
+    '&:after': {
+      borderBottomColor: grey[400],
+    },
+  },
+  formControl: {
+    minWidth: 50
+  },
+  selectEmpty: {}
+})
 export default withStyles(styles)(function Form(props) {
 
   const [formUserData, setFormUserData] = useState({

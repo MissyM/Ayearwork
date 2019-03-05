@@ -2,33 +2,24 @@ import React, { useState, useCallback } from "react"
 import styled from 'styled-components'
 import Radio from '@material-ui/core/Radio'
 
-// const styles = {
-//   root: {
-//     color: green[600],
-//     '&$checked': {
-//       color: green[500],
-//     },
-//   },
-//   checked: {},
-// };
 const intelligences = [
   {intelligence:'cinetico-corporal', src: require('./assetsRegister/IntelligencesResource/cinetico.png')},
   {intelligence:'espacial', src: require('./assetsRegister/IntelligencesResource/espacial.jpg')},
   {intelligence:'logico-matematica', src: require('./assetsRegister/IntelligencesResource/matematica.png')},
   {intelligence:'musical', src: require('./assetsRegister/IntelligencesResource/musical.png')},
   {intelligence:'naturalista', src: require('./assetsRegister/IntelligencesResource/naturalista.png')},
-  {intelligence:'lingusitica', src: require('./assetsRegister/IntelligencesResource/linguistica.png')},
+  {intelligence:'linguistica', src: require('./assetsRegister/IntelligencesResource/linguistica.png')},
   {intelligence:'interpersonal', src: require('./assetsRegister/IntelligencesResource/interpersonal.png')},
   {intelligence:'intrapersonal', src: require('./assetsRegister/IntelligencesResource/intrapersonal.png')}, 
 ]
 
-export default function Intelligences(props) {
-  const [intelligence, setIntelligence] = useState( 'espacial')
-  const handleChange = useCallback((event) => {
-    console.log(event)
-    setIntelligence( event => ({ 
-      intelligence: event.target.value,
-  }))
+export default function Intelligences() {
+
+  const [selectedValue, setSelectedValue] = useState('espacial')
+
+  const handleOptionChange = useCallback((changeEvent) => {
+    console.log(changeEvent.target.value)
+    setSelectedValue(changeEvent.target.value)
   }, [])
   return (
     <IntelligencesContent >
@@ -37,17 +28,14 @@ export default function Intelligences(props) {
           {intelligences.map(({intelligence, src}, idx) => 
             <Item key={idx}>
               <img 
-                styles={{width: '170px', height:'170px'}}
                 src={src} 
-                alt={`${intelligence}`}
-                onClick={event => handleChange("intelligence", event)}
+                alt={intelligence}
               />
-              <Radio
-                checked={selectedValue === intelligence}
-                onChange={event => handleChange("intelligence", event)}
-                value={intelligence}
-                name="radio-button-demo"
-                aria-label={`${intelligence}`}
+              <RadioButton 
+                value={intelligence} 
+                checked={selectedValue === intelligence }
+                color="default"
+                onChange={handleOptionChange}
               />
             </Item>
           )}
@@ -75,4 +63,9 @@ const Item = styled.div`
   justify-content: center;
   align-items: center;
   background-color: 'red';
+`
+const RadioButton = styled(Radio)`
+  position: fixed;
+  top: 60px;
+  right: 25px;
 `

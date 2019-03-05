@@ -1,5 +1,7 @@
-import React from "react"
+import React, { useState, useCallback } from "react"
 import styled from 'styled-components'
+import Radio from '@material-ui/core/Radio'
+
 
 const learningStyles = [
   {learningStyle:'1', src: require('./assetsRegister/LearningStylesResources/1.png')},
@@ -13,6 +15,12 @@ const learningStyles = [
 ]
 
 export default function LearningStyles() {
+  const [selectedValue, setSelectedValue] = useState('1')
+
+  const handleOptionChange = useCallback((changeEvent) => {
+    console.log(changeEvent.target.value)
+    setSelectedValue(changeEvent.target.value)
+  }, [])
   return (
     <LearningStylesContent >
         <Title>Selecciona una figura</Title>
@@ -25,7 +33,14 @@ export default function LearningStyles() {
                 src={src} 
                 alt={`${learningStyle}`}
               />
+              <RadioButton 
+                value={learningStyle} 
+                checked={selectedValue === learningStyle }
+                color="default"
+                onChange={handleOptionChange}
+              />
             </Item>
+            
           )}
         </GridContainer>
     </LearningStylesContent>
@@ -53,4 +68,9 @@ const Item = styled.div`
   justify-content: center;
   align-items: center;
   background-color: 'red';
+`
+const RadioButton = styled(Radio)`
+  position: fixed;
+  top: 65px;
+  right: 18px;
 `
