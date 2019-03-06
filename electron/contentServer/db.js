@@ -36,19 +36,19 @@ module.exports = {
   get(id) {
     state.data.find(doc => doc.id === id)
   },
-  put(doc) {
-    const otherDoc = state.data.find(doc => doc.id === id)
+  put(newDoc) {
+    const otherDoc = state.data.find(doc => doc.id === newDoc)
     if (otherDoc) {
       return false
     }
-    state.data.push(doc)
+    state.data.push(newDoc)
     save()
     return true
   },
-  edit(doc) {
-    const otherDoc = state.data.find(doc => doc.id === id)
-    if (otherDoc) {
-      Object.assign(otherDoc, doc)
+  edit(modifiedDoc) {
+    const doc = state.data.find(doc => doc.id === modifiedDoc.id)
+    if (doc) {
+      Object.assign(doc, modifiedDoc)
       return true
     }
     save()
