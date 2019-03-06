@@ -53,13 +53,14 @@ export default function Register() {
   },[])
 
   const handleGoNextSection = useCallback(() => {
+    if (section === 'learningStyles') {
+      register()
+      return
+    }
     setSection(section => section === 'form' ? 'intelligences'
       : section === 'intelligences' ? 'learningStyles' 
       : ''
     )
-    if (section === 'learningStyles') {
-      register()
-    }
   },[])
 
   const register = useCallback(() => {
@@ -79,7 +80,7 @@ export default function Register() {
         <LogoContent>
           <LogoImg />
         </LogoContent>
-        {section && <Section fieldChangeHandler={fieldChangeHandler} data={formUserData}/>}
+        <Section fieldChangeHandler={fieldChangeHandler} data={formUserData}/>
         <Bottons>
           <SkipRegisterBtn >
             Saltar Registro
