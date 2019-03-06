@@ -12,8 +12,12 @@ if (storageContent) {
 }
 
 module.exports = {
-  find(type) {
-    return state.data.find(doc => doc.type === type)
+  find(type, fn) {
+    if (fn) {
+      return state.data.filter(doc => doc.type === type && fn(doc))
+    } else {
+      return state.data.filter(doc => doc.type === type)
+    }
   },
   get(id) {
     state.data.find(doc => doc.id === id)

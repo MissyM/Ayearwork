@@ -5,7 +5,8 @@ const cors = require('cors')
 const ip = require('ip')
 const bodyParser = require('body-parser')
 const isDev = require('electron-is-dev')
-const PouchDB = require('pouchdb/dist/pouchdb')
+const uuidV4 = require('uuid/v4')
+// const PouchDB = require('pouchdb/dist/pouchdb')
 const db = require('./db')
 
 const electron = require('electron')
@@ -84,11 +85,34 @@ var createContentServer = function () {
   })
 
   app.post('/api/register', (req, res) => {
-    const register = req.body
+    const data = req.body
     if (isDev) {
-      console.log(register)
+      console.log(data)
     }
-    res.json({ msg: 'success' })
+    const id = uuidV4()
+    const res = db.put({
+      ...data,
+      id,
+      type: 'user',
+    })
+    if (res) {
+      res.json({ msg: 'success', id })
+    } else {
+      res.status(401).json({ msg: 'unauthorized' })
+    }
+  })
+
+  app.post('/api/login', (req, res) => {
+    const data = req.body
+    if (isDev) {
+      console.log(data)
+    }
+    const res = db.find('user', user => user.username === data.username)
+    if (res.length > 0) {
+      res.json({ msg: 'success' })
+    } else {
+      res.status(401).json({ msg: 'unauthorized' })
+    }
   })
 
   app.listen(8080, isDev ? 'localhost' : ip.address(), function () {
