@@ -2,7 +2,6 @@ import React,  { useState, useCallback } from "react"
 import styled from 'styled-components'
 import Carousel from './Carousel'
 
-import * as api from '../services/api'
 
 
 import { withStyles} from '@material-ui/core/styles'

@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useCallback, useState } from "react"
 import styled from 'styled-components'
 import { checkPropTypes } from "prop-types";
 
 const ProfileContent = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +15,12 @@ const ProfileContent = styled.div`
   width:200px;
   padding: 10px;
   background-color: red;
+  transition: height 5s;
+
 `
 const AvatarContent= styled.div`
+  position: absolute;
+  top: 10px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -33,21 +38,31 @@ const Avatar = styled.img.attrs({
   height: 50px;
   width:50px;
 `
-
 const ProfileData= styled.div`
   height: 110px;
   width:190px;
   padding: 5px;
+  margin-top: 30px;
   background-color: white;
 `
 export default function Profile() {
+  const [hideData, setHideData] = useState(false)
+  const handlerHideData = useCallback(() => {
+    setHideData(hideData => !hideData)
+ },[] )
+
   return (
     <ProfileContent>
-      <AvatarContent>
+      <AvatarContent 
+        onClick={handlerHideData}
+      >
        <Avatar/>
       </AvatarContent>
-      <ProfileData>
-         Bienvenido, regístrate y personaliza tu perfil!
-      </ProfileData>
+      { hideData ?
+        <ProfileData>
+          Bienvenido, regístrate y personaliza tu perfil!
+        </ProfileData>
+        : null
+      }
     </ProfileContent>  )
 }
