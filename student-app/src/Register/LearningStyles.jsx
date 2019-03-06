@@ -20,10 +20,12 @@ export default function LearningStyles(props) {
         <Title>Selecciona una figura</Title>
         <GridContainer>
           {learningStyles.map(({learningStyle, src}, idx) => 
-            <Item key={idx}>
+            <Item
+              key={idx}
+              onClick={()=>fieldChangeHandler("selectedLearningStyle", learningStyle)}
+            >
               <img 
                 styles={{width: '200px', height:'120px'}}
-                
                 src={src} 
                 alt={learningStyle}
               />
@@ -31,7 +33,6 @@ export default function LearningStyles(props) {
                 value={learningStyle} 
                 checked={data.selectedLearningStyle === learningStyle }
                 color="default"
-                onChange={()=>fieldChangeHandler("selectedLearningStyle", learningStyle)}
               />
             </Item>
           )}

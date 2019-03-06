@@ -20,7 +20,10 @@ export default function Intelligences(props) {
         <Title>Selecciona una figura</Title>
         <GridContainer >
           {intelligences.map(({intelligence, src}, idx) => 
-            <Item key={idx}>
+            <Item
+              key={idx}
+              onClick={()=>fieldChangeHandler("selectedIntelligence", intelligence)}
+            >
               <img 
                 src={src} 
                 alt={intelligence}
@@ -29,7 +32,6 @@ export default function Intelligences(props) {
                 value={intelligence} 
                 checked={data.selectedIntelligence === intelligence }
                 color="default"
-                onChange={()=>fieldChangeHandler("selectedIntelligence", intelligence)}
               />
             </Item>
           )}
