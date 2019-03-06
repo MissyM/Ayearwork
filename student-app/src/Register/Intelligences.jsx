@@ -1,8 +1,6 @@
-import React, { useState, useCallback } from "react"
+import React from "react"
 import styled from 'styled-components'
 import Radio from '@material-ui/core/Radio'
-import * as api from '../services/api'
-
 
 const intelligences = [
   {intelligence:'cinetico-corporal', src: require('./assetsRegister/IntelligencesResource/cinetico.png')},
@@ -15,15 +13,8 @@ const intelligences = [
   {intelligence:'intrapersonal', src: require('./assetsRegister/IntelligencesResource/intrapersonal.png')}, 
 ]
 
-export default function Intelligences() {
-
-  const [selectedValue, setSelectedValue] = useState('espacial')
-  console.log(selectedValue)
-
-  const handleOptionChange = useCallback((changeEvent) => {
-    setSelectedValue(changeEvent.target.value)
-    api.register(selectedValue)
-  }, [])
+export default function Intelligences(props) {
+  const { fieldChangeHandler, data } = props
   return (
     <IntelligencesContent >
         <Title>Selecciona una figura</Title>
@@ -36,9 +27,9 @@ export default function Intelligences() {
               />
               <RadioButton 
                 value={intelligence} 
-                checked={selectedValue === intelligence }
+                checked={data.selectedIntelligence === intelligence }
                 color="default"
-                onChange={handleOptionChange}
+                onChange={()=>fieldChangeHandler("selectedIntelligence", intelligence)}
               />
             </Item>
           )}

@@ -17,7 +17,36 @@ const sections = {
 }
 export default function Register() {
   const [section, setSection] = useState('form')
+  const [formUserData, setFormUserData] = useState({
+    userName: '',
+    grade: '',
+    gender: '',
+    password:'',
+    age: '',
+    name:'',
+    avatar: '',
+    selectedLearningStyle:'',
+    selectedIntelligence:''
+  })
+  const fieldChangeHandler = useCallback((fieldName, ev) => {
+    let value
+    if (fieldName === 'avatar'){
+      value = ev.target.alt
+    } else if(fieldName === 'selectedLearningStyle') { 
+      value = ev
+    }else if(fieldName === 'selectedIntelligence') { 
+      value = ev
+    } else { 
+      value = ev.target.value
+    }
+    setFormUserData( formUserData => ({
+      ...formUserData,
+      [fieldName]: value,
+    }))
+    console.log(formUserData)
 
+  }, [])
+  
   const handleGoPreviousSection = useCallback(() => {
     setSection(section => section === 'intelligences' ? 'form'
       : section === 'learningStyles' ? 'intelligences' 
@@ -27,7 +56,7 @@ export default function Register() {
   const handleGoNextSection = useCallback(() => {
     setSection(section => section === 'form' ? 'intelligences'
       : section === 'intelligences' ? 'learningStyles' 
-      : api.register())
+      : api.register(formUserData))
   },[])
   
   const Section = sections[section]
@@ -38,7 +67,7 @@ export default function Register() {
         <LogoContent>
           <LogoImg />
         </LogoContent>
-        <Section />
+        <Section fieldChangeHandler={fieldChangeHandler} data={formUserData}/>
         <Bottons>
           <SkipRegisterBtn >
               Saltar Registro
@@ -172,26 +201,6 @@ const Bottons = styled.div`
   bottom: 15px;
   justify-content: space-around;
 `
-const ContinueLink = styled.a`
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;
-  width: 205px;
-  height: 50px;
-  margin-top: 30px;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  letter-spacing: .2em;
-  text-align: center;
-  padding: 5px;
-  color:#4b4b4b;
-  transition: color .2s;
-  &:hover{
-    color: #d2d2d2;
-  }
-` 
 const LeftCloud = styled.img.attrs({
   src: require('../assetsStudent/nube_izquierda.png'),
   alt: "Nube baja",
@@ -203,11 +212,3 @@ const LeftCloud = styled.img.attrs({
   height: 400px;
   z-index: -1;
 `
-const IconSkip = styled.img.attrs({
-  src: require('../Dashboard/assetsDashboard/share.png')
-}) `
-  width: 30px;
-  height: 30px;
-`
-
-

@@ -7,6 +7,7 @@ import Register from './Register/Index'
 
 import './services/session'
 import './index.css'
+window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 
 ReactDOM.render(<Register />, document.getElementById('root'));
 

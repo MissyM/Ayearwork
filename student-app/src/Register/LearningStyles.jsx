@@ -1,7 +1,6 @@
-import React, { useState, useCallback } from "react"
+import React from "react"
 import styled from 'styled-components'
 import Radio from '@material-ui/core/Radio'
-import * as api from '../services/api'
 
 const learningStyles = [
   {learningStyle:'1', src: require('./assetsRegister/LearningStylesResources/1.png')},
@@ -14,35 +13,27 @@ const learningStyles = [
   {learningStyle:'8', src: require('./assetsRegister/LearningStylesResources/8.png')}, 
 ]
 
-export default function LearningStyles() {
-  const [selectedValue, setSelectedValue] = useState('1')
-  console.log(selectedValue)
-
-  const handleOptionChange = useCallback((changeEvent) => {
-    setSelectedValue(changeEvent.target.value)
-  }, [])
-  api.register(selectedValue)
-
+export default function LearningStyles(props) {
+  const { fieldChangeHandler, data } = props
   return (
     <LearningStylesContent >
         <Title>Selecciona una figura</Title>
         <GridContainer>
           {learningStyles.map(({learningStyle, src}, idx) => 
-            <Item>
+            <Item key={idx}>
               <img 
                 styles={{width: '200px', height:'120px'}}
-                key={idx}
+                
                 src={src} 
-                alt={`${learningStyle}`}
+                alt={learningStyle}
               />
               <RadioButton 
                 value={learningStyle} 
-                checked={selectedValue === learningStyle }
+                checked={data.selectedLearningStyle === learningStyle }
                 color="default"
-                onChange={handleOptionChange}
+                onChange={()=>fieldChangeHandler("selectedLearningStyle", learningStyle)}
               />
             </Item>
-            
           )}
         </GridContainer>
     </LearningStylesContent>

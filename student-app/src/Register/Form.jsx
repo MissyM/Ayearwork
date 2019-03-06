@@ -40,27 +40,15 @@ const styles = () => ({
   selectEmpty: {}
 })
 export default withStyles(styles)(function Form(props) {
-
-  const [formUserData, setFormUserData] = useState({
-    userfullname: '',
-    grade: '',
-    gender: '',
-    password:'',
-    age: '',
-    name:'',
-    avatar: '',
-  })
-  
+  const { classes, fieldChangeHandler, data } = props
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState(false)
-
   const start = useCallback(() => {
-    if (formUserData.userfullname===''){
+    if (data.userName===''){
       setError(true)
     }
   },[])
-
-  const handleUserfullnameKeyUp = useCallback(ev => {
+  const handleUserNameKeyUp = useCallback(ev => {
     if (ev.keyCode === 13) {
       start()
     }
@@ -69,20 +57,6 @@ export default withStyles(styles)(function Form(props) {
     setShowPassword(showPassword => !showPassword)
   },[])
 
-  const fieldChangeHandler = useCallback((fieldName, ev) => {
-    let value
-    if (fieldName === 'avatar'){
-      value = ev.target.alt
-    } else { 
-      value = ev.target.value
-    }
-    setFormUserData( formUserData => ({
-      ...formUserData,
-      [fieldName]: value,
-    }))
-  }, [])
-  api.register(formUserData)
-  const { classes } = props
     return (
       <FormSection>
         <Title>Registrate para que puedas personalizar tu avatar y ganar monedas</Title>
@@ -90,7 +64,6 @@ export default withStyles(styles)(function Form(props) {
           <UpCard>
             <InputNameContent>
               <FormControl  fullWidth={true} className={classNames(classes.margin, classes.textField)}>
-                {/* Input fullname */}
                 <InputLabel
                   htmlFor="custom-css-standard-input"
                   classes={{
@@ -103,12 +76,12 @@ export default withStyles(styles)(function Form(props) {
                 <Input
                   id="custom-css-standard-input"
                   error={error}
-                  value={formUserData.userfullname}
-                  onChange={ev=>fieldChangeHandler("userfullname", ev)}
+                  value={data.userName}
+                  onChange={ev=>fieldChangeHandler("userName", ev)}
                   classes={{
                     underline: props.classes.cssUnderline,
                   }}
-                  onKeyUp={handleUserfullnameKeyUp}
+                  onKeyUp={handleUserNameKeyUp}
                 />
               </FormControl>
             </InputNameContent>
@@ -126,7 +99,7 @@ export default withStyles(styles)(function Form(props) {
                 <Input
                   id="adornment-password"
                   type={showPassword ? 'text' : 'password'}
-                  value={formUserData.password}
+                  value={data.password}
                   onChange={ev=>fieldChangeHandler("password", ev)}
                   classes={{
                     underline: props.classes.cssUnderline,
@@ -150,7 +123,7 @@ export default withStyles(styles)(function Form(props) {
               <FormControl style={{marginRight: '30px'}} fullWidth={true} variant="filled" className={classes.formControl}>
                 <InputLabel htmlFor="filled-age-simple">Edad</InputLabel>
                 <Select
-                  value={formUserData.age}
+                  value={data.age}
                   onChange={ev=>fieldChangeHandler("age", ev)}
                   input={<FilledInput name="age" id="filled-age-simple" />}
                 >
@@ -170,7 +143,7 @@ export default withStyles(styles)(function Form(props) {
               <FormControl fullWidth={true} variant="filled" className={classes.formControl}>
                 <InputLabel htmlFor="filled-gender-simple">Género</InputLabel>
                 <Select
-                  value={formUserData.gender}
+                  value={data.gender}
                   onChange={ev=>fieldChangeHandler("gender", ev)}
                   input={<FilledInput name="gender" id="filled-gender-simple" />}
                 >
@@ -184,7 +157,7 @@ export default withStyles(styles)(function Form(props) {
               <FormControl style={{marginRight: '30px', marginLeft: '30px'}} fullWidth={true} variant="filled" className={classes.formControl}>
                 <InputLabel htmlFor="filled-grade-simple">Grado</InputLabel>
                 <Select
-                  value={formUserData.grade}
+                  value={data.grade}
                   onChange={ev=>fieldChangeHandler("grade", ev)}
                   input={<FilledInput name="grade" id="filled-grade-simple" />}
                 >
@@ -205,7 +178,7 @@ export default withStyles(styles)(function Form(props) {
         <CardBottom>
           <AvatarLabel>Selecciona tu Avatar</AvatarLabel>
           <Avatars  >
-            <Carousel triggerAvatarUpdate={ev => fieldChangeHandler("avatar", ev)}/>
+            <Carousel fieldChangeHandler={fieldChangeHandler} />
           </Avatars>
         </CardBottom>
       </FormSection> 
