@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react"
 import styled from 'styled-components'
-import { checkPropTypes } from "prop-types";
 
 const ProfileContent = styled.div`
   position: relative;
@@ -14,7 +13,7 @@ const ProfileContent = styled.div`
   height: 200px;
   width:200px;
   padding: 10px;
-  background-color: red;
+  z-index: 10;
 `
 const AvatarContent= styled.div`
   position: absolute;
@@ -58,7 +57,7 @@ export default function Profile() {
       </AvatarContent>
       { hideData ?
         <ProfileData>
-          Bienvenido, regístrate y personaliza tu perfil!
+          <h3>Bienvenido, regístrate y personaliza tu perfil!</h3>
         </ProfileData>
         : null
       }
