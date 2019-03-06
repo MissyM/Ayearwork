@@ -1,5 +1,6 @@
 const electron = require('electron')
 const fs = require('fs')
+const path = require('path')
 const app = electron.app
 
 const userPath = app.getPath('userData')
