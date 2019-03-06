@@ -34,30 +34,45 @@ export default function Register() {
       value = ev.target.alt
     } else if(fieldName === 'selectedLearningStyle') { 
       value = ev
-    }else if(fieldName === 'selectedIntelligence') { 
+    } else if(fieldName === 'selectedIntelligence') { 
       value = ev
     } else { 
       value = ev.target.value
     }
-    setFormUserData( formUserData => ({
+    setFormUserData({ // forma de funcion no es necesaria
       ...formUserData,
       [fieldName]: value,
-    }))
-  }, [])
+    })
+
+  }, [formUserData]) // <--- el callback depende del estado de "formUserData"
   
   const handleGoPreviousSection = useCallback(() => {
     setSection(section => section === 'intelligences' ? 'form'
       : section === 'learningStyles' ? 'intelligences' 
       : 'form' )
-  },[])
+  }, [section])
 
   const handleGoNextSection = useCallback(() => {
+    if (section === 'learningStyles') {
+      register()
+      return
+    }
     setSection(section => section === 'form' ? 'intelligences'
-      : section === 'intelligences' ? 'learningStyles' 
-      : api.register(formUserData))
-  },[])
+      : section === 'intelligences' ? 'learningStyles'
+      : ''
+    )
+  }, [section])
+
+  const register = useCallback(() => {
+    api.register(formUserData)
+      .then(res => alert('Usuario registrado id = ' + res.id))
+      .catch(() => alert('Error de autenticación'))
+  }, [formUserData])
   
   const Section = sections[section]
+
+  console.log(formUserData) // <--- logs del estado afuera
+
   return (
     <RegisterContent>
       <RightCloud/> 
@@ -68,7 +83,7 @@ export default function Register() {
         <Section fieldChangeHandler={fieldChangeHandler} data={formUserData}/>
         <Bottons>
           <SkipRegisterBtn >
-              Saltar Registro
+            Saltar Registro
           </SkipRegisterBtn>
             { (section === 'intelligences' || section === 'learningStyles') ? 
               <RegisterBtnBack onClick={handleGoPreviousSection} >

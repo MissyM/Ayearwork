@@ -19,7 +19,7 @@ export const log = logObject => {
   })
 }
 
-export const login = data => {
+export const login = data =>
   fetch(`${serverURL}/api/login`, {
     method: 'POST',
     headers: {
@@ -28,9 +28,8 @@ export const login = data => {
     },
     body: JSON.stringify(data),
   }).then(r => r.json())
-}
 
-export const register = data => {
+export const register = data =>
   fetch(`${serverURL}/api/register`, {
     method: 'POST',
     headers: {
@@ -39,7 +38,6 @@ export const register = data => {
     },
     body: JSON.stringify(data),
   }).then(r => r.json())
-}
 
 /// -----
 
