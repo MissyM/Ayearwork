@@ -50,7 +50,7 @@ export default function Register() {
     setSection(section => section === 'intelligences' ? 'form'
       : section === 'learningStyles' ? 'intelligences' 
       : 'form' )
-  },[])
+  }, [section])
 
   const handleGoNextSection = useCallback(() => {
     if (section === 'learningStyles') {
@@ -58,10 +58,10 @@ export default function Register() {
       return
     }
     setSection(section => section === 'form' ? 'intelligences'
-      : section === 'intelligences' ? 'learningStyles' 
+      : section === 'intelligences' ? 'learningStyles'
       : ''
     )
-  },[])
+  }, [section])
 
   const register = useCallback(() => {
     api.register(formUserData)
