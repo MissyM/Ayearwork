@@ -34,12 +34,12 @@ export default function Register() {
       value = ev.target.alt
     } else if(fieldName === 'selectedLearningStyle') { 
       value = ev
-    }else if(fieldName === 'selectedIntelligence') { 
+    } else if(fieldName === 'selectedIntelligence') { 
       value = ev
     } else { 
       value = ev.target.value
     }
-    setFormUserData( formUserData => ({
+    setFormUserData(formUserData => ({
       ...formUserData,
       [fieldName]: value,
     }))
