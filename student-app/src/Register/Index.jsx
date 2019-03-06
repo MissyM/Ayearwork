@@ -55,11 +55,16 @@ export default function Register() {
   const handleGoNextSection = useCallback(() => {
     setSection(section => section === 'form' ? 'intelligences'
       : section === 'intelligences' ? 'learningStyles' 
-      : register())
+      : ''
+    )
+    if (section === 'learningStyles') {
+      register()
+    }
   },[])
 
   const register = useCallback(() => {
     api.register(formUserData)
+      .then(res => alert('Usuario registrado id = ' + res.id))
       .catch(() => alert('Error de autenticación'))
   }, [formUserData])
   
@@ -74,7 +79,7 @@ export default function Register() {
         <LogoContent>
           <LogoImg />
         </LogoContent>
-        <Section fieldChangeHandler={fieldChangeHandler} data={formUserData}/>
+        {section && <Section fieldChangeHandler={fieldChangeHandler} data={formUserData}/>}
         <Bottons>
           <SkipRegisterBtn >
             Saltar Registro
