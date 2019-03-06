@@ -5,6 +5,8 @@ const cors = require('cors')
 const ip = require('ip')
 const bodyParser = require('body-parser')
 const isDev = require('electron-is-dev')
+const PouchDB = require('pouchdb/dist/pouchdb')
+const db = require('./db')
 
 const electron = require('electron')
 const app = electron.app
@@ -74,9 +76,9 @@ var createContentServer = function () {
   app.post('/api/log', (req, res) => {
     const log = req.body
     if (isDev) {
-      console.log(log )
+      console.log(log)
     }
-    //Se adjunta el log al archivo yupay-logs.txt
+    // Se adjunta el log al archivo yupay-logs.txt
     fs.appendFileSync(yupayLogsFile, JSON.stringify(log) + '\n', 'utf8')
     res.json({ msg: 'success' })
   })
@@ -84,7 +86,7 @@ var createContentServer = function () {
   app.post('/api/register', (req, res) => {
     const register = req.body
     if (isDev) {
-      console.log(register )
+      console.log(register)
     }
     res.json({ msg: 'success' })
   })

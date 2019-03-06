@@ -18,17 +18,29 @@ export const log = logObject => {
     body: JSON.stringify(logObject),
   })
 }
-export const register = (formUserData) => {
+
+export const login = data => {
+  fetch(`${serverURL}/api/login`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then(r => r.json())
+}
+
+export const register = data => {
   fetch(`${serverURL}/api/register`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(formUserData),
-  })
-
+    body: JSON.stringify(data),
+  }).then(r => r.json())
 }
+
 /// -----
 
 export const allResources = [...resources]
