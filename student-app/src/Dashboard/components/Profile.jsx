@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from "react"
 import styled from 'styled-components'
+import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const ProfileContent = styled.div`
   position: relative;
@@ -42,6 +44,7 @@ const ProfileData= styled.div`
   margin-top: 30px;
   background-color: white;
 `
+
 export default function Profile() {
   const [hideData, setHideData] = useState(false)
   const handlerHideData = useCallback(() => {
