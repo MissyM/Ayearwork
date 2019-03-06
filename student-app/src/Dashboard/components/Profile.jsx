@@ -15,8 +15,6 @@ const ProfileContent = styled.div`
   width:200px;
   padding: 10px;
   background-color: red;
-  transition: height 5s;
-
 `
 const AvatarContent= styled.div`
   position: absolute;
