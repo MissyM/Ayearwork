@@ -39,13 +39,12 @@ export default function Register() {
     } else { 
       value = ev.target.value
     }
-    setFormUserData(formUserData => ({
+    setFormUserData({ // forma de funcion no es necesaria
       ...formUserData,
       [fieldName]: value,
-    }))
-    console.log(formUserData)
+    })
 
-  }, [])
+  }, [formUserData]) // <--- el callback depende del estado de "formUserData"
   
   const handleGoPreviousSection = useCallback(() => {
     setSection(section => section === 'intelligences' ? 'form'
@@ -60,6 +59,9 @@ export default function Register() {
   },[])
   
   const Section = sections[section]
+
+  console.log(formUserData) // <--- logs del estado afuera
+
   return (
     <RegisterContent>
       <RightCloud/> 
