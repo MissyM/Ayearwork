@@ -90,12 +90,12 @@ var createContentServer = function () {
       console.log(data)
     }
     const id = uuidV4()
-    const res = db.put({
+    const result = db.put({
       ...data,
       id,
       type: 'user',
     })
-    if (res) {
+    if (result) {
       res.json({ msg: 'success', id })
     } else {
       res.status(401).json({ msg: 'unauthorized' })
@@ -107,9 +107,9 @@ var createContentServer = function () {
     if (isDev) {
       console.log(data)
     }
-    const res = db.find('user', user => user.username === data.username)
-    if (res.length > 0) {
-      res.json({ msg: 'success' })
+    const result = db.find('user', user => user.username === data.username)
+    if (result.length > 0) {
+      res.json({ msg: 'success', id: result[0].id })
     } else {
       res.status(401).json({ msg: 'unauthorized' })
     }

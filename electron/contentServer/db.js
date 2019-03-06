@@ -8,13 +8,21 @@ const dbFile = path.join(userPath, 'yupay-db.json')
 
 const state = { data: undefined }
 
-const storageContent = fs.readFileSync(dbFile, 'utf-8')
+let storageContent
+
+if (fs.existsSync(dbFile)) {
+  storageContent = fs.readFileSync(dbFile, 'utf-8')
+}
 
 if (storageContent) {
   state.data = JSON.parse(storageContent)
 } else {
   fs.writeFileSync(dbFile, '[]', 'utf-8')
   state.data = []
+}
+
+function save() {
+  fs.writeFileSync(dbFile, JSON.stringify(state.data, null, 2), 'utf-8')
 }
 
 module.exports = {
@@ -34,6 +42,7 @@ module.exports = {
       return false
     }
     state.data.push(doc)
+    save()
     return true
   },
   edit(doc) {
@@ -42,6 +51,7 @@ module.exports = {
       Object.assign(otherDoc, doc)
       return true
     }
+    save()
     return false
   },
 }
