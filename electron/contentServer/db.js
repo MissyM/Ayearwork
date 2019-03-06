@@ -1,13 +1,18 @@
+const electron = require('electron')
+const fs = require('fs')
+const app = electron.app
+
+const userPath = app.getPath('userData')
+const dbFile = path.join(userPath, 'yupay-db.json')
 
 const state = { data: undefined }
-const LOCALSTORAGE_DB_KEY = 'yupaydb'
 
-const storageContent = localStorage.getItem(LOCALSTORAGE_DB_KEY)
+const storageContent = fs.readFileSync(dbFile, 'utf-8')
 
 if (storageContent) {
   state.data = JSON.parse(storageContent)
 } else {
-  localStorage.setItem(LOCALSTORAGE_DB_KEY, '[]')
+  fs.writeFileSync(dbFile, '[]', 'utf-8')
   state.data = []
 }
 

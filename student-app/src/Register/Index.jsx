@@ -55,8 +55,13 @@ export default function Register() {
   const handleGoNextSection = useCallback(() => {
     setSection(section => section === 'form' ? 'intelligences'
       : section === 'intelligences' ? 'learningStyles' 
-      : api.register(formUserData))
+      : register())
   },[])
+
+  const register = useCallback(() => {
+    api.register(formUserData)
+      .catch(() => alert('Error de autenticación'))
+  }, [formUserData])
   
   const Section = sections[section]
 
@@ -72,7 +77,7 @@ export default function Register() {
         <Section fieldChangeHandler={fieldChangeHandler} data={formUserData}/>
         <Bottons>
           <SkipRegisterBtn >
-              Saltar Registro
+            Saltar Registro
           </SkipRegisterBtn>
             { (section === 'intelligences' || section === 'learningStyles') ? 
               <RegisterBtnBack onClick={handleGoPreviousSection} >
