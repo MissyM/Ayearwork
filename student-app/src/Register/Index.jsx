@@ -43,8 +43,6 @@ export default function Register() {
       ...formUserData,
       [fieldName]: value,
     }))
-    console.log(formUserData)
-
   }, [])
   
   const handleGoPreviousSection = useCallback(() => {

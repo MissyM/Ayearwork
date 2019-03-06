@@ -213,15 +213,6 @@ const NextResourceDivider = styled.div`
   width: 100%;
   border-bottom: 1.5px solid #d8d8e0;
 `
-const PreviewIcon = styled.img.attrs ({
-  src: props => props.type === 'pdf'
-    ? require("../assetsDashboard/ic-pdf.png")
-    : require("../assetsDashboard/ic.video.png"),
-  alt: props => props.type,
-})`
-  height: 80px;
-  width: auto;
-`
 const PreviewContainer = styled.div`
   margin-top: 10px;
   display: flex;
