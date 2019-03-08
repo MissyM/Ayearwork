@@ -187,7 +187,7 @@ export default withStyles(styles)(function Form(props) {
 
 const Title = styled.h3`
   color: #4b4b4b;
-  margin-top: 85px;
+  margin-top: 80px;
   margin-left: 150px;
   text-align: center;
   width: 600px;

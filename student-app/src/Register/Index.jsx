@@ -115,7 +115,7 @@ const CardsContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 600px;
+  height: 550px;
   width: 900px;
   box-shadow: 0px 10px 28px 4px #d2d2d2;
 `

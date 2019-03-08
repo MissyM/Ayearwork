@@ -43,10 +43,8 @@ export default function LearningStyles(props) {
 
 const LearningStylesContent = styled.div`
   position: relative;
-  top: 65px;
-  height: 455px;
-  width:880px;
-  padding: 10px;
+  top: 70px;
+  margin-left:30px;
 `
 const Title = styled.h3`
   color: #4b4b4b;
@@ -54,8 +52,8 @@ const Title = styled.h3`
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
-  grid-template-rows: 200px 120px;
+  grid-gap: 2px;
+  grid-template-rows: 150px 120px;
 `
 const Item = styled.div`
   display: flex;

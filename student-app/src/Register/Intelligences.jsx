@@ -42,8 +42,7 @@ export default function Intelligences(props) {
 
 const IntelligencesContent = styled.div`
   position: relative;
-  top: 25px;
-  padding: 20px;
+  top: 10px;
 `
 const Title = styled.h3`
   color: #4b4b4b;
