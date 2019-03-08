@@ -50,7 +50,7 @@ export default function MultipleItems(props) {
           {avatarImages.map(({avatar, src}, idx) =>
             <Container key={idx} >
               <img 
-                style={{paddingLeft:'15px' , cursor: 'pointer'}}
+                style={{paddingLeft:'7px' , cursor: 'pointer'}}
                 src={src} 
                 alt={avatar}
                 onClick={(ev) => fieldChangeHandler("avatar", ev)}
