@@ -1,8 +1,6 @@
-import React,  { useState, useCallback } from "react"
+ import React,  { useState, useCallback } from "react"
 import styled from 'styled-components'
 import Carousel from './Carousel'
-
-
 
 import { withStyles} from '@material-ui/core/styles'
 import Input from '@material-ui/core/Input'
@@ -39,19 +37,9 @@ const styles = () => ({
   selectEmpty: {}
 })
 export default withStyles(styles)(function Form(props) {
-  const { classes, fieldChangeHandler, data } = props
+  const { classes, fieldChangeHandler, data,handleUserNameKeyUp, error} = props
   const [showPassword, setShowPassword] = useState(false)
-  const [error, setError] = useState(false)
-  const start = useCallback(() => {
-    if (data.userName===''){
-      setError(true)
-    }
-  },[])
-  const handleUserNameKeyUp = useCallback(ev => {
-    if (ev.keyCode === 13) {
-      start()
-    }
-  },[])
+
   const handleClickShowPassword = useCallback(() => {
     setShowPassword(showPassword => !showPassword)
   },[])
@@ -80,7 +68,7 @@ export default withStyles(styles)(function Form(props) {
                   classes={{
                     underline: props.classes.cssUnderline,
                   }}
-                  onKeyUp={handleUserNameKeyUp}
+                  onKeyUp={ev=>handleUserNameKeyUp(ev)}
                 />
               </FormControl>
             </InputNameContent>
