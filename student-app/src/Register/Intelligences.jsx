@@ -22,7 +22,7 @@ export default function Intelligences(props) {
           {intelligences.map(({intelligence, src}, idx) => 
             <Item
               key={idx}
-              onClick={()=>fieldChangeHandler("selectedIntelligence", intelligence)}
+              onClick={()=>fieldChangeHandler("Intelligence", intelligence)}
             >
               <img 
                 src={src} 
@@ -30,7 +30,7 @@ export default function Intelligences(props) {
               />
               <RadioButton 
                 value={intelligence} 
-                checked={data.selectedIntelligence === intelligence }
+                checked={data.Intelligence === intelligence }
                 color="default"
               />
             </Item>

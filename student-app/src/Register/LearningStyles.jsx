@@ -3,14 +3,10 @@ import styled from 'styled-components'
 import Radio from '@material-ui/core/Radio'
 
 const learningStyles = [
-  {learningStyle:'1', src: require('./assetsRegister/LearningStylesResources/1.png')},
-  {learningStyle:'2', src: require('./assetsRegister/LearningStylesResources/2.png')},
-  {learningStyle:'3', src: require('./assetsRegister/LearningStylesResources/3.png')},
-  {learningStyle:'4', src: require('./assetsRegister/LearningStylesResources/4.png')},
-  {learningStyle:'5', src: require('./assetsRegister/LearningStylesResources/5.png')},
-  {learningStyle:'6', src: require('./assetsRegister/LearningStylesResources/6.png')},
-  {learningStyle:'7', src: require('./assetsRegister/LearningStylesResources/7.png')},
-  {learningStyle:'8', src: require('./assetsRegister/LearningStylesResources/8.png')}, 
+  {learningStyle:'ESTILO ACTIVO', src: require('./assetsRegister/LearningStylesResources/estiloactivo.jpeg')},
+  {learningStyle:'ESTILO PRAGMATICO', src: require('./assetsRegister/LearningStylesResources/estilopragmatico.jpeg')},
+  {learningStyle:'ESTILO REFLEXIVO', src: require('./assetsRegister/LearningStylesResources/estiloreflexivo.jpeg')},
+  {learningStyle:'ESTILO TEORICO', src: require('./assetsRegister/LearningStylesResources/estiloteorico.jpeg')},
 ]
 
 export default function LearningStyles(props) {
@@ -22,7 +18,7 @@ export default function LearningStyles(props) {
           {learningStyles.map(({learningStyle, src}, idx) => 
             <Item
               key={idx}
-              onClick={()=>fieldChangeHandler("selectedLearningStyle", learningStyle)}
+              onClick={()=>fieldChangeHandler("LearningStyle", learningStyle)}
             >
               <img 
                 styles={{width: '200px', height:'120px'}}
@@ -31,7 +27,7 @@ export default function LearningStyles(props) {
               />
               <RadioButton 
                 value={learningStyle} 
-                checked={data.selectedLearningStyle === learningStyle }
+                checked={data.LearningStyle === learningStyle }
                 color="default"
               />
             </Item>
@@ -51,7 +47,7 @@ const Title = styled.h3`
 `
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 2px;
   grid-template-rows: 150px 120px;
 `
