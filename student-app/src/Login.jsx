@@ -3,14 +3,12 @@ import { withRouter } from 'react-router-dom'
 import { createSession } from './services/session'
 import { logSesionIniciada } from './services/log'
 import styled from 'styled-components'
-
-// import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { withStyles, createMuiTheme } from '@material-ui/core/styles'
 import Input from '@material-ui/core/Input'
 import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import grey from '@material-ui/core/colors/grey'
-
 
 import './App.css'
 
@@ -107,8 +105,10 @@ export default withStyles(styles)(withRouter(class extends Component {
             <LoginBtn onClick={this.start}>
               Ingresa
             </LoginBtn>
-            
           </InputContent>
+          <StyedLink to={'/Register'}>
+            ¡Registrate, personaliza tu avatar y gana monedas!
+          </StyedLink>
         </Card>
         <LeftCloud/>
       </LoginContent>
@@ -168,6 +168,10 @@ const InputContent = styled.div`
   flex-direction: column;
   height: 40%;
   width: 100%;
+`
+const StyedLink = styled(Link)`
+  margin: 0px 20px;
+  text-align: center;
 `
 const LoginBtn = styled.div`
   display: flex; 
