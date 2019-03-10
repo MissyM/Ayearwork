@@ -7,6 +7,7 @@ import AppContainer from './AppContainer'
 import PrivateRoute from './PrivateRoute'
 
 import Login from './Login'
+import Register from './Register/Index'
 import Dashboard from './Dashboard'
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
             )
           )}/>
           <Route path="/login" component={Login}/>
+          <Route path="/register" component={Register}/>
           <PrivateRoute path="/buscador" component={Dashboard}/>
         </AppContainer>
       </Router>
