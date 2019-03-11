@@ -1,22 +1,36 @@
-import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
 import { logNavego } from './services/log'
+import useReactRouter from 'use-react-router'
+import SessionCtx from './sessionContext'
 
-class AppContainer extends Component {
-  componentDidMount() {
-    logNavego(this.props.history.location.pathname + this.props.history.location.search )
-    this.unlisten = this.props.history.listen(location => {
-      logNavego(location.pathname + location.search)
+function AppContainer(props) {
+  const { history, location, search, pathname } = useReactRouter()
+  const [session, setSession] = useState({
+    userName: '',
+    grade: '',
+    gender: '',
+    password: '',
+    age: '',
+    avatar: '',
+    LearningStyle: '',
+    Intelligence: ''
+  })
+ 
+  useEffect(() => {
+    logNavego(location + search )
+    const unlisten = history.listen(()=> {
+      logNavego(pathname + search)
     })
-  }
-  componentWillUnmount() {
-    this.unlisten()
-  }
-  render() {
-    return (
-      <>{this.props.children}</>
-    )
-  }
+    return () => {
+      unlisten()
+    }
+  })
+  
+  return (
+    <SessionCtx.Provider value={[session, setSession]}>
+      <>{props.children }</>
+    </SessionCtx.Provider>
+  )
 }
 
-export default withRouter(AppContainer)
+export default AppContainer

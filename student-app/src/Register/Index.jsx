@@ -1,12 +1,11 @@
-import React,  { useState, useCallback } from 'react'
+import React, { useContext, useState, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 import * as api from '../services/api'
 import IntelligencesSection from './Intelligences'
 import LearningStylesSection from './LearningStyles'
 import FormSection from './Form'
 import { Link } from 'react-router-dom'
-// import { createSession } from '../services/session'
-// import { logSesionIniciada } from '../services/log'
+import SessionCtx from "../sessionContext"
 
 const sections = {
   form: FormSection,
@@ -14,6 +13,7 @@ const sections = {
   learningStyles: LearningStylesSection,
 }
 export default function Register() {
+  const [, setSession] = useContext(SessionCtx);
   const [section, setSection] = useState('form')
   const [formUserData, setFormUserData] = useState({
     userName: '',
@@ -59,17 +59,13 @@ export default function Register() {
 //Siguiente
   const isValid = useCallback(() => {
     if (section === 'form') {
-      return formUserData.userName !== ''
-  //       formUserData.grade !== '',
-  //       formUserData.gender !== '',
-  //       formUserData.password !== '',
-  //       formUserData.age !== '',
-  //       formUserData.avatar !== '',
-  //       return 
-  //  } else if () {
-  //   formUserData.LearningStyle !== '',
-  //   formUserData.Intelligence !== '',
-    } 
+      return  formUserData.userName !== ''
+        && formUserData.grade !== ''
+        && formUserData.gender !== ''
+        && formUserData.password !== ''
+        && formUserData.age !== ''
+        && formUserData.avatar !== ''
+   } 
     if (section === 'intelligences') {
       return formUserData.Intelligence !== ''
     }
@@ -89,8 +85,8 @@ export default function Register() {
     )
   }, [section])
 
-  const start = useCallback(({userName}) => {
-    if (userName === ''){
+  const start = useCallback(() => {
+    if (formUserData.userName === ''){
       setError(true)
     }
     // logSesionIniciada(this.userName)
@@ -99,13 +95,14 @@ export default function Register() {
   },[])
 
   const register = useCallback(() => {
+    setSession(formUserData)
     api.register(formUserData)
       .then(res => alert('Usuario registrado id = ' + res.id))
       .catch(() => alert('Error de autenticación'))
   }, [formUserData])
   
   const Section = sections[section]
-
+  
   console.log(formUserData) // <--- log del estado 
 
   return (
