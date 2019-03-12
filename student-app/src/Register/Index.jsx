@@ -1,11 +1,12 @@
-import React, { useContext, useState, useCallback } from 'react'
+import React, {  useState, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 import * as api from '../services/api'
 import IntelligencesSection from './Intelligences'
 import LearningStylesSection from './LearningStyles'
 import FormSection from './Form'
 import { Link } from 'react-router-dom'
-import SessionCtx from "../sessionContext"
+import { createSession } from '../services/session'
+// import SessionCtx from "../sessionContext"
 
 const sections = {
   form: FormSection,
@@ -13,7 +14,7 @@ const sections = {
   learningStyles: LearningStylesSection,
 }
 export default function Register() {
-  const [, setSession] = useContext(SessionCtx);
+  // const [, setSession] = useContext(SessionCtx);
   const [section, setSection] = useState('form')
   const [formUserData, setFormUserData] = useState({
     userName: '',
@@ -22,8 +23,8 @@ export default function Register() {
     password:'',
     age: '',
     avatar: '',
-    LearningStyle:'',
-    Intelligence:''
+    LearningStyle:'ESTILO ACTIVO',
+    Intelligence:'cinetico-corporal'
   })
   const [error, setError] = useState(false)
   const handleUserNameKeyUp = useCallback(ev => {
@@ -76,7 +77,7 @@ export default function Register() {
   const handleGoNextSection = useCallback(({userName}) => {
     if (section === 'learningStyles' ) {
       register()
-      // createSession()
+      createSession(userName)
       return
     }
     setSection(section => section === 'form' ? 'intelligences'
@@ -95,7 +96,7 @@ export default function Register() {
   },[])
 
   const register = useCallback(() => {
-    setSession(formUserData)
+    // setSession(formUserData)
     api.register(formUserData)
       .then(res => alert('Usuario registrado id = ' + res.id))
       .catch(() => alert('Error de autenticación'))

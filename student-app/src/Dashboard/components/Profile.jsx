@@ -1,12 +1,12 @@
-import React, { useCallback, useState, useContext } from "react"
-import SessionCtx from "./../../sessionContext"
+import React, { useCallback, useState } from "react"
+// import SessionCtx from "./../../sessionContext"
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 
 export default withRouter(function Profile() {
-  const [session] = useContext(SessionCtx)
+  // const [session] = useContext(SessionCtx)
   const [hideData, setHideData] = useState(false)
   const [isRegistered] = useState(false)
 
@@ -18,7 +18,7 @@ export default withRouter(function Profile() {
     <ProfileContent>
       {isRegistered ? 
         <UserRegistered>
-          {/* <Name > {session.userName} </Name > */}
+           <Name > Hola {session.userName}. Bienvenido a Yupay </Name > 
         </UserRegistered> : 
         <UserUnregistered>
           <AvatarContent 
@@ -105,4 +105,6 @@ const ProfileData= styled.div`
 `
 const StyledLinktoRegister= styled(Link)`
   padding: 5px;
+`
+const Name= styled.p`
 `
