@@ -169,13 +169,13 @@ export const model = {
             {
               id: 'FRACCIONES.pdf',
               type: 'pdf',
-              title: 'Fracciones -2',
+              title: 'Fracciones _2',
               description: 'Dos fracciones son homogéneas cuando tienen el mismo denominador. Cuando se tienen fracciones homogéneas, se debe operar (dependiendo de si se trata de una suma o una resta) únicamente los numeradores y mantener el denominador.  ' 
             },
             {
               id: 'FRACCIONES.mp4',
               type: 'video',
-              title: 'Fracciones -1',
+              title: 'Fracciones _1',
               description: 'Dos fracciones son homogéneas cuando tienen el mismo denominador. Cuando se tienen fracciones homogéneas, se debe operar (dependiendo de si se trata de una suma o una resta) únicamente los numeradores y mantener el denominador.  ' 
             },
           ],

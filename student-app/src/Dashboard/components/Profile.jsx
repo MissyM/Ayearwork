@@ -18,7 +18,7 @@ export default withRouter(function Profile() {
     <ProfileContent>
       {isRegistered ? 
         <UserRegistered>
-          <Name > {session.userName} </Name >
+          {/* <Name > {session.userName} </Name > */}
         </UserRegistered> : 
         <UserUnregistered>
           <AvatarContent 
@@ -64,6 +64,19 @@ const AvatarContent= styled.div`
   margin-bottom: 5px;
 `
 const UserRegistered= styled.div`
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #00caca;
+  margin-bottom: 5px;
+`
+const UserUnregistered= styled.div`
   position: absolute;
   top: 10px;
   cursor: pointer;
