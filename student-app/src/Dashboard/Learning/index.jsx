@@ -65,7 +65,6 @@ export default class extends React.Component {
     this.props.history.push(`/buscador/learning?option=resource&id=${id}`)
   }
 
-
   //Logs
   visualizationsIconHandler = () => {
     logIconoVisualizacionesClickeado()
@@ -79,8 +78,6 @@ export default class extends React.Component {
   shareIconHandler = () => {
     logIconoCompartirClickeado()
   }
-
-
 
   render () {
     const { actualResource, nextResource, otherResources, state, topicTitle } = this.state

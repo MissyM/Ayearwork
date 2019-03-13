@@ -13,7 +13,8 @@ const sections = {
   intelligences: IntelligencesSection,
   learningStyles: LearningStylesSection,
 }
-export default function Register() {
+export default function Register(props) {
+ 
   // const [, setSession] = useContext(SessionCtx);
   const [section, setSection] = useState('form')
   const [formUserData, setFormUserData] = useState({
@@ -26,13 +27,7 @@ export default function Register() {
     LearningStyle:'ESTILO ACTIVO',
     Intelligence:'cinetico-corporal'
   })
-  const [error, setError] = useState(false)
-  const handleUserNameKeyUp = useCallback(ev => {
-    if (ev.keyCode === 13) {
-      start()
-    }
-  },[])
-
+  
   const fieldChangeHandler = useCallback((fieldName, ev) => {
     let value
     if (fieldName === 'avatar'){
@@ -49,7 +44,6 @@ export default function Register() {
       [fieldName]: value,
     })
   }, [formUserData]) // <--- el callback depende del estado de "formUserData"
-  //Saltar al login
  
   //Atrás 
   const handleGoPreviousSection = useCallback(() => {
@@ -57,7 +51,7 @@ export default function Register() {
       : section === 'learningStyles' ? 'intelligences' 
       : 'form' )
   }, [section])
-//Siguiente
+
   const isValid = useCallback(() => {
     if (section === 'form') {
       return  formUserData.userName !== ''
@@ -66,7 +60,7 @@ export default function Register() {
         && formUserData.password !== ''
         && formUserData.age !== ''
         && formUserData.avatar !== ''
-   } 
+     } 
     if (section === 'intelligences') {
       return formUserData.Intelligence !== ''
     }
@@ -74,26 +68,23 @@ export default function Register() {
       return formUserData.LearningStyle !== ''
     }
   }, [formUserData, section])
+
+  const goToBrowser = () => props.history.push('/buscador')
   const handleGoNextSection = useCallback(({userName}) => {
     if (section === 'learningStyles' ) {
       register()
       createSession(userName)
-      return
+      goToBrowser()
+      return 
     }
-    setSection(section => section === 'form' ? 'intelligences'
-      : section === 'intelligences' ? 'learningStyles'
-      : ''
-    )
+    setSection(section => {
+      if(section === 'form') {
+         return 'intelligences'
+      } else if(section === 'intelligences') {
+        return 'learningStyles'
+      } 
+    })
   }, [section])
-
-  const start = useCallback(() => {
-    if (formUserData.userName === ''){
-      setError(true)
-    }
-    // logSesionIniciada(this.userName)
-    // props.history.push('/login')
-    // createSession(userName)
-  },[])
 
   const register = useCallback(() => {
     // setSession(formUserData)
@@ -114,9 +105,7 @@ export default function Register() {
           <LogoImg />
         </LogoContent>
         <Section 
-          handleUserNameKeyUp={handleUserNameKeyUp} 
           fieldChangeHandler={fieldChangeHandler} 
-          error={error}
           data={formUserData}/>
           <Bottons>
             { section === 'form' &&  
@@ -125,11 +114,15 @@ export default function Register() {
               </SkipRegisterBtn>
             }
             { (section === 'intelligences' || section === 'learningStyles') && 
-              <RegisterBtnBack onClick={handleGoPreviousSection} >
+              <RegisterBackBtn onClick={handleGoPreviousSection} >
                 Volver
-              </RegisterBtnBack> 
+              </RegisterBackBtn> 
             }
-          <RegisterBtn onClick={handleGoNextSection} disabled={!isValid()} >
+          <RegisterBtn 
+            onClick={handleGoNextSection} 
+            disabled={!isValid()}
+             
+          >
             Continuar
           </RegisterBtn>
         </Bottons>
@@ -185,7 +178,7 @@ const LogoImg = styled.img.attrs({
   width: 110px;
   height: 110px;
 `
-const RegisterBtnBack = styled.button`
+const RegisterBackBtn = styled.button`
   display: flex; 
   justify-content: center;
   align-items: center;

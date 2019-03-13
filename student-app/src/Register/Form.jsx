@@ -62,13 +62,11 @@ export default withStyles(styles)(function Form(props) {
                 </InputLabel>
                 <Input
                   id="custom-css-standard-input"
-                  error={error}
                   value={data.userName}
                   onChange={ev=>fieldChangeHandler("userName", ev)}
                   classes={{
                     underline: props.classes.cssUnderline,
                   }}
-                  onKeyUp={ev=>handleUserNameKeyUp(ev)}
                 />
               </FormControl>
             </InputNameContent>
