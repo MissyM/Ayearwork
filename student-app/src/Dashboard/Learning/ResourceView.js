@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Document, Page } from 'react-pdf'
+import { Document, Page } from 'react-pdf';
 
 import { getVideo, getPDF } from '../../services/api'
 
@@ -52,7 +52,7 @@ class PDF extends React.Component {
 
   render() {
     const { pageNumber, numPages } = this.state
-    //console.log(this.props.pdf)
+    console.log(this.props.pdf)
 
     return (
       <PDFContainer>
@@ -67,7 +67,8 @@ class PDF extends React.Component {
           </DocumentContainer>
           <PDFControls>
             Página {pageNumber} de {numPages},
-           
+            <button onClick={this.prevPage}>Anterior</button>
+            <button onClick={this.nextPage}>Siguiente</button>
           </PDFControls>
         </>}
       </PDFContainer>
