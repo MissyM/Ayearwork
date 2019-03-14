@@ -37,7 +37,7 @@ const styles = () => ({
   selectEmpty: {}
 })
 export default withStyles(styles)(function Form(props) {
-  const { classes, fieldChangeHandler, data,handleUserNameKeyUp, error} = props
+  const { classes, fieldChangeHandler, data} = props
   const [showPassword, setShowPassword] = useState(false)
 
   const handleClickShowPassword = useCallback(() => {
