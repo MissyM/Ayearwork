@@ -78,14 +78,37 @@ export const model = {
             {
               id: 'ECUACIONES.pdf',
               type: 'pdf',
-              title: 'Ecuaciones - 1',
-              description: 'Descripción del tema'
+              title: 'Ecuaciones_1',
+              description: 'Descripción del tema',
+              img: 'ECUACIONES_9.jpg',
+            },
+            {
+              id: 'ECUACIONES_9.mp4',
+              type: 'video',
+              title: 'Ecuaciones_9',
+              description: 'Descripción del tema',
+              img: 'ECUACIONES_9.jpg'
+            },
+            {
+              id: 'ECUACIONES_10.mp4',
+              type: 'video',
+              title: 'Ecuaciones_10',
+              description: 'Descripción del tema',
+              img: 'ECUACIONES_10.png',
+            },
+            {
+              id: 'ECUACIONES_11.mp4',
+              type: 'video',
+              title: 'Ecuaciones_11',
+              description: 'Descripción del tema',
+              img: 'ECUACIONES_11.png',
             },
             {
               id: 'ECUACIONES.mp4',
               type: 'video',
-              title: 'Ecuaciones- 2',
-              description: 'Descripción del tema'
+              title: 'Ecuaciones_12',
+              description: 'Descripción del tema',
+              img: 'ECUACIONES_12.png',
             },
           ],
         },

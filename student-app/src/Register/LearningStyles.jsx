@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import Radio from '@material-ui/core/Radio'
 
 const learningStyles = [
-  {learningStyle:'ESTILO ACTIVO', src: require('./assetsRegister/LearningStylesResources/estiloactivo.jpeg')},
-  {learningStyle:'ESTILO PRAGMATICO', src: require('./assetsRegister/LearningStylesResources/estilopragmatico.jpeg')},
-  {learningStyle:'ESTILO REFLEXIVO', src: require('./assetsRegister/LearningStylesResources/estiloreflexivo.jpeg')},
-  {learningStyle:'ESTILO TEORICO', src: require('./assetsRegister/LearningStylesResources/estiloteorico.jpeg')},
+  { learningStyle:'ESTILO ACTIVO', src: require('./assetsRegister/LearningStylesResources/estiloactivo.jpeg') },
+  { learningStyle:'ESTILO PRAGMATICO', src: require('./assetsRegister/LearningStylesResources/estilopragmatico.jpeg') },
+  { learningStyle:'ESTILO REFLEXIVO', src: require('./assetsRegister/LearningStylesResources/estiloreflexivo.jpeg') },
+  { learningStyle:'ESTILO TEORICO', src: require('./assetsRegister/LearningStylesResources/estiloteorico.jpeg') },
 ]
 
 export default function LearningStyles(props) {

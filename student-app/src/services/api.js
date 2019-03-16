@@ -8,6 +8,8 @@ export const getVideo = id => `${serverURL}/api/video/${id}`
 
 export const getPDF = id => `${serverURL}/api/pdf/${id}`
 
+export const getThumbnails = id => `${serverURL}/api/thumbnails/${id}`
+
 export const log = logObject => {
   fetch(`${serverURL}/api/log`, {
     method: 'POST',

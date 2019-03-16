@@ -1,7 +1,6 @@
 import React from 'react'
 import NavBar from '../NavBar/index'
 import Thumbnail from './Thumbnail'
-
 import styled from 'styled-components'
 import { getTopic, getSubtopic, getResource, getRelatedResources } from '../../services/api'
 import { logIconoVisualizacionesClickeado,
@@ -81,14 +80,14 @@ export default class extends React.Component {
 
   render () {
     const { actualResource, nextResource, otherResources, state, topicTitle } = this.state
-    console.log(nextResource)
+    console.log(otherResources)
     return (
       state === 'noResources' ? (
         <h1>No hay recursos en este subtema</h1>
       ) : <Container>
         <NavBar />
         <LearningContainer>
-          {/* COntenedor del recurso renderizado */}
+          {/* Contenedor del recurso renderizado */}
           <ContentContainer>
 
             <ResourceView resource={actualResource} />

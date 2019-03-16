@@ -59,16 +59,16 @@ class PDF extends React.Component {
         {this.props.pdf.id && <>
           <DocumentContainer>
             <Document
-              file={getPDF(this.props.pdf.id)}
-              onLoadSuccess={this.onDocumentLoadSuccess}
+              file={ getPDF(this.props.pdf.id) }
+              onLoadSuccess={ this.onDocumentLoadSuccess }
             >
               <Page pageNumber={pageNumber} />
             </Document>
           </DocumentContainer>
           <PDFControls>
             Página {pageNumber} de {numPages},
-            <button onClick={this.prevPage}>Anterior</button>
-            <button onClick={this.nextPage}>Siguiente</button>
+            <button onClick={ this.prevPage }>Anterior</button>
+            <button onClick={ this.nextPage }>Siguiente</button>
           </PDFControls>
         </>}
       </PDFContainer>
@@ -79,7 +79,7 @@ class PDF extends React.Component {
 const PDFContainer = styled.div`
   width: 700px;
   height: 394px;
-  position: relative;
+  position: relative
 `
 
 const DocumentContainer = styled.div`

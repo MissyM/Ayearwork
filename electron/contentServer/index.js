@@ -8,8 +8,9 @@ const isDev = require('electron-is-dev')
 const uuidV4 = require('uuid/v4')
 // const PouchDB = require('pouchdb/dist/pouchdb')
 const db = require('./db')
+const mime = require('mime')
 
-const electron = require('electron')
+const electron = require('electron') 
 const app = electron.app
 
 const userPath = app.getPath('userData')
@@ -30,6 +31,17 @@ var createContentServer = function () {
       msg: 'Yupay API running',
     })
   })
+  app.use('/api/thumbnails/:id', (req, res) => {
+    const filePath = path.join(__dirname, `../assets/thumbnails`) + `/${req.params.id}`
+    const stat = fs.statSync(filePath)
+    const fileSize = stat.size
+    const ext = mime.getType(filePath); 
+    const head = {
+      'Content-Length': fileSize,
+      'Content-Type': `image/${ext}`,
+    }
+    res.writeHead(200, head)
+  })
 
   app.use('/api/pdf/:id', (req, res) => {
     const filePath = path.join(__dirname, `../assets/pdf`) + `/${req.params.id}`
@@ -40,7 +52,6 @@ var createContentServer = function () {
       'Content-Type': 'application/pdf',
     }
     res.writeHead(200, head)
-    fs.createReadStream(filePath).pipe(res)
   })
 
   app.get('/api/video/:id', (req, res) => {

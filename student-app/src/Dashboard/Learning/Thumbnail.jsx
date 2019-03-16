@@ -1,5 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import { getThumbnails } from '../../services/api';
+
+export default ({resource})=> {
+  console.log(resource , 'recurso')
+  return <ContentThumbnail>
+    <Thumbnail img={getThumbnails(resource.img)} />
+    <PlayIcon type={resource.type} /> 
+    <ResourceTitle>{resource.title}</ResourceTitle> 
+  </ContentThumbnail>
+}
 
 //PlayIcon es la imagen play
 const PlayIcon = styled.img.attrs(({ type }) => ({
@@ -39,9 +49,9 @@ const ContentThumbnail = styled.div`
   }
 `
 //Thubnail es la imagen miniatura
-const Thumbnail= styled.img.attrs({
-  // src: props => require(props.resource.img)
-})`
+const Thumbnail= styled.img.attrs(({ img }) => ({
+ src: require(img)
+}))`
   cursor: pointer;
   width: 100%;
 `
@@ -56,10 +66,3 @@ const ResourceTitle = styled.figcaption`
   background: rgba(0,0,0,0.6);
   color: #fff;
 `
-export default ({resource})=> {
-  return <ContentThumbnail>
-    <Thumbnail img={resource.src} />
-    <PlayIcon type={resource.type} /> 
-    <ResourceTitle>{resource.title}</ResourceTitle> 
-  </ContentThumbnail>
-}
