@@ -67,8 +67,12 @@ class PDF extends React.Component {
           </DocumentContainer>
           <PDFControls>
             Página {pageNumber} de {numPages},
-            <button onClick={ this.prevPage }>Anterior</button>
-            <button onClick={ this.nextPage }>Siguiente</button>
+            <BackBtn onClick={ this.prevPage }>
+              Página Anterior
+            </BackBtn>
+            <NextBtn onClick={ this.nextPage }>
+              Página Siguiente
+            </NextBtn>
           </PDFControls>
         </>}
       </PDFContainer>
@@ -81,7 +85,14 @@ const PDFContainer = styled.div`
   height: 394px;
   position: relative
 `
-
+const BackBtn = styled.button`
+  background-color: #fffa65;
+  color: #000;
+`
+const NextBtn = styled.button`
+  background-color: #a865ff;
+  color: #000;  
+`
 const DocumentContainer = styled.div`
   width: 700px;
   height: 394px;
@@ -92,4 +103,5 @@ const PDFControls = styled.div`
   position: absolute;
   bottom: 10px;
   right: 10px;
+
 `

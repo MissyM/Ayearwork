@@ -35,12 +35,13 @@ var createContentServer = function () {
     const filePath = path.join(__dirname, `../assets/thumbnails`) + `/${req.params.id}`
     const stat = fs.statSync(filePath)
     const fileSize = stat.size
-    const ext = mime.getType(filePath); 
+    const mimeType = mime.getType(filePath); 
     const head = {
       'Content-Length': fileSize,
-      'Content-Type': `image/${ext}`,
+      'Content-Type': mimeType,
     }
     res.writeHead(200, head)
+    fs.createReadStream(filePath).pipe(res)
   })
 
   app.use('/api/pdf/:id', (req, res) => {
@@ -52,6 +53,7 @@ var createContentServer = function () {
       'Content-Type': 'application/pdf',
     }
     res.writeHead(200, head)
+    fs.createReadStream(filePath).pipe(res)
   })
 
   app.get('/api/video/:id', (req, res) => {

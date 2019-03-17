@@ -5,7 +5,7 @@ import { getThumbnails } from '../../services/api';
 export default ({resource})=> {
   console.log(resource , 'recurso')
   return <ContentThumbnail>
-    <Thumbnail img={getThumbnails(resource.img)} />
+    <Thumbnail src={getThumbnails(resource.img)} />
     <PlayIcon type={resource.type} /> 
     <ResourceTitle>{resource.title}</ResourceTitle> 
   </ContentThumbnail>
@@ -49,9 +49,7 @@ const ContentThumbnail = styled.div`
   }
 `
 //Thubnail es la imagen miniatura
-const Thumbnail= styled.img.attrs(({ img }) => ({
- src: require(img)
-}))`
+const Thumbnail= styled.img`
   cursor: pointer;
   width: 100%;
 `

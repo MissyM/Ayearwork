@@ -13,14 +13,36 @@ export const model = {
             {
               id: 'SISTEMA DE NUMERACION.pdf',
               type: 'pdf',
-              img: 'SISTEMA DE NUMERACION.png',
-              title: ' Sistema de Numeración - 1',
+              img: 'SISTEMAS DE NUMERACIÓN_1.jpg',
+              title: ' Sistema de Numeración_1',
               description: 'Descripción del tema'
             },
             {
-              id: 'SISTEMA DE NUMERACION.mp4',
+              id: 'SISTEMA DE NUMERACION_1.mp4',
               type: 'video',
-              title: 'Sistema de Numeración - 2',
+              img: 'SISTEMAS DE NUMERACIÓN_1.jpg',
+              title: 'Sistema de Numeració_2',
+              description: 'Descripción del tema'
+            },
+            {
+              id: 'SISTEMA DE NUMERACION_2.mp4',
+              type: 'video',
+              img: 'SISTEMAS DE NUMERACIÓN_2.jpg',
+              title: ' Sistema de Numeración_3',
+              description: 'Descripción del tema'
+            },
+            {
+              id: 'SISTEMA DE NUMERACION_3.mp4',
+              type: 'video',
+              img: 'SISTEMAS DE NUMERACIÓN_3.jpg',
+              title: 'Sistema de Numeración_4',
+              description: 'Descripción del tema'
+            },
+            {
+              id: 'SISTEMA DE NUMERACION_4.mp4',
+              type: 'video',
+              img: 'SISTEMAS DE NUMERACIÓN_4.jpg',
+              title: 'Sistema de Numeración_5',
               description: 'Descripción del tema'
             },
           ],
@@ -31,15 +53,38 @@ export const model = {
           title: 'Operaciones en el Conjunto de Números Naturales',
           resources: [
             {
-              id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES.mp4',
+              id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_5.mp4',
               type: 'video',
-              title: 'Operaciones en el Conjunto de Números Naturales - 1',
+              img: 'OPERACIONES EN EL CONJUNTO DE LOS NÚMEROS NATURALES_5.jpg',
+              title: 'Operaciones en el Conjunto de Números Naturales_5',
               description: 'Descripción del tema'
             },
             {
-              id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES.pdf',
+              id: 'OPERACIONES EN EL CONJUNTO DE LOS NÚMEROS NATURALES.pdf',
               type: 'pdf',
+              img: 'OPERACIONES EN EL CONJUNTO DE LOS NÚMEROS NATURALES_5.jpg',
+              title: 'Operaciones en el Conjunto de Números Naturales_1',
+              description: 'Descripción del tema'
+            },
+            {
+              id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_6.mp4',
+              type: 'video',
+              img: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_6.png',
+              title: 'Operaciones en el Conjunto de Números Naturales_6',
+              description: 'Descripción del tema'
+            },
+            {
+              id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_7.mp4',
+              type: 'video',
+              img: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_7.png',
               title: 'Operaciones en el Conjunto de Números Naturales - 2',
+              description: 'Descripción del tema'
+            },
+            {
+              id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_8.mp4',
+              type: 'video',
+              img: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_8.png',
+              title: 'Operaciones en el Conjunto de Números Naturales_8',
               description: 'Descripción del tema'
             },
           ],
@@ -59,13 +104,40 @@ export const model = {
             {
               id: 'NOCIONES DE CAMBIO.mp4',
               type: 'video',
-              title: 'Nociones de Cambio - 1',
+              img: 'NOCION DE CAMBIO.png',
+              title: 'Nociones de Cambio_13',
               description: 'Descripción del tema'
             },
             {
-              id: 'NOCIONES DE CAMBIO.pdf',
+              id: 'NOCIONES DE CAMBIO_14.mp4',
+              type: 'video',
+              img: 'NOCION DE CAMBIO_14.png',
+              title: 'Nociones de Cambio_14',
+              description: 'Descripción del tema'
+            },{
+              id: 'NOCIONES DE CAMBIO_15.mp4',
+              type: 'video',
+              img: 'NOCION DE CAMBIO_15.png',
+              title: 'Nociones de Cambio_15',
+              description: 'Descripción del tema'
+            },{
+              id: 'NOCIONES DE CAMBIO_16.mp4',
+              type: 'video',
+              img: 'NOCION DE CAMBIO_16.png',
+              title: 'Nociones de Cambio_16',
+              description: 'Descripción del tema'
+            },{
+              id: 'NOCIONES DE CAMBIO_13.mp4',
+              type: 'video',
+              img: 'NOCION DE CAMBIO_13.png',
+              title: 'Nociones de Cambio_13',
+              description: 'Descripción del tema'
+            },
+            {
+              id: 'NOCIONES DE CAMBIO_2.pdf',
               type: 'pdf',
-              title: 'Nociones de Cambio- 2',
+              img: 'NOCION DE CAMBIO_16.png',
+              title: 'Nociones de Cambio_2',
               description: 'Descripción del tema'
             },
           ],
