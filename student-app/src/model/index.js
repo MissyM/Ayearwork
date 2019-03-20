@@ -13,21 +13,21 @@ export const model = {
             {
               id: 'SISTEMA DE NUMERACION.pdf',
               type: 'pdf',
-              img: 'SISTEMAS DE NUMERACIÓN_1.jpg',
+              img: 'SISTEMAS DE NUMERACIÓN_4.jpg',
               title: ' Sistema de Numeración_1',
               description: 'Descripción del tema'
             },
             {
               id: 'SISTEMA DE NUMERACION_1.mp4',
               type: 'video',
-              img: 'SISTEMAS DE NUMERACIÓN_1.jpg',
-              title: 'Sistema de Numeració_2',
+              img: 'SISTEMAS DE NUMERACION_1.jpg',
+              title: 'Sistema de Numeración_2',
               description: 'Descripción del tema'
             },
             {
               id: 'SISTEMA DE NUMERACION_2.mp4',
               type: 'video',
-              img: 'SISTEMAS DE NUMERACIÓN_2.jpg',
+              img: 'SISTEMAS DE NUMERACION_2.jpg',
               title: ' Sistema de Numeración_3',
               description: 'Descripción del tema'
             },
@@ -69,21 +69,21 @@ export const model = {
             {
               id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_6.mp4',
               type: 'video',
-              img: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_6.png',
+              img: 'OPERACIONES EN EL CONJUNTO DE NUMEROS NATURALES_6.png',
               title: 'Operaciones en el Conjunto de Números Naturales_6',
               description: 'Descripción del tema'
             },
             {
               id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_7.mp4',
               type: 'video',
-              img: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_7.png',
+              img: 'OPERACIONES EN EL CONJUNTO DE NUMEROS NATURALES_7.png',
               title: 'Operaciones en el Conjunto de Números Naturales - 2',
               description: 'Descripción del tema'
             },
             {
               id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_8.mp4',
               type: 'video',
-              img: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_8.png',
+              img: 'OPERACIONES EN EL CONJUNTO DE NUMEROS NATURALES_8.png',
               title: 'Operaciones en el Conjunto de Números Naturales_8',
               description: 'Descripción del tema'
             },
@@ -104,39 +104,39 @@ export const model = {
             {
               id: 'NOCIONES DE CAMBIO.mp4',
               type: 'video',
-              img: 'NOCION DE CAMBIO.png',
+              img: 'NOCIONES DE CAMBIO_15.png',
               title: 'Nociones de Cambio_13',
               description: 'Descripción del tema'
             },
             {
               id: 'NOCIONES DE CAMBIO_14.mp4',
               type: 'video',
-              img: 'NOCION DE CAMBIO_14.png',
+              img: 'NOCIONES DE CAMBIO_14.png',
               title: 'Nociones de Cambio_14',
               description: 'Descripción del tema'
             },{
               id: 'NOCIONES DE CAMBIO_15.mp4',
               type: 'video',
-              img: 'NOCION DE CAMBIO_15.png',
+              img: 'NOCIONES DE CAMBIO_15.png',
               title: 'Nociones de Cambio_15',
               description: 'Descripción del tema'
             },{
               id: 'NOCIONES DE CAMBIO_16.mp4',
               type: 'video',
-              img: 'NOCION DE CAMBIO_16.png',
+              img: 'NOCIONES DE CAMBIO_16.png',
               title: 'Nociones de Cambio_16',
               description: 'Descripción del tema'
             },{
               id: 'NOCIONES DE CAMBIO_13.mp4',
               type: 'video',
-              img: 'NOCION DE CAMBIO_13.png',
+              img: 'NOCIONES DE CAMBIO_13.png',
               title: 'Nociones de Cambio_13',
               description: 'Descripción del tema'
             },
             {
               id: 'NOCIONES DE CAMBIO_2.pdf',
               type: 'pdf',
-              img: 'NOCION DE CAMBIO_16.png',
+              img: 'NOCIONES DE CAMBIO_16.png',
               title: 'Nociones de Cambio_2',
               description: 'Descripción del tema'
             },
@@ -199,13 +199,41 @@ export const model = {
             {
               id: 'MULTIPLOS Y DIVISORES.pdf',
               type: 'pdf',
-              title: 'Multiplos y Divisores -1',
+              img: 'MULTIPLOS Y DIVISORES_24.png',
+              title: 'Multiplos y Divisores_1',
               description: 'Descripción del documento ' 
             },
             {
               id: 'MULTIPLOS Y DIVISORES.mp4',
               type: 'video',
-              title: 'Múltiplos y Divisores -2',
+              img: 'MULTIPLOS Y DIVISORES_21.png',
+              title: 'Múltiplos y Divisores_2',
+              description: 'Descripción del documento ' 
+            },
+            {
+              id: 'MULTIPLOS Y DIVISORES_22.mp4',
+              type: 'video',
+              img: 'MULTIPLOS Y DIVISORES_22.png',
+              title: 'Múltiplos y Divisores_3',
+              description: 'Descripción del documento ' 
+            },{
+              id: 'MULTIPLOS Y DIVISORES_23.mp4',
+              type: 'video',
+              img: 'MULTIPLOS Y DIVISORES_23.png',
+              title: 'Múltiplos y Divisores_4',
+              description: 'Descripción del documento ' 
+            },{
+              id: 'MULTIPLOS Y DIVISORES_24.mp4',
+              type: 'video',
+              img: 'MULTIPLOS Y DIVISORES_24.png',
+              title: 'Múltiplos y Divisores_5',
+              description: 'Descripción del documento ' 
+            },
+            {
+              id: 'MULTIPLOS Y DIVISORES_21.mp4',
+              type: 'video',
+              img: 'MULTIPLOS Y DIVISORES_21.png',
+              title: 'Múltiplos y Divisores_6',
               description: 'Descripción del documento ' 
             },
           ],
