@@ -88,10 +88,12 @@ const PDFContainer = styled.div`
 const BackBtn = styled.button`
   background-color: #fffa65;
   color: #000;
+  font-weight: 'bold'
 `
 const NextBtn = styled.button`
+  font-weight: '700';
   background-color: #a865ff;
-  color: #000;  
+  color: #000;
 `
 const DocumentContainer = styled.div`
   width: 700px;

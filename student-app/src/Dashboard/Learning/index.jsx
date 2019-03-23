@@ -31,7 +31,7 @@ export default class extends React.Component {
     let resources = []
     if (option ==='topic') {
       const topic = getTopic(id)
-      this.setState({topicTitle : topic.title})
+      this.setState({ topicTitle : topic.title })
       topic.subtopics.forEach(function(subtopic){
         subtopic.resources.forEach(function(resource){
           resources.push(resource)

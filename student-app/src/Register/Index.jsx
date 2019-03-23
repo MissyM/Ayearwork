@@ -1,4 +1,4 @@
-import React, {  useState, useCallback } from 'react'
+import React, {  useState, useCallback, useContext } from 'react'
 import styled, { css } from 'styled-components'
 import * as api from '../services/api'
 import IntelligencesSection from './Intelligences'
@@ -6,7 +6,7 @@ import LearningStylesSection from './LearningStyles'
 import FormSection from './Form'
 import { Link } from 'react-router-dom'
 import { createSession } from '../services/session'
-// import SessionCtx from "../sessionContext"
+import SessionCtx from "../sessionContext"
 
 const sections = {
   form: FormSection,
@@ -15,7 +15,7 @@ const sections = {
 }
 export default function Register(props) {
  
-  // const [, setSession] = useContext(SessionCtx);
+  const [, setSession] = useContext(SessionCtx)
   const [section, setSection] = useState('form')
   const [formUserData, setFormUserData] = useState({
     userName: '',
@@ -87,7 +87,7 @@ export default function Register(props) {
   }, [section])
 
   const register = useCallback(() => {
-    // setSession(formUserData)
+    setSession(formUserData)
     api.register(formUserData)
       .then(res => alert('Usuario registrado id = ' + res.id))
       .catch(() => alert('Error de autenticación'))

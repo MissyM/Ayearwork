@@ -246,13 +246,36 @@ export const model = {
             {
               id: 'NUMEROS PRIMOS Y COMPUESTOS.pdf',
               type: 'pdf',
-              title: 'Número Prímos y Compuestos -1',
+              img: 'NUMEROS PRIMOS Y COMPUESTOS_25.png',
+              title: 'Número Prímos y Compuestos_1',
               description: 'Descripción del documento'
             },
             {
-              id: 'NUMEROS PRIMOS Y COMPUESTOS.mp4',
+              id: 'NUMEROS PRIMOS Y COMPUESTOS_26.mp4',
               type: 'video',
-              title: 'Número Prímos y Compuestos -2',
+              img: 'NUMEROS PRIMOS Y COMPUESTOS_26.png',
+              title: 'Número Prímos y Compuestos_2',
+              description: 'Descripción del documento'
+            },
+            {
+              id: 'NUMEROS PRIMOS Y COMPUESTOS_27.mp4',
+              type: 'video',
+              img: 'NUMEROS PRIMOS Y COMPUESTOS_27.png',
+              title: 'Número Prímos y Compuestos_3',
+              description: 'Descripción del documento'
+            },
+            {
+              id: 'NUMEROS PRIMOS Y COMPUESTOS_28.mp4',
+              type: 'video',
+              img: 'NUMEROS PRIMOS Y COMPUESTOS_28.png',
+              title: 'Número Prímos y Compuestos_4',
+              description: 'Descripción del documento'
+            },
+            {
+              id: 'NUMEROS PRIMOS Y COMPUESTOS_29.mp4',
+              type: 'video',
+              img: 'NUMEROS PRIMOS Y COMPUESTOS_29.png',
+              title: 'Número Prímos y Compuestos_5',
               description: 'Descripción del documento'
             },
           ],
@@ -265,13 +288,43 @@ export const model = {
             {
               id: 'MCD.pdf',
               type: 'pdf',
-              title: 'MCD -1.',
+              title: 'MCD_1.',
+              img: 'MCD_20.png',
               description: 'Descripción del documento'
             },
             {
               id: 'MCD.mp4',
               type: 'video',
-              title: 'MCD -2.',
+              title: 'MCD_2.',
+              img: 'MCD_17.png',
+              description: 'Descripción del documento'
+            },
+            {
+              id: 'MCD_17.mp4',
+              type: 'video',
+              title: 'MCD_3.',
+              img: 'MCD_17.png',
+              description: 'Descripción del documento'
+            },
+            {
+              id: 'MCD_18.mp4',
+              type: 'video',
+              title: 'MCD_4.',
+              img: 'MCD_17.png',
+              description: 'Descripción del documento'
+            },
+            {
+              id: 'MCD_19.mp4',
+              type: 'video',
+              title: 'MCD_5.',
+              img: 'MCD_17.png',
+              description: 'Descripción del documento'
+            },
+            {
+              id: 'MCD_20.mp4',
+              type: 'video',
+              title: 'MCD_6.',
+              img: 'MCD_17.png',
               description: 'Descripción del documento'
             },
           ],
@@ -287,18 +340,21 @@ export const model = {
         //Subtema 
         {
           id: 'fracciones',
+          
           title: 'Fracciones',
           resources: [
             {
               id: 'FRACCIONES.pdf',
               type: 'pdf',
-              title: 'Fracciones _2',
+              img: 'FRACCIONES_29.png',
+              title: 'Fracciones_1',
               description: 'Dos fracciones son homogéneas cuando tienen el mismo denominador. Cuando se tienen fracciones homogéneas, se debe operar (dependiendo de si se trata de una suma o una resta) únicamente los numeradores y mantener el denominador.  ' 
             },
             {
-              id: 'FRACCIONES.mp4',
+              id: 'FRACCIONES_29.mp4',
               type: 'video',
-              title: 'Fracciones _1',
+              img: 'FRACCIONES_29.png',
+              title: 'Fracciones_2',
               description: 'Dos fracciones son homogéneas cuando tienen el mismo denominador. Cuando se tienen fracciones homogéneas, se debe operar (dependiendo de si se trata de una suma o una resta) únicamente los numeradores y mantener el denominador.  ' 
             },
           ],
@@ -311,12 +367,14 @@ export const model = {
             { 
               id: 'SUMA Y RESTA FRACCIONES HOMOGENEAS.pdf',
               type: 'pdf',
+              img: 'FRACCIONES_30.png',
               title: 'Suma y Resta de Fracciones Homogéneas - 1',
               description: 'Dos fracciones son homogéneas cuando tienen el mismo denominador. Cuando se tienen fracciones homogéneas, se debe operar (dependiendo de si se trata de una suma o una resta) únicamente los numeradores y mantener el denominador.  ' 
             },
             {
              id: 'SUMA Y RESTA FRACCIONES HOMOGENEAS-MARCELA.mp4',
              type: 'video',
+             img: 'FRACCIONES_31.png',
              title: 'Suma y Resta de Fracciones Homogéneas  - 2',
              description: 'Dos fracciones son homogéneas cuando tienen el mismo denominador. Cuando se tienen fracciones homogéneas, se debe operar (dependiendo de si se trata de una suma o una resta) únicamente los numeradores y mantener el denominador.  ' 
             },
@@ -324,12 +382,14 @@ export const model = {
             {
              id: 'SUMA Y RESTA DE FRACCIONES HETEROGENEAS.mp4',
              type: 'video',
+             img: 'FRACCIONES_32.png',
              title: 'Suma y resta de fracciones heterogéneas -1',
              description: 'Dos fracciones son heterogéneas cuando tienen diferente denominador. Para sumar o restar fracciones homogéneas, es necesario conocer el proceso para determinar el mínimo común múltiplo (m.c.m) de dos o más números, debido a que se requiere calcular el m.c.m de los denominadores.' 
             },
             {
              id: 'SUMA Y RESTA DE FRACCIONES HETEROGENEAS.pdf',
              type: 'pdf',
+             img: 'FRACCIONES_30.png',          
              title: 'Suma y Resta de Fracciones Heterogeneas -2',
              description: 'Dos fracciones son heterogéneas cuando tienen diferente denominador. Para sumar o restar fracciones homogéneas, es necesario conocer el proceso para determinar el mínimo común múltiplo (m.c.m) de dos o más números, debido a que se requiere calcular el m.c.m de los denominadores.' 
             },
@@ -337,6 +397,7 @@ export const model = {
             {
              id: 'MULTIPLICACION Y DIVISION DE FRACCIONES.pdf',
              type: 'pdf',
+             img: 'FRACCIONES_29.png',
              title: 'Multiplicación y División de Fracciones -1',
              description: 'Para multiplicar dos fracciones, bien sea homogéneas o heterogéneas el producto de los numeradores se convierte en el numerador de la fracción resultante e igualmente el producto de los denominadores, se convierte en el denominador de la fracción resultante. La fracción resultante se simplifica de ser necesario.' 
             },
@@ -344,6 +405,7 @@ export const model = {
             {
              id: 'MULTIPLICACIÓN Y DIVISION DE FRACCIONES.mp4',
              type: 'video',
+             img: 'FRACCIONES_30.png',
              title: 'Multiplicación y División de Fracciones -2',
              description: 'Para dividir dos fracciones, bien sea homogéneas o heterogéneas, se debe multiplicar el numerador de la primera fracción por el denominador de la segunda e igualmente el denominador de la primera fracción por el numerador de la segunda, el primer resultado se convierte en el numerador de la fracción resultante y el segundo resultado se convierte en su denominador. La fracción resultante se simplifica de ser necesario.' 
             },
