@@ -43,7 +43,6 @@ var createContentServer = function () {
     res.writeHead(200, head)
     fs.createReadStream(filePath).pipe(res)
   })
-
   app.use('/api/pdf/:id', (req, res) => {
     const filePath = path.join(__dirname, `../assets/pdf`) + `/${req.params.id}`
     const stat = fs.statSync(filePath)

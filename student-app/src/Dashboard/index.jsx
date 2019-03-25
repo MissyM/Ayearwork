@@ -9,7 +9,7 @@ import Training from './Learning/Training'
 
 export default function ({ location, history }) {
   return <div className="dashboard" >
-     <Profile/>
+     <Profile/> 
     <div className="content">
       <Route path="/buscador" exact component={Browser}/>
       <Route path="/buscador/learning" component={props => <Learning key={location.search} {...props} />}/>

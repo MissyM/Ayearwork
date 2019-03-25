@@ -27,9 +27,6 @@ export default withRouter(class extends Component {
           </ContentCenterElements>
         </ContentWhite>
         <TriangleShadowLow />
-        <Link to="/Login" >
-          <Out>Salir</Out>
-        </Link>
        </ContentGrey>
     )
   }
@@ -68,7 +65,6 @@ const TriangleShadowLow= styled.div`
   transform: rotate(-70deg) translateX(0px) translateY(-1px);
   transform-origin: left bottom;
   box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.13);
-
 `
 
 const YupayIcon= styled.img.attrs({
@@ -79,17 +75,4 @@ const YupayIcon= styled.img.attrs({
   height: 60px;
   margin-top: 20px; 
 `
-const Out= styled.div`
-  margin-top: 35px;
-  display: flex;
-  position: absolute;
-  right: 60px;
-  letter-spacing: .2em;
-  border: 1px solid rgb(158, 157, 157);
-  height: 30px;
-  width: 70px;
-  text-align: center;
-  font-weight: bold;
-  color: gray;
-  border-radius: 6px;
-`
+

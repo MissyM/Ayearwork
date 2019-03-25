@@ -1,14 +1,11 @@
 import React, { useCallback, useState } from "react"
-// import SessionCtx from "./../../sessionContext"
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 
 export default withRouter(function Profile() {
-  // const [session] = useContext(SessionCtx)
   const [hideData, setHideData] = useState(false)
-  const [isRegistered] = useState(false)
 
   const handlerHideData = useCallback(() => {
     setHideData(hideData => !hideData)
@@ -16,10 +13,6 @@ export default withRouter(function Profile() {
 
   return (
     <ProfileContent>
-      {isRegistered ? 
-        <UserRegistered>
-           <Name > Hola {session.userName}. Bienvenido a Yupay </Name > 
-        </UserRegistered> : 
         <UserUnregistered>
           <AvatarContent 
             onClick={handlerHideData}
@@ -28,12 +21,16 @@ export default withRouter(function Profile() {
           </AvatarContent>
           { hideData ?
             <ProfileData>
-              <StyledLinktoRegister>Bienvenido, regístrate y personaliza tu perfil!</StyledLinktoRegister>
+              <StyledLinktoRegister to = '/Register'>
+                Bienvenido, regístrate y personaliza tu perfil!
+              </StyledLinktoRegister>
+              <Link to="/Login" style={{textDecoration: 'none'}} >
+                <Out>Salir</Out>
+              </Link>
             </ProfileData>
-            : null
+           : null
           }
-        </UserUnregistered>}
-      }
+        </UserUnregistered>
     </ProfileContent>  )
 })
 const ProfileContent = styled.div`
@@ -43,12 +40,11 @@ const ProfileContent = styled.div`
   align-items: center;
   flex-direction: column;
   position: fixed;
-  top: 0px;
   right: 0px;
   height: 200px;
   width:200px;
   padding: 10px;
-  z-index: 10;
+  z-index: 100;
 `
 const AvatarContent= styled.div`
   position: absolute;
@@ -59,35 +55,16 @@ const AvatarContent= styled.div`
   align-items: center;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background: #00caca;
   margin-bottom: 5px;
-`
-const UserRegistered= styled.div`
-  position: absolute;
-  top: 10px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
   background: #00caca;
-  margin-bottom: 5px;
+  border-radius: 50%;
 `
+
 const UserUnregistered= styled.div`
-  position: absolute;
-  top: 10px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #00caca;
-  margin-bottom: 5px;
 `
 const Avatar = styled.img.attrs({
   src: require('../../assetsStudent/Lobo-yupay-01.svg'),
@@ -97,14 +74,31 @@ const Avatar = styled.img.attrs({
   width:50px;
 `
 const ProfileData= styled.div`
+  position: absolute;
   height: 110px;
   width:190px;
   padding: 5px;
   margin-top: 30px;
   background-color: white;
+  box-shadow: inset 0px 0px 23px -4px rgba(199,199,245,0.33);
+
 `
 const StyledLinktoRegister= styled(Link)`
   padding: 5px;
+  text-decoration: none;
 `
-const Name= styled.p`
+const Out= styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 5px;
+  align-items: center;
+  letter-spacing: .2em;
+  background-color: #fffa65;
+  height: 30px;
+  width: 70px;
+  text-align: center;
+  margin-left: 55px;
+  font-weight: bold;
+  color: #000;
 `
