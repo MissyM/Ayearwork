@@ -6,7 +6,6 @@ import LearningStylesSection from './LearningStyles'
 import FormSection from './Form'
 import { Link } from 'react-router-dom'
 import { createSession } from '../services/session'
-// import SessionCtx from "../sessionContext"
 
 const sections = {
   form: FormSection,
@@ -15,7 +14,6 @@ const sections = {
 }
 export default function Register(props) {
  
-  // const [, setSession] = useContext(SessionCtx);
   const [section, setSection] = useState('form')
   const [formUserData, setFormUserData] = useState({
     userName: '',
@@ -87,7 +85,6 @@ export default function Register(props) {
   }, [section])
 
   const register = useCallback(() => {
-    // setSession(formUserData)
     api.register(formUserData)
       .then(res => alert('Usuario registrado id = ' + res.id))
       .catch(() => alert('Error de autenticación'))
@@ -121,7 +118,6 @@ export default function Register(props) {
           <RegisterBtn 
             onClick={handleGoNextSection} 
             disabled={!isValid()}
-             
           >
             Continuar
           </RegisterBtn>
@@ -234,7 +230,7 @@ const SkipRegisterBtn = styled(Link)`
   font-weight: bold;
   font-size: 16px;
   letter-spacing: .2em;
-  background: #fffa65;
+  background-color: #fffa65;
   color: #000;
   transition: background-color .2s;
   border: 2px solid #fffa65;
