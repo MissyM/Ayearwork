@@ -5,21 +5,21 @@ import { Link } from 'react-router-dom'
 
 
 export default withRouter(function Profile() {
-  const [hideData, setHideData] = useState(false)
+  const [showMenu, setHideData] = useState(false)
 
-  const handlerHideData = useCallback(() => {
-    setHideData(hideData => !hideData)
+  const handlerShowMenu = useCallback(() => {
+    setHideData(showMenu => !showMenu)
  },[] )
 
   return (
     <ProfileContent>
         <UserUnregistered>
           <AvatarContent 
-            onClick={handlerHideData}
+            onClick={handlerShowMenu}
           >
           <Avatar/>
           </AvatarContent>
-          { hideData ?
+          { showMenu ?
             <ProfileData>
               <StyledLinktoRegister to = '/Register'>
                 Bienvenido, regístrate y personaliza tu perfil!

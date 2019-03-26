@@ -6,9 +6,9 @@ if (sessionInfo) {
   sessionInfo = JSON.parse(sessionInfo)
 }
 
-export function persistSessionInfo() {
-  localStorage.setItem('sessionInfo', JSON.stringify(sessionInfo))
-}
+// export function persistSessionInfo() {
+//   localStorage.setItem('sessionInfo', JSON.stringify(sessionInfo))
+// }
 
 export function createSession(userName) {
   sessionInfo = {
@@ -16,7 +16,7 @@ export function createSession(userName) {
     id: uuidv4(),
     timestamp: Date(Date.now())
   }
-  persistSessionInfo()
+  // persistSessionInfo()
 }
 
 export const isStarted = () => !!sessionInfo

@@ -271,13 +271,7 @@ export const model = {
               title: 'Número Prímos y Compuestos_4',
               description: 'Descripción del documento'
             },
-            {
-              id: 'NUMEROS PRIMOS Y COMPUESTOS_29.mp4',
-              type: 'video',
-              img: 'NUMEROS PRIMOS Y COMPUESTOS_29.png',
-              title: 'Número Prímos y Compuestos_5',
-              description: 'Descripción del documento'
-            },
+          
           ],
         },
         //Subtema MCD
