@@ -33,11 +33,9 @@ var createContentServer = function () {
   })
   app.use('/api/thumbnails/:id', (req, res) => {
     const filePath = path.join(__dirname, `../assets/thumbnails`) + `/${req.params.id}`
-    console.log(req.params.id + ' id params')
     const stat = fs.statSync(filePath)
     const fileSize = stat.size
     const mimeType = mime.getType(filePath)
-    console.log(mimeType + ' mimetype')
     const head = {
       'Content-Length': fileSize,
       'Content-Type': mimeType,

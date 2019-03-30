@@ -5,11 +5,21 @@ import { Link } from 'react-router-dom'
 
 
 export default withRouter(function Profile() {
-  const [showMenu, setHideData] = useState(false)
+  
+  const [showMenu, setShowMenu] = useState(false)
 
-  const handlerShowMenu = useCallback(() => {
-    setHideData(showMenu => !showMenu)
- },[] )
+  const handlerShowMenu = useCallback((e) => {
+    e.preventDefault()
+    setShowMenu({showMenu: true}, () => {
+      document.addEventListener('click', handlerCloseMenu)
+    })
+  },[] )
+
+  const handlerCloseMenu = useCallback(() => {
+    setShowMenu({showMenu: true}, () => {
+      document.removeEventListener('click', handlerCloseMenu)
+    })
+  },[] )
 
   return (
     <ProfileContent>
@@ -24,7 +34,7 @@ export default withRouter(function Profile() {
               <StyledLinktoRegister to = '/Register'>
                 Bienvenido, regístrate y personaliza tu perfil!
               </StyledLinktoRegister>
-              <Link to="/Login" style={{textDecoration: 'none'}} >
+              <Link to="/Login" style={{ textDecoration: 'none' }} >
                 <Out>Salir</Out>
               </Link>
             </ProfileData>
