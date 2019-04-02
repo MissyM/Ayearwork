@@ -1,35 +1,42 @@
-import React, { useCallback, useState } from "react"
+import React, { Component } from "react"
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 
-export default withRouter(function Profile() {
-  
-  const [showMenu, setShowMenu] = useState(false)
+export default withRouter(class Profile extends Component {
+  constructor() {
+    super()
+    
+    this.state = {
+      showMenu: false,
+    }
+    this.showMenu = this.showMenu.bind(this)
+    this.closeMenu = this.closeMenu.bind(this)
+  }
 
-  const handlerShowMenu = useCallback((e) => {
+  showMenu(e) {
     e.preventDefault()
-    setShowMenu({showMenu: true}, () => {
-      document.addEventListener('click', handlerCloseMenu)
+    this.setState({showMenu: true}, () => {
+      document.addEventListener('click', this.closeMenu)
     })
-  },[] )
+  }
 
-  const handlerCloseMenu = useCallback(() => {
-    setShowMenu({showMenu: true}, () => {
-      document.removeEventListener('click', handlerCloseMenu)
+  closeMenu() {
+    this.setState({showMenu: false}, () => {
+      document.removeEventListener('click', this.closeMenu)
     })
-  },[] )
-
+  }
+  render() {
   return (
     <ProfileContent>
         <UserUnregistered>
           <AvatarContent 
-            onClick={handlerShowMenu}
+            onClick={this.showMenu}
           >
           <Avatar/>
           </AvatarContent>
-          { showMenu ?
+          { this.state.showMenu ?
             <ProfileData>
               <StyledLinktoRegister to = '/Register'>
                 Bienvenido, regístrate y personaliza tu perfil!
@@ -42,7 +49,9 @@ export default withRouter(function Profile() {
           }
         </UserUnregistered>
     </ProfileContent>  )
+  }
 })
+
 const ProfileContent = styled.div`
   position: relative;
   display: flex;
