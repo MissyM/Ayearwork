@@ -1,6 +1,7 @@
 const isDev = require('electron-is-dev')
 const contentServer = require('./contentServer')
 const path = require('path')
+const logger = require('./logger')
 
 const {app, BrowserWindow } = require('electron')
 
@@ -12,6 +13,7 @@ function createWindow () {
  
   mainWindow = new BrowserWindow({ width: 800, height: 600 })
 
+  logger.init(mainWindow)
   
   if (isDev) {
     mainWindow.webContents.openDevTools()
@@ -20,6 +22,7 @@ function createWindow () {
     // teacher-app dev
     mainWindow.loadFile('teacher-app/index.html')
   } else {
+    mainWindow.webContents.openDevTools()
     mainWindow.loadFile('teacher-app/index.html')
   }
 

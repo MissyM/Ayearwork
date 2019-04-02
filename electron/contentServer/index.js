@@ -8,6 +8,7 @@ const isDev = require('electron-is-dev')
 const uuidV4 = require('uuid/v4')
 // const PouchDB = require('pouchdb/dist/pouchdb')
 const db = require('./db')
+const logger = require('../logger')
 const mime = require('mime')
 
 const electron = require('electron') 
@@ -31,11 +32,14 @@ var createContentServer = function () {
       msg: 'Yupay API running',
     })
   })
+
   app.use('/api/thumbnails/:id', (req, res) => {
     const filePath = path.join(__dirname, `../assets/thumbnails`) + `/${req.params.id}`
+    logger.log(req.params.id + ' id params')
     const stat = fs.statSync(filePath)
     const fileSize = stat.size
     const mimeType = mime.getType(filePath)
+    logger.log(mimeType + ' mimetype')
     const head = {
       'Content-Length': fileSize,
       'Content-Type': mimeType,
@@ -89,7 +93,7 @@ var createContentServer = function () {
   app.post('/api/log', (req, res) => {
     const log = req.body
     if (isDev) {
-      console.log(log)
+      logger.log(log)
     }
     // Se adjunta el log al archivo yupay-logs.txt
     fs.appendFileSync(yupayLogsFile, JSON.stringify(log) + '\n', 'utf8')
@@ -99,7 +103,7 @@ var createContentServer = function () {
   app.post('/api/register', (req, res) => {
     const data = req.body
     if (isDev) {
-      console.log(data)
+      logger.log(data)
     }
     const id = uuidV4()
     const result = db.put({
@@ -117,7 +121,7 @@ var createContentServer = function () {
   app.post('/api/login', (req, res) => {
     const data = req.body
     if (isDev) {
-      console.log(data)
+      logger.log(data)
     }
     const result = db.find('user', user => user.username === data.username)
     if (result.length > 0) {
@@ -127,8 +131,14 @@ var createContentServer = function () {
     }
   })
 
+  app.use(function(err, req, res, next) {
+    if (err) {
+      logger.log('error', err)
+    }
+  })
+
   app.listen(8080, isDev ? 'localhost' : ip.address(), function () {
-    console.log('Listening on port 8080!')
+    logger.log('Listening on port 8080!')
   })
 }
 
