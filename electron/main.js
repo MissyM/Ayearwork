@@ -22,7 +22,7 @@ function createWindow () {
     // teacher-app dev
     mainWindow.loadFile('teacher-app/index.html')
   } else {
-    mainWindow.webContents.openDevTools()
+    //mainWindow.webContents.openDevTools()
     mainWindow.loadFile('teacher-app/index.html')
   }
 
