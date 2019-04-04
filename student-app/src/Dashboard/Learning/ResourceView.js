@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Document, Page } from 'react-pdf';
+import { Document, Page } from 'react-pdf'
 
 import { getVideo, getPDF } from '../../services/api'
 
@@ -18,7 +18,6 @@ const Container = styled.div `
   width: 700px;
   height: 394px;
 `
-
 const Video = styled.video.attrs({
   src: props => getVideo(props.video.id),
   controls: true,
@@ -67,7 +66,13 @@ class PDF extends React.Component {
           </DocumentContainer>
           <PDFControls>
             <BackBtn onClick={ this.prevPage }>Página Anterior</BackBtn>
-            <h4> Página {pageNumber} de {numPages}</h4>
+            <h4 style=
+              {{ 
+                marginTop: '0px', 
+                backgroundColor: 'transparent',
+                paddingLeft: '5px'
+              }}> Página {pageNumber} de {numPages}
+            </h4>
             <NextBtn onClick={ this.nextPage }> Página Siguiente</NextBtn>
           </PDFControls>
         </>}
