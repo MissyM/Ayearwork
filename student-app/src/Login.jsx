@@ -10,11 +10,9 @@ import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import grey from '@material-ui/core/colors/grey'
 import FormHelperText from '@material-ui/core/FormHelperText'
-import red from '@material-ui/core/colors/red';
 
 import './App.css'
-const primary = red[500]; // #F44336
-const styles = theme => ({
+const styles = () => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',

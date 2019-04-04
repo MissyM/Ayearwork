@@ -1,23 +1,28 @@
 
-import React, { Component } from 'react'
+import React, { useEffect, useState  } from 'react'
 import { withRouter } from 'react-router-dom'
 import { logNavego } from './services/log'
+import SessionCtx from './sessionContext'
 
-class AppWrap extends Component {
- 
-  componentDidMount() {
-    logNavego(this.props.history.location.pathname + this.props.history.location.search )
-    this.unlisten = this.props.history.listen(location => {
+const AppWrap = (props) => {
+
+  const [session, setSession] = useState(() => ({
+    username: "",
+  }))
+
+  useEffect(() => {
+    logNavego(props.history.location.pathname + props.history.location.search )
+    const unlisten = props.history.listen(location => {
       logNavego(location.pathname + location.search)
-    })
-  }
-  componentWillUnmount() {
-    this.unlisten()
-  }
-  render() {
+    });
+    return () => {
+       unlisten();
+    }
+  }, [])
     return (
-      <>{this.props.children}</>
+      <SessionCtx.Provider value={[session, setSession]}>
+        {this.props.children}
+      </SessionCtx.Provider>
     )
-  }
 }
 export default withRouter(AppWrap)

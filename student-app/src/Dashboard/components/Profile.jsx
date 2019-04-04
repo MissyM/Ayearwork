@@ -2,13 +2,13 @@ import React, { Component } from "react"
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-
+import SessionCtx from '../../sessionContext'
 
 export default withRouter(class Profile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: 'Mile',
+      username: '',
       showMenu: false,
     }
     this.showMenu = this.showMenu.bind(this)
