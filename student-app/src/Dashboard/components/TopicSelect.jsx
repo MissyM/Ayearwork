@@ -18,6 +18,7 @@ const Magnifiying = styled.img.attrs({
 })`
   width: 20px;
   height: 20px;
+  cursor: pointer;
 `
 const DropdownIndicator = ( props ) => {
   return (
