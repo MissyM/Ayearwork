@@ -9,10 +9,12 @@ import Input from '@material-ui/core/Input'
 import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import grey from '@material-ui/core/colors/grey'
+import FormHelperText from '@material-ui/core/FormHelperText'
+import red from '@material-ui/core/colors/red';
 
 import './App.css'
-
-const styles = () => ({
+const primary = red[500]; // #F44336
+const styles = theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -49,12 +51,13 @@ export default withStyles(styles)(withRouter(class extends Component {
     super(props)
     this.state = {
       username: '',
+      error: false,
     }
   }
 
   start = () => {
     if (this.state.username === '') {
-      alert('Debes escribir tu nombre')
+      this.setState({error: true})
       return
     }
     createSession(this.state.username)
@@ -63,7 +66,7 @@ export default withStyles(styles)(withRouter(class extends Component {
   }
 
   handleUsernameChange = ev => {
-    this.setState({ username: ev.target.value })
+    this.setState({ username: ev.target.value , error: false})
   }
 
   handleUsernameKeyUp = ev => {
@@ -95,12 +98,16 @@ export default withStyles(styles)(withRouter(class extends Component {
               <Input
                 id="custom-css-standard-input"
                 value={this.state.username}
+                onChange={this.handleUsernameChange}
                 classes={{
                 underline: this.props.classes.cssUnderline,
                 }}
-                onChange={this.handleUsernameChange}
                 onKeyUp={this.handleUsernameKeyUp}
               />
+              { this.state.error?
+               <FormHelperText id="component-helper-text" >Asegurate de escribir tu nombre</FormHelperText>
+               : null
+              }
             </FormControl>
             <LoginBtn onClick={this.start}>
               Ingresa
