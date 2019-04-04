@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 
 import './App.css'
 import { isStarted } from './services/session'
-import AppContainer from './AppContainer'
+import AppWrap from './AppWrap'
 import PrivateRoute from './PrivateRoute'
 
 import Login from './Login'
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <AppContainer>
+        <AppWrap>
           <Route exact path="/" render={() => (
             isStarted() ? (
               <Redirect to="/buscador"/>
@@ -25,7 +25,7 @@ class App extends Component {
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
           <PrivateRoute path="/buscador" component={Dashboard}/>
-        </AppContainer>
+        </AppWrap>
       </Router>
     )
   }

@@ -80,7 +80,6 @@ export default class extends React.Component {
 
   render () {
     const { actualResource, nextResource, otherResources, state, topicTitle } = this.state
-    console.log(otherResources)
     return (
       state === 'noResources' ? (
         <h1>No hay recursos en este subtema</h1>
