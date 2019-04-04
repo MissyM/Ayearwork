@@ -31,9 +31,6 @@ export default withRouter(class Profile extends Component {
   return (
     <ProfileContent>
     <UserUnregistered name={this.state.name}/>
-      <AvatarContent onClick={this.showMenu}>
-        <Avatar/>
-      </AvatarContent>
       {this.state.showMenu ?
         <ProfileData>
           <div>{this.name}</div>
@@ -61,7 +58,7 @@ const ProfileContent = styled.div`
   padding: 10px;
   z-index: 100;
 `
-const AvatarContent= styled.div`
+const LogoDefault= styled.div`
   position: absolute;
   top: 10px;
   cursor: pointer;
@@ -128,6 +125,9 @@ const UserUnregistered = (props) => {
       <StyledLinktoRegister to = '/Register'>
            regístrate!
       </StyledLinktoRegister>
+      <LogoDefault onClick={props.showMenu}>
+        <Avatar/>
+      </LogoDefault>
     </Unregistered>
   )
 }
