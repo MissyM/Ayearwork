@@ -36,6 +36,7 @@ const styles = () => ({
   },
   selectEmpty: {}
 })
+
 export default withStyles(styles)(function Form(props) {
   const { classes, fieldChangeHandler, data} = props
   const [showPassword, setShowPassword] = useState(false)
@@ -50,7 +51,10 @@ export default withStyles(styles)(function Form(props) {
         <CardTop>
           <UpCard>
             <InputNameContent>
-              <FormControl  fullWidth={true} className={classNames(classes.margin, classes.textField)}>
+              <FormControl  
+                fullWidth={true}
+                className={classNames(classes.margin, classes.textField)}
+              >
                 <InputLabel
                   htmlFor="custom-css-standard-input"
                   classes={{
@@ -105,7 +109,11 @@ export default withStyles(styles)(function Form(props) {
           </UpCard>
           <LowCard>
             <Selects >
-              <FormControl style={{marginRight: '30px'}} fullWidth={true} variant="filled" className={classes.formControl}>
+              <FormControl 
+                style={{marginRight: '30px'}} 
+                fullWidth={true} variant="filled" 
+                className={classes.formControl}
+              >
                 <InputLabel htmlFor="filled-age-simple">Edad</InputLabel>
                 <Select
                   value={data.age}

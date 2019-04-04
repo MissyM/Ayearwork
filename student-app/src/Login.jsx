@@ -114,8 +114,9 @@ export default withStyles(styles)(withRouter(class extends Component {
             </LoginBtn>
           </InputContent>
           <StyedLink to={'/Register'}>
-            ¡Registrate, personaliza tu avatar y gana monedas!
+            ¡Registrate,
           </StyedLink>
+          personaliza tu avatar y gana monedas!
         </Card>
         <LeftCloud/>
       </LoginContent>

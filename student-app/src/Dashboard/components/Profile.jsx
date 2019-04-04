@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 
 
 export default withRouter(class Profile extends Component {
-  constructor() {
-    super()
-    
+  constructor(props) {
+    super(props)
     this.state = {
+      name: 'Mile',
       showMenu: false,
     }
     this.showMenu = this.showMenu.bind(this)
@@ -30,25 +30,21 @@ export default withRouter(class Profile extends Component {
   render() {
   return (
     <ProfileContent>
-        <UserUnregistered>
-          <AvatarContent 
-            onClick={this.showMenu}
-          >
-          <Avatar/>
-          </AvatarContent>
-          { this.state.showMenu ?
-            <ProfileData>
-              <StyledLinktoRegister to = '/Register'>
-                Bienvenido, regístrate y personaliza tu perfil!
-              </StyledLinktoRegister>
-              <Link to="/Login" style={{ textDecoration: 'none' }} >
-                <Out>Salir</Out>
-              </Link>
-            </ProfileData>
-           : null
-          }
-        </UserUnregistered>
-    </ProfileContent>  )
+    <UserUnregistered name={this.state.name}/>
+      <AvatarContent onClick={this.showMenu}>
+        <Avatar/>
+      </AvatarContent>
+      {this.state.showMenu ?
+        <ProfileData>
+          <div>{this.name}</div>
+          <Link to="/Login" style={{ textDecoration: 'none' }} >
+            <Out>Salir</Out>
+          </Link>
+        </ProfileData>
+        : null
+      }
+     </ProfileContent> 
+    )
   }
 })
 
@@ -79,9 +75,13 @@ const AvatarContent= styled.div`
   border-radius: 50%;
 `
 
-const UserUnregistered= styled.div`
-  cursor: pointer;
+const Unregistered= styled.div`
+  width: 300px;
+  height: 30px;
+  right: 100px;
+  top: 25px;
   display: flex;
+  position: absolute;
   justify-content: center;
   align-items: center;
 `
@@ -94,7 +94,7 @@ const Avatar = styled.img.attrs({
 `
 const ProfileData= styled.div`
   position: absolute;
-  height: 110px;
+  height: 50px;
   width:190px;
   padding: 5px;
   margin-top: 30px;
@@ -104,7 +104,7 @@ const ProfileData= styled.div`
 `
 const StyledLinktoRegister= styled(Link)`
   padding: 5px;
-  text-decoration: none;
+  cursor: pointer;
 `
 const Out= styled.div`
   position: absolute;
@@ -121,3 +121,13 @@ const Out= styled.div`
   font-weight: bold;
   color: #000;
 `
+const UserUnregistered = (props) => {
+  return (
+    <Unregistered>
+      Bienvenido {props.name}
+      <StyledLinktoRegister to = '/Register'>
+           regístrate!
+      </StyledLinktoRegister>
+    </Unregistered>
+  )
+}
