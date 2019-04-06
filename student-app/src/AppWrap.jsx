@@ -16,12 +16,12 @@ const AppWrap = (props) => {
       logNavego(location.pathname + location.search)
     });
     return () => {
-       unlisten();
+      unlisten()
     }
   }, [])
     return (
       <SessionCtx.Provider value={[session, setSession]}>
-        {this.props.children}
+        {props.children}
       </SessionCtx.Provider>
     )
 }

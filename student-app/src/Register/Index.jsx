@@ -103,18 +103,19 @@ export default function Register(props) {
         </LogoContent>
         <Section 
           fieldChangeHandler={fieldChangeHandler} 
-          data={formUserData}/>
-          <Bottons>
-            { section === 'form' &&  
-              <SkipRegisterBtn to={'/Login'} >
-                Saltar Registro
-              </SkipRegisterBtn>
-            }
-            { (section === 'intelligences' || section === 'learningStyles') && 
-              <RegisterBackBtn onClick={handleGoPreviousSection} >
-                Volver
-              </RegisterBackBtn> 
-            }
+          data={formUserData}
+        />
+        <Bottons>
+          { section === 'form' &&  
+            <SkipRegisterBtn to={'/Login'} >
+              Saltar Registro
+            </SkipRegisterBtn>
+          }
+          { (section === 'intelligences' || section === 'learningStyles') && 
+            <RegisterBackBtn onClick={handleGoPreviousSection} >
+              Volver
+            </RegisterBackBtn> 
+          }
           <RegisterBtn 
             onClick={handleGoNextSection} 
             disabled={!isValid()}

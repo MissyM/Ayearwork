@@ -8,7 +8,7 @@ export default withRouter(class Profile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: '',
+      username: 'Pepe',
       showMenu: false,
     }
     this.showMenu = this.showMenu.bind(this)
@@ -30,10 +30,13 @@ export default withRouter(class Profile extends Component {
   render() {
   return (
     <ProfileContent>
-    <UserUnregistered name={this.state.name}/>
+    <UserUnregistered username={this.state.username}/>
+      <LogoUnregistered onClick={this.showMenu}>
+        <Avatar/>
+      </LogoUnregistered>
       {this.state.showMenu ?
         <ProfileData>
-          <div>{this.name}</div>
+          <div>{this.username}</div>
           <Link to="/Login" style={{ textDecoration: 'none' }} >
             <Out>Salir</Out>
           </Link>
@@ -45,6 +48,17 @@ export default withRouter(class Profile extends Component {
   }
 })
 
+
+const UserUnregistered = (props) => {
+  return (
+    <Unregistered>
+      Bienvenid@ {props.username}
+      <StyledLinktoRegister to = '/Register'>
+           regístrate!
+      </StyledLinktoRegister>
+    </Unregistered>
+  )
+}
 const ProfileContent = styled.div`
   position: relative;
   display: flex;
@@ -58,7 +72,7 @@ const ProfileContent = styled.div`
   padding: 10px;
   z-index: 100;
 `
-const LogoDefault= styled.div`
+const LogoUnregistered= styled.div`
   position: absolute;
   top: 10px;
   cursor: pointer;
@@ -118,16 +132,3 @@ const Out= styled.div`
   font-weight: bold;
   color: #000;
 `
-const UserUnregistered = (props) => {
-  return (
-    <Unregistered>
-      Bienvenido {props.name}
-      <StyledLinktoRegister to = '/Register'>
-           regístrate!
-      </StyledLinktoRegister>
-      <LogoDefault onClick={props.showMenu}>
-        <Avatar/>
-      </LogoDefault>
-    </Unregistered>
-  )
-}

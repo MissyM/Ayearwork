@@ -83,7 +83,7 @@ export default withStyles(styles)(withRouter(class extends Component {
             <LogoImg />
           </LogoContent>
           <InputContent>
-              <FormControl className={this.props.classes.margin}>
+            <FormControl className={this.props.classes.margin}>
               <InputLabel
                 htmlFor="custom-css-standard-input"
                 classes={{

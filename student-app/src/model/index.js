@@ -14,35 +14,35 @@ export const model = {
               id: 'SISTEMA DE NUMERACION.pdf',
               type: 'pdf',
               img: 'SISTEMAS DE NUMERACIÓN_4.jpg',
-              title: ' Sistema de Numeración_1',
+              title: ' Sistema de Numeración',
               description: 'Descripción del tema'
             },
             {
               id: 'SISTEMA DE NUMERACION_1.mp4',
               type: 'video',
               img: 'SISTEMAS DE NUMERACION_1.jpg',
-              title: 'Sistema de Numeración_2',
+              title: 'Sistema de Numeración_1',
               description: 'Descripción del tema'
             },
             {
               id: 'SISTEMA DE NUMERACION_2.mp4',
               type: 'video',
               img: 'SISTEMAS DE NUMERACION_2.jpg',
-              title: ' Sistema de Numeración_3',
+              title: ' Sistema de Numeración_2',
               description: 'Descripción del tema'
             },
             {
               id: 'SISTEMA DE NUMERACION_3.mp4',
               type: 'video',
               img: 'SISTEMAS DE NUMERACIÓN_3.jpg',
-              title: 'Sistema de Numeración_4',
+              title: 'Sistema de Numeración_3',
               description: 'Descripción del tema'
             },
             {
               id: 'SISTEMA DE NUMERACION_4.mp4',
               type: 'video',
               img: 'SISTEMAS DE NUMERACIÓN_4.jpg',
-              title: 'Sistema de Numeración_5',
+              title: 'Sistema de Numeración_4',
               description: 'Descripción del tema'
             },
           ],
