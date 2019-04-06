@@ -5,13 +5,12 @@ import { logSesionIniciada } from './services/log'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { withStyles, createMuiTheme } from '@material-ui/core/styles'
-import Input from '@material-ui/core/Input'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
 import grey from '@material-ui/core/colors/grey'
-import FormHelperText from '@material-ui/core/FormHelperText'
+import { Formik, Field, Form } from 'formik'
+import { TextField } from 'formik-material-ui'
 
 import './App.css'
+
 const styles = () => ({
   container: {
     display: 'flex',
@@ -47,30 +46,12 @@ export default withStyles(styles)(withRouter(class extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      username: '',
-      error: false,
-    }
   }
 
-  start = () => {
-    if (this.state.username === '') {
-      this.setState({error: true})
-      return
-    }
-    createSession(this.state.username)
-    logSesionIniciada(this.state.username)
+  start = ({ username }) => {
+    createSession(username)
+    logSesionIniciada(username)
     this.props.history.push('/buscador')
-  }
-
-  handleUsernameChange = ev => {
-    this.setState({ username: ev.target.value , error: false})
-  }
-
-  handleUsernameKeyUp = ev => {
-    if (ev.keyCode === 13) {
-      this.start()
-    }
   }
 
   render () {
@@ -83,33 +64,32 @@ export default withStyles(styles)(withRouter(class extends Component {
             <LogoImg />
           </LogoContent>
           <InputContent>
-            <FormControl className={this.props.classes.margin}>
-              <InputLabel
-                htmlFor="custom-css-standard-input"
-                classes={{
-                  root: this.props.classes.cssLabel,
-                  focused: this.props.classes.cssFocused,
-                }}
-              >
-                Escribe tu Nombre
-              </InputLabel>
-              <Input
-                id="custom-css-standard-input"
-                value={this.state.username}
-                onChange={this.handleUsernameChange}
-                classes={{
-                underline: this.props.classes.cssUnderline,
-                }}
-                onKeyUp={this.handleUsernameKeyUp}
-              />
-              { this.state.error?
-               <FormHelperText id="component-helper-text" >Asegurate de escribir tu nombre</FormHelperText>
-               : null
-              }
-            </FormControl>
-            <LoginBtn onClick={this.start}>
-              Ingresa
-            </LoginBtn>
+            <Formik
+              initialValues={{ username: '' }}
+              validate={values => {
+                const errors = {}
+                if (!values.username) {
+                  errors.username = 'Asegúrate de escribir tu nombre'
+                }
+                return errors
+              }}
+              onSubmit={values => {
+                this.start(values)
+              }}
+              render={({ submitForm }) => (
+                <Form>
+                  <Field
+                    name="username"
+                    type="text"
+                    label="Escribe tu nombre"
+                    component={TextField}
+                  />
+                  <LoginBtn onClick={submitForm}>
+                    Ingresa
+                  </LoginBtn>
+                </Form>
+              )}
+            />
           </InputContent>
           <StyedLink to={'/Register'}>
             ¡Registrate,
@@ -124,12 +104,12 @@ export default withStyles(styles)(withRouter(class extends Component {
 
 
 const LoginContent = styled.div`
-    margin-top: 5%;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-top: 5%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 const RightCloud = styled.img.attrs({
   src: require('./assetsStudent/nube_derecha.png'),
@@ -179,8 +159,8 @@ const StyedLink = styled(Link)`
   margin: 0px 20px;
   text-align: center;
 `
-const LoginBtn = styled.div`
-  display: flex; 
+const LoginBtn = styled.button`
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 195px;
@@ -191,7 +171,8 @@ const LoginBtn = styled.div`
   font-size: 16px;
   letter-spacing: .2em;
   background-color: #FBED21;
-` 
+  border: none;
+`
 const LeftCloud = styled.img.attrs({
   src: require('./assetsStudent/nube_izquierda.png'),
   alt: "Nube baja",
