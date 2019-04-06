@@ -8,6 +8,7 @@
     "@uirouter/react": "^0.8.7",
     "formik": "^1.5.2",
     "formik-material-ui": "0.0.16",
+    "lodash": "^4.17.11",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-pdf": "^4.0.2",
@@ -38,7 +39,9 @@
   ],
   "devDependencies": {
     "cross-env": "^5.2.0",
+    "customize-cra": "^0.2.12",
     "react-app-rewire-hot-loader": "^2.0.1",
+    "react-app-rewire-styled-components": "^3.0.2",
     "react-app-rewired": "^2.1.1",
     "react-hot-loader": "^4.8.3"
   }
