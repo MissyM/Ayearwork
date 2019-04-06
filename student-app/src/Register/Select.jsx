@@ -39,40 +39,46 @@ export const fieldToTextField = ({
     error: showError,
     helperText: showError ? fieldError : props.helperText,
     disabled: isSubmitting || disabled,
-  };
-};
+  }
+}
 
 const Select = ({
   field,
   form,
   variant,
   disabled = false,
+  label,
   children,
   formControl = {},
   ...props
 }) => {
   const [ id ] = useState(uniqueId('formik-select-'))
-  const { name } = field;
+  const { name} = field
   const { touched, errors, isSubmitting } = form
 
   const fieldError = getIn(errors, name)
   const showError = getIn(touched, name) && !!fieldError
 
-  return <FormControl
-    error={showError}
-    {...formControl}
-  >
-    <InputLabel htmlFor={id}>Edad</InputLabel>
-    <MUISelect
-      disabled={isSubmitting || disabled}
-      input={<FilledInput id={id} name={name} />}
-      {...props}
-      {...field}
+  console.log(field)
+
+  return (
+    <FormControl
+      error={showError}
+      {...formControl}
     >
-      {children}
-    </MUISelect>
-    <FormHelperText>{showError ? fieldError : props.helperText}</FormHelperText>
-  </FormControl>
+      <InputLabel htmlFor={id} shrink={field.value}>{label}</InputLabel>
+      <MUISelect
+        name={name}
+        disabled={isSubmitting || disabled}
+        input={<FilledInput id={id} />}
+        {...props}
+        {...field}
+      >
+        {children}
+      </MUISelect>
+      <FormHelperText>{showError ? fieldError : props.helperText}</FormHelperText>
+    </FormControl>
+  )
 }
 
 Select.displayName = 'FormikMaterialUISelect'

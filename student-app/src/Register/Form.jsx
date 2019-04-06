@@ -5,12 +5,8 @@ import { TextField } from 'formik-material-ui'
 import Carousel from './Carousel'
 
 import { withStyles} from '@material-ui/core/styles'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import MUISelect from '@material-ui/core/Select'
 import grey from '@material-ui/core/colors/grey'
 
-import FilledInput from '@material-ui/core/FilledInput'
 import MenuItem from '@material-ui/core/MenuItem'
 
 import Select from './Select'
@@ -49,6 +45,12 @@ export default withStyles(styles)(function Form(props) {
           }
           if (!values.age) {
             errors.age = 'Selecciona tu edad'
+          }
+          if (!values.gender) {
+            errors.gender = 'Selecciona tu género'
+          }
+          if (!values.grade) {
+            errors.grade = 'Selecciona tu grado'
           }
           return errors
         }}
@@ -103,26 +105,42 @@ export default withStyles(styles)(function Form(props) {
                   <MenuItem value={14}>14 años</MenuItem>
                   <MenuItem value={15}>15 años</MenuItem>
                 </Field>
-                <FormControl fullWidth={true} variant="filled" className={classes.formControl}>
+                {/* <FormControl fullWidth={true} variant="filled" className={classes.formControl}>
                   <InputLabel htmlFor="filled-gender-simple">Género</InputLabel>
-                  <MUISelect
+                  <FormHelperText
                     value={data.gender}
                     onChange={ev=>fieldChangeHandler("gender", ev)}
                     input={<FilledInput name="gender" id="filled-gender-simple" />}
+                  > */}
+                  <Field
+                    name="gender"
+                    label="Genero*"
+                    component={Select}
+                    formControl={{
+                      fullWidth: true,
+                      variant: 'filled',
+                      className: classes.formControl,
+                    }}
                   >
                     <MenuItem value="">
                       <em>Ninguno</em>
                     </MenuItem>
-                    <MenuItem value={"F"}>Femenino</MenuItem>
-                    <MenuItem value={"M"}>Masculino</MenuItem>
-                  </MUISelect>
-                </FormControl>
-                <FormControl style={{marginRight: '30px', marginLeft: '30px'}} fullWidth={true} variant="filled" className={classes.formControl}>
-                  <InputLabel htmlFor="filled-grade-simple">Grado</InputLabel>
-                  <MUISelect
-                    value={data.grade}
-                    onChange={ev=>fieldChangeHandler("grade", ev)}
-                    input={<FilledInput name="grade" id="filled-grade-simple" />}
+                    <MenuItem value="F">Femenino</MenuItem>
+                    <MenuItem value="M">Masculino</MenuItem>
+                  </Field>
+                  <Field
+                    name="grade"
+                    label="Grado*"
+                    component={Select}
+                    formControl={{
+                      style:{
+                        marginRight: '30px',
+                        marginLeft: '30px'
+                      },
+                      fullWidth: true,
+                      variant: 'filled',
+                      className: classes.formControl
+                    }}
                   >
                     <MenuItem value="">
                       <em>Ninguno</em>
@@ -133,8 +151,9 @@ export default withStyles(styles)(function Form(props) {
                     <MenuItem value={9}>9no</MenuItem>
                     <MenuItem value={10}>10mo</MenuItem>
                     <MenuItem value={11}>11</MenuItem>
-                  </MUISelect>
-                </FormControl>
+                  {/* </MUISelect>
+                </FormControl> */}
+                </Field>
               </Selects>
             </LowCard>
           </CardTop>
