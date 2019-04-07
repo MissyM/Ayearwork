@@ -106,13 +106,15 @@ var createContentServer = function () {
       logger.log(data)
     }
     const id = uuidV4()
-    const result = db.put({
+    const user = {
       ...data,
       id,
       type: 'user',
-    })
+      timestamp: Date.now(),
+    }
+    const result = db.put(user)
     if (result) {
-      res.json({ msg: 'success', id })
+      res.json({ msg: 'success', user: ({ ...user, password: undefined }) })
     } else {
       res.status(401).json({ msg: 'unauthorized' })
     }

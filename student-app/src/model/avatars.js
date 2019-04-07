@@ -1,0 +1,16 @@
+export default [
+  {avatar:'A8', src: require('../Register/assetsRegister/AvatarResources/A8.png')},
+  {avatar:'A9', src:  require('../Register/assetsRegister/AvatarResources/A9.png')},
+  {avatar:'A10', src:  require('../Register/assetsRegister/AvatarResources/A10.png')},
+  {avatar:'A11', src:  require('../Register/assetsRegister/AvatarResources/A11.png')},
+  {avatar:'A12', src:  require('../Register/assetsRegister/AvatarResources/A12.png')},
+  {avatar:'A13', src:  require('../Register/assetsRegister/AvatarResources/A13.png')},
+  {avatar:'A14', src:  require('../Register/assetsRegister/AvatarResources/A14.png')},
+  {avatar:'A15', src:  require('../Register/assetsRegister/AvatarResources/A15.png')},
+  {avatar:'A16', src:  require('../Register/assetsRegister/AvatarResources/A16.png')},
+  {avatar:'A17', src:  require('../Register/assetsRegister/AvatarResources/A17.png')},
+  {avatar:'A18', src:  require('../Register/assetsRegister/AvatarResources/A18.png')},
+  {avatar:'A19', src:  require('../Register/assetsRegister/AvatarResources/A19.png')},
+  {avatar:'A20', src:  require('../Register/assetsRegister/AvatarResources/A20.png')},
+  {avatar:'A21', src:  require('../Register/assetsRegister/AvatarResources/A21.png')},
+]

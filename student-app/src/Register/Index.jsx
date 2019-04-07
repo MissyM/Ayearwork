@@ -4,7 +4,7 @@ import * as api from '../services/api'
 import IntelligencesSection from './Intelligences'
 import LearningStylesSection from './LearningStyles'
 import FormSection from './Form'
-import { createSession } from '../services/session'
+import SessionContext from '../sessionContext'
 
 const sections = {
   form: FormSection,
@@ -30,35 +30,33 @@ export default function Register(props) {
       ...formUserData,
       ...formData,
     })
-    handleGoNextSection()
-  }, [formUserData])
-
-  //Atrás 
-  const handleGoPreviousSection = useCallback(() => {
-    setSection(section => section === 'intelligences' ? 'form'
-      : section === 'learningStyles' ? 'intelligences' 
-      : 'form' )
-  }, [section])
-
-  const goToBrowser = () => props.history.push('/buscador')
-
-  const handleGoNextSection = useCallback(() => {
     if (section === 'learningStyles' ) {
       register()
-      createSession(formUserData.username)
-      goToBrowser()
       return 
     }
     setSection(section === 'form'
       ? 'intelligences'
       : 'learningStyles'
     )
-    console.log(section)
-  }, [section, formUserData])
+  }, [section, setSection, formUserData, setFormUserData])
+
+  //Atrás 
+  const handleGoPreviousSection = useCallback(() => {
+    setSection(section => section === 'intelligences' ? 'form'
+      : section === 'learningStyles' ? 'intelligences' 
+      : 'form' )
+  }, [section, setSection])
+
+  const goToBrowser = () => props.history.push('/buscador')
+
+  const sessionContext = useContext(SessionContext)
 
   const register = useCallback(() => {
     api.register(formUserData)
-      .then(res => {})
+      .then(res => {
+        sessionContext.setSession(res.user)
+        goToBrowser()
+      })
       .catch(() => alert('Error de autenticación'))
   }, [formUserData])
   

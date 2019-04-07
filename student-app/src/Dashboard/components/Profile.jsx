@@ -1,51 +1,48 @@
-import React, { Component } from "react"
+import React, { useState, useContext } from "react"
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import SessionCtx from '../../sessionContext'
+import avatars from '../../model/avatars'
 
-export default withRouter(class Profile extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      username: 'Pepe',
-      showMenu: false,
-    }
-    this.showMenu = this.showMenu.bind(this)
-    this.closeMenu = this.closeMenu.bind(this)
-  }
 
-  showMenu(e) {
+const defaultAvatar = require('../../assetsStudent/Lobo-yupay-01.svg')
+
+export default withRouter(({}) => {
+  const [menuVisible, setMenuVisible] = useState(false)
+  const { session } = useContext(SessionCtx)
+
+  const showMenu = e => {
     e.preventDefault()
-    this.setState({showMenu: true}, () => {
-      document.addEventListener('click', this.closeMenu)
-    })
+    setMenuVisible(true)
+    document.addEventListener('click', closeMenu)
   }
 
-  closeMenu() {
-    this.setState({showMenu: false}, () => {
-      document.removeEventListener('click', this.closeMenu)
-    })
+  const closeMenu = () => {
+    setMenuVisible(false)
+    document.removeEventListener('click', closeMenu)
   }
-  render() {
+
   return (
     <ProfileContent>
-    <UserUnregistered username={this.state.username}/>
-      <LogoUnregistered onClick={this.showMenu}>
-        <Avatar/>
-      </LogoUnregistered>
-      {this.state.showMenu ?
+      {!session.id && <UserUnregistered username={session.username} />}
+      <AvatarContainer onClick={showMenu}>
+        <Avatar
+          src={session.id ? avatars.find(avatar => avatar.avatar === session.avatar).src : defaultAvatar}
+          alt="avatar"
+        />
+      </AvatarContainer>
+      {menuVisible ?
         <ProfileData>
-          <div>{this.username}</div>
+          <div>{session.username}</div>
           <Link to="/Login" style={{ textDecoration: 'none' }} >
             <Out>Salir</Out>
           </Link>
         </ProfileData>
         : null
       }
-     </ProfileContent> 
-    )
-  }
+    </ProfileContent> 
+  )
 })
 
 
@@ -72,7 +69,7 @@ const ProfileContent = styled.div`
   padding: 10px;
   z-index: 100;
 `
-const LogoUnregistered= styled.div`
+const AvatarContainer= styled.div`
   position: absolute;
   top: 10px;
   cursor: pointer;
@@ -96,10 +93,7 @@ const Unregistered= styled.div`
   justify-content: center;
   align-items: center;
 `
-const Avatar = styled.img.attrs({
-  src: require('../../assetsStudent/Lobo-yupay-01.svg'),
-  alt: "Logo",
-})`
+const Avatar = styled.img`
   height: 50px;
   width:50px;
 `

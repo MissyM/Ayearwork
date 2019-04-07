@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { useContext } from 'react'
 import { withRouter } from 'react-router-dom'
-import { createSession } from './services/session'
+import SessionContext from './sessionContext'
 import { logSesionIniciada } from './services/log'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -42,64 +42,59 @@ const theme = createMuiTheme({
   typography: { useNextVariants: true },
 })
 
-export default withStyles(styles)(withRouter(class extends Component {
+export default withStyles(styles)(withRouter(({ history }) => {
 
-  constructor(props) {
-    super(props)
-  }
+  const { setSession } = useContext(SessionContext)
 
-  start = ({ username }) => {
-    createSession(username)
+  const start = ({ username }) => {
+    setSession({ username })
     logSesionIniciada(username)
-    this.props.history.push('/buscador')
+    history.push('/buscador')
   }
 
-  render () {
-    
-    return (
-      <LoginContent>
-        <RightCloud/> 
-        <Card>
-          <LogoContent>
-            <LogoImg />
-          </LogoContent>
-          <InputContent>
-            <Formik
-              initialValues={{ username: '' }}
-              validate={values => {
-                const errors = {}
-                if (!values.username) {
-                  errors.username = 'Asegúrate de escribir tu nombre'
-                }
-                return errors
-              }}
-              onSubmit={values => {
-                this.start(values)
-              }}
-              render={({ submitForm }) => (
-                <Form>
-                  <Field
-                    name="username"
-                    type="text"
-                    label="Escribe tu nombre"
-                    component={TextField}
-                  />
-                  <LoginBtn onClick={submitForm}>
-                    Ingresa
-                  </LoginBtn>
-                </Form>
-              )}
-            />
-          </InputContent>
-          <StyedLink to={'/Register'}>
-            ¡Registrate,
-          </StyedLink>
-          personaliza tu avatar y gana monedas!
-        </Card>
-        <LeftCloud/>
-      </LoginContent>
-    )
-  }
+  return (
+    <LoginContent>
+      <RightCloud /> 
+      <Card>
+        <LogoContent>
+          <LogoImg />
+        </LogoContent>
+        <InputContent>
+          <Formik
+            initialValues={{ username: '' }}
+            validate={values => {
+              const errors = {}
+              if (!values.username) {
+                errors.username = 'Asegúrate de escribir tu nombre'
+              }
+              return errors
+            }}
+            onSubmit={values => {
+              start(values)
+            }}
+            render={({ submitForm }) => (
+              <Form>
+                <Field
+                  name="username"
+                  type="text"
+                  label="Escribe tu nombre"
+                  component={TextField}
+                />
+                <LoginBtn onClick={submitForm}>
+                  Ingresa
+                </LoginBtn>
+              </Form>
+            )}
+          />
+        </InputContent>
+        <StyedLink to="/Register">
+          ¡Registrate,
+        </StyedLink>
+        personaliza tu avatar y gana monedas!
+      </Card>
+      <LeftCloud/>
+    </LoginContent>
+  )
 }))
 
 
