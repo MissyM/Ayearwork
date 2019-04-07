@@ -10,9 +10,9 @@ if (sessionInfo) {
 //   localStorage.setItem('sessionInfo', JSON.stringify(sessionInfo))
 // }
 
-export function createSession(userName) {
+export function createSession(username) {
   sessionInfo = {
-    userName,
+    username,
     id: uuidv4(),
     timestamp: Date(Date.now())
   }

@@ -1,6 +1,9 @@
 import React from "react"
 import styled from 'styled-components'
 import Radio from '@material-ui/core/Radio'
+import { Formik, Field, getIn } from 'formik'
+
+import Buttons from './Buttons'
 
 const intelligences = [
   {intelligence:'cinetico-corporal', src: require('./assetsRegister/IntelligencesResource/cinetico.png')},
@@ -13,29 +16,31 @@ const intelligences = [
   {intelligence:'intrapersonal', src: require('./assetsRegister/IntelligencesResource/intrapersonal.png')}, 
 ]
 
-export default function Intelligences(props) {
-  const { fieldChangeHandler, data } = props
+export default function Intelligences({ onReady }) {
   return (
-    <IntelligencesContent >
-        <Title>Selecciona una figura</Title>
-        <GridContainer >
-          {intelligences.map(({intelligence, src}, idx) => 
-            <Item
-              key={idx}
-              onClick={()=>fieldChangeHandler("Intelligence", intelligence)}
-            >
-              <img 
-                src={src} 
-                alt={intelligence}
-              />
-              <RadioButton 
-                value={intelligence} 
-                checked={data.Intelligence === intelligence }
-                color="default"
-              />
-            </Item>
-          )}
-        </GridContainer>
+    <IntelligencesContent>
+      <Formik
+        initialValues={{ intelligence: '' }}
+        validate={values => {
+          const errors = {}
+          if (!values.intelligence) {
+            errors.intelligence = 'selecciona una figura'
+          }
+          return errors
+        }}
+        onSubmit={values => {
+          onReady(values)
+        }}
+        render={({ handleSubmit }) => (
+          <>
+            <Field
+              name="intelligence"
+              component={IntelligenceSelect}
+            />
+            <Buttons section="intelligences" handleGoNextSection={handleSubmit} />
+          </>
+        )}
+      />
     </IntelligencesContent>
   )
 }
@@ -45,7 +50,7 @@ const IntelligencesContent = styled.div`
   top: 10px;
 `
 const Title = styled.h3`
-  color: #4b4b4b;
+  color: ${props => props.error ? 'red' : '#4b4b4b'};
 `
 const GridContainer = styled.div`
   display: grid;
@@ -64,3 +69,38 @@ const RadioButton = styled(Radio)`
   top: 60px;
   right: 25px;
 `
+
+const IntelligenceSelect = ({
+  field,
+  form,
+}) => {
+  const { name } = field
+  const { touched, errors, isSubmitting } = form
+
+  const fieldError = getIn(errors, name)
+  const showError = getIn(touched, name) && !!fieldError
+
+  return (
+    <>
+      <Title error={showError}>Selecciona una figura{fieldError && `, ${fieldError}`}</Title>
+      <GridContainer>
+        {intelligences.map(({intelligence, src}, idx) =>
+          <Item
+            key={idx}
+            onClick={() => field.onChange({ target: { name, value: intelligence } })}
+          >
+            <img 
+              src={src} 
+              alt={intelligence}
+            />
+            <RadioButton 
+              value={intelligence} 
+              checked={field.value === intelligence}
+              color="default"
+            />
+          </Item>
+        )}
+      </GridContainer>
+    </>
+  )
+}

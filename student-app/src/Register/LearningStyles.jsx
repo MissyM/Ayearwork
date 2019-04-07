@@ -1,6 +1,9 @@
 import React from "react"
 import styled from 'styled-components'
 import Radio from '@material-ui/core/Radio'
+import { Formik, Field, getIn } from 'formik'
+
+import Buttons from './Buttons'
 
 const learningStyles = [
   { learningStyle:'ESTILO ACTIVO', src: require('./assetsRegister/LearningStylesResources/estiloactivo.jpeg') },
@@ -9,30 +12,31 @@ const learningStyles = [
   { learningStyle:'ESTILO TEORICO', src: require('./assetsRegister/LearningStylesResources/estiloteorico.jpeg') },
 ]
 
-export default function LearningStyles(props) {
-  const { fieldChangeHandler, data } = props
+export default function LearningStyles({ onReady }) {
   return (
-    <LearningStylesContent >
-        <Title>Selecciona una figura</Title>
-        <GridContainer>
-          {learningStyles.map(({learningStyle, src}, idx) => 
-            <Item
-              key={idx}
-              onClick={()=>fieldChangeHandler("LearningStyle", learningStyle)}
-            >
-              <img 
-                styles={{width: '200px', height:'120px'}}
-                src={src} 
-                alt={learningStyle}
-              />
-              <RadioButton 
-                value={learningStyle} 
-                checked={data.LearningStyle === learningStyle }
-                color="default"
-              />
-            </Item>
-          )}
-        </GridContainer>
+    <LearningStylesContent>
+      <Formik
+        initialValues={{ learningStyle: '' }}
+        validate={values => {
+          const errors = {}
+          if (!values.learningStyle) {
+            errors.learningStyle = 'selecciona una opcion'
+          }
+          return errors
+        }}
+        onSubmit={values => {
+          onReady(values)
+        }}
+        render={({ handleSubmit }) => (
+          <>
+            <Field
+              name="learningStyle"
+              component={LearningStylesSelect}
+            />
+            <Buttons section="learningStyles" handleGoNextSection={handleSubmit} />
+          </>
+        )}
+      />
     </LearningStylesContent>
   )
 }
@@ -43,7 +47,7 @@ const LearningStylesContent = styled.div`
   margin-left:30px;
 `
 const Title = styled.h3`
-  color: #4b4b4b;
+  color: ${props => props.error ? 'red' : '#4b4b4b'};
 `
 const GridContainer = styled.div`
   display: grid;
@@ -62,3 +66,39 @@ const RadioButton = styled(Radio)`
   top: 65px;
   right: 18px;
 `
+
+const LearningStylesSelect = ({
+  field,
+  form,
+}) => {
+  const { name } = field
+  const { touched, errors, isSubmitting } = form
+
+  const fieldError = getIn(errors, name)
+  const showError = getIn(touched, name) && !!fieldError
+
+  return (
+    <>
+      <Title error={showError}>Selecciona una figura{fieldError && `, ${fieldError}`}</Title>
+      <GridContainer>
+        {learningStyles.map(({learningStyle, src}, idx) => 
+          <Item
+            key={idx}
+            onClick={() => field.onChange({ target: { name, value: learningStyle } })}
+          >
+            <img 
+              styles={{width: '200px', height:'120px'}}
+              src={src} 
+              alt={learningStyle}
+            />
+            <RadioButton 
+              value={learningStyle} 
+              checked={field.value === learningStyle }
+              color="default"
+            />
+          </Item>
+        )}
+      </GridContainer>
+    </>
+  )
+}

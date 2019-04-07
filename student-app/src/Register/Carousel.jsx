@@ -16,10 +16,10 @@ const StyledSlider = styled(Slider)`
   }
 `
 const Container = styled.div`
+  outline: none;
 `
 
-export default function MultipleItems(props) {
-    const { fieldChangeHandler } = props
+export default function MultipleItems({ name, onChange, value }) {
     const settings = {
       dots: true,
       infinite: true,
@@ -43,17 +43,23 @@ export default function MultipleItems(props) {
       {avatar:'A20', src:  require('./assetsRegister/AvatarResources/A20.png')},
       {avatar:'A21', src:  require('./assetsRegister/AvatarResources/A21.png')},
     ]
-    
+
     return (
       <SliderContainer>
         <StyledSlider {...settings}>
-          {avatarImages.map(({avatar, src}, idx) =>
-            <Container key={idx} >
-              <img 
-                style={{paddingLeft:'7px' , cursor: 'pointer'}}
+          {avatarImages.map(({ avatar, src }, idx) =>
+            <Container key={idx}>
+              <img
+                style={{ paddingLeft:'7px' , cursor: 'pointer' }}
                 src={src} 
                 alt={avatar}
-                onClick={(ev) => fieldChangeHandler("avatar", ev)}
+                onClick={() => onChange({ target: { name, value: avatar } })}
+                style={avatar === value ? {
+                  border: '2px solid blue',
+                  borderRadius: 5,
+                } : {
+                  border: '2px solid transparent',
+                }}
               />
             </Container>  
           )}

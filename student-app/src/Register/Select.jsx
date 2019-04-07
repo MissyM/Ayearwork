@@ -7,41 +7,6 @@ import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import uniqueId from 'lodash/uniqueId'
 
-export const fieldToSelect = ({
-  field,
-  form: { isSubmitting },
-  disabled = false,
-  ...props
-}) => {
-  return {
-    disabled: isSubmitting || disabled,
-    ...props,
-    ...field,
-  }
-}
-
-export const fieldToTextField = ({
-  field,
-  form,
-  variant,
-  disabled = false,
-  ...props
-}) => {
-  const { name } = field;
-  const { touched, errors, isSubmitting } = form
-
-  const fieldError = getIn(errors, name)
-  const showError = getIn(touched, name) && !!fieldError
-
-  return {
-    ...props,
-    ...field,
-    error: showError,
-    helperText: showError ? fieldError : props.helperText,
-    disabled: isSubmitting || disabled,
-  }
-}
-
 const Select = ({
   field,
   form,
@@ -50,7 +15,7 @@ const Select = ({
   label,
   children,
   formControl = {},
-  ...props
+  ...props,
 }) => {
   const [ id ] = useState(uniqueId('formik-select-'))
   const { name} = field
@@ -58,8 +23,6 @@ const Select = ({
 
   const fieldError = getIn(errors, name)
   const showError = getIn(touched, name) && !!fieldError
-
-  console.log(field)
 
   return (
     <FormControl

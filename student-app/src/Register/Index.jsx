@@ -4,7 +4,6 @@ import * as api from '../services/api'
 import IntelligencesSection from './Intelligences'
 import LearningStylesSection from './LearningStyles'
 import FormSection from './Form'
-import { Link } from 'react-router-dom'
 import { createSession } from '../services/session'
 
 const sections = {
@@ -16,33 +15,24 @@ export default function Register(props) {
  
   const [section, setSection] = useState('form')
   const [formUserData, setFormUserData] = useState({
-    userName: '',
+    username: '',
     grade: '',
     gender: '',
     password:'',
     age: '',
     avatar: '',
-    LearningStyle:'ESTILO ACTIVO',
-    Intelligence:'cinetico-corporal'
+    learningStyle: '',
+    intelligence: '',
   })
-  
-  const fieldChangeHandler = useCallback((fieldName, ev) => {
-    let value
-    if (fieldName === 'avatar'){
-      value = ev.target.alt
-    } else if(fieldName === 'LearningStyle') { 
-      value = ev
-    } else if(fieldName === 'Intelligence') { 
-      value = ev
-    } else { 
-      value = ev.target.value
-    }
-    setFormUserData({ // forma de funcion no es necesaria
+
+  const onReady = useCallback(formData => {
+    setFormUserData({
       ...formUserData,
-      [fieldName]: value,
+      ...formData,
     })
-  }, [formUserData]) // <--- el callback depende del estado de "formUserData"
- 
+    handleGoNextSection()
+  }, [formUserData])
+
   //Atrás 
   const handleGoPreviousSection = useCallback(() => {
     setSection(section => section === 'intelligences' ? 'form'
@@ -50,43 +40,25 @@ export default function Register(props) {
       : 'form' )
   }, [section])
 
-  const isValid = useCallback(() => {
-    if (section === 'form') {
-      return  formUserData.userName !== ''
-        && formUserData.grade !== ''
-        && formUserData.gender !== ''
-        && formUserData.password !== ''
-        && formUserData.age !== ''
-        && formUserData.avatar !== ''
-     } 
-    if (section === 'intelligences') {
-      return formUserData.Intelligence !== ''
-    }
-    if (section === 'learningStyles') {
-      return formUserData.LearningStyle !== ''
-    }
-  }, [formUserData, section])
-
   const goToBrowser = () => props.history.push('/buscador')
-  const handleGoNextSection = useCallback(({userName}) => {
+
+  const handleGoNextSection = useCallback(() => {
     if (section === 'learningStyles' ) {
       register()
-      createSession(userName)
+      createSession(formUserData.username)
       goToBrowser()
       return 
     }
-    setSection(section => {
-      if(section === 'form') {
-         return 'intelligences'
-      } else if(section === 'intelligences') {
-        return 'learningStyles'
-      } 
-    })
-  }, [section])
+    setSection(section === 'form'
+      ? 'intelligences'
+      : 'learningStyles'
+    )
+    console.log(section)
+  }, [section, formUserData])
 
   const register = useCallback(() => {
     api.register(formUserData)
-      .then(res => alert('Usuario registrado id = ' + res.id))
+      .then(res => {})
       .catch(() => alert('Error de autenticación'))
   }, [formUserData])
   
@@ -101,28 +73,11 @@ export default function Register(props) {
         <LogoContent>
           <LogoImg />
         </LogoContent>
-        <Section 
-          fieldChangeHandler={fieldChangeHandler} 
+        <Section
+          onReady={onReady}
+          handleGoPreviousSection={handleGoPreviousSection}
           data={formUserData}
         />
-        <Bottons>
-          { section === 'form' &&  
-            <SkipRegisterBtn to={'/Login'} >
-              Saltar Registro
-            </SkipRegisterBtn>
-          }
-          { (section === 'intelligences' || section === 'learningStyles') && 
-            <RegisterBackBtn onClick={handleGoPreviousSection} >
-              Volver
-            </RegisterBackBtn> 
-          }
-          <RegisterBtn 
-            onClick={handleGoNextSection} 
-            disabled={!isValid()}
-          >
-            Continuar
-          </RegisterBtn>
-        </Bottons>
       </CardsContent>
       <LeftCloud/>
       {/* {JSON.stringify(formUserData, null, 2)} */}
@@ -174,78 +129,6 @@ const LogoImg = styled.img.attrs({
 })`
   width: 110px;
   height: 110px;
-`
-const RegisterBackBtn = styled.button`
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-  width: 205px;
-  height: 50px;
-  margin-top: 30px;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  letter-spacing: .2em;
-  background: #ff65bc;
-  color: #000;
-  transition: background-color .2s;
-  border: 2px solid #ff65bc;
-  &:hover{
-    background-color: #fff;
-    color: #000;
-  }
-`
-const RegisterBtn = styled.button`
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-  width: 205px;
-  height: 50px;
-  margin-top: 30px;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  letter-spacing: .2em;
-  background: ${props => props.disabled ? '#9B9B9B' : '#a865ff'};
-  color: ${props => props.disabled ? '#fff' : '#000'};;
-  transition: background-color .2s;
-  border: 2px solid ${props => props.disabled ? '#9B9B9B' : '#a865ff'};
-  
-  ${props => !props.disabled && css`
-    &:hover{
-      background-color: #fff;
-      color: #000;
-    }
-  `}
-`
-const SkipRegisterBtn = styled(Link)`
-  cursor: pointer;
-  text-decoration: none;
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-  width: 205px;
-  height: 50px;
-  margin-top: 30px;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  letter-spacing: .2em;
-  background-color: #fffa65;
-  color: #000;
-  transition: background-color .2s;
-  border: 2px solid #fffa65;
-  &:hover{
-    background-color: #fff;
-    color: #000;
-  }
-`
-const Bottons = styled.div`
-  display: flex;
-  width: 100%;
-  position: absolute;
-  bottom: 15px;
-  justify-content: space-around;
 `
 const LeftCloud = styled.img.attrs({
   src: require('../assetsStudent/nube_izquierda.png'),
