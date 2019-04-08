@@ -37,7 +37,9 @@ export default function Intelligences({ onReady }) {
               name="intelligence"
               component={IntelligenceSelect}
             />
-            <Buttons section="intelligences" handleGoNextSection={handleSubmit} />
+            <ButtonsContainer>
+              <Buttons section="intelligences" handleGoNextSection={handleSubmit} />
+            </ButtonsContainer>
           </>
         )}
       />
@@ -47,12 +49,15 @@ export default function Intelligences({ onReady }) {
 
 const IntelligencesContent = styled.div`
   position: relative;
-  top: 10px;
+  top: 20px;
 `
 const Title = styled.h3`
+  position: absolute;
+  top: 30px;
   color: ${props => props.error ? 'red' : '#4b4b4b'};
 `
 const GridContainer = styled.div`
+  margin-top: 35px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
@@ -68,6 +73,12 @@ const RadioButton = styled(Radio)`
   position: fixed;
   top: 60px;
   right: 25px;
+`
+const ButtonsContainer = styled.div`
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: -65px;
 `
 
 const IntelligenceSelect = ({

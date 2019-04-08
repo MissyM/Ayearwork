@@ -33,14 +33,29 @@ export default withRouter(({}) => {
         />
       </AvatarContainer>
       {menuVisible ?
-        <ProfileData>
-          <div>{session.username}</div>
-          <Link to="/Login" style={{ textDecoration: 'none' }} >
-            <Out>Salir</Out>
-          </Link>
-        </ProfileData>
-        : null
+        <>
+          <ProfileData>
+          {session.id ?
+            <>
+            <Data><h4>Nombre:</h4><h5>{session.username}</h5></Data>
+            <Data><h4>Edad:</h4><h5>{session.age}</h5></Data>
+            <Data><h4>Grado:</h4><h5>{session.grade}</h5></Data>
+            <Link to="/Login" style={{ textDecoration: 'none' }} >
+              <Out>Salir</Out>
+            </Link>
+            </>
+          : 
+            <>
+              <Link to="/Login" style={{ textDecoration: 'none' }} >
+                <Out>Salir</Out>
+              </Link>
+            </>
+          }
+          </ProfileData> 
+        </>
+      : null
       }
+      
     </ProfileContent> 
   )
 })
@@ -49,7 +64,7 @@ export default withRouter(({}) => {
 const UserUnregistered = (props) => {
   return (
     <Unregistered>
-      Bienvenid@ {props.username}
+      Bienvenid@ <h4> { props.username } </h4>
       <StyledLinktoRegister to = '/Register'>
            regístrate!
       </StyledLinktoRegister>
@@ -99,10 +114,9 @@ const Avatar = styled.img`
 `
 const ProfileData= styled.div`
   position: absolute;
-  height: 50px;
   width:190px;
-  padding: 5px;
-  margin-top: 30px;
+  padding: 15px;
+  margin-top: 80px;
   background-color: white;
   box-shadow: inset 0px 0px 23px -4px rgba(199,199,245,0.33);
 
@@ -112,7 +126,6 @@ const StyledLinktoRegister= styled(Link)`
   cursor: pointer;
 `
 const Out= styled.div`
-  position: absolute;
   display: flex;
   justify-content: center;
   bottom: 5px;
@@ -125,4 +138,7 @@ const Out= styled.div`
   margin-left: 55px;
   font-weight: bold;
   color: #000;
+`
+const Data= styled.div`
+  display: flex;
 `

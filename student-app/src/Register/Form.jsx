@@ -170,12 +170,29 @@ export default withStyles(styles)(function Form(props) {
   }
 )
 
+const AvatarSelect = ({
+  field,
+  form,
+}) => {
+  const { name } = field
+  const { touched, errors, isSubmitting } = form
+
+  const fieldError = getIn(errors, name)
+  const showError = getIn(touched, name) && !!fieldError
+
+  return (
+    <CardBottom>
+      <AvatarLabel error={showError}>Selecciona tu Avatar{fieldError &&  `, ${fieldError}`}</AvatarLabel>
+      <Avatars>
+        <Carousel name={name} onChange={field.onChange} value={field.value} />
+      </Avatars>
+    </CardBottom>
+  )
+}
 const Title = styled.h3`
   color: #4b4b4b;
   margin-top: 80px;
   margin-left: 150px;
-  text-align: center;
-  width: 600px;
 `
 const CardTop = styled.div`
   display: flex;
@@ -184,7 +201,7 @@ const CardTop = styled.div`
   padding-left: 30px;
 `
 const Selects = styled.div`
-  margin-top: 40px;
+  margin-top: 20px;
   margin-left: 20px;
   display: flex;
 `
@@ -217,7 +234,6 @@ const CardBottom = styled.div`
 
 const AvatarLabel = styled.h3`
   padding-left: 50px;
-  padding-top: 20px;
   ${props => props.error && css`
     color: red;
   `}
@@ -231,22 +247,4 @@ const FormSection = styled.div`
   width: 100%;
 `
 
-const AvatarSelect = ({
-  field,
-  form,
-}) => {
-  const { name } = field
-  const { touched, errors, isSubmitting } = form
 
-  const fieldError = getIn(errors, name)
-  const showError = getIn(touched, name) && !!fieldError
-
-  return (
-    <CardBottom>
-      <AvatarLabel error={showError}>Selecciona tu Avatar{fieldError &&  `, ${fieldError}`}</AvatarLabel>
-      <Avatars>
-        <Carousel name={name} onChange={field.onChange} value={field.value} />
-      </Avatars>
-    </CardBottom>
-  )
-}

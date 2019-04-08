@@ -33,7 +33,9 @@ export default function LearningStyles({ onReady }) {
               name="learningStyle"
               component={LearningStylesSelect}
             />
-            <Buttons section="learningStyles" handleGoNextSection={handleSubmit} />
+            <ButtonsContainer>
+              <Buttons section="learningStyles" handleGoNextSection={handleSubmit} />
+            </ButtonsContainer>
           </>
         )}
       />
@@ -66,7 +68,12 @@ const RadioButton = styled(Radio)`
   top: 65px;
   right: 18px;
 `
-
+const ButtonsContainer = styled.div`
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: -135px;
+`
 const LearningStylesSelect = ({
   field,
   form,

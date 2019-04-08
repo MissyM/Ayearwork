@@ -28,7 +28,6 @@ const RegisterBackBtn = styled.button`
   align-items: center;
   width: 205px;
   height: 50px;
-  margin-top: 30px;
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   font-size: 16px;
@@ -48,7 +47,6 @@ const RegisterBtn = styled.button`
   align-items: center;
   width: 205px;
   height: 50px;
-  margin-top: 30px;
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   font-size: 16px;
@@ -73,7 +71,6 @@ const SkipRegisterBtn = styled(Link)`
   align-items: center;
   width: 205px;
   height: 50px;
-  margin-top: 30px;
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   font-size: 16px;
@@ -91,6 +88,6 @@ const Bottons = styled.div`
   display: flex;
   width: 100%;
   position: absolute;
-  bottom: 15px;
+  bottom: 5px;
   justify-content: space-around;
 `
