@@ -38,7 +38,7 @@ export default function Intelligences({ onReady }) {
               component={IntelligenceSelect}
             />
             <ButtonsContainer>
-              <Buttons section="intelligences" handleGoNextSection={handleSubmit} />
+              <Buttons section="intelligences" handleGoNextSection={handleSubmit} handleGoPreviousSection />
             </ButtonsContainer>
           </>
         )}
