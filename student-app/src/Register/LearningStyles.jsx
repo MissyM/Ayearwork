@@ -20,7 +20,7 @@ export default function LearningStyles({ onReady }) {
         validate={values => {
           const errors = {}
           if (!values.learningStyle) {
-            errors.learningStyle = 'selecciona una opcion'
+            errors.learningStyle = 'para poder continuar'
           }
           return errors
         }}

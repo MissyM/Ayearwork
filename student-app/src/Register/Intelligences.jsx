@@ -24,21 +24,21 @@ export default function Intelligences({ onReady }) {
         validate={values => {
           const errors = {}
           if (!values.intelligence) {
-            errors.intelligence = 'selecciona una figura'
+            errors.intelligence = 'para poder continuar'
           }
           return errors
         }}
         onSubmit={values => {
           onReady(values)
         }}
-        render={({ handleSubmit }) => (
+        render={({ handleSubmit, handleGoPreviousSection }) => (
           <>
             <Field
               name="intelligence"
               component={IntelligenceSelect}
             />
             <ButtonsContainer>
-              <Buttons section="intelligences" handleGoNextSection={handleSubmit} handleGoPreviousSection />
+              <Buttons section="intelligences" handleGoNextSection={handleSubmit} handleGoPreviousSection={handleGoPreviousSection} />
             </ButtonsContainer>
           </>
         )}

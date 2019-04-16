@@ -15,7 +15,7 @@ export default ({ section, handleGoPreviousSection, handleGoNextSection }) => (
       </RegisterBackBtn>
     }
     <RegisterBtn 
-      onClick={handleGoNextSection}
+      onClick={handleGoNextSection} 
     >
       Continuar
     </RegisterBtn>

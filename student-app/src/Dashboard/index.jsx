@@ -7,7 +7,7 @@ import Browser from './Browser'
 import Learning from './Learning/index'
 import Training from './Learning/Training'
 
-export default function ({ location, history }) {
+export default function ({ location }) {
   return <div className="dashboard" >
      <Profile/> 
     <div className="content">

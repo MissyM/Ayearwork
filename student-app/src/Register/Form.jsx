@@ -1,4 +1,4 @@
-import React,  { useState, useCallback } from "react"
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { Formik, Field, getIn } from 'formik'
 import { TextField } from 'formik-material-ui'
@@ -60,7 +60,7 @@ export default withStyles(styles)(function Form(props) {
             errors.grade = 'Selecciona tu grado'
           }
           if (!values.avatar) {
-            errors.avatar = 'selecciona una figura por favor'
+            errors.avatar = 'para poder continuar'
           }
           return errors
         }}
@@ -175,7 +175,7 @@ const AvatarSelect = ({
   form,
 }) => {
   const { name } = field
-  const { touched, errors, isSubmitting } = form
+  const { touched, errors } = form
 
   const fieldError = getIn(errors, name)
   const showError = getIn(touched, name) && !!fieldError
