@@ -31,17 +31,10 @@ const styles = () => ({
 })
 
 export default withStyles(styles)(function Form(props) {
-  const { classes, onReady } = props
+  const { classes, onReady, data } = props
     return (
       <Formik
-        initialValues={{
-          username: '',
-          password: '',
-          age: '',
-          gender: '',
-          grade: '',
-          avatar: '',
-        }}
+        initialValues={data}
         validate={values => {
           const errors = {}
           if (!values.username) {

@@ -41,11 +41,15 @@ export default function Register(props) {
   }, [section, setSection, formUserData, setFormUserData])
 
   //Atrás 
-  const handleGoPreviousSection = useCallback(() => {
-    setSection(section => section === 'intelligences' ? 'form'
+  const handleGoPreviousSection = useCallback(formData => {
+    setFormUserData({
+      ...formUserData,
+      ...formData,
+    })
+    setSection(section === 'intelligences' ? 'form'
       : section === 'learningStyles' ? 'intelligences' 
       : 'form' )
-  }, [section, setSection])
+  }, [section, setSection, formUserData, setFormUserData])
 
   const goToBrowser = () => props.history.push('/buscador')
 

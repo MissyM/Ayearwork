@@ -14,7 +14,6 @@ export default withRouter(class extends Component {
     }
   }
 
-
   render (){ 
     return ( 
       <ContentGrey>

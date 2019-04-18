@@ -16,11 +16,11 @@ const intelligences = [
   {intelligence:'intrapersonal', src: require('./assetsRegister/IntelligencesResource/intrapersonal.png')}, 
 ]
 
-export default function Intelligences({ onReady }) {
+export default function Intelligences({ onReady, handleGoPreviousSection, data }) {
   return (
     <IntelligencesContent>
       <Formik
-        initialValues={{ intelligence: '' }}
+        initialValues={{ intelligence: data.intelligence }}
         validate={values => {
           const errors = {}
           if (!values.intelligence) {
@@ -31,14 +31,18 @@ export default function Intelligences({ onReady }) {
         onSubmit={values => {
           onReady(values)
         }}
-        render={({ handleSubmit, handleGoPreviousSection }) => (
+        render={({ handleSubmit, values }) => (
           <>
             <Field
               name="intelligence"
-              component={IntelligenceSelect}
+              component={IntelligenceSelect} 
             />
             <ButtonsContainer>
-              <Buttons section="intelligences" handleGoNextSection={handleSubmit} handleGoPreviousSection={handleGoPreviousSection} />
+              <Buttons
+                section="intelligences"
+                handleGoNextSection={handleSubmit}
+                handleGoPreviousSection={() => handleGoPreviousSection(values)}
+              />
             </ButtonsContainer>
           </>
         )}

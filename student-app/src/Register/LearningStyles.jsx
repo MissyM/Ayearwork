@@ -12,11 +12,11 @@ const learningStyles = [
   { learningStyle:'ESTILO TEORICO', src: require('./assetsRegister/LearningStylesResources/estiloteorico.jpeg') },
 ]
 
-export default function LearningStyles({ onReady }) {
+export default function LearningStyles({ onReady, handleGoPreviousSection, data }) {
   return (
     <LearningStylesContent>
       <Formik
-        initialValues={{ learningStyle: '' }}
+        initialValues={{ learningStyle: data.learningStyle }}
         validate={values => {
           const errors = {}
           if (!values.learningStyle) {
@@ -27,14 +27,18 @@ export default function LearningStyles({ onReady }) {
         onSubmit={values => {
           onReady(values)
         }}
-        render={({ handleSubmit }) => (
+        render={({ handleSubmit, values }) => (
           <>
             <Field
               name="learningStyle"
               component={LearningStylesSelect}
             />
             <ButtonsContainer>
-              <Buttons section="learningStyles" handleGoNextSection={handleSubmit} />
+              <Buttons
+                section="learningStyles"
+                handleGoNextSection={handleSubmit}
+                handleGoPreviousSection={() => handleGoPreviousSection(values)}
+              />
             </ButtonsContainer>
           </>
         )}
