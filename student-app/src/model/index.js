@@ -104,7 +104,7 @@ export const model = {
             {
               id: 'NOCIONES DE CAMBIO.mp4',
               type: 'video',
-              img: 'NOCIONES DE CAMBIO_15.png',
+              img: 'NOCIONES DE CAMBIO_13.png',
               title: 'Nociones de Cambio_13',
               description: 'Descripción del tema'
             },
@@ -290,7 +290,7 @@ export const model = {
               id: 'MCD.mp4',
               type: 'video',
               title: 'MCD_2.',
-              img: 'MCD_17.png',
+              img: 'MCD_19.png',
               description: 'Descripción del documento'
             },
             {
@@ -304,21 +304,21 @@ export const model = {
               id: 'MCD_18.mp4',
               type: 'video',
               title: 'MCD_4.',
-              img: 'MCD_17.png',
+              img: 'MCD_18.png',
               description: 'Descripción del documento'
             },
             {
               id: 'MCD_19.mp4',
               type: 'video',
               title: 'MCD_5.',
-              img: 'MCD_17.png',
+              img: 'MCD_19.png',
               description: 'Descripción del documento'
             },
             {
               id: 'MCD_20.mp4',
               type: 'video',
               title: 'MCD_6.',
-              img: 'MCD_17.png',
+              img: 'MCD_20.png',
               description: 'Descripción del documento'
             },
           ],
@@ -347,7 +347,7 @@ export const model = {
             {
               id: 'FRACCIONES_29.mp4',
               type: 'video',
-              img: 'FRACCIONES_29.png',
+              img: 'FRACCIONES_31.png',
               title: 'Fracciones_2',
               description: 'Dos fracciones son homogéneas cuando tienen el mismo denominador. Cuando se tienen fracciones homogéneas, se debe operar (dependiendo de si se trata de una suma o una resta) únicamente los numeradores y mantener el denominador.  ' 
             },
