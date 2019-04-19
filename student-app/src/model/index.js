@@ -11,37 +11,37 @@ export const model = {
           title: 'Sistemas de Numeración',
           resources: [
             {
-              id: 'SISTEMA DE NUMERACION.pdf',
+              id: 'SISTEMAS DE NUMERACION.pdf',
               type: 'pdf',
-              img: 'SISTEMAS DE NUMERACIÓN_4.jpg',
+              img: 'SISTEMAS DE NUMERACION_4.jpg',
               title: ' Sistema de Numeración',
               description: 'Descripción del tema'
             },
             {
-              id: 'SISTEMA DE NUMERACION_1.mp4',
+              id: 'SISTEMAS DE NUMERACION_1.mp4',
               type: 'video',
               img: 'SISTEMAS DE NUMERACION_1.jpg',
               title: 'Sistema de Numeración_1',
               description: 'Descripción del tema'
             },
             {
-              id: 'SISTEMA DE NUMERACION_2.mp4',
+              id: 'SISTEMAS DE NUMERACION_2.mp4',
               type: 'video',
               img: 'SISTEMAS DE NUMERACION_2.jpg',
               title: ' Sistema de Numeración_2',
               description: 'Descripción del tema'
             },
             {
-              id: 'SISTEMA DE NUMERACION_3.mp4',
+              id: 'SISTEMAS DE NUMERACION_3.mp4',
               type: 'video',
-              img: 'SISTEMAS DE NUMERACIÓN_3.jpg',
+              img: 'SISTEMAS DE NUMERACION_3.jpg',
               title: 'Sistema de Numeración_3',
               description: 'Descripción del tema'
             },
             {
-              id: 'SISTEMA DE NUMERACION_4.mp4',
+              id: 'SISTEMAS DE NUMERACION_4.mp4',
               type: 'video',
-              img: 'SISTEMAS DE NUMERACIÓN_4.jpg',
+              img: 'SISTEMAS DE NUMERACION_4.jpg',
               title: 'Sistema de Numeración_4',
               description: 'Descripción del tema'
             },
@@ -55,14 +55,14 @@ export const model = {
             {
               id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_5.mp4',
               type: 'video',
-              img: 'OPERACIONES EN EL CONJUNTO DE LOS NÚMEROS NATURALES_5.jpg',
+              img: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_5.jpg',
               title: 'Operaciones en el Conjunto de Números Naturales_5',
               description: 'Descripción del tema'
             },
             {
-              id: 'OPERACIONES EN EL CONJUNTO DE LOS NÚMEROS NATURALES.pdf',
+              id: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES.pdf',
               type: 'pdf',
-              img: 'OPERACIONES EN EL CONJUNTO DE LOS NÚMEROS NATURALES_5.jpg',
+              img: 'OPERACIONES EN EL CONJUNTO DE LOS NUMEROS NATURALES_5.jpg',
               title: 'Operaciones en el Conjunto de Números Naturales_1',
               description: 'Descripción del tema'
             },
@@ -134,7 +134,7 @@ export const model = {
               description: 'Descripción del tema'
             },
             {
-              id: 'NOCIONES DE CAMBIO_2.pdf',
+              id: 'NOCIONES DE CAMBIO.pdf',
               type: 'pdf',
               img: 'NOCIONES DE CAMBIO_16.png',
               title: 'Nociones de Cambio_2',
@@ -381,7 +381,7 @@ export const model = {
              description: 'Dos fracciones son heterogéneas cuando tienen diferente denominador. Para sumar o restar fracciones homogéneas, es necesario conocer el proceso para determinar el mínimo común múltiplo (m.c.m) de dos o más números, debido a que se requiere calcular el m.c.m de los denominadores.' 
             },
             {
-             id: 'SUMA Y RESTA DE FRACCIONES HETEROGENEAS.pdf',
+             id: 'SUMA Y RESTA FRACCIONES HETEROGENEAS.pdf',
              type: 'pdf',
              img: 'FRACCIONES_30.png',          
              title: 'Suma y Resta de Fracciones Heterogeneas -2',
@@ -397,7 +397,7 @@ export const model = {
             },
             
             {
-             id: 'MULTIPLICACIÓN Y DIVISION DE FRACCIONES.mp4',
+             id: 'MULTIPLICACION Y DIVISION DE FRACCIONES.mp4',
              type: 'video',
              img: 'FRACCIONES_30.png',
              title: 'Multiplicación y División de Fracciones -2',

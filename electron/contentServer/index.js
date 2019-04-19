@@ -35,11 +35,9 @@ var createContentServer = function () {
 
   app.use('/api/thumbnails/:id', (req, res) => {
     const filePath = path.join(__dirname, `../assets/thumbnails`) + `/${req.params.id}`
-    logger.log(req.params.id + ' id params')
     const stat = fs.statSync(filePath)
     const fileSize = stat.size
     const mimeType = mime.getType(filePath)
-    logger.log(mimeType + ' mimetype')
     const head = {
       'Content-Length': fileSize,
       'Content-Type': mimeType,
@@ -48,6 +46,7 @@ var createContentServer = function () {
     fs.createReadStream(filePath).pipe(res)
   })
   app.use('/api/pdf/:id', (req, res) => {
+    logger.log('pdf', req.params.id)
     const filePath = path.join(__dirname, `../assets/pdf`) + `/${req.params.id}`
     const stat = fs.statSync(filePath)
     const fileSize = stat.size
@@ -60,8 +59,11 @@ var createContentServer = function () {
   })
 
   app.get('/api/video/:id', (req, res) => {
+    logger.log('video', req.params.id)
     const filePath = path.join(__dirname, `../assets/video`) + `/${req.params.id}`
+    logger.log('filePath0', filePath)
     const stat = fs.statSync(filePath)
+    logger.log('stat.size', stat.size)
     const fileSize = stat.size
     const range = req.headers.range
     if (range) {
@@ -86,6 +88,7 @@ var createContentServer = function () {
         'Content-Type': 'video/mp4',
       }
       res.writeHead(200, head)
+      logger.log('filePathFin', filePath)
       fs.createReadStream(filePath).pipe(res)
     }
   })
